@@ -31,6 +31,3 @@ MainWindow.open();
 
 
  
-Titanium.Geolocation.addEventListener('location',function(){
-    getLocation();
-});
