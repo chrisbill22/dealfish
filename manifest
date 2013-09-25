@@ -1,9 +1,9 @@
-#appname: Hello World
-#appid: com.geny.helloworld
-#type: mobile
-#guid: 2826ef89-91a5-4728-8393-61414963b5ce
-#version: 1.0
-#publisher: not specified
-#url: not specified
-#image: appicon.png
-#desc: not specified
+#appname:Hello World
+#appid:com.ChrisBill.genY
+#type:mobile
+#guid:2826ef89-91a5-4728-8393-61414963b5ce
+#version:1.0
+#publisher:jmustaklem
+#url:http://
+#image:appicon.png
+#desc:not specified
