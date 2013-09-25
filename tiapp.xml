@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
     <id>com.ChrisBill.genY</id>
-    <name>Hello World</name>
+    <name>Deal Fish</name>
     <version>1.0</version>
-    <publisher>jmustaklem</publisher>
+    <publisher>Gen Y Applications</publisher>
     <url>http://</url>
     <description>not specified</description>
-    <copyright>2013 by jmustaklem</copyright>
+    <copyright>2013 by Gen Y Applications</copyright>
     <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>
