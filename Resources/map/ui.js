@@ -1,15 +1,15 @@
 var testAnnotation = Titanium.Map.createAnnotation ({
-	latitude: 33.74511,
-	longitude: -84.38993,
-	title: "Test",
-	subtitle: "Test Subtitle", 
+	latitude: 40.424447,
+	longitude: -86.907896,
+	title: "Egyptian Cafe",
+	subtitle: "Click the Button on the bottom to get your deal!", 
 	pincolor: Titanium.Map.ANNOTATION_GREEN,
 	animate: true,
 	myid: 1
 });
 var mapview = Titanium.Map.createView({
     mapType: Titanium.Map.STANDARD_TYPE,
-    region:{latitude:33.74511, longitude:-84.38993, latitudeDelta:0.5, longitudeDelta:0.5},
+    region:{latitude:40.424447, longitude:-86.907896, latitudeDelta:0.5, longitudeDelta:0.5},
     animate:true,
     regionFit:true,
     userLocation:true, 

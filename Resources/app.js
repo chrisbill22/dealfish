@@ -29,7 +29,7 @@ Ti.include("map/map.js");
 var button = Ti.UI.createButton({
 	bottom:25,
 	width:'90%',
-	title:"Hello World",
+	title:"Get my special!",
 	zIndex:10
 });
 MainWindow.add(button);
