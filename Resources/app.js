@@ -23,14 +23,15 @@ button.addEventListener('click', function(){
 	alert("Hello World!");
 });
 */
-
+Ti.include("locations.js");
 Ti.include("map/map.js");
 
 var button = Ti.UI.createButton({
 	bottom:25,
 	width:'90%',
-	title:"Hello World",
-	zIndex:10
+	title:"Send Request",
+	zIndex:10,
+	backgroundColor:'#DDD'
 });
 MainWindow.add(button);
 

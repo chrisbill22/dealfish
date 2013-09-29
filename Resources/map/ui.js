@@ -17,5 +17,15 @@ var mapview = Titanium.Map.createView({
     annotations:[testAnnotation]
 });
 
+var track_button = Ti.UI.createButton({
+	bottom:55,
+	width:'90%',
+	title:"Track Location",
+	zIndex:10,
+	backgroundColor:'#DDD'
+});
+
+MainWindow.add(track_button);
+
 
 MainWindow.add(mapview);
