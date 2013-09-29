@@ -1,4 +1,5 @@
 Ti.include("ui.js");
+Ti.include("setPins.js");
 
 track_button.addEventListener('click', function(){
 	if(activeLocation == false){
@@ -8,5 +9,4 @@ track_button.addEventListener('click', function(){
 		track_button.title = "Track Location";
 		ignoreCurrentLocation();
 	}
-	
 });

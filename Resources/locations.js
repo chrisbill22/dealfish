@@ -16,12 +16,12 @@ function getLocation(){
 		            latitudeDelta:0.001,
 		            longitudeDelta:0.001
 		        };
-		        latitude = e.coords.latitude;
-		        longitude = e.coords.longidue;
+		        currentLat = e.coords.latitude;
+				currentLong = e.coords.longitude;
 		        mapview.setLocation(region);
+		        return [e.coords.latitude, e.coords.longitude];
 	        }
 		});
-		return [latitude, longitude];
 	}else{
 		activeLocation = false;
 		alert('Please enable location services');

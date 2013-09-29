@@ -14,7 +14,7 @@ var mapview = Titanium.Map.createView({
     regionFit:true,
     userLocation:true, 
     visible: true, 
-    annotations:[testAnnotation]
+    //annotations:[testAnnotation]
 });
 
 var track_button = Ti.UI.createButton({

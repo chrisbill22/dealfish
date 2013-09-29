@@ -43,5 +43,5 @@ MainWindow.open();
 
 
 button.addEventListener('click', function(){
-	fetchLocations();
+	setPins();
 });
