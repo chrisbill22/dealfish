@@ -29,9 +29,9 @@ Ti.include("map/map.js");
 var button = Ti.UI.createButton({
 	bottom:25,
 	width:'90%',
-	title:"Send Request",
 	zIndex:10,
-	backgroundColor:'#DDD'
+	backgroundColor:'#DDD',
+	title:"Get my special!"
 });
 MainWindow.add(button);
 
