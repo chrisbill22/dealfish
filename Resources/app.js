@@ -5,6 +5,7 @@ var MainWindow = Ti.UI.createWindow({
 	height:'100%',
 	backgroundColor:'#fff'
 });
+Ti.Geolocation.purpose = "Meal Deals will track your location to show your deals in your area.";
 /*
 var view = Ti.UI.createView({
 	width:'50%',
@@ -37,15 +38,8 @@ MainWindow.add(button);
 
 MainWindow.open();
 
-Ti.include("db/dbLocations.js");
+Ti.include("db/fetch.js");
 
 button.addEventListener('click', function(){
-	var testRequest = createDbRequest();
-	
-	addPostVariable("current_long", -86.907948);
-	addPostVariable("current_lat", 40.423962);
-	addPostVariable("delta_long", 1);
-	addPostVariable("delta_lat", 1);
-	
-	sendDbRequest("http://dealfish.genyapps.com/app/getDeals.php", testRequest);
+	fetchLocations();
 });
