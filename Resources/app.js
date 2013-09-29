@@ -24,6 +24,8 @@ button.addEventListener('click', function(){
 	alert("Hello World!");
 });
 */
+Ti.include("globalVars.js");
+Ti.include("db/fetch.js");
 Ti.include("locations.js");
 Ti.include("map/map.js");
 
@@ -38,7 +40,7 @@ MainWindow.add(button);
 
 MainWindow.open();
 
-Ti.include("db/fetch.js");
+
 
 button.addEventListener('click', function(){
 	fetchLocations();
