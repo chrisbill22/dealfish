@@ -2,7 +2,8 @@ function setPins(){
 	if(currentLocations.length == 0){
 		Ti.API.warn("Current Locations is empty. Waiting for data...");
 		fetchLocations();
-		checkLocationsEmpty();
+		checkLocationsFetched();
+		Ti.App.addEventListener('locationFetched', setPins);
 	}else{
 		var allTempAnnotations = [];
 		for(i=0; i!=currentLocations.length; i++){
@@ -21,18 +22,4 @@ function setPins(){
 		
 		mapview.annotations = allTempAnnotations;
 	}
-}
-
-function checkLocationsEmpty(){
-	setTimeout(function(){
-		if(fetchingLocations == true){
-			checkLocationsEmpty();
-			Ti.API.warn("Current Locations is empty. Waiting for data...");
-		}else{
-			Ti.API.warn("...done");
-			if(currentLocations.length != 0){
-				setPins();
-			}
-		}
-	}, 300);
 }

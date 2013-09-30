@@ -29,3 +29,17 @@ function fetchLocations(){
 		Ti.API.warn("Request sent");
 	}
 }
+
+function checkLocationsFetched(){
+	setTimeout(function(){
+		if(fetchingLocations == true){
+			checkLocationsFetched();
+			Ti.API.warn("Current Locations is empty. Waiting for data...");
+		}else{
+			Ti.API.warn("...done");
+			if(currentLocations.length != 0){
+				Ti.App.fireEvent('locationFetched');
+			}
+		}
+	}, 300);
+}
