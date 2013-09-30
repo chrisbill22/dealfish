@@ -40,8 +40,6 @@ MainWindow.add(button);
 
 MainWindow.open();
 
-
-
 button.addEventListener('click', function(){
 	setPins();
 });

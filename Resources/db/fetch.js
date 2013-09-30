@@ -4,7 +4,6 @@ Ti.include("db.js");
 function fetchLocations(){
 	fetchingLocations = true;
 	var testRequest = createDbRequest();
-	
 	testRequest.onload = function(e){
 		var requestReturn = eval(this.responseText);
 		if(requestReturn.length > 0){
@@ -21,12 +20,39 @@ function fetchLocations(){
 		Ti.API.warn("Current Lat or Current Long have not been set yet. Cannot fetch locations without finding location first.");
 		fetchingLocations = false;
 	}else{
+		
+		var currentDate = new Date();
+		var weekday=new Array(7);
+		weekday[0]="Sunday";
+		weekday[1]="Monday";
+		weekday[2]="Tuesday";
+		weekday[3]="Wednesday";
+		weekday[4]="Thursday";
+		weekday[5]="Friday";
+		weekday[6]="Saturday";
+		
 		addPostVariable("current_long", currentLong);
 		addPostVariable("current_lat", currentLat);
 		addPostVariable("delta_long", 1);
 		addPostVariable("delta_lat", 1);
+		
+		addPostVariable("currentTime",Math.round(currentDate.getTime() / 1000));
+		addPostVariable("dayOfWeek", currentDate[currentDate.getDay()]);
+		
 		sendDbRequest("http://dealfish.genyapps.com/app/getDeals.php", testRequest);
 		Ti.API.warn("Request sent");
+	}
+}
+
+function checkLocaitonsNeedFetched(){
+	if(currentLocations.length == 0){
+		Ti.API.warn("Current Locations is empty. Waiting for data...");
+		return true;
+	}else if(debug == true){
+		Ti.API.warn("DEBUG IS ON. Refresh current locations from DB. Waiting for data...");
+		return true;
+	}else{
+		return false;
 	}
 }
 
