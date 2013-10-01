@@ -7,7 +7,8 @@ function createDbRequest(){
 			Ti.API.log("RESPONSE = "+this.responseText);
 		},*/
 		onerror : function(e){
-			alert("error");
+			alert(e.error);
+			fetchingLocations = false;
 			Ti.API.error(e.error);
 		},
 		timeout:5000
