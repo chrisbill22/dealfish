@@ -36,8 +36,16 @@ var button = Ti.UI.createButton({
 	backgroundColor:'#DDD',
 	title:"Get my special!"
 });
-MainWindow.add(button);
 
+var list_button = Ti.UI.createButton({
+	top:25, 
+	width:'90%',
+	zIndex:10, 
+	backgroundColor:'#DDD',
+	title:"List restaurants"
+});
+MainWindow.add(button);
+MainWindow.add(list_button);
 MainWindow.open();
 
 button.addEventListener('click', function(){
