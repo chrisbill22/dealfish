@@ -46,7 +46,7 @@ function fetchLocations(){
 	}
 }
 
-function checkLocaitonsNeedFetched(){
+function checkLocationsNeedFetched(){
 	if(currentLocations.length == 0){
 		Ti.API.warn("Current Locations is empty. Waiting for data...");
 		return true;

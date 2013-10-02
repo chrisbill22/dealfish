@@ -51,3 +51,7 @@ MainWindow.open();
 button.addEventListener('click', function(){
 	setPins();
 });
+
+list_button.addEventListener('click', function(){
+	//bring list layer on top of map layer
+});
