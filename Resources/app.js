@@ -28,6 +28,7 @@ Ti.include("globalVars.js");
 Ti.include("db/fetch.js");
 Ti.include("locations.js");
 Ti.include("map/map.js");
+Ti.include("list/list.js");
 
 var button = Ti.UI.createButton({
 	bottom:25,
@@ -44,14 +45,19 @@ var list_button = Ti.UI.createButton({
 	backgroundColor:'#DDD',
 	title:"List restaurants"
 });
+
 MainWindow.add(button);
 MainWindow.add(list_button);
 MainWindow.open();
 
 button.addEventListener('click', function(){
-	setPins();
+	setPins();	
 });
 
 list_button.addEventListener('click', function(){
 	//bring list layer on top of map layer
+	MainWindow.animate({
+		view: table_view, 
+		transition:Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT
+	});
 });
