@@ -1,5 +1,5 @@
 
-var debug = true;
+var debug = false;
 
 var latitudeDelta = 0.5;
 var longitudeDelta = 0.5;
@@ -14,3 +14,5 @@ var currentLocations = [];
 var activeLocation = false;
 var fetchingLocations = false;
 
+var screen_height = Ti.Platform.displayCaps.platformHeight;
+var screen_width = Ti.Platform.displayCaps.platformWidth;

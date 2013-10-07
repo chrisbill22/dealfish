@@ -24,72 +24,21 @@ button.addEventListener('click', function(){
 	alert("Hello World!");
 });
 */
+
+//Variables
 Ti.include("globalVars.js");
+
+//Important globally used functions
+Ti.include("navigation/navigation.js");
 Ti.include("db/fetch.js");
 Ti.include("locations.js");
+
+//Views
 Ti.include("map/map.js");
 Ti.include("list/list.js");
 Ti.include("settings/settings.js");
 
-var button = Ti.UI.createButton({
-	bottom:25,
-	width:'90%',
-	zIndex:10,
-	backgroundColor:'#DDD',
-	title:"Get my special!"
-});
+//Navigation button functionlity has been moved to navigation/navigation.js
 
-var list_button = Ti.UI.createButton({
-	top:25, 
-	width:'90%',
-	zIndex:10, 
-	backgroundColor:'#DDD',
-	title:"List restaurants"
-});
-
-var settings_button = Ti.UI.createButton({
-	top:50, 
-	width:'90%',
-	zIndex:10, 
-	backgroundColor:'#DDD',
-	title:"Settings"
-});
-
-
-MainWindow.add(button);
-MainWindow.add(list_button);
-MainWindow.add(settings_button);
 MainWindow.open();
 
-button.addEventListener('click', function(){
-	setPins();	
-	//bring map back to top layer
-	mapview.animate({
-		left: 0,
-	});
-	table_view.animate({
-		left: 500,
-	});
-});
-
-list_button.addEventListener('click', function(){
-	//bring list layer on top of map layer
-	table_view.animate({
-		left: 0, 
-	});
-	mapview.animate({
-		left: 500,
-	});
-});
-
-settings_button.addEventListener('click', function(){
-	settings_view.animate({
-		left: 0
-	});
-	table_view.animate({
-		left: 200
-	});
-	mapview.animate({
-		left: 500
-	});
-});
