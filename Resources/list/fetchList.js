@@ -1,7 +1,6 @@
+Ti.include("globalVars.js");
 function fetchList() {
-	var list = new Array();
-	var locations = fetchLocations();
-	for (var i = 0; i < locations.length; i++){
-		list[i] = location[i];	
+	for (var i = 0; i < currentLocations.length; i++){
+		currentLocations[i][1];	
 	}
 }

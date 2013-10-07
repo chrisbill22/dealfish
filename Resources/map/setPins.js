@@ -1,5 +1,5 @@
 function setPins(){
-	if(checkLocaitonsNeedFetched()){
+	if(checkLocationsNeedFetched()){
 		fetchLocations();
 		checkLocationsFetched();
 		Ti.App.addEventListener('locationFetched', dropPins);
