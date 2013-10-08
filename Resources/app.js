@@ -37,6 +37,8 @@ Ti.include("locations.js");
 Ti.include("map/map.js");
 Ti.include("list/list.js");
 Ti.include("settings/settings.js");
+Ti.include("search/search.js");
+Ti.include("favorites/favorites.js");
 
 //Navigation button functionlity has been moved to navigation/navigation.js
 

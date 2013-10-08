@@ -15,7 +15,7 @@ var nav_search = Ti.UI.createButton({
 	opacity:0.8,
 	bottom:0,
 	left:0,
-	title:"S"
+	title:"Search"
 });
 
 
@@ -27,7 +27,7 @@ var nav_map = Ti.UI.createButton({
 	opacity:0.8,
 	bottom:0,
 	left:'20%',
-	title:"M"
+	title:"Map"
 });
 
 
@@ -39,7 +39,7 @@ var nav_list = Ti.UI.createButton({
 	opacity:0.8,
 	bottom:0,
 	left:'40%',
-	title:"L"
+	title:"List"
 });
 
 var nav_favorites = Ti.UI.createButton({ 
@@ -50,7 +50,7 @@ var nav_favorites = Ti.UI.createButton({
 	opacity:0.8,
 	bottom:0,
 	left:'60%',
-	title:"F"
+	title:"Favorites"
 });
 
 var nav_settings = Ti.UI.createButton({ 
@@ -61,7 +61,7 @@ var nav_settings = Ti.UI.createButton({
 	opacity:0.8,
 	bottom:0,
 	left:'80%',
-	title:"N"
+	title:"Settings"
 });
 
 navigation.add(nav_search);
