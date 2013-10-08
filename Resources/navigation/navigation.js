@@ -35,84 +35,95 @@ nav_settings.addEventListener('click', function(){
 });
 function searchFront(){
 	search_view.animate({
-		left: 0
+		left: 0, 
+		zIndex: 0
 	});
 	mapview.animate({
-		right: 500
+		right: "+=500"
 	});
 	table_view.animate({
-		right: 500
+		right: "+=500"
 	});
 	favorites_view.animate({
-		right: 500
+		right: "+=500"
 	});
 	settings_view.animate({
-		right: 500
+		right: "+=500"
 	});
 }
 function mapFront(){
 	search_view.animate({
-		left: 500
+		left: "+=500", 
+		zIndex: -1
 	});
 	mapview.animate({
-		left: 0
+		right: 0, 
+		zIndex: 0,
 	});
 	table_view.animate({
-		right: 500
+		right: "+=500", 
+		zIndex: -1
 	});
 	favorites_view.animate({
-		right: 500
+		right: "+=500", 
+		zIndex: -1
 	});
 	settings_view.animate({
-		right: 500
-	});
+		right: "+=500", 
+		zIndex: -1
+	});	
 }
 function listFront(){
 	search_view.animate({
-		left: 500
+		left: "+=500", 
+		zIndex: -1
 	});
 	mapview.animate({
-		left: 500
+		left: "+=500",
+		zIndex: -1
 	});
 	table_view.animate({
-		right: 0
+		right: 0,
+		zIndex: 0
 	});
 	favorites_view.animate({
-		right: 500
+		right: "+=500", 
+		zIndex: -1
 	});
 	settings_view.animate({
-		right: 500
+		right: "+=500",
+		zIndex: -1
 	});
 }
 function favoritesFront(){
 	search_view.animate({
-		left: 500
+		left: "+=500"
 	});
 	mapview.animate({
-		left: 500
+		left: "+=500"
 	});
 	table_view.animate({
-		left: 500
+		left: "+=500"
 	});
 	favorites_view.animate({
 		right: 0
 	});
 	settings_view.animate({
-		right: 500
+		right: "+=500"
 	});
 }
 function settingsFront(){
 	search_view.animate({
-		left: 500
+		left: "+=500"
 	});
 	mapview.animate({
-		left: 500
+		left: "+=500"
 	});
 	table_view.animate({
-		left: 500
+		left: "+=500"
 	});
 	favorites_view.animate({
-		left: 500
+		left: "+=500"
 	});
 	settings_view.animate({
 		right: 0
