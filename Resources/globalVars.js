@@ -10,6 +10,7 @@ var currentLat = -9999;
 // [0 = deal description, 1 = company name, 2 = merchant ID, 3 = longitude, 4 = latitude]
 var currentLocations = [];
 
+var currentView = "map";
 
 var activeLocation = false;
 var fetchingLocations = false;
