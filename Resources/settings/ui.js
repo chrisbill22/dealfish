@@ -5,7 +5,7 @@ var settings_view = Titanium.UI.createView({
 });
 
 var test_button = Ti.UI.createButton({
-	bottom:25,
+	top:25,
 	width:'90%',
 	zIndex:0,
 	backgroundColor:'#DDD',
@@ -13,11 +13,13 @@ var test_button = Ti.UI.createButton({
 });
 
 var notification_button = Ti.UI.createButton({
-	bottom:50,
+	top:50,
 	width:'90%',
 	zIndex:0,
 	backgroundColor:'#DDD',
 	title:"Click here to turn off notification"
 });
+
+settings_view.add(test_button, notification_button);
 
 MainWindow.add(settings_view);

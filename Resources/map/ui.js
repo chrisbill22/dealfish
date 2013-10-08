@@ -14,6 +14,9 @@ var mapview = Titanium.Map.createView({
     regionFit:true,
     userLocation:true, 
     visible: true, 
+    width:'100%',
+    height:'95%',
+    bottom:0
     //annotations:[testAnnotation]
 });
 
@@ -25,7 +28,7 @@ var track_button = Ti.UI.createButton({
 	backgroundColor:'#DDD'
 });
 
-MainWindow.add(track_button);
+mapview.add(track_button);
 
 
 MainWindow.add(mapview);

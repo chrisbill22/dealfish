@@ -1,10 +1,11 @@
 Ti.include("fetchList.js");
-var table_view = Ti.UI.createTableView({
+var listview = Ti.UI.createTableView({
 	right: 500,
-	height: '100%', 
+	height: '95%', 
 	width: '100%',
-	data: currentLocations[1],
+	bottom:0,
+	data: [{title:"List View"}]
 });
 
-MainWindow.add(table_view);
+MainWindow.add(listview);
 
