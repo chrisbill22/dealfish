@@ -1,5 +1,5 @@
 
-var debug = false;
+var debug = true;
 
 var latitudeDelta = 0.5;
 var longitudeDelta = 0.5;
@@ -17,3 +17,12 @@ var fetchingLocations = false;
 
 var screen_height = Ti.Platform.displayCaps.platformHeight;
 var screen_width = Ti.Platform.displayCaps.platformWidth;
+
+
+
+
+//Saved Variables
+if(!Ti.App.Properties.getBool("pushSubscription")){
+	Ti.App.Properties.setBool("pushSubscription", false);
+}
+
