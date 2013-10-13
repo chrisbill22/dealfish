@@ -1,11 +1,14 @@
 //Hello!
+var Cloud = require("ti.cloud");
 
 var MainWindow = Ti.UI.createWindow({
 	width:'100%',
 	height:'100%',
 	backgroundColor:'#fff'
 });
-Ti.Geolocation.purpose = "Meal Deals will track your location to show your deals in your area.";
+Ti.include("pushNotifications.js");
+registerPushNotifications();
+//Ti.Geolocaation.purpose = "Meal Deals will track your location to show your deals in your area.";
 /*
 var view = Ti.UI.createView({
 	width:'50%',
