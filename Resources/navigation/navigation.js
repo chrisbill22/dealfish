@@ -16,6 +16,23 @@ nav_settings.addEventListener('click', function(){
 	settingsFront(getSlideDirection("settings"));
 });
 
+nav_search.addEventListener('swipe', function(){
+	searchFront(getSlideDirection("search"));
+});
+nav_map.addEventListener('swipe', function(){
+	mapFront(getSlideDirection("map"));
+	setPins();
+});
+nav_list.addEventListener('swipe', function(){
+	listFront(getSlideDirection("list"));
+});
+nav_favorites.addEventListener('swipe', function(){
+	favoritesFront(getSlideDirection("favorites"));
+});
+nav_settings.addEventListener('swipe', function(){
+	settingsFront(getSlideDirection("settings"));
+});
+
 function getSlideDirection(toView){
 	fromView = currentView;
 	
