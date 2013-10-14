@@ -35,7 +35,7 @@ var nav_list = Ti.UI.createButton({
 	width:'20%',
 	height:screen_width*0.2,
 	borderRadius:30,
-	backgroundColor:'#fff',
+	backgroundColor:'#333',
 	opacity:0.8,
 	bottom:0,
 	left:'40%',

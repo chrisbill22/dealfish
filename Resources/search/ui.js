@@ -2,7 +2,7 @@ var search_view = Titanium.UI.createView({
 	height: '95%', 
 	width: '100%',
 	bottom:0,
-	left: 500,
+	left: screen_width,
 });
 
 var search = Titanium.UI.createSearchBar({
