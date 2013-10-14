@@ -1,5 +1,5 @@
 var favorites_view = Ti.UI.createTableView({
-	right: 500,
+	left: -1*screen_width,
 	height: '95%', 
 	width: '100%',
 	bottom:0,

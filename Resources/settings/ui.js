@@ -1,7 +1,7 @@
 var settings_view = Titanium.UI.createView({
 	height: '100%', 
 	width: '100%',
-	right: 500
+	left: -1*screen_width
 });
 
 var test_button = Ti.UI.createButton({

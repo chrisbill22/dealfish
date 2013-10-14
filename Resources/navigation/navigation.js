@@ -1,4 +1,5 @@
 Ti.include("ui.js");
+Ti.include("constants.js");
 nav_search.addEventListener('click', function(){
 	searchFront(getSlideDirection("search"));
 });
@@ -78,138 +79,134 @@ function setCurrentView(viewName){
 	Ti.API.info("Current View = "+currentView);
 }
 
-function transitionView(obj, dir){
+function transitionViewIn(obj, dir){
+	Ti.API.info("Moving "+dir);
 	if(dir == "right"){
-		if(obj.right != 0 && obj.right != ""){
-			obj.left = 500;
-			obj.right = 0;
+		Ti.API.log(obj.left);
+		if(obj.left > 0){
+			Ti.API.info("Jumping View");
+			obj.left = -1 * screen_width;
 		}
+		obj.zIndex = 1;
 		obj.animate({
-			left: 0, 
-			zIndex: 0
+			left: 0,
+			duration: IN_ANIMATION_SPEED
+		}, function(){
+			obj.zIndex = 0;
 		});
 	}
 	
 	if(dir == "left"){
-		if(obj.left != 0){
-			obj.right = 500;
-			obj.left = 0;
+		if(obj.right != 0 && obj.right != ""){
+			Ti.API.info("Jumping View");
+			obj.right = 0;
+			obj.left = 500;
 		}
 		obj.animate({
-			right: 0, 
-			zIndex: 0
+			left: 0,
+			duration: IN_ANIMATION_SPEED
 		});
 	}
 }
+function transitionViewOut(obj, dir){
+	obj.animate(transitionViewOutAnimation, function(){
+		if(dir == "left"){
+			obj.right = screen_width;
+		}else{
+			obj.left = screen_width;
+		}
+		obj.opacity = 1;
+		obj.transform = Titanium.UI.create2DMatrix().scale(1,1);
+	});
+}
+
+
+function navReset(){
+	nav_favorites.backgroundColor = '#fff';
+	nav_list.backgroundColor = '#fff';
+	nav_map.backgroundColor = '#fff';
+	nav_search.backgroundColor = '#fff';
+	nav_settings.backgroundColor = '#fff';
+}
+
+function transitionNav(obj){
+	navReset();
+	obj.backgroundColor = '#333';
+}
 
 function searchFront(direction){	
-	transitionView(search_view, direction);
+	transitionNav(nav_search);
 	mapBack();
 	listBack();
 	favoritesBack();
 	settingsBack();
+	transitionViewIn(search_view, direction);
 	setCurrentView("search");
 }
 function searchBack(direction){
 	if(currentView == "search"){
-		if(direction == "left"){
-			search_view.animate({
-				right:screen_width
-			});
-		}else{
-			search_view.animate({
-				left:screen_width
-			});
-		}
+		transitionViewOut(search_view, direction);
 	}
 }
 
 function mapFront(direction){
-	transitionView(mapview, direction);
+	transitionNav(nav_map);
 	searchBack();
 	listBack();
 	favoritesBack();
 	settingsBack();
+	transitionViewIn(mapview, direction);
 	setCurrentView("map");
 }
 function mapBack(direction){
 	if(currentView == "map"){
-		if(direction == "left"){
-			mapview.animate({
-				right:screen_width
-			});
-		}else{
-			mapview.animate({
-				left:screen_width
-			});
-		}
+		transitionViewOut(mapview, direction);
 	}
 }
 
 
 function listFront(direction){
-	transitionView(listview, direction);
+	transitionNav(nav_list);
 	searchBack();
 	mapBack();
 	favoritesBack();
 	settingsBack();
+	transitionViewIn(listview, direction);
 	setCurrentView("list");
 }
 function listBack(direction){
 	if(currentView == "list"){
-		if(direction == "left"){
-			listview.animate({
-				right:screen_width
-			});
-		}else{
-			listview.animate({
-				left:screen_width
-			});
-		}
+		transitionViewOut(listview, direction);
 	}
 }
 
 function favoritesFront(direction){
-	transitionView(favorites_view, direction);
+	transitionNav(nav_favorites);
 	searchBack();
 	mapBack();
 	listBack();
 	settingsBack();
+	transitionViewIn(favorites_view, direction);
 	setCurrentView("favorites");
 }
 function favoritesBack(direction){
 	if(currentView == "favorites"){
-		if(direction == "left"){
-			favorites_view.animate({
-				right:screen_width
-			});
-		}else{
-			favorites_view.animate({
-				left:screen_width
-			});
-		}
+		transitionViewOut(favorites_view, direction);
 	}
 }
 
 
 function settingsFront(direction){
-	transitionView(settings_view, direction);
+	transitionNav(nav_settings);
 	searchBack();
 	mapBack();
 	listBack();
 	favoritesBack();
+	transitionViewIn(settings_view, direction);
 	setCurrentView("settings");
 }
 function settingsBack(direction){
 	if(currentView == "settings"){
-		if(direction == "left"){
-			settings_view.animate({
-				right:screen_width
-			});
-		}else{
-			settings_view.animate({
-				left:screen_width
-			});
-		}
+		transitionViewOut(settings_view, direction);
 	}
 }

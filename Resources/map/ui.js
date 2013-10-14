@@ -16,7 +16,8 @@ var mapview = Titanium.Map.createView({
     visible: true, 
     width:'100%',
     height:'95%',
-    bottom:0
+    bottom:0,
+    left:screen_width
     //annotations:[testAnnotation]
 });
 
