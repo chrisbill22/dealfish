@@ -4,7 +4,7 @@ var listview = Ti.UI.createTableView({
 	height: '95%', 
 	width: '100%',
 	bottom:0,
-	data: [{title:"List View"}]
+	data: fetchList()
 });
 
 MainWindow.add(listview);
