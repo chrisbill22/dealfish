@@ -17,21 +17,25 @@ nav_settings.addEventListener('click', function(){
 	settingsFront(getSlideDirection("settings"));
 });
 
-nav_search.addEventListener('swipe', function(){
+nav_search.addEventListener('swipe', function(e){
 	searchFront(getSlideDirection("search"));
+	alert('You swiped to the '+ e.direction);
 });
-nav_map.addEventListener('swipe', function(){
+nav_map.addEventListener('swipe', function(e){
 	mapFront(getSlideDirection("map"));
 	setPins();
 });
-nav_list.addEventListener('swipe', function(){
+nav_list.addEventListener('swipe', function(e){
 	listFront(getSlideDirection("list"));
+	alert('You swiped to the '+e.direction);
 });
-nav_favorites.addEventListener('swipe', function(){
+nav_favorites.addEventListener('swipe', function(e){
 	favoritesFront(getSlideDirection("favorites"));
+	alert('You swiped to the '+e.direction);
 });
-nav_settings.addEventListener('swipe', function(){
+nav_settings.addEventListener('swipe', function(e){
 	settingsFront(getSlideDirection("settings"));
+	alert('You swiped to the '+e.direction);
 });
 
 function getSlideDirection(toView){
