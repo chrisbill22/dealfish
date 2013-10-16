@@ -1,3 +1,4 @@
+//Pull database
 function setPins(){
 	if(checkLocationsNeedFetched()){
 		fetchLocations();
@@ -7,7 +8,7 @@ function setPins(){
 		dropPins();
 	}
 }
-
+//Put the actual pins in the map
 function dropPins(){
 	Ti.App.removeEventListener('locationFetched', dropPins);
 	var allTempAnnotations = [];
