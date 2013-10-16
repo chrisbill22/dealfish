@@ -22,7 +22,7 @@ var mapview = Titanium.Map.createView({
 });
 
 var track_button = Ti.UI.createButton({
-	top:55,
+	top:0,
 	width:'90%',
 	title:"Track Location",
 	zIndex:10,
