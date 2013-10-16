@@ -155,6 +155,7 @@ function listFront(direction){
 	settingsBack();
 	transitionViewIn(listview, direction);
 	setCurrentView("list");
+	fetchList();
 }
 function listBack(direction){
 	if(currentView == "list"){

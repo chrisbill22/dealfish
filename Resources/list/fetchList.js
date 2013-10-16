@@ -2,14 +2,20 @@
 function fetchList() {
 	
 	//Copy the setPins functionality in setPins.js and replace dropPins with setList
-	
+	if(checkLocationsNeedFetched()){
+		fetchLocations();
+		checkLocationsFetched();
+		Ti.App.addEventListener('locationFetched', setList);
+	}else{
+		setList();
+	}
 }
 
 //Actually set the list.
 function setList(){
 	
 	//Create an array here
-	
+	var locArray = [];
 	for (var i = 0; i != currentLocations.length; i++){
 	  var row = Ti.UI.createTableViewRow({
 	    className: 'row',
@@ -19,19 +25,19 @@ function setList(){
 	  });
 	  var label = Ti.UI.createLabel({
 	    backgroundColor:'#313F48',
-	    color: 'white',
+	    color: '#576996',
 	    objName: 'label',
 	    text: currentLocations[i][1],
 	    touchEnabled: false,
-	    left: 0,
+	    left: 70,
 	    width: 200
 	  });
-	  listview.add(row);
 	  row.add(label);
 	  
 	  //Push the row to the end of the array here
-	  
+	  locArray.push(row);
 	}
 	
 	//set listview.data here
+	listview.data = locArray;
 }
