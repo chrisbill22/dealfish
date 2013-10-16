@@ -17,26 +17,6 @@ nav_settings.addEventListener('click', function(){
 	settingsFront(getSlideDirection("settings"));
 });
 
-nav_search.addEventListener('swipe', function(e){
-	searchFront(getSlideDirection("search"));
-	alert('You swiped to the '+ e.direction);
-});
-nav_map.addEventListener('swipe', function(e){
-	mapFront(getSlideDirection("map"));
-	setPins();
-});
-nav_list.addEventListener('swipe', function(e){
-	listFront(getSlideDirection("list"));
-	alert('You swiped to the '+e.direction);
-});
-nav_favorites.addEventListener('swipe', function(e){
-	favoritesFront(getSlideDirection("favorites"));
-	alert('You swiped to the '+e.direction);
-});
-nav_settings.addEventListener('swipe', function(e){
-	settingsFront(getSlideDirection("settings"));
-	alert('You swiped to the '+e.direction);
-});
 
 function getSlideDirection(toView){
 	fromView = currentView;
@@ -99,12 +79,14 @@ function transitionViewIn(obj, dir){
 	if(dir == "left"){
 		if(obj.right != 0 && obj.right != ""){
 			Ti.API.info("Jumping View");
-			obj.right = 0;
-			obj.left = 500;
+			obj.left = screen_width;
 		}
+		obj.zIndex = 1;
 		obj.animate({
 			left: 0,
 			duration: IN_ANIMATION_SPEED
+		}, function(){
+			obj.zIndex = 0;
 		});
 	}
 }
