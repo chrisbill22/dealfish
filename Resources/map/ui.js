@@ -38,23 +38,26 @@ var left_slider = Ti.UI.createView({
 });
 
 var startX;
+var deltaX = 0;
 left_slider.addEventListener('touchstart', function(e){
 	startX = e.x;
 });
 left_slider.addEventListener('touchmove', function(e){
-	Ti.API.log("Delta X = "+(e.x-startX)+", Screen Left = "+((e.x-startX)+(-1*screen_width)));
-	var deltaX = (e.x-startX);
-	var newLeft = (deltaX+(-1*screen_width));
-	search_view.left = newLeft;
-	if(deltaX > 100){
-		searchFront("right");
+	if(deltaX <= 100){
+		Ti.API.log("Delta X = "+(e.x-startX)+", Screen Left = "+((e.x-startX)+(-1*screen_width)));
+		deltaX = (e.x-startX);
+		var newLeft = (deltaX+(-1*screen_width));
+		search_view.left = newLeft;
+		if(deltaX > 100){
+			searchFront("right");
+		}
 	}
 });
 left_slider.addEventListener('touchend', function(e){
-	var deltaX = (e.x-startX);
 	if(deltaX <= 100){
 		search_view.animate({left:(-1*screen_width)});
 	}
+	deltaX = 0;
 });
 
 mapview.add(left_slider);
