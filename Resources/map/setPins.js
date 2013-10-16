@@ -21,9 +21,15 @@ function dropPins(){
 			title: currentLocations[i][1],
 			subtitle: currentLocations[i][0], 
 			pincolor: Titanium.Map.ANNOTATION_GREEN,
+			image: 'images/normal.png',
 			animate: true,
 			myid: i
 		});
+		//If a flash deal change icon
+		if(currentLocations[i][5] == 1){
+			tempAnnotation.pincolor = "#f00";
+			tempAnnotation.image = 'images/flash.png';
+		}
 		allTempAnnotations.push(tempAnnotation);
 	}
 	mapview.annotations = allTempAnnotations;

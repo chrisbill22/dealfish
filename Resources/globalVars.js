@@ -7,7 +7,7 @@ var currentLong = -9999;
 var currentLat = -9999;
 
 
-// [0 = deal description, 1 = company name, 2 = merchant ID, 3 = longitude, 4 = latitude]
+// [0 = deal description, 1 = company name, 2 = merchant ID, 3 = longitude, 4 = latitude, 5 = flash deal]
 var currentLocations = [];
 
 var currentView = "list";
