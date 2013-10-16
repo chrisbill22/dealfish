@@ -29,37 +29,75 @@ var track_button = Ti.UI.createButton({
 	backgroundColor:'#DDD'
 });
 
+//LEFT TRANSITION
 var left_slider = Ti.UI.createView({
 	width:25,
 	height:'100%',
-	backgroundColor:'#000',
+	//backgroundColor:'#000',
 	bottom:0,
 	left:0
 });
-
-var startX;
-var deltaX = 0;
+var startX_left;
+var deltaX_left = 0;
 left_slider.addEventListener('touchstart', function(e){
-	startX = e.x;
+	search_view.zIndex = 1;
+	startX_left = e.x;
 });
 left_slider.addEventListener('touchmove', function(e){
-	if(deltaX <= 100){
-		Ti.API.log("Delta X = "+(e.x-startX)+", Screen Left = "+((e.x-startX)+(-1*screen_width)));
-		deltaX = (e.x-startX);
-		var newLeft = (deltaX+(-1*screen_width));
+	if(deltaX_left <= 100){
+		deltaX_left = (e.x-startX_left);
+		var newLeft = (deltaX_left+(-1*screen_width));
 		search_view.left = newLeft;
-		if(deltaX > 100){
+		if(deltaX_left > 100){
 			searchFront("right");
 		}
 	}
 });
 left_slider.addEventListener('touchend', function(e){
-	if(deltaX <= 100){
-		search_view.animate({left:(-1*screen_width)});
+	if(deltaX_left <= 100){
+		search_view.animate({left:(-1*screen_width)}, function(){
+			search_view.zIndex = 0;
+		});
 	}
-	deltaX = 0;
+	deltaX_left = 0;
 });
 
+//RIGHT TRANSITION
+var right_slider = Ti.UI.createView({
+	width:25,
+	height:'100%',
+	//backgroundColor:'#000',
+	bottom:0,
+	right:0
+});
+var startX_right;
+var deltaX_right = 0;
+right_slider.addEventListener('touchstart', function(e){
+	listview.zIndex = 1;
+	startX_right = e.x;
+});
+right_slider.addEventListener('touchmove', function(e){
+	if(deltaX_right >= -100){
+		deltaX_right = (e.x-startX_right);
+		var newRight = (deltaX_right+(screen_width));
+		Ti.API.log("DeltaX = "+deltaX_right+", Right = "+newRight);
+		listview.left = newRight;
+		if(deltaX_right < -100){
+			listFront("left");
+		}
+	}
+});
+right_slider.addEventListener('touchend', function(e){
+	if(deltaX_right >= -100){
+		listview.animate({left:(screen_width)}, function(){
+			listview.zIndex = 0;
+		});
+	}
+	deltaX_right = 0;
+});
+
+
+mapview.add(right_slider);
 mapview.add(left_slider);
 mapview.add(track_button);
 
