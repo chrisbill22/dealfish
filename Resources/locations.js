@@ -19,6 +19,7 @@ function getLocation(){
 		        currentLat = e.coords.latitude;
 				currentLong = e.coords.longitude;
 		        mapview.setLocation(region);
+		        stop_loading();
 		        return [e.coords.latitude, e.coords.longitude];
 	        }
 		});
@@ -30,6 +31,7 @@ function getLocation(){
 }
 
 function trackCurrentLocation(){
+	start_loading();
 	Titanium.Geolocation.addEventListener('location', getLocation);
 }
 
