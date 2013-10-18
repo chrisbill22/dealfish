@@ -8,19 +8,19 @@ right_slider.addEventListener('touchstart', function(e){
 //Every time the finger moves, will update and subtract by start x position to get delta x position
 //if the position reaches an amount, bring in the new view
 right_slider.addEventListener('touchmove', function(e){
-	if(deltaX_right >= -100){
+	if(deltaX_right >= -1*VIEW_TRANSITION_THRESHOLD){
 		deltaX_right = (e.x-startX_right);
 		var newRight = (deltaX_right+(screen_width));
 		Ti.API.log("DeltaX = "+deltaX_right+", Right = "+newRight);
 		getRightViewObj().left = newRight;
-		if(deltaX_right < -100){
+		if(deltaX_right < -1*VIEW_TRANSITION_THRESHOLD){
 			transitionRightViewIn();
 		}
 	}
 });
 //When the finger is released, if the view has not been activated, slide it back into place
 right_slider.addEventListener('touchend', function(e){
-	if(deltaX_right >= -100){
+	if(deltaX_right >= -1*VIEW_TRANSITION_THRESHOLD){
 		getRightViewObj().animate({left:(screen_width)}, function(){
 			getRightViewObj().zIndex = 0;
 		});
@@ -36,18 +36,18 @@ left_slider.addEventListener('touchstart', function(e){
 //Every time the finger moves, will update and subtract by start x position to get delta x position
 //if the position reaches an amount, bring in the new view
 left_slider.addEventListener('touchmove', function(e){
-	if(deltaX_left <= 100){
+	if(deltaX_left <= VIEW_TRANSITION_THRESHOLD){
 		deltaX_left = (e.x-startX_left);
 		var newLeft = (deltaX_left+(-1*screen_width));
 		getLeftViewObj().left = newLeft;
-		if(deltaX_left > 100){
+		if(deltaX_left > VIEW_TRANSITION_THRESHOLD){
 			transitionLeftViewIn();
 		}
 	}
 });
 //When the finger is released, if the view has not been activated, slide it back into place
 left_slider.addEventListener('touchend', function(e){
-	if(deltaX_left <= 100){
+	if(deltaX_left <= VIEW_TRANSITION_THRESHOLD){
 		getLeftViewObj().animate({left:(-1*screen_width)}, function(){
 			getLeftViewObj().zIndex = 0;
 		});

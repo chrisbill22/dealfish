@@ -1,6 +1,8 @@
 var IN_ANIMATION_SPEED = 500;
 var OUT_ANIMATION_SPEED = 500;
 
+var VIEW_TRANSITION_THRESHOLD = 200;
+
 var startX_left;
 var deltaX_left = 0;
 var startX_right;
