@@ -1,6 +1,6 @@
 Ti.include("fetchList.js");
 var listTitle = Ti.UI.createView({
-	height:'10%',
+	height:'12%',
 	top:0,
 	left:0,
 	backgroundColor:'#DDD',
@@ -8,12 +8,13 @@ var listTitle = Ti.UI.createView({
 });
 var listTitle_label = Ti.UI.createLabel({
 	text:"Home",
-	left:'10%'
+	left:'10%',
+	bottom:10
 });
 
 var list_tableview = Ti.UI.createTableView({
 	right: 0,
-	height: '90%', 
+	height: '88%', 
 	width: '100%',
 	bottom:0
 });

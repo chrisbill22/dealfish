@@ -19,5 +19,5 @@ geoSetupGeoButton.addEventListener('click', function(){
 });
 
 geoSetupZipButton.addEventListener('click', function(){
-	//remove_geolocation_setup();
+	remove_geolocation_setup();
 });

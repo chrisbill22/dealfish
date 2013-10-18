@@ -1,3 +1,19 @@
+/*var mapTitle = Ti.UI.createView({
+	height:'12%',
+	top:0,
+	left:0,
+	backgroundColor:'#DDD',
+	borderWidth:0
+});
+var mapTitle_label = Ti.UI.createLabel({
+	text:"Map",
+	left:'10%',
+	bottom:10
+});
+
+
+mapTitle.add(mapTitle_label);*/
+
 var testAnnotation = Titanium.Map.createAnnotation ({
 	latitude: 40.424447,
 	longitude: -86.907896,
@@ -15,7 +31,7 @@ var mapview = Titanium.Map.createView({
     userLocation:true, 
     visible: true, 
     width:'100%',
-    height:'95%',
+    height:'88%',
     bottom:0,
     left:screen_width
     //annotations:[testAnnotation]
