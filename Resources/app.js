@@ -13,7 +13,6 @@ registerPushNotifications();
 Ti.include("globalVars.js");
 
 //Important globally used functions
-Ti.include("navigation/navigation.js");
 Ti.include("db/fetch.js");
 Ti.include("locations.js");
 Ti.include("loadingScreen/loadingScreen.js");
@@ -24,6 +23,10 @@ Ti.include("list/list.js");
 Ti.include("settings/settings.js");
 Ti.include("search/search.js");
 Ti.include("favorites/favorites.js");
+
+//Navigation relies on the views already being run so that's why it's down here
+Ti.include("navigation/navigation.js");
+
 
 if(!Ti.App.Properties.getBool("zipSetup")){
 	//Initiate startup question

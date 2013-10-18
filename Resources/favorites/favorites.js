@@ -1,5 +1,5 @@
 Ti.include("ui.js");
-favorites_view.addEventListener('swipe', function(e){
+/*favorites_view.addEventListener('swipe', function(e){
 	favoritesFront(getSlideDirection("favorites"));
 	
 	if(e.direction == "right"){
@@ -9,5 +9,5 @@ favorites_view.addEventListener('swipe', function(e){
 	if(e.direction == "left"){
 		settingsFront(getSlideDirection("settings"));
 	}
-});
+});*/
 

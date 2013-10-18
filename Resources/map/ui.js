@@ -44,7 +44,7 @@ var track_button = Ti.UI.createButton({
 	zIndex:10,
 	backgroundColor:'#DDD'
 });
-
+/*
 //LEFT TRANSITION
 var left_slider = Ti.UI.createView({
 	width:25,
@@ -115,7 +115,8 @@ right_slider.addEventListener('touchend', function(e){
 
 mapview.add(right_slider);
 mapview.add(left_slider);
-mapview.add(track_button);
+*/
 
+mapview.add(track_button);
 
 MainWindow.add(mapview);

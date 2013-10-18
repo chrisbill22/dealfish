@@ -1,5 +1,9 @@
 Ti.include("ui.js");
 Ti.include("constants.js");
+Ti.include("swipe.js");
+
+
+//Clicks
 nav_search.addEventListener('click', function(){
 	searchFront(getSlideDirection("search"));
 });
@@ -16,6 +20,7 @@ nav_favorites.addEventListener('click', function(){
 nav_settings.addEventListener('click', function(){
 	settingsFront(getSlideDirection("settings"));
 });
+
 
 
 function getSlideDirection(toView){
@@ -61,6 +66,8 @@ function setCurrentView(viewName){
 
 function transitionViewIn(obj, dir){
 	Ti.API.info("Moving "+dir);
+	
+	
 	if(dir == "right"){
 		Ti.API.log(obj.left);
 		if(obj.left > 0){
@@ -73,11 +80,13 @@ function transitionViewIn(obj, dir){
 			duration: IN_ANIMATION_SPEED
 		}, function(){
 			obj.zIndex = 0;
+			obj.add(right_slider);
+			obj.add(left_slider);
 		});
 	}
 	
 	if(dir == "left"){
-		if(obj.right != 0 && obj.right != ""){
+		if(obj.left < 0){
 			Ti.API.info("Jumping View");
 			obj.left = screen_width;
 		}
@@ -87,10 +96,14 @@ function transitionViewIn(obj, dir){
 			duration: IN_ANIMATION_SPEED
 		}, function(){
 			obj.zIndex = 0;
+			obj.add(right_slider);
+			obj.add(left_slider);
 		});
 	}
 }
 function transitionViewOut(obj, dir){
+	obj.remove(right_slider);
+	obj.remove(left_slider);
 	obj.animate(transitionViewOutAnimation, function(){
 		if(dir == "left"){
 			obj.right = screen_width;

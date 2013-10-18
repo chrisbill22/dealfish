@@ -64,6 +64,28 @@ var nav_settings = Ti.UI.createButton({
 	title:"Settings"
 });
 
+//LEFT TRANSITION
+var left_slider = Ti.UI.createView({
+	width:25,
+	height:'100%',
+	//backgroundColor:'#000',
+	bottom:0,
+	left:0
+});
+
+//RIGHT TRANSITION
+var right_slider = Ti.UI.createView({
+	width:25,
+	height:'100%',
+	//backgroundColor:'#000',
+	bottom:0,
+	right:0
+});
+
+//Add to list view because list view is by default the first view open
+listview.add(right_slider);
+listview.add(left_slider);
+
 navigation.add(nav_search);
 navigation.add(nav_map);
 navigation.add(nav_list);
