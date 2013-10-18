@@ -104,11 +104,11 @@ function transitionViewOut(obj, dir){
 
 
 function navReset(){
-	nav_favorites.backgroundColor = '#fff';
-	nav_list.backgroundColor = '#fff';
-	nav_map.backgroundColor = '#fff';
-	nav_search.backgroundColor = '#fff';
-	nav_settings.backgroundColor = '#fff';
+	nav_favorites.backgroundColor = '#DDD';
+	nav_list.backgroundColor = '#DDD';
+	nav_map.backgroundColor = '#DDD';
+	nav_search.backgroundColor = '#DDD';
+	nav_settings.backgroundColor = '#DDD';
 }
 
 function transitionNav(obj){
