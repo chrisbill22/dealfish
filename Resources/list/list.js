@@ -1,5 +1,5 @@
 Ti.include("ui.js");
-listview.addEventListener('swipe', function(e){
+list_tableview.addEventListener('swipe', function(e){
 	listFront(getSlideDirection("list"));
 	//alert('You swiped to the '+e.direction);
 	if(e.direction == "right"){
