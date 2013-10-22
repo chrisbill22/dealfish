@@ -23,7 +23,8 @@ function dropPins(){
 			pincolor: Titanium.Map.ANNOTATION_GREEN,
 			image: 'images/normal.png',
 			animate: true,
-			myid: i
+			myid: i, 
+			rightButton: 'images/singleArrowRightButton.gif',
 		});
 		//If a flash deal change icon
 		if(currentLocations[i][5] == 1){

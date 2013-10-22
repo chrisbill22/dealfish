@@ -44,6 +44,12 @@ var track_button = Ti.UI.createButton({
 	zIndex:10,
 	backgroundColor:'#DDD'
 });
+// map view click event listener
+mapview.addEventListener('click', function(e){
+	if(e.clicksource == "rightButton"){
+		//
+	}
+});
 /*
 //LEFT TRANSITION
 var left_slider = Ti.UI.createView({
