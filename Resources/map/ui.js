@@ -13,7 +13,7 @@ var mapTitle_label = Ti.UI.createLabel({
 
 
 mapTitle.add(mapTitle_label);*/
-
+Ti.include('../company/ui.js');
 var testAnnotation = Titanium.Map.createAnnotation ({
 	latitude: 40.424447,
 	longitude: -86.907896,
@@ -47,7 +47,11 @@ var track_button = Ti.UI.createButton({
 // map view click event listener
 mapview.addEventListener('click', function(e){
 	if(e.clicksource == "rightButton"){
-		//
+		MainWindow.animate({
+			view: companyview,
+			transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT,
+		});
+		companyview.visible = true;
 	}
 });
 /*

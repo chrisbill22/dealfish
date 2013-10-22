@@ -24,7 +24,8 @@ function dropPins(){
 			image: 'images/normal.png',
 			animate: true,
 			myid: i, 
-			rightButton: 'images/singleArrowRightButton.gif',
+			//rightButton: 'images/singleArrowRightButton.gif',
+			rightButton: Titanium.UI.iPhone.SystemButton.CONTACT_ADD,
 		});
 		//If a flash deal change icon
 		if(currentLocations[i][5] == 1){
@@ -34,4 +35,10 @@ function dropPins(){
 		allTempAnnotations.push(tempAnnotation);
 	}
 	mapview.annotations = allTempAnnotations;
+}
+function getCompanyName(){
+	for(i=0; i!=currentLocations.length; i++){
+		var name = currentLocations[i][1];
+	}
+	return name;
 }
