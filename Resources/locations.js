@@ -2,7 +2,7 @@ function getLocation(){
 	if (Ti.Geolocation.locationServicesEnabled) {
 		var longitude;
 		var latitude;
-		//Get the current position and set it to the mapview
+		//Get the current position and set it to the map
 		Titanium.Geolocation.getCurrentPosition(function(e){
 			if (e.error) {
 				activeLocation = false;
@@ -18,7 +18,7 @@ function getLocation(){
 		        };
 		        currentLat = e.coords.latitude;
 				currentLong = e.coords.longitude;
-		        mapview.setLocation(region);
+		        map.setLocation(region);
 		        stop_loading();
 		        return [e.coords.latitude, e.coords.longitude];
 	        }

@@ -16,6 +16,7 @@ function dropPins(){
 	for(i=0; i!=currentLocations.length; i++){
 		Ti.API.info("Setting New Pin at "+currentLocations[i][4]+", "+currentLocations[i][3]);
 		var tempAnnotation = Titanium.Map.createAnnotation ({
+			draggable:false,
 			latitude: currentLocations[i][4],
 			longitude: currentLocations[i][3],
 			title: currentLocations[i][1],
@@ -25,7 +26,7 @@ function dropPins(){
 			animate: true,
 			myid: i, 
 			//rightButton: 'images/singleArrowRightButton.gif',
-			rightButton: Titanium.UI.iPhone.SystemButton.CONTACT_ADD,
+			rightButton: Titanium.UI.iPhone.SystemButton.INFO_DARK,
 		});
 		//If a flash deal change icon
 		if(currentLocations[i][5] == 1){
@@ -34,7 +35,7 @@ function dropPins(){
 		}
 		allTempAnnotations.push(tempAnnotation);
 	}
-	mapview.annotations = allTempAnnotations;
+	map.annotations = allTempAnnotations;
 }
 function getCompanyName(){
 	for(i=0; i!=currentLocations.length; i++){
