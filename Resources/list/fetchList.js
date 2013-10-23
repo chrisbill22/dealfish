@@ -16,24 +16,22 @@ function setList(){
 	//Create an array here
 	var locArray = [];
 	for (var i = 0; i != currentLocations.length; i++){
-	  var row = Ti.UI.createTableViewRow({
-	    className: 'row',
-	    objName: 'row',
-	    touchEnabled: true,
-	    height: 60
-	  });
-	  var label = Ti.UI.createLabel({
-	    color: '#576996',
-	    objName: 'label',
-	    text: currentLocations[i][1],
-	    touchEnabled: false,
-	    left: 20,
-	    width: 200
-	  });
-	  row.add(label);
-	  
-	  //Push the row to the end of the array here
-	  locArray.push(row);
+		var row = Ti.UI.createTableViewRow({
+			height: 80
+		});
+		/*var label = Ti.UI.createLabel({
+			color: iOSBlue,
+			text: currentLocations[i][1],
+			touchEnabled: false,
+			left: 20,
+			width: 200
+		});
+		row.add(label);*/
+		
+		row.add(createListItem(currentLocations[i][1], currentLocations[i][0], 0.1, ""));
+		
+		//Push the row to the end of the array here
+		locArray.push(row);
 	}
 	
 	//set listview.data here

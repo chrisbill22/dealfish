@@ -1,14 +1,50 @@
 Ti.include("ui.js");
-/*list_tableview.addEventListener('swipe', function(e){
-	listFront(getSlideDirection("list"));
-	//alert('You swiped to the '+e.direction);
-	if(e.direction == "right"){
-		mapFront(getSlideDirection("map"));
-	}
+
+
+function createListItem(title, deal, distance, img){
+	Ti.API.log("Creating List Item");
+	//A row view
+	var tempItem = Ti.UI.createView({
+		width:'95%',
+		height:70,
+		top:10,
+		borderColor:'#555',
+		borderWidth:1
+	});
+	var tempItem_image = Ti.UI.createView({
+		width:70,
+		height:70,
+		backgroundColor:iOSBlue,
+		left:0
+	});
+	var tempItem_title = Ti.UI.createLabel({
+		left: 80,
+		top:10,
+		width:'70%',
+		font:{fontSize:12},
+		text:"Loading..."
+	});
+	var tempItem_deal = Ti.UI.createLabel({
+		left:80,
+		bottom:10,
+		font:{fontSize:10},
+		text:"Loading..."
+	});
+	var tempItem_distance = Ti.UI.createLabel({
+		right:5,
+		top:10,
+		text:"0.0 mi"
+	});
 	
-	if(e.direction == "left"){
-		favoritesFront(getSlideDirection("favorites"));
-	}
-});*/
-
-
+	tempItem_title.text = title;
+	tempItem_deal.text = deal;
+	tempItem_distance.text = distance;
+	//tempItem_image.backgroundImage = img;
+	
+	tempItem.add(tempItem_title);
+	tempItem.add(tempItem_deal);
+	tempItem.add(tempItem_distance);
+	tempItem.add(tempItem_image);
+	
+	return tempItem;
+}
