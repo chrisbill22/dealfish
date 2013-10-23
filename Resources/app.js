@@ -1,6 +1,8 @@
 //Hello!
 var Cloud = require("ti.cloud");
 
+Ti.Geolocation.purpose = "Get your location for deals in your area";
+
 var MainWindow = Ti.UI.createWindow({
 	width:'100%',
 	height:'100%',
