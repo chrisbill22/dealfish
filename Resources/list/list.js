@@ -20,8 +20,8 @@ function createListItem(title, deal, distance, img){
 	var tempItem_title = Ti.UI.createLabel({
 		left: 80,
 		top:10,
-		width:'70%',
-		font:{fontSize:12},
+		width:'50%',
+		font:{fontSize:14},
 		text:"Loading..."
 	});
 	var tempItem_deal = Ti.UI.createLabel({
@@ -33,12 +33,21 @@ function createListItem(title, deal, distance, img){
 	var tempItem_distance = Ti.UI.createLabel({
 		right:5,
 		top:10,
-		text:"0.0 mi"
+		text:"?",
+		font:{fontSize:14},
 	});
+	
+	if(distance < 1){
+		tempItem_distance.text = "<1 mi";
+	}else if(distance > 100){
+		tempItem_distance.text = ">100 mi";
+	}else{
+		tempItem_distance.text = distance+" mi";
+	}
 	
 	tempItem_title.text = title;
 	tempItem_deal.text = deal;
-	tempItem_distance.text = distance;
+	//tempItem_distance.text = distance;
 	//tempItem_image.backgroundImage = img;
 	
 	tempItem.add(tempItem_title);

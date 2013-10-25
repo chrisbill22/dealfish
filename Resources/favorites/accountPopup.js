@@ -1,21 +1,21 @@
 
 //Need another disable view to be behind the buttons
 var accountSetupPopup_disable = Ti.UI.createView({
-	zIndex:990,
+	zIndex:20,
 	width:'100%',
 	height:'100%',
 	backgroundColor:'#000',
 	opacity:0.8
 });
 var accountSetupPopup_label = Ti.UI.createLabel({
-	zIndex:991,
+	zIndex:21,
 	text:"Information about how you will be signing up for an account and how we will be collecting some information about you.",
 	width:'85%',
 	color:"#fff",
 	top:50
 });
 var accountSetupPopup_Button = Ti.UI.createButton({
-	zIndex:991,
+	zIndex:21,
 	bottom:90,
 	title:'Enable Favorites',
 	width:'90%',
