@@ -1,4 +1,7 @@
-//Hello!
+
+//Variables
+Ti.include("globalVars.js");
+
 var Cloud = require("ti.cloud");
 
 Ti.Geolocation.purpose = "Get your location for deals in your area";
@@ -15,10 +18,11 @@ function capitaliseFirstLetter(string)
 }
 
 Ti.include("pushNotifications.js");
-registerPushNotifications();
+if(!android){
+	registerPushNotifications();
+}
 
-//Variables
-Ti.include("globalVars.js");
+
 
 //Important globally used functions
 Ti.include("db/fetch.js");

@@ -24,28 +24,32 @@ var searchTitle_label = Ti.UI.createLabel({
 	bottom:10
 });
 
-
-var search = Titanium.UI.createSearchBar({
-    barColor:'#JJJ', 
-    showCancel:true,
-    height:'7%',
-    top:'12%',
-    zIndex:20
-});
+//This search is not supported in android
+if(!android){
+	var search = Titanium.UI.createSearchBar({
+	    barColor:'#JJJ', 
+	    showCancel:true,
+	    height:'7%',
+	    top:'12%',
+	    zIndex:20
+	});
+}
 
 var search_table_view = Ti.UI.createTableView({
 	data:[{title: "Search View"}],
-	search:search,
 	width:'100%',
 	height:'81%',
 	bottom:0,
 	zIndex:0
 });
+if(!android){
+	search_table_view.search = search;
+}
 
 searchTitle.add(searchBack);
 searchTitle.add(searchTitle_label);
 search_view.add(searchTitle);
-search_view.add(search);
+if(!android){ search_view.add(search); }
 search_view.add(search_table_view);
 
 
