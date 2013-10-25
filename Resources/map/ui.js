@@ -1,8 +1,8 @@
 Ti.include('../company/ui.js');
 
 var mapview = Ti.UI.createView({
-	left: 0,
-	height: '100%', 
+	left: screen_width,
+	height: '88%', 
 	width: '100%',
 	bottom:0
 });
@@ -39,7 +39,7 @@ var map = Titanium.Map.createView({
     userLocation:true, 
     visible: true, 
     width:'100%',
-    height:'88%',
+    height:'100%',
     bottom:0,
     left:0,
     //left:screen_width
@@ -49,7 +49,6 @@ var map = Titanium.Map.createView({
 var track_button = Ti.UI.createButton({
 	bottom:70,
 	right:15,
-	zIndex:999,
 	height:25,
 	width:50,
 	font:{fontSize:12},
@@ -69,7 +68,7 @@ map.addEventListener('click', function(e){
 	}
 });
 
-mapview.add(mapTitle);
+//mapview.add(mapTitle);
 mapview.add(map);
 mapview.add(track_button);
 

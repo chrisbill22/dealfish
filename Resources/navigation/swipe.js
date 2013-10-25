@@ -2,7 +2,7 @@
 //RIGHT
 //When start, get the x position
 right_slider.addEventListener('touchstart', function(e){
-	getRightViewObj().zIndex = 1;
+	//getRightViewObj().zIndex = 1;
 	startX_right = e.x;
 });
 //Every time the finger moves, will update and subtract by start x position to get delta x position
@@ -22,7 +22,7 @@ right_slider.addEventListener('touchmove', function(e){
 right_slider.addEventListener('touchend', function(e){
 	if(deltaX_right >= -1*VIEW_TRANSITION_THRESHOLD){
 		getRightViewObj().animate({left:(screen_width)}, function(){
-			getRightViewObj().zIndex = 0;
+			//getRightViewObj().zIndex = 0;
 		});
 	}
 	deltaX_right = 0;
@@ -30,7 +30,7 @@ right_slider.addEventListener('touchend', function(e){
 //LEFT
 //When start, get the x position
 left_slider.addEventListener('touchstart', function(e){
-	getLeftViewObj().zIndex = 1;
+	//getLeftViewObj().zIndex = 1;
 	startX_left = e.x;
 });
 //Every time the finger moves, will update and subtract by start x position to get delta x position
@@ -49,58 +49,45 @@ left_slider.addEventListener('touchmove', function(e){
 left_slider.addEventListener('touchend', function(e){
 	if(deltaX_left <= VIEW_TRANSITION_THRESHOLD){
 		getLeftViewObj().animate({left:(-1*screen_width)}, function(){
-			getLeftViewObj().zIndex = 0;
+			//getLeftViewObj().zIndex = 0;
 		});
 	}
 	deltaX_left = 0;
 });
 
 function getLeftViewObj(){
-	if(currentView == "search"){
+	/*if(currentView == "search"){
 		return settings_view;
-	}
-	
-	if(currentView == "map"){
+	}else if(currentView == "map"){
 		return search_view;
-	}
-	
-	if(currentView == "list"){
+	}else if(currentView == "list"){
 		return mapview;
-	}
-	
-	if(currentView == "favorites"){
+	}else if(currentView == "favorites"){
 		return listview;
-	}
-	
-	if(currentView == "settings"){
+	}else if(currentView == "settings"){
 		return favorites_view;
-	}
+	}*/
+	return search_view;
 }
 
 function getRightViewObj(){
-	if(currentView == "favorites"){
+	/*if(currentView == "favorites"){
 		return settings_view;
-	}
-	
-	if(currentView == "settings"){
+	}else if(currentView == "settings"){
 		return search_view;
-	}
-	
-	if(currentView == "search"){
+	}else if(currentView == "search"){
 		return mapview;
-	}
-	
-	if(currentView == "map"){
+	}else if(currentView == "map"){
 		return listview;
-	}
-	
-	if(currentView == "list"){
+	}else if(currentView == "list"){
 		return favorites_view;
-	}
+	}*/
+	return settings_view;
 }
 
 function transitionLeftViewIn(){
-	var direction = "right";
+	openSearch();
+	/*var direction = "right";
 	if(currentView == "search"){
 		settingsFront(direction);
 	}else if(currentView == "map"){
@@ -111,11 +98,12 @@ function transitionLeftViewIn(){
 		listFront(direction);
 	}else if(currentView == "settings"){
 		favoritesFront(direction);
-	}
+	}*/
 }
 
 function transitionRightViewIn(){
-	var direction = "left";
+	openSettings();
+	/*var direction = "left";
 	if(currentView == "favorites"){
 		settingsFront(direction);
 	}else if(currentView == "settings"){
@@ -126,5 +114,27 @@ function transitionRightViewIn(){
 		listFront(direction);
 	}else if(currentView == "list"){
 		favoritesFront(direction);
-	}
+	}*/
+}
+
+function openSearch(){
+	//navReset();
+	/*settingsBack();
+	mapBack();
+	listBack();
+	favoritesBack();*/
+	transitionViewIn(search_view, "right");
+	setCurrentSubView(currentView);
+	setCurrentView("search");
+}
+
+function openSettings(){
+	//navReset();
+	/*searchBack();
+	mapBack();
+	listBack();
+	favoritesBack();*/
+	transitionViewIn(settings_view, "left");
+	setCurrentSubView(currentView);
+	setCurrentView("settings");
 }

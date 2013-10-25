@@ -1,4 +1,7 @@
-//Hello!
+
+//Variables
+Ti.include("globalVars.js");
+
 var Cloud = require("ti.cloud");
 
 Ti.Geolocation.purpose = "Get your location for deals in your area";
@@ -8,11 +11,18 @@ var MainWindow = Ti.UI.createWindow({
 	height:'100%',
 	backgroundColor:'#fff'
 });
-Ti.include("pushNotifications.js");
-registerPushNotifications();
 
-//Variables
-Ti.include("globalVars.js");
+function capitaliseFirstLetter(string)
+{
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+Ti.include("pushNotifications.js");
+if(!android){
+	registerPushNotifications();
+}
+
+
 
 //Important globally used functions
 Ti.include("db/fetch.js");

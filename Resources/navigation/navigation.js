@@ -1,11 +1,12 @@
-Ti.include("ui.js");
 Ti.include("constants.js");
+Ti.include("ui.js");
 Ti.include("swipe.js");
-
+Ti.include("header.js");
 
 //Clicks
 nav_search.addEventListener('click', function(){
-	searchFront(getSlideDirection("search"));
+	//searchFront(getSlideDirection("search"));
+	transitionLeftViewIn();
 });
 nav_map.addEventListener('click', function(){
 	mapFront(getSlideDirection("map"));
@@ -18,7 +19,8 @@ nav_favorites.addEventListener('click', function(){
 	favoritesFront(getSlideDirection("favorites"));
 });
 nav_settings.addEventListener('click', function(){
-	settingsFront(getSlideDirection("settings"));
+	//settingsFront(getSlideDirection("settings"));
+	transitionRightViewIn();
 });
 
 
@@ -61,12 +63,18 @@ function getSlideDirection(toView){
 
 function setCurrentView(viewName){
 	currentView = viewName;
+	setNewHeaderTitle(viewName);
 	Ti.API.info("Current View = "+currentView);
+}
+function setCurrentSubView(viewName){
+	currentSubView = viewName;
+	Ti.API.info("Saving last sub view as = "+currentView);
 }
 
 function transitionViewIn(obj, dir){
 	Ti.API.info("Moving "+dir);
 	
+	var tempZ = obj.zIndex;
 	
 	if(dir == "right"){
 		Ti.API.log(obj.left);
@@ -74,12 +82,12 @@ function transitionViewIn(obj, dir){
 			Ti.API.info("Jumping View");
 			obj.left = -1 * screen_width;
 		}
-		obj.zIndex = 1;
+		obj.zIndex = tempZ+1;
 		obj.animate({
 			left: 0,
 			duration: IN_ANIMATION_SPEED
 		}, function(){
-			obj.zIndex = 0;
+			obj.zIndex = tempZ;
 			obj.add(right_slider);
 			obj.add(left_slider);
 		});
@@ -90,12 +98,12 @@ function transitionViewIn(obj, dir){
 			Ti.API.info("Jumping View");
 			obj.left = screen_width;
 		}
-		obj.zIndex = 1;
+		obj.zIndex = tempZ+1;
 		obj.animate({
 			left: 0,
 			duration: IN_ANIMATION_SPEED
 		}, function(){
-			obj.zIndex = 0;
+			obj.zIndex = tempZ;
 			obj.add(right_slider);
 			obj.add(left_slider);
 		});
@@ -114,7 +122,30 @@ function transitionViewOut(obj, dir){
 		obj.transform = Titanium.UI.create2DMatrix().scale(1,1);
 	});
 }
-
+function slideViewOut(obj, dir){
+	obj.remove(right_slider);
+	obj.remove(left_slider);
+	if(dir == "left"){
+		obj.animate({
+			left:(screen_width*-1),
+			duration : OUT_ANIMATION_SPEED
+		});
+	}else if(dir == "right"){
+		obj.animate({
+			left:screen_width,
+			duration : OUT_ANIMATION_SPEED
+		});
+	}
+	/*obj.animate(transitionViewOutAnimation, function(){
+		if(dir == "left"){
+			obj.left = screen_width;
+		}else{
+			obj.left = screen_width;
+		}
+		obj.opacity = 1;
+		obj.transform = Titanium.UI.create2DMatrix().scale(1,1);
+	});*/
+}
 
 function navReset(){
 	nav_favorites.backgroundColor = '#DDD';
@@ -136,11 +167,15 @@ function searchFront(direction){
 	favoritesBack();
 	settingsBack();
 	transitionViewIn(search_view, direction);
+	setCurrentSubView(currentView);
 	setCurrentView("search");
 }
 function searchBack(direction){
+	direction = "left";
 	if(currentView == "search"){
-		transitionViewOut(search_view, direction);
+		slideViewOut(search_view, direction);
+		setCurrentView(currentSubView);
+		setCurrentSubView("");
 	}
 }
 
@@ -199,10 +234,14 @@ function settingsFront(direction){
 	listBack();
 	favoritesBack();
 	transitionViewIn(settings_view, direction);
+	setCurrentSubView(currentView);
 	setCurrentView("settings");
 }
 function settingsBack(direction){
+	direction = "right";
 	if(currentView == "settings"){
-		transitionViewOut(settings_view, direction);
+		slideViewOut(settings_view, direction);
+		setCurrentView(currentSubView);
+		setCurrentSubView("");
 	}
 }

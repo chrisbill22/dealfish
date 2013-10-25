@@ -15,6 +15,7 @@ var currentLocations = [];
 
 var iOSBlue = "#007AFF";
 var currentView = "list";
+var currentSubView = ""; // this will store the last view open before switching to settings, search, or any other layover view
 var deviceID = "";
 
 var activeLocation = false;
@@ -22,7 +23,11 @@ var fetchingLocations = false;
 
 var screen_height = Ti.Platform.displayCaps.platformHeight;
 var screen_width = Ti.Platform.displayCaps.platformWidth;
-
+var os = Titanium.Platform.osname;
+var android = false;
+if(os == "android"){
+	android = true;
+}
 
 
 

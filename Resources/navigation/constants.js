@@ -3,6 +3,8 @@ var OUT_ANIMATION_SPEED = 500;
 
 var VIEW_TRANSITION_THRESHOLD = 200;
 
+var BOTTOM_MENU_WIDTH_PER = ((1/3)*100);
+
 var startX_left;
 var deltaX_left = 0;
 var startX_right;
@@ -14,3 +16,4 @@ var transitionViewOutAnimation = Ti.UI.createAnimation({
 	opacity : 0,
 	duration : OUT_ANIMATION_SPEED
 });
+
