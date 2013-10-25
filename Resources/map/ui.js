@@ -4,7 +4,8 @@ var mapview = Ti.UI.createView({
 	left: screen_width,
 	height: '88%', 
 	width: '100%',
-	bottom:0
+	bottom:0,
+	zIndex:0
 });
 
 
