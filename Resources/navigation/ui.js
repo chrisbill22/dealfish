@@ -34,19 +34,6 @@ var nav_favorites = Ti.UI.createButton({
 });
 
 
-
-
-
-
-var navigation_top = Ti.UI.createView({
-	width:'100%',
-	height:screen_width*0.2,
-	top:0,
-	left:0,
-	zIndex:10,
-});
-
-
 var nav_search = Ti.UI.createButton({ 
 	/*width:'20%',
 	height:screen_width*0.2,
@@ -94,7 +81,8 @@ var left_slider = Ti.UI.createView({
 	height:'100%',
 	//backgroundColor:'#000',
 	bottom:0,
-	left:0
+	left:0,
+	zIndex:5
 });
 
 //RIGHT TRANSITION
@@ -103,12 +91,9 @@ var right_slider = Ti.UI.createView({
 	height:'100%',
 	//backgroundColor:'#000',
 	bottom:0,
-	right:0
+	right:0,
+	zIndex:5
 });
-
-//Add to list view because list view is by default the first view open
-listview.add(right_slider);
-listview.add(left_slider);
 
 //navigation.add(nav_search);
 navigation_bottom.add(nav_map);
@@ -116,5 +101,7 @@ navigation_bottom.add(nav_list);
 navigation_bottom.add(nav_favorites);
 //navigation.add(nav_settings);
 
+MainWindow.add(right_slider);
+MainWindow.add(left_slider);
 MainWindow.add(navigation_bottom);
 

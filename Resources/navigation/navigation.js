@@ -88,8 +88,6 @@ function transitionViewIn(obj, dir){
 			duration: IN_ANIMATION_SPEED
 		}, function(){
 			obj.zIndex = tempZ;
-			obj.add(right_slider);
-			obj.add(left_slider);
 		});
 	}
 	
@@ -104,14 +102,10 @@ function transitionViewIn(obj, dir){
 			duration: IN_ANIMATION_SPEED
 		}, function(){
 			obj.zIndex = tempZ;
-			obj.add(right_slider);
-			obj.add(left_slider);
 		});
 	}
 }
 function transitionViewOut(obj, dir){
-	obj.remove(right_slider);
-	obj.remove(left_slider);
 	obj.animate(transitionViewOutAnimation, function(){
 		if(dir == "left"){
 			obj.right = screen_width;
@@ -123,8 +117,6 @@ function transitionViewOut(obj, dir){
 	});
 }
 function slideViewOut(obj, dir){
-	obj.remove(right_slider);
-	obj.remove(left_slider);
 	if(dir == "left"){
 		obj.animate({
 			left:(screen_width*-1),
