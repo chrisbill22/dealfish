@@ -4,7 +4,8 @@ var listview = Ti.UI.createView({
 	left: 0,
 	height: '88%', 
 	width: '100%',
-	bottom:0
+	bottom:0,
+	zIndex:0
 });
 
 var listTitle = Ti.UI.createView({

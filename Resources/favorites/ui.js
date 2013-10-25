@@ -2,7 +2,8 @@ var favorites_view = Ti.UI.createView({
 	left: -1*screen_width,
 	height: '88%', 
 	width: '100%',
-	bottom:0
+	bottom:0,
+	zIndex:0
 });
 
 var favoritesTitle = Ti.UI.createView({

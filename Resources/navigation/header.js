@@ -1,11 +1,12 @@
-var listTitle = Ti.UI.createView({
+var mainHeader = Ti.UI.createView({
 	height:'12%',
 	top:0,
 	left:0,
 	backgroundColor:'#DDD',
-	borderWidth:0
+	borderWidth:0,
+	zIndex:10
 });
-var listTitle_label = Ti.UI.createLabel({
+var mainHeader_label = Ti.UI.createLabel({
 	text:"Home",
 	bottom:10
 });
@@ -16,20 +17,20 @@ function setNewHeaderTitle(title){
 		title = "Home";
 	}
 	title = capitaliseFirstLetter(title);
-	listTitle_label.animate({
+	mainHeader_label.animate({
 		bottom:-50
 	}, function(){
-		listTitle_label.text = title;
-		//listTitle_label.bottom = 0;
-		listTitle_label.animate({
+		mainHeader_label.text = title;
+		//mainHeader_label.bottom = 0;
+		mainHeader_label.animate({
 			bottom:10
 		});
 	});
 }
 
 
-listTitle.add(nav_search);
-listTitle.add(nav_settings);
-listTitle.add(listTitle_label);
+mainHeader.add(nav_search);
+mainHeader.add(nav_settings);
+mainHeader.add(mainHeader_label);
 
-MainWindow.add(listTitle);
+MainWindow.add(mainHeader);
