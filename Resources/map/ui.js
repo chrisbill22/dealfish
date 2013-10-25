@@ -59,7 +59,11 @@ var track_button = Ti.UI.createButton({
 	borderRadius:13,
 });
 // map view click event listener
+function openCompany(index){
+	
+}
 map.addEventListener('click', function(e){
+	var locationID = e.annotation.myid;
 	if(e.clicksource == "rightButton"){
 		MainWindow.animate({
 			view: companyview,

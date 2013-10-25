@@ -33,7 +33,8 @@ function createListItem(title, deal, distance, img){
 	var tempItem_distance = Ti.UI.createLabel({
 		right:5,
 		top:10,
-		text:"?"
+		text:"?",
+		font:{fontSize:14},
 	});
 	
 	if(distance < 1){
