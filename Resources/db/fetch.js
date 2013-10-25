@@ -9,6 +9,11 @@ function fetchLocations(){
 		if(requestReturn.length > 0){
 			Ti.API.warn("Set "+requestReturn.length+" locations");
 			//alert("Description: "+requestReturn[0][0]+"\nCompany Name:"+requestReturn[0][1]+"\nMerchant ID:"+requestReturn[0][2]);
+			//This little loop calculates the distance between the place and current location.
+			for(i=0; i!=requestReturn.length; i++){
+				requestReturn[i][6] = getDistanceBetween(currentLong, currentLat, requestReturn[i][3], requestReturn[i][4]);
+				Ti.API.info("DISTANCE = "+requestReturn[i][6]);
+			}
 			currentLocations = requestReturn;
 		}else{
 			alert("No deals in your area");

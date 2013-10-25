@@ -28,7 +28,7 @@ function setList(){
 		});
 		row.add(label);*/
 		
-		row.add(createListItem(currentLocations[i][1], currentLocations[i][0], 0.1, ""));
+		row.add(createListItem(currentLocations[i][1], currentLocations[i][0], currentLocations[i][6], ""));
 		
 		//Push the row to the end of the array here
 		locArray.push(row);
