@@ -2,7 +2,7 @@ var companyview = Titanium.UI.createView({
 	left: 0,
 	height: '100%', 
 	width: '100%',
-	bottom:0
+	bottom:screen_height,
 });
 var backButton = Titanium.UI.createButton({
 	title: 'Back', 

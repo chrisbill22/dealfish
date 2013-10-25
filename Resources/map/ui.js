@@ -1,7 +1,7 @@
 Ti.include('../company/ui.js');
 
 var mapview = Ti.UI.createView({
-	left: 0,
+	left: screen_width,
 	height: '100%', 
 	width: '100%',
 	bottom:0
