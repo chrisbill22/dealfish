@@ -1,11 +1,12 @@
 Ti.include("constants.js");
 Ti.include("ui.js");
 Ti.include("swipe.js");
-
+Ti.include("header.js");
 
 //Clicks
 nav_search.addEventListener('click', function(){
-	searchFront(getSlideDirection("search"));
+	//searchFront(getSlideDirection("search"));
+	transitionLeftViewIn();
 });
 nav_map.addEventListener('click', function(){
 	mapFront(getSlideDirection("map"));
@@ -18,7 +19,8 @@ nav_favorites.addEventListener('click', function(){
 	favoritesFront(getSlideDirection("favorites"));
 });
 nav_settings.addEventListener('click', function(){
-	settingsFront(getSlideDirection("settings"));
+	//settingsFront(getSlideDirection("settings"));
+	transitionRightViewIn();
 });
 
 
@@ -61,6 +63,7 @@ function getSlideDirection(toView){
 
 function setCurrentView(viewName){
 	currentView = viewName;
+	setNewHeaderTitle(viewName);
 	Ti.API.info("Current View = "+currentView);
 }
 function setCurrentSubView(viewName){

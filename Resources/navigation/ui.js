@@ -22,7 +22,7 @@ var nav_list = Ti.UI.createButton({
 	backgroundColor:'#333',
 	bottom:0,
 	left:BOTTOM_MENU_WIDTH_PER+"%",
-	title:"List"
+	title:"Home"
 });
 var nav_favorites = Ti.UI.createButton({ 
 	width:BOTTOM_MENU_WIDTH_PER+"%",
@@ -48,28 +48,44 @@ var navigation_top = Ti.UI.createView({
 
 
 var nav_search = Ti.UI.createButton({ 
-	width:'20%',
+	/*width:'20%',
 	height:screen_width*0.2,
 	borderRadius:30,
 	backgroundColor:'#DDD',
 	opacity:0.8,
 	bottom:0,
 	left:0,
-	title:"Search"
+	title:"Search"*/
+	bottom:10,
+	left:15,
+	height:25,
+	width:50,
+	font:{fontSize:12},
+	title:"Search",
+	borderColor:iOSBlue,
+	borderRadius:13,
 });
 
 
 
 
 var nav_settings = Ti.UI.createButton({ 
-	width:'20%',
+	/*width:'20%',
 	height:screen_width*0.2,
 	borderRadius:30,
 	backgroundColor:'#DDD',
 	opacity:0.8,
 	bottom:0,
 	left:'80%',
-	title:"Settings"
+	title:"Settings"*/
+	bottom:10,
+	right:15,
+	height:25,
+	width:50,
+	font:{fontSize:12},
+	title:"Settings",
+	borderColor:iOSBlue,
+	borderRadius:13,
 });
 
 //LEFT TRANSITION

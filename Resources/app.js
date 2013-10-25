@@ -8,6 +8,12 @@ var MainWindow = Ti.UI.createWindow({
 	height:'100%',
 	backgroundColor:'#fff'
 });
+
+function capitaliseFirstLetter(string)
+{
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 Ti.include("pushNotifications.js");
 registerPushNotifications();
 
