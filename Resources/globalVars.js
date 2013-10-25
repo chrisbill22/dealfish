@@ -15,6 +15,7 @@ var currentLocations = [];
 
 var iOSBlue = "#007AFF";
 var currentView = "list";
+var currentSubView = ""; // this will store the last view open before switching to settings, search, or any other layover view
 var deviceID = "";
 
 var activeLocation = false;

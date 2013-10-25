@@ -1,3 +1,16 @@
+var settings_view = Titanium.UI.createView({
+	height: '100%', 
+	width: '100%',
+	left: -1*screen_width,
+	backgroundColor:'#fff',
+	zIndex:20
+});
+
+var settingsBack = Ti.UI.createButton({
+	title:"back",
+	left:10,
+	bottom:5
+});
 var settingsTitle = Ti.UI.createView({
 	height:'12%',
 	top:0,
@@ -7,18 +20,10 @@ var settingsTitle = Ti.UI.createView({
 });
 var settingsTitle_label = Ti.UI.createLabel({
 	text:"Settings",
-	left:'10%',
-	bottom:10
-});
-
-var settings_view = Titanium.UI.createView({
-	height: '100%', 
-	width: '100%',
-	left: -1*screen_width
 });
 
 var test_button = Ti.UI.createButton({
-	top:'10%',
+	top:'15%',
 	width:'90%',
 	zIndex:0,
 	backgroundColor:'#DDD',
@@ -26,7 +31,7 @@ var test_button = Ti.UI.createButton({
 });
 
 var notification_button = Ti.UI.createButton({
-	top:'15%',
+	top:'25%',
 	width:'90%',
 	zIndex:0,
 	backgroundColor:'#DDD',
@@ -34,6 +39,7 @@ var notification_button = Ti.UI.createButton({
 });
 
 settingsTitle.add(settingsTitle_label);
+settingsTitle.add(settingsBack);
 settings_view.add(settingsTitle);
 settings_view.add(test_button, notification_button);
 
