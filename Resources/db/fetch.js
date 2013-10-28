@@ -5,6 +5,7 @@ function fetchLocations(){
 	fetchingLocations = true;
 	var testRequest = createDbRequest();
 	testRequest.onload = function(e){
+		//alert(this.responseText);
 		var requestReturn = eval(this.responseText);
 		if(requestReturn.length > 0){
 			Ti.API.warn("Set "+requestReturn.length+" locations");
