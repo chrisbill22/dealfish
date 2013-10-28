@@ -3,7 +3,8 @@ var companyview = Titanium.UI.createView({
 	height: '100%', 
 	width: '100%',
 	bottom:screen_height,
-	
+	backgroundColor: '#fff',
+	zIndex: 21
 });
 var backButton = Titanium.UI.createButton({
 	title: 'Back', 
@@ -18,9 +19,6 @@ var companyName = Titanium.UI.createLabel({
 	height: 60, 
 	top: 50, 
 	left: 50
-});
-backButton.addEventListener('click', function(e){
-		var locationID = e.annotation.myid;
 });
 companyview.add(backButton);
 MainWindow.add(companyview);

@@ -1,6 +1,4 @@
 Ti.include('../company/ui.js');
-Ti.include('setPins.js');
-
 var mapview = Ti.UI.createView({
 	left: screen_width,
 	height: '88%', 
@@ -61,14 +59,19 @@ var track_button = Ti.UI.createButton({
 });
 // map view click event listener
 function openCompany(index){
-	
+	companyview.animate({
+			bottom: 0, 
+		});
 }
 map.addEventListener('click', function(e){
-	mapview.animate({
-		view: companyview,
-		transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT,
-		zIndex: 20
-		});
+	if(e.clicksource == "rightButton"){
+		openCompany();
+	}
+});
+backButton.addEventListener('click', function(){
+	companyview.animate({
+		bottom: screen_height,
+	});
 });
 
 //mapview.add(mapTitle);
