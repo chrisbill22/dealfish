@@ -9,7 +9,17 @@ var currentLong = -9999;
 var currentLat = -9999;
 var zipcode = null;
 
-// [0 = deal description, 1 = company name, 2 = merchant ID, 3 = longitude, 4 = latitude, 5 = flash deal, 6 = distance from current location]
+/* [
+0 = deal description,
+1 = company name,
+2 = merchant ID,
+3 = longitude,
+4 = latitude,
+5 = flash deal,
+6 = distance from current location (default -1, calculated in-app),
+7 = start date,
+8 = end date
+] */
 var currentLocations = [];
 //var currentLocations = [["This is a description", "Test Company", "TCP", 1.1, 1.1, 0],["This is a description", "Test Company", "TCP", 1.1, 1.1, 0],["This is a description", "Test Company", "TCP", 1.1, 1.1, 0]];
 
