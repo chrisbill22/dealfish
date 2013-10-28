@@ -1,4 +1,5 @@
 Ti.include('../company/ui.js');
+Ti.include('setPins.js');
 
 var mapview = Ti.UI.createView({
 	left: screen_width,
@@ -63,14 +64,11 @@ function openCompany(index){
 	
 }
 map.addEventListener('click', function(e){
-	var locationID = e.annotation.myid;
-	if(e.clicksource == "rightButton"){
-		MainWindow.animate({
-			view: companyview,
-			transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT,
+	mapview.animate({
+		view: companyview,
+		transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT,
+		zIndex: 20
 		});
-		navigation.visible = true;
-	}
 });
 
 //mapview.add(mapTitle);

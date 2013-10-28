@@ -37,9 +37,4 @@ function dropPins(){
 	}
 	map.annotations = allTempAnnotations;
 }
-function getCompanyName(){
-	for(i=0; i!=currentLocations.length; i++){
-		var name = currentLocations[i][1];
-	}
-	return name;
-}
+

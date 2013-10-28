@@ -3,21 +3,31 @@ var companyview = Titanium.UI.createView({
 	height: '100%', 
 	width: '100%',
 	bottom:screen_height,
+	
 });
 var backButton = Titanium.UI.createButton({
 	title: 'Back', 
 	width: 100, 
 	height: 50, 
 	top: 10, 
-	left: 0
+	left: 0, 
 });
-backButton.addEventListener('click', function(){
-		MainWindow.animate({
-			view: mapview,
-			transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT,
-		});
+var companyName = Titanium.UI.createLabel({
+	title: getCompanyName(),
+	width: 200, 
+	height: 60, 
+	top: 50, 
+	left: 50
+});
+backButton.addEventListener('click', function(e){
+		var locationID = e.annotation.myid;
 });
 companyview.add(backButton);
 MainWindow.add(companyview);
 
-
+function getCompanyName(){
+	for(i=0; i!=currentLocations.length; i++){
+		var name = currentLocations[i][1];
+	}
+	return name;
+}
