@@ -69,7 +69,7 @@ map.addEventListener('click', function(e){
 			view: companyview,
 			transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT,
 		});
-		companyview.visible = true;
+		navigation.visible = true;
 	}
 });
 

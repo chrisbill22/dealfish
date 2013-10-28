@@ -13,10 +13,9 @@ var backButton = Titanium.UI.createButton({
 });
 backButton.addEventListener('click', function(){
 		MainWindow.animate({
-			view: map,
+			view: mapview,
 			transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT,
 		});
-		companyview.visible = false;
 });
 companyview.add(backButton);
 MainWindow.add(companyview);

@@ -1,4 +1,7 @@
 eclipse.preferences.version=1
+provisioning_profiles/development/69F5728A-407C-480C-90BA-34B4C61E4FC3/appid=com.ChrisBill.genY
+provisioning_profiles/development/69F5728A-407C-480C-90BA-34B4C61E4FC3/name=genY-development
+provisioning_profiles/development/69F5728A-407C-480C-90BA-34B4C61E4FC3/uuid=69F5728A-407C-480C-90BA-34B4C61E4FC3
 provisioning_profiles/development/0E670D59-A84D-4F6E-BC6C-807128165057/appid=*
 provisioning_profiles/development/0E670D59-A84D-4F6E-BC6C-807128165057/name=iOS Team Provisioning Profile\: Wildcard AppID
 provisioning_profiles/development/0E670D59-A84D-4F6E-BC6C-807128165057/uuid=0E670D59-A84D-4F6E-BC6C-807128165057
@@ -47,3 +50,4 @@ provisioning_profiles/development/DB741293-A9F2-4ABC-A889-E03126B8D381/uuid=DB74
 provisioning_profiles/development/F7252F51-0AAA-466F-B199-980DABE37EF6/appid=*
 provisioning_profiles/development/F7252F51-0AAA-466F-B199-980DABE37EF6/name=iOS Team Provisioning Profile\: *
 provisioning_profiles/development/F7252F51-0AAA-466F-B199-980DABE37EF6/uuid=F7252F51-0AAA-466F-B199-980DABE37EF6
+>>>>>>> 2bff59183bc6fa2d812125d75052a20cba12aefc
