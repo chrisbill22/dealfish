@@ -62,7 +62,7 @@ function setList(){
 		
 		row.add(createListItem(dataArray[i]));
 		row.addEventListener('click', function(e){
-			alert(e.rowData.dealID);
+			openCompany(e.rowData.dealID);
 		});
 		
 		//Push the row to the end of the array here
