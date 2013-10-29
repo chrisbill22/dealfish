@@ -13,19 +13,5 @@ var backButton = Titanium.UI.createButton({
 	top: 10, 
 	left: 0, 
 });
-var companyName = Titanium.UI.createLabel({
-	title: getCompanyName(),
-	width: 200, 
-	height: 60, 
-	top: 50, 
-	left: 50
-});
 companyview.add(backButton);
 MainWindow.add(companyview);
-
-function getCompanyName(){
-	for(i=0; i!=currentLocations.length; i++){
-		var name = currentLocations[i][1];
-	}
-	return name;
-}
