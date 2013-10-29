@@ -61,8 +61,11 @@ function setList(){
 		//alert("Start Date: "+currentLocations[i][7]+"\nEnd Date: "+currentLocations[i][8]);
 		
 		row.add(createListItem(dataArray[i]));
-		row.addEventListener('click', function(e){
+		row.addEventListener('press', function(e){
 			openCompany(e.rowData.dealID);
+		});
+		row.addEventListener('longpress', function(e){
+			openQuickActionView();
 		});
 		
 		//Push the row to the end of the array here
