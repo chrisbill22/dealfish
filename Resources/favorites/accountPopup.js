@@ -27,12 +27,15 @@ var accountSetupPopup_Button = Ti.UI.createButton({
 
 accountSetupPopup_disable.add(accountSetupPopup_Button);
 accountSetupPopup_disable.add(accountSetupPopup_label);
-favorites_view.add(accountSetupPopup_disable);
+
 
 function disableAccount_background(){
-	background_disable.animate({opacity:0.8});
+	background_disable.animate({opacity:0.8}, function(){
+		favorites_view.remove(accountSetupPopup_disable);
+	});
 }
 
 function enableAccount_backgrond(){
+	favorites_view.add(accountSetupPopup_disable);
 	background_disable.animate({opacity:0});
 }

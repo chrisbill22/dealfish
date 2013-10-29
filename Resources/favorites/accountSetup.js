@@ -14,20 +14,24 @@ function generateID(){
 	return UUID;
 }
 
-function checkDBID(uuid){
-	var testRequest = createDbRequest();
+//Starts with an ID and loops through until an avalible ID is found
+function getDBID(uuid){
+	if(!uuid){
+		uuid = generateID();
+	}
+	var checkUUIDrequest = createDbRequest();
 	
 	addPostVariable("uuid", uuid);
 	
-	sendDbRequest("http://dealfish.genyapps.com/app/checkUUID.php", testRequest);
+	sendDbRequest("http://dealfish.genyapps.com/app/checkUUID.php", checkUUIDrequest);
 	
-	testRequest.onload = function(e){
+	checkUUIDrequest.onload = function(e){
 		var requestReturn = this.responseText;
 		if(requestReturn.length > 0 && requestReturn == "false"){
 			return true;
 		}else{
 			deviceID = generateID();
-			Ti.API.log("Checking - 2 "+deviceID);
+			Ti.API.log("Checking  "+deviceID);
 			checkDBID(deviceID);
 		}
 	};
@@ -35,10 +39,23 @@ function checkDBID(uuid){
 }
 
 function signup(){
-	deviceID = generateID();
-	Ti.API.log("Checking "+deviceID);
-	checkDBID(deviceID);
-	//alert(uuid);
+	if(!deviceID){
+		var DBID = checkDBID();
+		//alert(uuid);
+		var signupRequest = createDbRequest();
+		addPostVariable("auth", "AjdD#Djv!@n");
+		addPostVariable("uuid", DBID);
+		sendDbRequest("http://dealfish.genyapps.com/app/addUser.php", signupRequest);
+		signupRequest.onload = function(e){
+			if(e.responseText == "true"){
+				alert("Account Created Successfully");
+				deviceID = DBID;
+				Ti.App.Properties.setString("deviceID". DBID);
+			}else{
+				alert("error\n"+e.responseText);
+			}
+		};
+	}
 }
 
 
