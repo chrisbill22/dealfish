@@ -47,17 +47,18 @@ function createListItem(data){
 		width:'100%',
 		height:'100%',
 		left:0,
-		top:0
+		top:0, 
+		zIndex:22
 	});
 	
 	var tempItem_flash = Ti.UI.createView({
 		width:20,
 		height:20,
-		borderRadius:10,
+		borderRadius:0,
 		backgroundColor:'red',
 		left:(screen_width*0.05)-10,
 		top:5,
-		zIndex:1
+		zIndex:22
 	});
 	if(flash){
 		tempItemHolder.add(tempItem_flash);
@@ -68,31 +69,36 @@ function createListItem(data){
 		height:70,
 		top:10,
 		borderColor:'#555',
+		zIndex:22
 	});
 	var tempItem_image = Ti.UI.createView({
 		width:70,
 		height:70,
 		backgroundColor:iOSBlue,
-		left:0
+		left:0,
+		zIndex:22
 	});
 	var tempItem_title = Ti.UI.createLabel({
 		left: 80,
 		top:10,
 		width:'50%',
 		font:{fontSize:14},
-		text:"Loading..."
+		text:"Loading...",
+		zIndex:22
 	});
 	var tempItem_deal = Ti.UI.createLabel({
 		left:80,
 		bottom:10,
 		font:{fontSize:10},
-		text:"Loading..."
+		text:"Loading...",
+		zIndex:22
 	});
 	var tempItem_distance = Ti.UI.createLabel({
 		right:5,
 		top:10,
 		text:"?",
 		font:{fontSize:14},
+		zIndex:22
 	});
 	
 	if(distance < 1){
