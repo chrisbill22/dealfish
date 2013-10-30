@@ -81,8 +81,9 @@ function populateFavoriteList(){
 				var tempOnOff = Ti.UI.createSwitch({right:15, value:false, compID:favorites[i][x][1]});
 				tempRow.add(tempOnOff);
 				tempOnOff.addEventListener('change', function(e){
-					enablePushCompany(e.source.compID);
-					//alert(favorites[i][x][0]);
+					if(hasAccount()){
+						enablePushCompany(e.source.compID);
+					}
 				});
 			}
 			tempRows.push(tempRow);
