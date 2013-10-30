@@ -65,7 +65,7 @@ function openCompany(index){
 }
 map.addEventListener('click', function(e){
 	if(e.clicksource == "rightButton"){
-		openCompany();
+		openCompany(e.annotation.myid);
 	}
 });
 backButton.addEventListener('click', function(){
