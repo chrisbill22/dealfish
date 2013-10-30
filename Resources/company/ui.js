@@ -1,3 +1,4 @@
+Ti.include("fetchCompany.js");
 var companyview = Titanium.UI.createView({
 	left: 0,
 	height: '100%', 

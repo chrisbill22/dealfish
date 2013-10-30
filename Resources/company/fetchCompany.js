@@ -6,6 +6,7 @@ function fetchCompany() {
 		Ti.App.addEventListener('locationFetched', setCompany);
 	}else{
 		setCompany();
+		alert("Set Company working");
 	}
 }
 
@@ -55,9 +56,10 @@ function setCompany(){
 	for (var i = 0; i != dataArray.length; i++){
 		var title = Ti.UI.createView({
 			height: 80,
-			dealID:i
+			dealID:i, 
+			zIndex: 22
 		});
-		//alert("Start Date: "+currentLocations[i][7]+"\nEnd Date: "+currentLocations[i][8]);
+		alert("Start Date: "+currentLocations[i][7]+"\nEnd Date: "+currentLocations[i][8]);
 		
 		title.add(dataArray[i]);
 		title.addEventListener('click', function(e){
@@ -70,4 +72,5 @@ function setCompany(){
 	
 	//set listview.data here
 	//list_tableview.data = rowArray;
+	alert("Set company went through");
 }
