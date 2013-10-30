@@ -1,3 +1,4 @@
+var currentQuickID = -1;
 var quickActionView_backdrop = Ti.UI.createView({
 	width:screen_width,
 	height:screen_height,
@@ -40,7 +41,8 @@ quickActionView.add(quickAction_website);
 MainWindow.add(quickActionView_backdrop);
 MainWindow.add(quickActionView);
 
-function openQuickActionView(){
+function openQuickActionView(ID){
+	currentQuickID = ID;
 	quickActionView_backdrop.left = 0;
 	quickActionView.animate({left:0});
 }
@@ -51,4 +53,8 @@ function closeQuickActionView(){
 
 quickActionView_backdrop.addEventListener('click', function(){
 	closeQuickActionView();
+});
+
+quickAction_favorite.addEventListener('click', function(){
+	openFavoritesPopup(currentQuickID);
 });

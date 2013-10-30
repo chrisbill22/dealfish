@@ -61,5 +61,12 @@ function signup(){
 
 accountSetupPopup_Button.addEventListener('click', function(){
 	signup();
-	alert(deviceID);
 });
+
+function hasAccount(){
+	if(!deviceID){
+		enableAccount_backgrond();
+	}else{
+		return true;
+	}
+}
