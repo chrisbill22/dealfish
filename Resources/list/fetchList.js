@@ -56,13 +56,16 @@ function setList(){
 	for (var i = 0; i != dataArray.length; i++){
 		var row = Ti.UI.createTableViewRow({
 			height: 80,
-			dealID:i
+			companyID:dataArray[i][0]
 		});
 		//alert("Start Date: "+currentLocations[i][7]+"\nEnd Date: "+currentLocations[i][8]);
 		
 		row.add(createListItem(dataArray[i]));
-		row.addEventListener('click', function(e){
-			alert(e.rowData.dealID);
+		row.addEventListener('press', function(e){
+			openCompany(getFirstInstanceOfCompanyID(e.rowData.companyID));
+		});
+		row.addEventListener('longpress', function(e){
+			openQuickActionView(getFirstInstanceOfCompanyID(e.rowData.companyID));
 		});
 		
 		//Push the row to the end of the array here
@@ -71,4 +74,12 @@ function setList(){
 	
 	//set listview.data here
 	list_tableview.data = rowArray;
+}
+
+function getFirstInstanceOfCompanyID(companyID){
+	for(var i=0; i!=currentLocations.length; i++){
+		if(currentLocations[i][2] == companyID){
+			return i;
+		}
+	}
 }

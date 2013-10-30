@@ -23,16 +23,30 @@ var accountSetupPopup_Button = Ti.UI.createButton({
 	backgroundColor:'#333',
 	color:'#DDD'
 });
-
-
+var accountSetupPopup_cancel = Ti.UI.createButton({
+	zIndex:21,
+	bottom:190,
+	title:'Cancel',
+	width:'90%',
+	height:'10%',
+	backgroundColor:'#333',
+	color:'#DDD'
+});
+accountSetupPopup_disable.add(accountSetupPopup_cancel);
 accountSetupPopup_disable.add(accountSetupPopup_Button);
 accountSetupPopup_disable.add(accountSetupPopup_label);
-favorites_view.add(accountSetupPopup_disable);
+
+accountSetupPopup_cancel.addEventListener('click', function(){
+	enableAccount_backgrond();
+});
 
 function disableAccount_background(){
-	background_disable.animate({opacity:0.8});
+	background_disable.animate({opacity:0}, function(){
+		favorites_view.remove(accountSetupPopup_disable);
+	});
 }
 
 function enableAccount_backgrond(){
+	favorites_view.add(accountSetupPopup_disable);
 	background_disable.animate({opacity:0});
 }

@@ -23,6 +23,19 @@ var zipcode = null;
 var currentLocations = [];
 //var currentLocations = [["This is a description", "Test Company", "TCP", 1.1, 1.1, 0],["This is a description", "Test Company", "TCP", 1.1, 1.1, 0],["This is a description", "Test Company", "TCP", 1.1, 1.1, 0]];
 
+
+/* [
+0 = listName
+1 = [
+	0 = company name
+	1 = merchant ID
+	2 = long
+	3 = lat
+	4 = distance from current location (default -1, calculated in-app)
+	]
+] */
+var favorites = [];
+
 var iOSBlue = "#007AFF";
 var currentView = "list";
 var currentSubView = ""; // this will store the last view open before switching to settings, search, or any other layover view
@@ -54,4 +67,8 @@ if(!Ti.App.Properties.getBool("zipSetup")){
 
 if(Ti.App.Properties.getString("deviceID")){
 	deviceID = Ti.App.Properties.getString("deviceID");
+}
+
+if(Ti.App.Properties.getList("favorites")){
+	favorites = Ti.App.Properties.getList("favorites");
 }

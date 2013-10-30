@@ -1,3 +1,4 @@
+Ti.include("quickActionView.js");
 Ti.include("ui.js");
 
 
