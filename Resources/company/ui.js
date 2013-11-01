@@ -57,24 +57,24 @@ function openCompany(id){
 	});
 	var callButton = Titanium.UI.createButton({
 		title: "Call", 
-		width: 50, 
-		height: 50, 
+		width: 100, 
+		height: 100, 
 		borderWidth: 1, 
 		top: 325,
 		left: 20
 	});
 	var directionsButton = Titanium.UI.createButton({
 		title: "Directions", 
-		width: 50, 
-		height: 50, 
+		width: 100, 
+		height: 100, 
 		borderWidth: 1, 
 		top: 325,
 		left: 80
 	});
 	var favoritesButton = Titanium.UI.createButton({
 		title: "Add to Favorites", 
-		width: 50, 
-		height: 50, 
+		width: 100, 
+		height: 100, 
 		borderWidth: 1, 
 		top: 325,
 		left: 140
