@@ -37,16 +37,13 @@ accountSetupPopup_disable.add(accountSetupPopup_Button);
 accountSetupPopup_disable.add(accountSetupPopup_label);
 
 accountSetupPopup_cancel.addEventListener('click', function(){
-	enableAccount_backgrond();
+	disableAccount_background();
 });
 
 function disableAccount_background(){
-	background_disable.animate({opacity:0}, function(){
-		favorites_view.remove(accountSetupPopup_disable);
-	});
+	favorites_view.remove(accountSetupPopup_disable);
 }
 
 function enableAccount_backgrond(){
 	favorites_view.add(accountSetupPopup_disable);
-	background_disable.animate({opacity:0});
 }

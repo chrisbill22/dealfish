@@ -15,57 +15,54 @@ function generateID(){
 }
 
 //Starts with an ID and loops through until an avalible ID is found
-function getDBID(uuid){
-	if(!uuid){
-		uuid = generateID();
-	}
+function getDBID(){
+	Ti.API.log("GETTING UUID");
+	uuid = generateID();
+	Ti.API.log("Checking  "+uuid);
 	var checkUUIDrequest = createDbRequest();
-	
 	addPostVariable("uuid", uuid);
-	
 	sendDbRequest("http://dealfish.genyapps.com/app/checkUUID.php", checkUUIDrequest);
-	
 	checkUUIDrequest.onload = function(e){
 		var requestReturn = this.responseText;
 		if(requestReturn.length > 0 && requestReturn == "false"){
-			return true;
+			signup(uuid);
+			return uuid;
 		}else{
-			deviceID = generateID();
-			Ti.API.log("Checking  "+deviceID);
-			checkDBID(deviceID);
+			getDBID();
 		}
 	};
 	
 }
 
-function signup(){
-	if(!deviceID){
-		var DBID = checkDBID();
-		//alert(uuid);
-		var signupRequest = createDbRequest();
-		addPostVariable("auth", "AjdD#Djv!@n");
-		addPostVariable("uuid", DBID);
-		sendDbRequest("http://dealfish.genyapps.com/app/addUser.php", signupRequest);
-		signupRequest.onload = function(e){
-			if(e.responseText == "true"){
-				alert("Account Created Successfully");
-				deviceID = DBID;
-				Ti.App.Properties.setString("deviceID". DBID);
-			}else{
-				alert("error\n"+e.responseText);
-			}
-		};
-	}
+function signup(uuid){
+	Ti.API.log("SIGNING UP");
+	//var DBID = getDBID();
+	//alert(uuid);
+	var signupRequest = createDbRequest();
+	addPostVariable("auth", "AjdD#Djv!@n");
+	addPostVariable("uuid", uuid);
+	sendDbRequest("http://dealfish.genyapps.com/app/addUser.php", signupRequest);
+	signupRequest.onload = function(e){
+		if(this.responseText == "true"){
+			alert("Account Created Successfully");
+			deviceID = uuid;
+			Ti.App.Properties.setString("deviceID", uuid);
+			disableAccount_background();
+		}else{
+			alert("error\n"+this.responseText);
+		}
+	};
 }
 
 
 accountSetupPopup_Button.addEventListener('click', function(){
-	signup();
+	getDBID();
 });
 
 function hasAccount(){
 	if(!deviceID){
 		enableAccount_backgrond();
+		return false;
 	}else{
 		return true;
 	}

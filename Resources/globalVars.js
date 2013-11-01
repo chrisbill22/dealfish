@@ -69,6 +69,8 @@ if(Ti.App.Properties.getString("deviceID")){
 	deviceID = Ti.App.Properties.getString("deviceID");
 }
 
+alert(deviceID);
+
 if(Ti.App.Properties.getList("favorites")){
 	favorites = Ti.App.Properties.getList("favorites");
 }
