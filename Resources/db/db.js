@@ -2,6 +2,7 @@
 var postVariables = {};
 
 function createDbRequest(){
+	Ti.API.info("Creating DB Request");
 	postVariables = {};
 	var request = Titanium.Network.createHTTPClient({
 		/*onload : function(e){

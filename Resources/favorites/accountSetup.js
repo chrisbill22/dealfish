@@ -61,9 +61,11 @@ accountSetupPopup_Button.addEventListener('click', function(){
 
 function hasAccount(){
 	if(!deviceID){
+		Ti.API.info("No Account");
 		enableAccount_backgrond();
 		return false;
 	}else{
+		Ti.API.info("Has Account");
 		return true;
 	}
 }

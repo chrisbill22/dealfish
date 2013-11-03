@@ -11,7 +11,7 @@ var favoritesTitle = Ti.UI.createView({
 	top:0,
 	left:0,
 	backgroundColor:'#DDD',
-	borderWidth:0
+	borderWidth:0,
 });
 var favoritesTitle_label = Ti.UI.createLabel({
 	text:"Favorites",

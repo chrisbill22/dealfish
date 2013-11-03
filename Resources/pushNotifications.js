@@ -1,6 +1,8 @@
-deviceToken = "";
-
-function registerPushNotifications(){
+var tempCompanyID = "";
+var tempSubscribe = "";
+function registerPushNotifications(companyID, subscribe){
+	tempSubscribe = subscribe;
+	tempCompanyID = companyID;
 	if(Ti.App.Properties.getBool("pushSubscription") == false){
 		Ti.API.log("info", "Registering for push notifications");
 		var deviceToken = null;
@@ -29,7 +31,7 @@ function receivePush(e) {
 function deviceTokenSuccess(e) {
 	Titanium.API.log("info", "Device token stored: "+e.deviceToken);
     deviceToken = e.deviceToken;
-    loginUser(deviceToken);
+    loginUser(tempCompanyID, tempSubscribe);
 }
 
 function deviceTokenError(e) {
@@ -43,7 +45,7 @@ function deviceTokenError(e) {
 //---------------------------------------------------
 //---------------------------------------------------
 
-function loginUser(deviceToken){
+function loginUser(companyID, subscribe){
     // Log in to ACS
     Cloud.Users.login({
         login: 'orangedog22',
@@ -51,27 +53,36 @@ function loginUser(deviceToken){
     }, function (e) {
         if (e.success) {
             Ti.API.log('Push Notifications Login Successful');
-            subscribeToChannel(deviceToken);
+            if(subscribe){
+            	subscribeToChannel(companyID);
+            }else{
+            	unsubscribeToChannel(companyID);
+            }
         } else {
-            alert('Error:\n' +
+            alert('Login Auth Error:\n' +
                 ((e.error && e.message) || JSON.stringify(e)));
         }
     });
 }
 
 //This example subscribes to a push notification channel and checks the response.
-function subscribeToChannel(deviceToken){
+function subscribeToChannel(companyID){
 	Ti.API.log("info", "Attempting to subscribe to channel using the device token: "+deviceToken);
+	var channel = "Deals";
+	if(companyID){
+		channel = companyID;
+	}
 	Cloud.PushNotifications.subscribe({
-	    channel: 'Deals',
-	    device_token: deviceToken
+	    channel: channel,
+	    device_token: deviceToken,
+	    type:'ios'
 	}, function (e) {
 	    if (e.success) {
 	       Ti.API.log("Subscribed To Channel Successfully");
 	       //Set true so that we don't try and subscribe again.
 	       Ti.App.Properties.setBool("pushSubscription", true);
 	    } else {
-	        alert('Error:\n' +
+	        alert('Subscribe Error:\n' +
 	            ((e.error && e.message) || JSON.stringify(e))+
 	            "\n\n"+deviceToken
 	            );
@@ -79,10 +90,14 @@ function subscribeToChannel(deviceToken){
 	});
 }
 //NOT USED YET - This example unsubscribes from a push notification channel and checks the response.
-function unsubscribeToChannel(){
+function unsubscribeToChannel(companyID){
 	Ti.API.log("info", "Attempting to unsubscribe from channel");
+	var channel = "Deals";
+	if(companyID){
+		channel = companyID;
+	}
 	Cloud.PushNotifications.unsubscribe({
-	    channel: 'Deals',
+	    channel: channel,
 	    device_token: deviceToken
 	}, function (e) {
 	    if (e.success) {
