@@ -8,6 +8,7 @@ function fetchLocations(){
 		//alert(this.responseText);
 		var requestReturn = eval(this.responseText);
 		if(requestReturn.length > 0){
+			ignoreCurrentLocation();
 			Ti.API.warn("Set "+requestReturn.length+" locations");
 			//alert("Description: "+requestReturn[0][0]+"\nCompany Name:"+requestReturn[0][1]+"\nMerchant ID:"+requestReturn[0][2]);
 			//This little loop calculates the distance between the place and current location.
@@ -39,8 +40,8 @@ function fetchLocations(){
 		
 		addPostVariable("current_long", currentLong);
 		addPostVariable("current_lat", currentLat);
-		addPostVariable("delta_long", 1);
-		addPostVariable("delta_lat", 1);
+		addPostVariable("delta_long", longitudeDelta);
+		addPostVariable("delta_lat", latitudeDelta);
 		Ti.API.log("Sending Time = "+(Math.round(new Date().getTime() / 1000))-14400);
 		addPostVariable("currentTime",(Math.round(new Date().getTime() / 1000)) - 14400);
 		

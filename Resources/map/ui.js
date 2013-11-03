@@ -33,7 +33,7 @@ var testAnnotation = Titanium.Map.createAnnotation ({
 });
 var map = Titanium.Map.createView({
     mapType: Titanium.Map.STANDARD_TYPE,
-    region:{latitude:40.424447, longitude:-86.907896, latitudeDelta:0.5, longitudeDelta:0.5},
+    //region:{latitude:40.424447, longitude:-86.907896, latitudeDelta:0.5, longitudeDelta:0.5},
     animate:true,
     regionFit:true,
     userLocation:true, 
@@ -42,6 +42,7 @@ var map = Titanium.Map.createView({
     height:'100%',
     bottom:0,
     left:0,
+    hideAnnotationWhenTouchMap:true
     //left:screen_width
     //annotations:[testAnnotation]
 });
@@ -52,7 +53,7 @@ var track_button = Ti.UI.createButton({
 	height:25,
 	width:50,
 	font:{fontSize:12},
-	title:"Ignore",
+	title:"Track",
 	zIndex:10,
 	borderColor:iOSBlue,
 	borderRadius:13,
