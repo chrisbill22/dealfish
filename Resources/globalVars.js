@@ -32,6 +32,7 @@ var currentLocations = [];
 	2 = long
 	3 = lat
 	4 = distance from current location (default -1, calculated in-app)
+	5 = push enabled (temp)
 	]
 ] */
 var favorites = [];
@@ -40,6 +41,7 @@ var iOSBlue = "#007AFF";
 var currentView = "list";
 var currentSubView = ""; // this will store the last view open before switching to settings, search, or any other layover view
 var deviceID = "";
+var deviceToken = "";
 
 var activeLocation = false;
 var fetchingLocations = false;
@@ -65,11 +67,10 @@ if(!Ti.App.Properties.getBool("zipSetup")){
 	}
 }
 
+
 if(Ti.App.Properties.getString("deviceID")){
 	deviceID = Ti.App.Properties.getString("deviceID");
 }
-
-alert(deviceID);
 
 if(Ti.App.Properties.getList("favorites")){
 	favorites = Ti.App.Properties.getList("favorites");

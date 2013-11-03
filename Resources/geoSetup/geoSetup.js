@@ -13,11 +13,30 @@ function remove_geolocation_setup(){
 	});
 }
 
+function ask_for_zipcode(){
+	geoSetupGeoButton.animate({opacity:0});
+	geoSetupZipButton.animate({opacity:0});
+	enterZipcode_label.animate({opacity:1});
+	enterZipcode_textbox.animate({opacity:1});
+	enterZipcode_backBt.animate({opacity:1});
+	enterZipcode_textbox.focus();
+}
+
 geoSetupGeoButton.addEventListener('click', function(){
 	remove_geolocation_setup();
 	trackCurrentLocation();
+	//Ti.App.Properties.setBool("zipSetup", true);
 });
 
 geoSetupZipButton.addEventListener('click', function(){
-	remove_geolocation_setup();
+	ask_for_zipcode();
+	//Ti.App.Properties.setBool("zipSetup", true);
+});
+
+favoritesPopupName_textbox.addEventListener('return', function(){
+	if(enterZipcode_textbox.value){
+		remove_geolocation_setup();
+	}else{
+		alert("You must add a location to use this app.");
+	}
 });

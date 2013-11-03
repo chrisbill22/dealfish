@@ -25,6 +25,34 @@ var geoSetupGeoButton = Ti.UI.createButton({
 	color:'#DDD'
 });
 
-geoSetupView.add(geoSetupZipButton);
+var enterZipcode_label = Ti.UI.createLabel({
+	text:"Please Enter a Zipcode",
+	font:{fontSize:12},
+	top:150,
+	left:'10%',
+	color:"#fff",
+	opacity:0
+});
 
+var enterZipcode_textbox = Ti.UI.createTextArea({
+	width:'80%',
+	top: 170,
+	returnKeyType:Titanium.UI.RETURNKEY_DONE,
+	opacity:0
+});
+
+var enterZipcode_backBt = Ti.UI.createButton({
+	top:15,
+	title:'Back',
+	width:'90%',
+	height:'10%',
+	backgroundColor:'#333',
+	color:'#DDD',
+	opacity:0
+});
+
+geoSetupView.add(enterZipcode_backBt);
+geoSetupView.add(enterZipcode_label);
+geoSetupView.add(enterZipcode_textbox);
+geoSetupView.add(geoSetupZipButton);
 geoSetupView.add(geoSetupGeoButton);
