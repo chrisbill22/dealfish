@@ -46,7 +46,8 @@ function setMapRegion(lon, lat, delta_lon, delta_lat){
 	}
 	longitudeDelta = dlon;
 	latitudeDelta = dlat;
-	fetchList();
+	//fetchLocations();
+	//checkLocationsFetched();
 	map.region = {latitude:lat, longitude:lon, latitudeDelta:dlat, longitudeDelta:dlon};
 }
 

@@ -56,7 +56,8 @@ function appStartupCheck(){
 	//Ti.API.log("Setup Interval-- loading = "+loading+", Lat = "+currentLat+", Long = "+currentLong);
 	if(loading == false && currentLat != -9999 && currentLong != -9999){
 		Ti.API.log("SET STARTUP LIST");
-		fetchList();
+		fetchLocations();
+		checkLocationsFetched();
 	}else{
 		setTimeout(appStartupCheck, 300);
 	}

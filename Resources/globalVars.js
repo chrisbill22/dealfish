@@ -45,6 +45,7 @@ var deviceToken = "";
 
 var activeLocation = false;
 var fetchingLocations = false;
+var fetchedLocations = false;
 
 var screen_height = Ti.Platform.displayCaps.platformHeight;
 var screen_width = Ti.Platform.displayCaps.platformWidth;

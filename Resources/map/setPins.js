@@ -5,7 +5,7 @@ function setPins(){
 		checkLocationsFetched();
 		Ti.App.addEventListener('locationFetched', dropPins);
 	}else{
-		dropPins();
+		//dropPins();
 	}
 }
 //Put the actual pins in the map

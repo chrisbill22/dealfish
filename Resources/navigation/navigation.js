@@ -10,7 +10,6 @@ nav_search.addEventListener('click', function(){
 });
 nav_map.addEventListener('click', function(){
 	mapFront(getSlideDirection("map"));
-	setPins();
 });
 nav_list.addEventListener('click', function(){
 	listFront(getSlideDirection("list"));

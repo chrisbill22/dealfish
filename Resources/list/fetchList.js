@@ -6,7 +6,7 @@ function fetchList() {
 		checkLocationsFetched();
 		Ti.App.addEventListener('locationFetched', setList);
 	}else{
-		setList();
+		//setList();
 	}
 }
 
@@ -31,47 +31,55 @@ function setList(){
 		]
 	2 = ["]
 	] */
-	//Convert from global deals array to dataArray
-	for (var i = 0; i != currentLocations.length; i++){
-		var duplicateMerchant = false;
-		for(var z = 0; z != dataArray.length; z++){
-			Ti.API.log("Check");
-			if(dataArray[z][0] == currentLocations[i][2]){
-				Ti.API.log("Duplicate z="+z+" Deal Name="+currentLocations[i][0]);
-				//If there is a duplicate merchant ID add it onto the existing one
-				dataArray[z].push(currentLocations[i]);
-				duplicateMerchant = true;
+	
+	if(currentLocations.length > 0){
+		//Convert from global deals array to dataArray
+		for (var i = 0; i != currentLocations.length; i++){
+			var duplicateMerchant = false;
+			for(var z = 0; z != dataArray.length; z++){
+				Ti.API.log("Check");
+				if(dataArray[z][0] == currentLocations[i][2]){
+					Ti.API.log("Duplicate z="+z+" Deal Name="+currentLocations[i][0]);
+					//If there is a duplicate merchant ID add it onto the existing one
+					dataArray[z].push(currentLocations[i]);
+					duplicateMerchant = true;
+				}
 			}
+			//If this is a new merchant ID add it onto the back
+			if(duplicateMerchant == false){
+				Ti.API.log("New Merchant. Z="+dataArray.length);
+				dataArray.push([currentLocations[i][2], currentLocations[i]]);
+			}
+			//First comapany, second deal they are offering, description of deal
+			//alert(dataArray[0][2][0]);
 		}
-		//If this is a new merchant ID add it onto the back
-		if(duplicateMerchant == false){
-			Ti.API.log("New Merchant. Z="+dataArray.length);
-			dataArray.push([currentLocations[i][2], currentLocations[i]]);
+		
+		
+		for (var i = 0; i != dataArray.length; i++){
+			var row = Ti.UI.createTableViewRow({
+				height: 80,
+				companyID:dataArray[i][0]
+			});
+			//alert("Start Date: "+currentLocations[i][7]+"\nEnd Date: "+currentLocations[i][8]);
+			
+			row.add(createListItem(dataArray[i]));
+			row.addEventListener('press', function(e){
+				openCompany(getFirstInstanceOfCompanyID(e.rowData.companyID));
+			});
+			row.addEventListener('longpress', function(e){
+				openQuickActionView(getFirstInstanceOfCompanyID(e.rowData.companyID));
+			});
+			
+			//Push the row to the end of the array here
+			rowArray.push(row);
 		}
-		//First comapany, second deal they are offering, description of deal
-		//alert(dataArray[0][2][0]);
-	}
-	
-	
-	for (var i = 0; i != dataArray.length; i++){
+	}else{
 		var row = Ti.UI.createTableViewRow({
 			height: 80,
-			companyID:dataArray[i][0]
+			title:"Sorry! No deals in your area."
 		});
-		//alert("Start Date: "+currentLocations[i][7]+"\nEnd Date: "+currentLocations[i][8]);
-		
-		row.add(createListItem(dataArray[i]));
-		row.addEventListener('press', function(e){
-			openCompany(getFirstInstanceOfCompanyID(e.rowData.companyID));
-		});
-		row.addEventListener('longpress', function(e){
-			openQuickActionView(getFirstInstanceOfCompanyID(e.rowData.companyID));
-		});
-		
-		//Push the row to the end of the array here
 		rowArray.push(row);
 	}
-	
 	//set listview.data here
 	list_tableview.data = rowArray;
 }

@@ -18,11 +18,19 @@ function fetchLocations(){
 			}
 			currentLocations = requestReturn;
 		}else{
-			alert("No deals in your area");
+			//alert("No deals in your area");
 		}
+		dropPins();
+		setList();
+		fetchedLocations = true;
 		fetchingLocations = false;
 	};
-	
+	testRequest.onerror = function(e){
+		alert("We were not able to fetch the deals in your area because: \n"+e.error);
+		fetchingLocations = false;
+		fetchedLocations = false;
+		Ti.API.error(e.error);
+	};
 	if(currentLat == -9999 || currentLong == -9999){
 		Ti.API.warn("Current Lat or Current Long have not been set yet. Cannot fetch locations without finding location first.");
 		fetchingLocations = false;
@@ -54,6 +62,18 @@ function fetchLocations(){
 }
 
 function checkLocationsNeedFetched(){
+	if(debug == true){
+		Ti.API.warn("DEBUG IS ON. Refresh current locations from DB. Waiting for data...");
+		return true;
+	}
+	if(fetchedLocations == false){
+		return true;
+	}else{
+		return false;	
+	}
+	
+	
+	
 	if(currentLocations.length == 0){
 		Ti.API.warn("Current Locations is empty. Waiting for data...");
 		return true;
