@@ -34,8 +34,6 @@ function convertZip(zipcode){
 }
 
 function setMapRegion(lon, lat, delta_lon, delta_lat){
-	currentLat = lat;
-	currentLong = lon;
 	dlon = 0.1;
 	dlat = 0.1;
 	if(delta_lon){
@@ -46,8 +44,8 @@ function setMapRegion(lon, lat, delta_lon, delta_lat){
 	}
 	longitudeDelta = dlon;
 	latitudeDelta = dlat;
-	//fetchLocations();
-	//checkLocationsFetched();
+	currentLat = lat;
+	currentLong = lon;
 	map.region = {latitude:lat, longitude:lon, latitudeDelta:dlat, longitudeDelta:dlon};
 }
 
@@ -55,12 +53,12 @@ geoSetupGeoButton.addEventListener('click', function(){
 	if(Ti.Geolocation.locationServicesAuthorization == Ti.Geolocation.AUTHORIZATION_AUTHORIZED){
 		remove_geolocation_setup();
 		trackCurrentLocation();
+		Ti.App.Properties.setBool("zipSetup", true);
 	}else if(Ti.Geolocation.locationServicesAuthorization == Ti.Geolocation.AUTHORIZATION_UNKNOWN){
 		alert("Your iOS device version might not support geolocation");
 	}else{
 		alert("Please enable location services for this app to use this feature");
 	}
-	//Ti.App.Properties.setBool("zipSetup", true);
 });
 
 geoSetupZipButton.addEventListener('click', function(){
@@ -72,6 +70,8 @@ enterZipcode_textbox.addEventListener('return', function(){
 	if(enterZipcode_textbox.value){
 		convertZip(enterZipcode_textbox.value);
 		remove_geolocation_setup();
+		zipCodeBased = true;
+		track_button.visible = false;
 	}else{
 		alert("You must add a location to use this app.");
 	}

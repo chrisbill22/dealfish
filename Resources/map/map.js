@@ -12,3 +12,15 @@ track_button.addEventListener('click', function(){
 		ignoreCurrentLocation();
 	}
 });
+
+map.addEventListener('regionchanged', function(e){
+	if(currentView == "map"){
+		if(e.longitude > currentLong+longitudeDelta || e.longitude < currentLong-longitudeDelta || e.latitude > currentLat+latitudeDelta || e.latitude < currentLat-latitudeDelta){
+			Ti.API.info("Updating information with new restaurants");
+			currentLat = e.latitude;
+			currentLong = e.longitude;
+			fetchLocations();
+			checkLocationsFetched();
+		}
+	}
+});
