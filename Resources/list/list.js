@@ -8,6 +8,7 @@ function createListItem(data){
 	
 	var title = data[1][1];
 	var distance = data[1][6];
+	var cateogry = data[1][9];
 	var deals = [];
 	var flash = false;
 	//var img = category;
@@ -77,7 +78,8 @@ function createListItem(data){
 		width:70,
 		height:70,
 		backgroundColor:iOSBlue,
-		left:0
+		left:0,
+		backgroundImage:getCategoryImage(cateogry)
 	});
 	var tempItem_title = Ti.UI.createLabel({
 		left: 80,

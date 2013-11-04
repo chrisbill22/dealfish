@@ -28,6 +28,7 @@ function setList(){
 		6 = distance from current location (default -1, calculated in-app),
 		7 = start date,
 		8 = end date
+		9 = category
 		]
 	2 = ["]
 	] */

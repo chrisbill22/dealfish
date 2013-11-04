@@ -49,6 +49,7 @@ if(!Ti.App.Properties.getBool("zipSetup")){
 		//Reverse geo lookup the stored zipcode
 	}else{
 		//Start finding current location
+		trackCurrentLocation();
 	}
 }
 

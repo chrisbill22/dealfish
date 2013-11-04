@@ -9,6 +9,7 @@ var currentLong = -9999;
 var currentLat = -9999;
 var zipcode = null;
 
+var categories = ['Chinese', 'Coffee', 'Pizza', 'Bar'];
 /* [
 0 = deal description,
 1 = company name,

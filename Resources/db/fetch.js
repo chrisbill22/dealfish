@@ -98,3 +98,11 @@ function checkLocationsFetched(){
 		}
 	}, 300);
 }
+
+function getCategoryImage(category){
+	if(categories.indexOf(category) != -1){
+		return "images/categories/"+category+".png";
+	}else{
+		return "images/categories/Bar.png";
+	}
+}
