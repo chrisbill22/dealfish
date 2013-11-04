@@ -19,6 +19,7 @@ var zipcode = null;
 6 = distance from current location (default -1, calculated in-app),
 7 = start date,
 8 = end date
+9 = category
 ] */
 var currentLocations = [];
 //var currentLocations = [["This is a description", "Test Company", "TCP", 1.1, 1.1, 0],["This is a description", "Test Company", "TCP", 1.1, 1.1, 0],["This is a description", "Test Company", "TCP", 1.1, 1.1, 0]];
@@ -46,6 +47,7 @@ var deviceToken = "";
 var activeLocation = false;
 var fetchingLocations = false;
 var fetchedLocations = false;
+var zipCodeBased = false;
 
 var screen_height = Ti.Platform.displayCaps.platformHeight;
 var screen_width = Ti.Platform.displayCaps.platformWidth;

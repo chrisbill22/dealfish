@@ -32,7 +32,7 @@ var testAnnotation = Titanium.Map.createAnnotation ({
 	myid: 1
 });
 var map = Titanium.Map.createView({
-    mapType: Titanium.Map.STANDARD_TYPE,
+    //mapType: Titanium.Map.STANDARD_TYPE,
     //region:{latitude:40.424447, longitude:-86.907896, latitudeDelta:0.5, longitudeDelta:0.5},
     animate:true,
     regionFit:true,
