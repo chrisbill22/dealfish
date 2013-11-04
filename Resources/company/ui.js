@@ -57,27 +57,28 @@ function openCompany(id){
 	});
 	var callButton = Titanium.UI.createButton({
 		title: "Call", 
-		width: 100, 
-		height: 100, 
+		width: 90, 
+		height: 90, 
 		borderWidth: 1, 
 		top: 325,
-		left: 20
+		left: 10
 	});
 	var directionsButton = Titanium.UI.createButton({
 		title: "Directions", 
-		width: 100, 
-		height: 100, 
+		width: 90, 
+		height: 90, 
 		borderWidth: 1, 
 		top: 325,
-		left: 80
+		left: 115
 	});
 	var favoritesButton = Titanium.UI.createButton({
 		title: "Add to Favorites", 
-		width: 100, 
-		height: 100, 
+		width: 90, 
+		height: 90, 
 		borderWidth: 1, 
 		top: 325,
-		left: 140
+		right: 10, 
+		wordWrap: true
 	});
 	companyview.add(image);
 	companyview.add(titleLabel);

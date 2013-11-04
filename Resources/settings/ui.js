@@ -16,31 +16,75 @@ var settingsTitle = Ti.UI.createView({
 	top:0,
 	left:0,
 	backgroundColor:'#DDD',
-	borderWidth:0
+	borderWidth:1
 });
 var settingsTitle_label = Ti.UI.createLabel({
 	text:"Settings",
 });
 
-var test_button = Ti.UI.createButton({
+var signup_button = Ti.UI.createButton({
 	top:'15%',
-	width:'90%',
+	width:'100%',
 	zIndex:0,
 	backgroundColor:'#DDD',
-	title:"Change something"
+	title:"Sign Up", 
+	borderWidth: 1
 });
 
-var notification_button = Ti.UI.createButton({
-	top:'25%',
-	width:'90%',
+var account_button = Ti.UI.createButton({
+	top:'20%',
+	width:'100%',
 	zIndex:0,
 	backgroundColor:'#DDD',
-	title:"Click here to turn off notification"
+	title:"Account", 
+	borderWidth: 1
+});
+
+var notifications_button = Ti.UI.createButton({
+	top:'25%',
+	width:'100%',
+	zIndex:0,
+	backgroundColor:'#DDD',
+	title:"Notifications", 
+	borderWidth: 1
+});
+
+var location_button = Ti.UI.createButton({
+	top:'30%',
+	width:'100%',
+	zIndex:0,
+	backgroundColor:'#DDD',
+	title:"Location", 
+	borderWidth: 1
+});
+
+var privacy_button = Ti.UI.createButton({
+	top:'45%',
+	width:'100%',
+	zIndex:0,
+	backgroundColor:'#DDD',
+	title:"Privacy Statement", 
+	borderWidth: 1
+});
+
+var terms_button = Ti.UI.createButton({
+	top:'55%',
+	width:'100%',
+	zIndex:0,
+	backgroundColor:'#DDD',
+	title:"Terms of Use", 
+	borderWidth: 1
 });
 
 settingsTitle.add(settingsTitle_label);
 settingsTitle.add(settingsBack);
 settings_view.add(settingsTitle);
-settings_view.add(test_button, notification_button);
+settings_view.add(signup_button);
+settings_view.add(account_button);
+settings_view.add(notifications_button);
+settings_view.add(location_button);
+settings_view.add(privacy_button);
+settings_view.add(terms_button);
+
 
 MainWindow.add(settings_view);
