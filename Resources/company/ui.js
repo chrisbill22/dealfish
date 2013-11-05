@@ -4,7 +4,13 @@ var companyview = Titanium.UI.createView({
 	width: '100%',
 	bottom:screen_height,
 	backgroundColor: '#fff',
-	zIndex: 21
+	zIndex: 21, 
+});
+var companyTitle = Ti.UI.createView({
+	height:'10%',
+	top:0,
+	left:0,
+	backgroundColor:'#FF6600',
 });
 var backButton = Titanium.UI.createButton({
 	title: 'Back', 
@@ -17,6 +23,7 @@ function openCompany(id){
 	titleLabel.text = currentLocations[id][1];
 	distanceLabel.text = currentLocations[id][6];
 	descriptionLabel.text = currentLocations[id][0];
+	categoryLabel.text = "Category: " + currentLocations[id][9];
 	companyview.animate({
 		bottom: 0
 	});
@@ -25,40 +32,52 @@ function openCompany(id){
 var image = Ti.UI.createView({
 	width:'40%',
 	height:'20%',
-	backgroundColor:iOSBlue,
-	left:0, 
-	top: 90
+	backgroundColor:'#FF6600',
+	left: 10, 
+	top: 95
 });
 var titleLabel = Titanium.UI.createLabel({
 	text: '',
 	width: '50%',
 	height: 50,
 	borderWidth: 0, 
-	top: 70, 
+	top: 90, 
 	right: 10,
+	font:{fontSize: 18},
 });
 var distanceLabel = Titanium.UI.createLabel({
 	text: '',
 	width: '50%',
 	height: 50,
 	borderWidth: 0,
-	top: 100,
-	right: 10
+	top: 125,
+	right: 10, 
+	font:{fontSize: 10},
 });
 var priceLabel = Titanium.UI.createLabel({
 	text: "DOLLAR SIGNS", 
 	width: '50%', 
 	height: 50, 
 	borderWidth: 0, 
-	top: 130,
-	right: 10
+	top: 150,
+	right: 10, 
+	font:{fontSize: 10},
+});
+var categoryLabel = Titanium.UI.createLabel({
+	text: '',
+	width: '50%', 
+	height: 50, 
+	top: 175, 
+	right: 10, 
+	font:{fontSize: 10}
 });
 var descriptionLabel = Titanium.UI.createLabel({
 	text: '',
-	width: '75%', 
+	width: '100%', 
 	height: 50, 
-	borderWidth: 1, 
+	backgroundColor: "#FF6600", 
 	top: 225, 
+	textAlign: 'center'
 });
 var callButton = Titanium.UI.createButton({
 	title: "Call", 
@@ -85,6 +104,8 @@ var favoritesButton = Titanium.UI.createButton({
 	right: 10, 
 	wordWrap: true
 });
+companyview.add(companyTitle);
+companyTitle.add(backButton);
 companyview.add(image);
 companyview.add(titleLabel);
 companyview.add(distanceLabel);
@@ -93,7 +114,6 @@ companyview.add(descriptionLabel);
 companyview.add(callButton);
 companyview.add(directionsButton);
 companyview.add(favoritesButton);
+companyview.add(categoryLabel);
 
-
-companyview.add(backButton);
 MainWindow.add(companyview);
