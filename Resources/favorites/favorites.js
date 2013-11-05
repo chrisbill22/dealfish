@@ -1,3 +1,4 @@
+Ti.include("favoritesPopupNewList.js");
 Ti.include("favoritesPopup.js");
 Ti.include("ui.js");
 /*favorites_view.addEventListener('swipe', function(e){
@@ -143,7 +144,8 @@ function populateFavoriteList(){
 			}else{
 				var tempRow = Ti.UI.createTableViewRow({
 					title:favorites[i][x][0],
-					height:50
+					height:50,
+					companyID:favorites[i][x][1]
 				});
 				var tempLoading = Ti.UI.createActivityIndicator({
 				    style: Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
@@ -152,13 +154,13 @@ function populateFavoriteList(){
 				    height:40,
 				    width:40
 				});
-				var tempOnOff = Ti.UI.createButton({right:0, backgroundColor:'#DDD', height:'100%', width:50, compID:favorites[i][x][1], indexI:i, indexX:x, loadingObj:tempLoading});
-				if(favorites[i][x][5] == true){
+				//var tempOnOff = Ti.UI.createButton({right:0, backgroundColor:'#DDD', height:'100%', width:50, compID:favorites[i][x][1], indexI:i, indexX:x, loadingObj:tempLoading});
+				/*if(favorites[i][x][5] == true){
 					tempOnOff.backgroundColor = '#0A0';
-				}
-				tempRow.add(tempOnOff);
-				tempRow.add(tempLoading);
-				tempOnOff.addEventListener('click', function(e){
+				}*/
+				//tempRow.add(tempOnOff);
+				//tempRow.add(tempLoading);
+				/*tempOnOff.addEventListener('click', function(e){
 					e.source.hide();
 					e.source.loadingObj.show();
 					if(e.source.backgroundColor == '#DDD'){
@@ -166,7 +168,7 @@ function populateFavoriteList(){
 					}else{
 						disablePushCompany(e.source.compID, e.source, e.source.loadingObj, e.source.indexI, e.source.indexX);
 					}
-				});
+				});*/
 			}
 			tempRows.push(tempRow);
 		}
@@ -174,3 +176,13 @@ function populateFavoriteList(){
 	favorites_tableview.data = tempRows;
 }
 populateFavoriteList();
+
+
+favorites_tableview.addEventListener('click', function(e){
+	if(e.index == 0){
+		openFavoritesNamePopup();
+	}else{
+		openCompany(getFirstInstanceOfCompanyID(e.rowData.companyID));
+	}
+});
+
