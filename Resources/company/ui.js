@@ -3,7 +3,7 @@ var companyview = Titanium.UI.createView({
 	height: '100%', 
 	width: '100%',
 	bottom:screen_height,
-	backgroundColor: '#fff',
+	backgroundColor: '#DDD',
 	zIndex: 21, 
 });
 var companyTitle = Ti.UI.createView({
@@ -76,44 +76,59 @@ var descriptionLabel = Titanium.UI.createLabel({
 	width: '100%', 
 	height: 50, 
 	backgroundColor: "#FF6600", 
-	top: 225, 
+	top: 235, 
 	textAlign: 'center'
+});
+var pinButton = Titanium.UI.createButton({
+	title: "Pin", 
+	width: '25%', 
+	height: '10%', 
+	borderWidth: 1, 
+	bottom: 0,
+	left: 0, 
+	backgroundColor: "#545454"
 });
 var callButton = Titanium.UI.createButton({
 	title: "Call", 
-	width: 90, 
-	height: 90, 
+	width: '25%', 
+	height: '10%', 
 	borderWidth: 1, 
-	top: 325,
-	left: 10
+	bottom: 0,
+	left: '25%',
+	backgroundColor: "#545454"
 });
 var directionsButton = Titanium.UI.createButton({
 	title: "Directions", 
-	width: 90, 
-	height: 90, 
+	width: '25%', 
+	height: '10%', 
 	borderWidth: 1, 
-	top: 325,
-	left: 115
+	bottom: 0,
+	right: 0,
+	backgroundColor: "#545454"
 });
 var favoritesButton = Titanium.UI.createButton({
-	title: "Add to Favorites", 
-	width: 90, 
-	height: 90, 
+	title: "Favorites", 
+	width: '25%', 
+	height: '10%', 
 	borderWidth: 1, 
-	top: 325,
-	right: 10, 
-	wordWrap: true
+	bottom: 0,
+	right: "25%",
+	backgroundColor: "#545454"
 });
 companyview.add(companyTitle);
 companyTitle.add(backButton);
-companyview.add(image);
+companyview.add(image, titleLabel, distanceLabel, priceLabel, categoryLabel, descriptionLabel);
+/*
 companyview.add(titleLabel);
 companyview.add(distanceLabel);
 companyview.add(priceLabel);
 companyview.add(descriptionLabel);
-companyview.add(callButton);
+*/
+companyview.add(callButton, directionsButton, favoritesButton, pinButton);
+/*
 companyview.add(directionsButton);
 companyview.add(favoritesButton);
 companyview.add(categoryLabel);
-
+companyview.add(pinButton);
+*/
 MainWindow.add(companyview);
