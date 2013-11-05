@@ -38,7 +38,7 @@ if(!android){
 	    barColor:'#JJJ', 
 	    showCancel:false,
 	    height:'7%',
-	    top:'10%',
+	    top:55,
 	    zIndex:20
 	});
 }
@@ -56,44 +56,64 @@ if(!android){
 */
 var oneDollar = Titanium.UI.createButton({
 	height: 40, 
-	width: 60, 
-	left: 40, 
-	top: '20%', 
+	width: 70, 
+	left: 20, 
+	top: 105, 
 	title: '$', 
 	backgroundColor: "#FFF"
 });
 var twoDollar = Titanium.UI.createButton({
 	height: 40, 
-	width: 60, 
-	left: 100, 
-	top: '20%', 
+	width: 70, 
+	left: 90, 
+	top: 105, 
 	title: '$$', 
 	backgroundColor: "#FFF"
 });
 var threeDollar = Titanium.UI.createButton({
 	height: 40, 
-	width: 60, 
-	right: 100, 
-	top: '20%', 
+	width: 70, 
+	left: 160, 
+	top: 105, 
 	title: '$$$', 
 	backgroundColor: "#FFF"
 });
 var fourDollar = Titanium.UI.createButton({
 	height: 40, 
-	width: 60, 
-	right: 40, 
-	top: '20%', 
+	width: 70, 
+	left: 230, 
+	top: 105, 
 	title: '$$$$', 
 	backgroundColor: "#FFF"
 });
+	var padding = 13;
+	var boxWidth = 60;
+	var boxHeight = 65;
+	var tempLeft = 20;
+	var tempTop = 160;
+for(var i = 0; i != categories.length; i++){
+	var searchBox = Titanium.UI.createButton({
+		width: boxWidth,
+		height: boxHeight, 
+		backgroundColor: '#FF6600', 
+		backgroundImage: 'images/categories/'+categories[i], 
+		left: tempLeft, 
+		top: tempTop, 
+		borderWidth: 1
+	});
+	tempLeft = tempLeft + boxWidth + padding;
+	search_view.add(searchBox);
+}
+
 searchTitle.add(searchBack);
 search_view.add(searchTitle);
 if(!android){ search_view.add(search); }
 //search_view.add(search_table_view);
 search_view.add(searchButton);
-search_view.add(oneDollar);
+search_view.add(oneDollar, twoDollar, threeDollar, fourDollar);
+/*
 search_view.add(twoDollar);
 search_view.add(threeDollar);
 search_view.add(fourDollar);
-
+*/
 MainWindow.add(search_view);

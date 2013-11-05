@@ -20,8 +20,6 @@ var backButton = Titanium.UI.createButton({
 	left: 0, 
 });
 function openCompany(id){
-	var cat = currentLocations[id][9];
-	
 	titleLabel.text = currentLocations[id][1];
 	distanceLabel.text = currentLocations[id][6];
 	descriptionLabel.text = currentLocations[id][0];
@@ -30,8 +28,8 @@ function openCompany(id){
 	companyview.animate({
 		bottom: 0
 	});
+	currentCompanyID = id;
 }
-
 var image = Ti.UI.createView({
 	width:'40%',
 	height:'20%',
@@ -119,12 +117,24 @@ var favoritesButton = Titanium.UI.createButton({
 	backgroundColor: "#545454"
 });
 callButton.addEventListener('click', function(){
-	var the_number = '3179896648';
-	Ti.Platform.openURL('tel: '+ the_number);
+	var alertDialog = Titanium.UI.createAlertDialog({
+    message: 'Are you sure you want to call?',
+    buttonNames: ['Yes!','No!']
+	});
+	alertDialog.addEventListener('click', function(e){
+		if(e.index == 0){
+			var phoneNumber = currentLocations[currentCompanyID][10];
+			Titanium.Platform.openURL(phoneNumber);
+		}
+	});
+	alertDialog.show();
 });
 websiteButton.addEventListener('click', function(){
 	var website = 'http://www.bbc.com';
 	Ti.Platform.openURL(website);
+});
+directionsButton.addEventListener('click', function(e){
+	Ti.Platform.openURL('http://maps.apple.com/?daddr='+currentLocations[currentCompanyID][4]+','+currentLocations[currentCompanyID][3]+'&saddr='+currentLat+','+currentLong);
 });
 companyview.add(companyTitle);
 companyTitle.add(backButton);
