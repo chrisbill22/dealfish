@@ -10,6 +10,8 @@ function fetchList() {
 	}
 }
 
+var longpressTracker = false;
+
 //Actually set the list.
 function setList(){
 	//Row array actually contains the table view rows
@@ -64,10 +66,15 @@ function setList(){
 			//alert("Start Date: "+currentLocations[i][7]+"\nEnd Date: "+currentLocations[i][8]);
 			
 			row.add(createListItem(dataArray[i]));
-			row.addEventListener('press', function(e){
-				openCompany(getFirstInstanceOfCompanyID(e.rowData.companyID));
+			row.addEventListener('click', function(e){
+				if(longpressTracker == false){
+					openCompany(getFirstInstanceOfCompanyID(e.rowData.companyID));
+				}else{
+					longpressTracker = false;
+				}
 			});
 			row.addEventListener('longpress', function(e){
+				longpressTracker = true;
 				openQuickActionView(getFirstInstanceOfCompanyID(e.rowData.companyID));
 			});
 			
