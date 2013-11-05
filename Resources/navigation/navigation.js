@@ -6,7 +6,7 @@ Ti.include("header.js");
 //Clicks
 nav_search.addEventListener('click', function(){
 	//searchFront(getSlideDirection("search"));
-	transitionLeftViewIn();
+	openSearch();
 });
 nav_map.addEventListener('click', function(){
 	mapFront(getSlideDirection("map"));
@@ -19,7 +19,7 @@ nav_favorites.addEventListener('click', function(){
 });
 nav_settings.addEventListener('click', function(){
 	//settingsFront(getSlideDirection("settings"));
-	transitionRightViewIn();
+	openSettings();
 });
 
 
@@ -167,6 +167,9 @@ function searchBack(direction){
 		slideViewOut(search_view, direction);
 		setCurrentView(currentSubView);
 		setCurrentSubView("");
+		left_slider.visible = true;
+		right_slider.visible = true;
+		search_slider.visible = false;
 	}
 }
 
@@ -231,6 +234,9 @@ function settingsFront(direction){
 function settingsBack(direction){
 	direction = "right";
 	if(currentView == "settings"){
+		left_slider.visible = true;
+		right_slider.visible = true;
+		settings_slider.visible = false;
 		slideViewOut(settings_view, direction);
 		setCurrentView(currentSubView);
 		setCurrentSubView("");

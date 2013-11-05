@@ -35,14 +35,6 @@ var nav_favorites = Ti.UI.createButton({
 
 
 var nav_search = Ti.UI.createButton({ 
-	/*width:'20%',
-	height:screen_width*0.2,
-	borderRadius:30,
-	backgroundColor:'#DDD',
-	opacity:0.8,
-	bottom:0,
-	left:0,
-	title:"Search"*/
 	bottom:10,
 	left:15,
 	height:25,
@@ -57,14 +49,6 @@ var nav_search = Ti.UI.createButton({
 
 
 var nav_settings = Ti.UI.createButton({ 
-	/*width:'20%',
-	height:screen_width*0.2,
-	borderRadius:30,
-	backgroundColor:'#DDD',
-	opacity:0.8,
-	bottom:0,
-	left:'80%',
-	title:"Settings"*/
 	bottom:10,
 	right:15,
 	height:25,
@@ -95,11 +79,32 @@ var right_slider = Ti.UI.createView({
 	zIndex:5
 });
 
-//navigation.add(nav_search);
+var settings_slider = Ti.UI.createView({
+	width:25,
+	height:'100%',
+	//backgroundColor:'#000',
+	bottom:0,
+	left:0,
+	zIndex:21,
+	visible:false
+});
+
+var search_slider = Ti.UI.createView({
+	width:25,
+	height:'100%',
+	//backgroundColor:'#000',
+	bottom:0,
+	right:0,
+	zIndex:21,
+	visible:false
+});
+
 navigation_bottom.add(nav_map);
 navigation_bottom.add(nav_list);
 navigation_bottom.add(nav_favorites);
-//navigation.add(nav_settings);
+
+MainWindow.add(search_slider);
+MainWindow.add(settings_slider);
 
 MainWindow.add(right_slider);
 MainWindow.add(left_slider);

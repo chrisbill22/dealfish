@@ -2,7 +2,6 @@
 //RIGHT
 //When start, get the x position
 right_slider.addEventListener('touchstart', function(e){
-	//getRightViewObj().zIndex = 1;
 	startX_right = e.x;
 });
 //Every time the finger moves, will update and subtract by start x position to get delta x position
@@ -12,18 +11,16 @@ right_slider.addEventListener('touchmove', function(e){
 		deltaX_right = (e.x-startX_right);
 		var newRight = (deltaX_right+(screen_width));
 		Ti.API.log("DeltaX = "+deltaX_right+", Right = "+newRight);
-		getRightViewObj().left = newRight;
+		settings_view.left = newRight;
 		if(deltaX_right < -1*VIEW_TRANSITION_THRESHOLD){
-			transitionRightViewIn();
+			openSettings();
 		}
 	}
 });
 //When the finger is released, if the view has not been activated, slide it back into place
 right_slider.addEventListener('touchend', function(e){
 	if(deltaX_right >= -1*VIEW_TRANSITION_THRESHOLD){
-		getRightViewObj().animate({left:(screen_width)}, function(){
-			//getRightViewObj().zIndex = 0;
-		});
+		settings_view.animate({left:(screen_width)});
 	}
 	deltaX_right = 0;
 });
@@ -56,85 +53,69 @@ left_slider.addEventListener('touchend', function(e){
 });
 
 function getLeftViewObj(){
-	/*if(currentView == "search"){
-		return settings_view;
-	}else if(currentView == "map"){
-		return search_view;
-	}else if(currentView == "list"){
-		return mapview;
-	}else if(currentView == "favorites"){
-		return listview;
-	}else if(currentView == "settings"){
-		return favorites_view;
-	}*/
 	return search_view;
-}
-
-function getRightViewObj(){
-	/*if(currentView == "favorites"){
-		return settings_view;
-	}else if(currentView == "settings"){
-		return search_view;
-	}else if(currentView == "search"){
-		return mapview;
-	}else if(currentView == "map"){
-		return listview;
-	}else if(currentView == "list"){
-		return favorites_view;
-	}*/
-	return settings_view;
 }
 
 function transitionLeftViewIn(){
 	openSearch();
-	/*var direction = "right";
-	if(currentView == "search"){
-		settingsFront(direction);
-	}else if(currentView == "map"){
-		searchFront(direction);
-	}else if(currentView == "list"){
-		mapFront(direction);
-	}else if(currentView == "favorites"){
-		listFront(direction);
-	}else if(currentView == "settings"){
-		favoritesFront(direction);
-	}*/
-}
-
-function transitionRightViewIn(){
-	openSettings();
-	/*var direction = "left";
-	if(currentView == "favorites"){
-		settingsFront(direction);
-	}else if(currentView == "settings"){
-		searchFront(direction);
-	}else if(currentView == "search"){
-		mapFront(direction);
-	}else if(currentView == "map"){
-		listFront(direction);
-	}else if(currentView == "list"){
-		favoritesFront(direction);
-	}*/
 }
 
 function openSearch(){
-	//navReset();
-	/*settingsBack();
-	mapBack();
-	listBack();
-	favoritesBack();*/
 	transitionViewIn(search_view, "right");
 	setCurrentSubView(currentView);
 	setCurrentView("search");
+	left_slider.visible = false;
+	right_slider.visible = false;
+	search_slider.visible = true;
 }
 
 function openSettings(){
-	//navReset();
-	/*searchBack();
-	mapBack();
-	listBack();
-	favoritesBack();*/
 	transitionViewIn(settings_view, "left");
 	setCurrentSubView(currentView);
 	setCurrentView("settings");
+	left_slider.visible = false;
+	right_slider.visible = false;
+	settings_slider.visible = true;
 }
+
+
+settings_slider.addEventListener('touchstart', function(e){
+	startX_right = e.x;
+});
+settings_slider.addEventListener('touchmove', function(e){
+	if(deltaX_right <= VIEW_TRANSITION_THRESHOLD){
+		deltaX_right = (e.x-startX_right);
+		Ti.API.log("DeltaX = "+deltaX_right);
+		settings_view.left = deltaX_right;
+		if(deltaX_right > VIEW_TRANSITION_THRESHOLD){
+			settingsBack();
+		}
+	}
+});
+settings_slider.addEventListener('touchend', function(e){
+	if(deltaX_right <= VIEW_TRANSITION_THRESHOLD){
+		settings_view.animate({left:0});
+	}
+	deltaX_right = 0;
+});
+
+
+search_slider.addEventListener('touchstart', function(e){
+	startX_right = e.x;
+});
+search_slider.addEventListener('touchmove', function(e){
+	if(deltaX_right <= VIEW_TRANSITION_THRESHOLD){
+		deltaX_right = (e.x-startX_right)*-1;
+		Ti.API.log("DeltaX = "+deltaX_right);
+		search_view.left = (deltaX_right)*-1;
+		if(deltaX_right > VIEW_TRANSITION_THRESHOLD){
+			searchBack();
+		}
+	}
+});
+search_slider.addEventListener('touchend', function(e){
+	if(deltaX_right <= VIEW_TRANSITION_THRESHOLD){
+		search_view.animate({left:0});
+	}
+	deltaX_right = 0;
+});
