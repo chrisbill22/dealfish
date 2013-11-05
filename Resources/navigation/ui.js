@@ -14,7 +14,8 @@ var nav_map = Ti.UI.createButton({
 	backgroundColor:'#DDD',
 	bottom:0,
 	left:0,
-	title:"Map"
+	title:"Map",
+	color:iOSBlue
 });
 var nav_list = Ti.UI.createButton({ 
 	width:BOTTOM_MENU_WIDTH_PER+"%",
@@ -22,7 +23,8 @@ var nav_list = Ti.UI.createButton({
 	backgroundColor:'#333',
 	bottom:0,
 	left:BOTTOM_MENU_WIDTH_PER+"%",
-	title:"Home"
+	title:"Home",
+	color:iOSBlue
 });
 var nav_favorites = Ti.UI.createButton({ 
 	width:BOTTOM_MENU_WIDTH_PER+"%",
@@ -30,7 +32,8 @@ var nav_favorites = Ti.UI.createButton({
 	backgroundColor:'#DDD',
 	bottom:0,
 	left:(BOTTOM_MENU_WIDTH_PER*2)+"%",
-	title:"Favorites"
+	title:"Favorites",
+	color:iOSBlue
 });
 
 
@@ -42,6 +45,7 @@ var nav_search = Ti.UI.createButton({
 	font:{fontSize:12},
 	title:"Search",
 	borderColor:iOSBlue,
+	color:iOSBlue,
 	borderRadius:13,
 });
 
@@ -56,6 +60,7 @@ var nav_settings = Ti.UI.createButton({
 	font:{fontSize:12},
 	title:"Settings",
 	borderColor:iOSBlue,
+	color:iOSBlue,
 	borderRadius:13,
 });
 

@@ -21,6 +21,8 @@ var categories = ['Chinese', 'Coffee', 'Pizza', 'Bar'];
 7 = start date,
 8 = end date
 9 = category
+10 = phone
+11 = website
 ] */
 var currentLocations = [];
 //var currentLocations = [["This is a description", "Test Company", "TCP", 1.1, 1.1, 0],["This is a description", "Test Company", "TCP", 1.1, 1.1, 0],["This is a description", "Test Company", "TCP", 1.1, 1.1, 0]];
@@ -39,7 +41,7 @@ var currentLocations = [];
 ] */
 var favorites = [];
 
-var iOSBlue = "#007AFF";
+var iOSBlue = "#FF6600";
 var currentView = "list";
 var currentSubView = ""; // this will store the last view open before switching to settings, search, or any other layover view
 var deviceID = "";
