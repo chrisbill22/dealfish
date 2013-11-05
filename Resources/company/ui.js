@@ -20,11 +20,13 @@ var backButton = Titanium.UI.createButton({
 	left: 0, 
 });
 function openCompany(id){
-	var categories = currentLocations[id][9];
+	var cat = currentLocations[id][9];
+	
 	titleLabel.text = currentLocations[id][1];
 	distanceLabel.text = currentLocations[id][6];
 	descriptionLabel.text = currentLocations[id][0];
 	categoryLabel.text = "Category: " + currentLocations[id][9];
+	image.backgroundImage = getCategoryImage(currentLocations[id][9]);
 	companyview.animate({
 		bottom: 0
 	});
@@ -36,7 +38,6 @@ var image = Ti.UI.createView({
 	backgroundColor:'#FF6600',
 	left: 10, 
 	top: 95, 
-	backgroundImage: getCategoryImage(categories)
 });
 var titleLabel = Titanium.UI.createLabel({
 	text: '',
@@ -81,8 +82,8 @@ var descriptionLabel = Titanium.UI.createLabel({
 	top: 235, 
 	textAlign: 'center'
 });
-var pinButton = Titanium.UI.createButton({
-	title: "Pin", 
+var directionsButton = Titanium.UI.createButton({
+	title: "Directions", 
 	width: '25%', 
 	height: '10%', 
 	borderWidth: 1, 
@@ -99,8 +100,8 @@ var callButton = Titanium.UI.createButton({
 	left: '25%',
 	backgroundColor: "#545454"
 });
-var directionsButton = Titanium.UI.createButton({
-	title: "Directions", 
+var websiteButton = Titanium.UI.createButton({
+	title: "Website", 
 	width: '25%', 
 	height: '10%', 
 	borderWidth: 1, 
@@ -117,6 +118,14 @@ var favoritesButton = Titanium.UI.createButton({
 	right: "25%",
 	backgroundColor: "#545454"
 });
+callButton.addEventListener('click', function(){
+	var the_number = '3179896648';
+	Ti.Platform.openURL('tel: '+ the_number);
+});
+websiteButton.addEventListener('click', function(){
+	var website = 'http://www.bbc.com';
+	Ti.Platform.openURL(website);
+});
 companyview.add(companyTitle);
 companyTitle.add(backButton);
 companyview.add(image, titleLabel, distanceLabel, priceLabel, categoryLabel, descriptionLabel);
@@ -126,7 +135,7 @@ companyview.add(distanceLabel);
 companyview.add(priceLabel);
 companyview.add(descriptionLabel);
 */
-companyview.add(callButton, directionsButton, favoritesButton, pinButton);
+companyview.add(callButton, directionsButton, favoritesButton, websiteButton);
 /*
 companyview.add(directionsButton);
 companyview.add(favoritesButton);
