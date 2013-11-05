@@ -20,6 +20,7 @@ var backButton = Titanium.UI.createButton({
 	left: 0, 
 });
 function openCompany(id){
+	var categories = currentLocations[id][9];
 	titleLabel.text = currentLocations[id][1];
 	distanceLabel.text = currentLocations[id][6];
 	descriptionLabel.text = currentLocations[id][0];
@@ -34,7 +35,8 @@ var image = Ti.UI.createView({
 	height:'20%',
 	backgroundColor:'#FF6600',
 	left: 10, 
-	top: 95
+	top: 95, 
+	backgroundImage: getCategoryImage(categories)
 });
 var titleLabel = Titanium.UI.createLabel({
 	text: '',
