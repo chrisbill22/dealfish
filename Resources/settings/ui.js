@@ -31,7 +31,7 @@ var data = [
 ];
 var settingsTable = Ti.UI.createTableView({
 	data: data, 
-	top: 55, 
+	top: '10%', 
 	footerTitle: '', 
 	font:{fontFamily: 'Helvetica'},
 });
