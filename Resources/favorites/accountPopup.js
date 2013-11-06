@@ -16,19 +16,19 @@ var accountSetupPopup_label = Ti.UI.createLabel({
 });
 var accountSetupPopup_Button = Ti.UI.createButton({
 	zIndex:21,
-	bottom:90,
+	top:270,
 	title:'Enable Favorites',
 	width:'90%',
-	height:'10%',
+	height:50,
 	backgroundColor:'#333',
 	color:'#DDD'
 });
 var accountSetupPopup_cancel = Ti.UI.createButton({
 	zIndex:21,
-	bottom:190,
+	top:200,
 	title:'Cancel',
 	width:'90%',
-	height:'10%',
+	height:50,
 	backgroundColor:'#333',
 	color:'#DDD'
 });

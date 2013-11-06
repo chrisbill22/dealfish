@@ -186,9 +186,16 @@ favorites_tableview.addEventListener('click', function(e){
 	}
 });
 */
+
+
+favorites_newListButton.addEventListener('click', function(){
+	openFavoritesNamePopup();
+});
+
 var favoriteObjects = [];
 
 function populateFavoriteList(){
+	favoriteObjects = [];
 	var zIndexTracker = (favorites.length*2)+1;
 	//Starts at 20 down, 50 for height of add list button, 20 for padding between
 	var tempTop = 20;
@@ -243,6 +250,30 @@ function populateFavoriteList(){
 				companyID:favorites[i][x][1],
 				color:'#000'
 			});
+			
+			var tempLoading = Ti.UI.createActivityIndicator({
+			    style: Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
+			    color: '#FFF',
+			    right:15,
+			    height:40,
+			    width:40
+			});
+			var tempOnOff = Ti.UI.createButton({right:0, backgroundColor:'#DDD', height:'100%', width:50, compID:favorites[i][x][1], indexI:i, indexX:x, loadingObj:tempLoading});
+			if(favorites[i][x][5] == true){
+				tempOnOff.backgroundColor = '#0A0';
+			}
+			tempRow.add(tempOnOff);
+			tempRow.add(tempLoading);
+			tempOnOff.addEventListener('click', function(e){
+				e.source.hide();
+				e.source.loadingObj.show();
+				if(e.source.backgroundColor == '#DDD'){
+					enablePushCompany(e.source.compID, e.source, e.source.loadingObj, e.source.indexI, e.source.indexX);
+				}else{
+					disablePushCompany(e.source.compID, e.source, e.source.loadingObj, e.source.indexI, e.source.indexX);
+				}
+			});
+			
 			tempRestaurants_rows.push(tempRow);
 		}
 		tempRestaurants.data = tempRestaurants_rows;
