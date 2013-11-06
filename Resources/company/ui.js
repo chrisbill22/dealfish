@@ -31,8 +31,8 @@ function openCompany(id){
 	currentCompanyID = id;
 }
 var image = Ti.UI.createView({
-	width:'40%',
-	height:'20%',
+	width:120,
+	height:120,
 	backgroundColor:'#FF6600',
 	left: 10, 
 	top: 95, 
@@ -84,37 +84,37 @@ var directionsButton = Titanium.UI.createButton({
 	title: "Directions", 
 	width: '25%', 
 	height: '10%', 
-	borderWidth: 1, 
 	bottom: 0,
 	left: 0, 
-	backgroundColor: "#545454"
+	color:iOSBlue,
+	backgroundColor: "#555"
 });
 var callButton = Titanium.UI.createButton({
 	title: "Call", 
 	width: '25%', 
 	height: '10%', 
-	borderWidth: 1, 
 	bottom: 0,
 	left: '25%',
-	backgroundColor: "#545454"
+	color:iOSBlue,
+	backgroundColor: "#555"
 });
 var websiteButton = Titanium.UI.createButton({
 	title: "Website", 
 	width: '25%', 
 	height: '10%', 
-	borderWidth: 1, 
 	bottom: 0,
 	right: 0,
-	backgroundColor: "#545454"
+	color:iOSBlue,
+	backgroundColor: "#555"
 });
 var favoritesButton = Titanium.UI.createButton({
 	title: "Favorites", 
 	width: '25%', 
 	height: '10%', 
-	borderWidth: 1, 
 	bottom: 0,
 	right: "25%",
-	backgroundColor: "#545454"
+	color:iOSBlue,
+	backgroundColor: "#555"
 });
 callButton.addEventListener('click', function(){
 	var alertDialog = Titanium.UI.createAlertDialog({
