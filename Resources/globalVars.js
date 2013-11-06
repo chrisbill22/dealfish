@@ -27,6 +27,8 @@ var categories = ['Chinese', 'Coffee', 'Pizza', 'Bar'];
 var currentLocations = [];
 //var currentLocations = [["This is a description", "Test Company", "TCP", 1.1, 1.1, 0],["This is a description", "Test Company", "TCP", 1.1, 1.1, 0],["This is a description", "Test Company", "TCP", 1.1, 1.1, 0]];
 
+var currentCompanyID = -1;
+//
 
 /* [
 0 = listName
