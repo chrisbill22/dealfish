@@ -86,7 +86,7 @@ var directionsButton = Titanium.UI.createButton({
 	height: '10%', 
 	bottom: 0,
 	left: 0, 
-	color:iOSBlue,
+	color:orangeColor,
 	backgroundColor: "#555"
 });
 var callButton = Titanium.UI.createButton({
@@ -95,7 +95,7 @@ var callButton = Titanium.UI.createButton({
 	height: '10%', 
 	bottom: 0,
 	left: '25%',
-	color:iOSBlue,
+	color:orangeColor,
 	backgroundColor: "#555"
 });
 var websiteButton = Titanium.UI.createButton({
@@ -104,7 +104,7 @@ var websiteButton = Titanium.UI.createButton({
 	height: '10%', 
 	bottom: 0,
 	right: 0,
-	color:iOSBlue,
+	color:orangeColor,
 	backgroundColor: "#555"
 });
 var favoritesButton = Titanium.UI.createButton({
@@ -113,7 +113,7 @@ var favoritesButton = Titanium.UI.createButton({
 	height: '10%', 
 	bottom: 0,
 	right: "25%",
-	color:iOSBlue,
+	color:orangeColor,
 	backgroundColor: "#555"
 });
 callButton.addEventListener('click', function(){

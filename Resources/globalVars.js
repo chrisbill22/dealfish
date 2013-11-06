@@ -43,7 +43,7 @@ var currentCompanyID = -1;
 ] */
 var favorites = [];
 
-var iOSBlue = "#FF6600";
+var orangeColor = "#FF962D";
 var currentView = "list";
 var currentSubView = ""; // this will store the last view open before switching to settings, search, or any other layover view
 var deviceID = "";

@@ -25,7 +25,7 @@ var favorites_newListButton = Ti.UI.createButton({
 	title:'Create New List',
 	backgroundColor:'#ddd',
 	top:20,
-	color:iOSBlue
+	color:orangeColor
 });
 
 Ti.include("accountSetup.js");

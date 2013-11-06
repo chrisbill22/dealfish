@@ -55,7 +55,7 @@ var track_button = Ti.UI.createButton({
 	font:{fontSize:12},
 	title:"Track",
 	zIndex:10,
-	borderColor:iOSBlue,
+	borderColor:orangeColor,
 	borderRadius:13,
 });
 // map view click event listener

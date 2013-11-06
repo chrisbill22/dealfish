@@ -42,7 +42,7 @@ var listViewItem = Ti.UI.createView({
 var listViewItem_image = Ti.UI.createView({
 	width:60,
 	height:60,
-	backgroundColor:iOSBlue,
+	backgroundColor:orangeColor,
 	left:0
 });
 var listViewItem_title = Ti.UI.createLabel({

@@ -77,7 +77,7 @@ function createListItem(data){
 	var tempItem_image = Ti.UI.createView({
 		width:70,
 		height:70,
-		backgroundColor:iOSBlue,
+		backgroundColor:orangeColor,
 		left:0,
 		backgroundImage:getCategoryImage(cateogry)
 	});

@@ -90,7 +90,7 @@ function populateFavoriteList(){
 			height:headerHeight,
 			title:favorites[i][0],
 			listID:favoriteObjects.length,
-			backgroundColor:iOSBlue,
+			backgroundColor:orangeColor,
 			top:tempTop,
 			color:'#fff',
 			zIndex:zIndexTracker
