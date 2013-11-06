@@ -86,22 +86,26 @@ var fourDollar = Titanium.UI.createButton({
 	title: '$$$$', 
 	backgroundColor: "#FFF"
 });
-	var padding = 13;
-	var boxWidth = 60;
-	var boxHeight = 65;
-	var tempLeft = 20;
+	var padding = 10;
+	var boxWidth = 80;
+	var boxHeight = 80;
+	var tempLeft = 30;
 	var tempTop = 160;
 for(var i = 0; i != categories.length; i++){
 	var searchBox = Titanium.UI.createButton({
 		width: boxWidth,
 		height: boxHeight, 
 		backgroundColor: '#FF6600', 
-		backgroundImage: 'images/categories/'+categories[i], 
+		backgroundImage: 'images/categories/'+categories[i]+'.png', 
 		left: tempLeft, 
 		top: tempTop, 
 		borderWidth: 1
 	});
 	tempLeft = tempLeft + boxWidth + padding;
+	if(tempLeft >= 280){
+		tempTop = tempTop + boxHeight + padding; 
+		tempLeft = 30;
+	}
 	search_view.add(searchBox);
 }
 
