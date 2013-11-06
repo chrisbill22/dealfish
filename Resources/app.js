@@ -19,7 +19,7 @@ function capitaliseFirstLetter(string)
 
 Ti.include("pushNotifications.js");
 if(!android){
-	registerPushNotifications();
+	//registerPushNotifications();
 }
 
 

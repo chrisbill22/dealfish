@@ -63,16 +63,13 @@ if(os == "android"){
 
 
 //Saved Variables
-if(!Ti.App.Properties.getBool("pushSubscription")){
-	Ti.App.Properties.setBool("pushSubscription", false);
-}
+
 
 if(!Ti.App.Properties.getBool("zipSetup")){
 	if(Ti.App.Properties.getInt("zip")){
 		zipcode = Ti.App.Properties.getInt("zip");
 	}
 }
-
 
 if(Ti.App.Properties.getString("deviceID")){
 	deviceID = Ti.App.Properties.getString("deviceID");

@@ -36,10 +36,6 @@ accountSetupPopup_disable.add(accountSetupPopup_cancel);
 accountSetupPopup_disable.add(accountSetupPopup_Button);
 accountSetupPopup_disable.add(accountSetupPopup_label);
 
-accountSetupPopup_cancel.addEventListener('click', function(){
-	disableAccount_background();
-});
-
 function disableAccount_background(){
 	favorites_view.remove(accountSetupPopup_disable);
 }
