@@ -31,6 +31,10 @@ function setList(){
 		7 = start date,
 		8 = end date
 		9 = category
+		10 = phone
+		11 = website
+		12 = bio
+		13 = specialties
 		]
 	2 = ["]
 	] */

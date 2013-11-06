@@ -23,6 +23,8 @@ var categories = ['Chinese', 'Coffee', 'Pizza', 'Bar'];
 9 = category
 10 = phone
 11 = website
+12 = bio
+13 = specialties
 ] */
 var currentLocations = [];
 //var currentLocations = [["This is a description", "Test Company", "TCP", 1.1, 1.1, 0],["This is a description", "Test Company", "TCP", 1.1, 1.1, 0],["This is a description", "Test Company", "TCP", 1.1, 1.1, 0]];
