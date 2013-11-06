@@ -13,8 +13,8 @@ function getLocation(){
 		            latitude: e.coords.latitude,
 		            longitude: e.coords.longitude,
 		            animate:true,
-		            latitudeDelta:0.001,
-		            longitudeDelta:0.001
+		            latitudeDelta:0.01,
+		            longitudeDelta:0.01
 		        };
 		        currentLat = e.coords.latitude;
 				currentLong = e.coords.longitude;

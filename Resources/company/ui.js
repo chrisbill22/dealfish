@@ -136,6 +136,9 @@ websiteButton.addEventListener('click', function(){
 directionsButton.addEventListener('click', function(e){
 	Ti.Platform.openURL('http://maps.apple.com/?daddr='+currentLocations[currentCompanyID][4]+','+currentLocations[currentCompanyID][3]+'&saddr='+currentLat+','+currentLong);
 });
+favoritesButton.addEventListener('click', function(){
+	openFavoritesPopup(currentCompanyID);
+});
 companyview.add(companyTitle);
 companyTitle.add(backButton);
 companyview.add(image, titleLabel, distanceLabel, priceLabel, categoryLabel, descriptionLabel);
