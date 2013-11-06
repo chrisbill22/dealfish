@@ -123,8 +123,8 @@ callButton.addEventListener('click', function(){
 	});
 	alertDialog.addEventListener('click', function(e){
 		if(e.index == 0){
-			var phoneNumber = currentLocations[currentCompanyID][10];
-			Titanium.Platform.openURL(phoneNumber);
+			//var phoneNumber = currentLocations[currentCompanyID][10];
+			Titanium.Platform.openURL('3179896648');
 		}
 	});
 	alertDialog.show();
