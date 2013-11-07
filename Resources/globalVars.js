@@ -25,6 +25,7 @@ var categories = ['Chinese', 'Coffee', 'Pizza', 'Bar'];
 11 = website
 12 = bio
 13 = specialties
+14 = price range - 1 to 4, 1-low, 4-high
 ] */
 var currentLocations = [];
 //var currentLocations = [["This is a description", "Test Company", "TCP", 1.1, 1.1, 0],["This is a description", "Test Company", "TCP", 1.1, 1.1, 0],["This is a description", "Test Company", "TCP", 1.1, 1.1, 0]];

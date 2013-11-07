@@ -1,3 +1,8 @@
+var searchString = "";
+var searchCategories = [];
+var searchButtonObjects = [];
+var priceRanges = [];
+
 Ti.include("ui.js");
 
 searchBack.addEventListener('click', function(){
