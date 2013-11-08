@@ -101,8 +101,8 @@ function createListItem(data){
 		font:{fontSize:14},
 	});
 	
-	if(distance < 1){
-		tempItem_distance.text = "<1 mi";
+	if(distance == 0){
+		tempItem_distance.text = "0.1 mi";
 	}else if(distance > 100){
 		tempItem_distance.text = ">100 mi";
 	}else{

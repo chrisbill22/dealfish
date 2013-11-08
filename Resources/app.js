@@ -35,6 +35,7 @@ Ti.include("list/list.js");
 Ti.include("settings/settings.js");
 Ti.include("search/search.js");
 Ti.include("favorites/favorites.js");
+Ti.include("geoSetup/geoSetup.js");
 
 //Navigation relies on the views already being run so that's why it's down here
 Ti.include("navigation/navigation.js");
@@ -42,21 +43,30 @@ Ti.include("navigation/navigation.js");
 
 if(!Ti.App.Properties.getBool("zipSetup")){
 	//Initiate startup question
-	Ti.include("geoSetup/geoSetup.js");
 	show_geolocation_setup();
 }else{
 	if(Ti.App.Properties.getInt("zip")){
 		//Reverse geo lookup the stored zipcode
+		convertZip(Ti.App.Properties.getInt("zip"));
 	}else{
 		//Start finding current location
 		trackCurrentLocation();
+		setTimeout(locationTester, 5000);
+	}
+}
+
+function locationTester(){
+	if(loading == true){
+		stop_loading();
+		show_geolocation_setup();
 	}
 }
 
 function appStartupCheck(){
+	Ti.API.log("hi");
 	//Ti.API.log("Setup Interval-- loading = "+loading+", Lat = "+currentLat+", Long = "+currentLong);
 	if(loading == false && currentLat != -9999 && currentLong != -9999){
-		Ti.API.log("SET STARTUP LIST");
+		Ti.API.warn("SET STARTUP LIST");
 		fetchLocations();
 		checkLocationsFetched();
 	}else{

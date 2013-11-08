@@ -38,7 +38,9 @@ var settingsTable = Ti.UI.createTableView({
 });
 
 settingsTable.addEventListener('click', function(e){
-	if(e.index == 3){
+	if(e.index == 2){
+		show_geolocation_setup();
+	}else if(e.index == 3){
 		openTerms();
 	}
 	else if(e.index == 2){
