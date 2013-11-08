@@ -1,3 +1,5 @@
+Ti.include('../terms/ui.js');
+Ti.include('../privacy/ui.js');
 var settings_view = Titanium.UI.createView({
 	height: '100%', 
 	width: '100%',
@@ -24,8 +26,7 @@ var settingsTitle_label = Ti.UI.createLabel({
 });
 var data = [
 	{title: 'Notifications'}, 
-	{title: 'Set Location'},
-	{title: 'My Preferences'}, 
+	{title: 'Set Location'}, 
 	{title: 'Privacy Statement'}, 
 	{title: 'Terms of Use'}
 ];
@@ -36,7 +37,14 @@ var settingsTable = Ti.UI.createTableView({
 	font:{fontFamily: 'Helvetica'},
 });
 
-
+settingsTable.addEventListener('click', function(e){
+	if(e.index == 3){
+		openTerms();
+	}
+	else if(e.index == 2){
+		openPrivacy();
+	}
+});
 
 settingsTitle.add(settingsTitle_label);
 settingsTitle.add(settingsBack);
