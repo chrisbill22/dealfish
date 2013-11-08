@@ -18,6 +18,20 @@ var searchResultsTitle = Ti.UI.createView({
 	backgroundColor:orangeColor,
 });
 
+var searchResultsList = Ti.UI.createTableView({
+	top:'10%',
+	width:'100%',
+	height:'90%',
+	rowHeight:80,
+	style: Ti.UI.iPhone.TableViewStyle.PLAIN,
+	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE,
+	separatorColor: 'transparent'
+});
+
+searchResultsBack.addEventListener('click', function(){
+	searchResultsView.animate({left:(screen_width*-1)});
+});
+
 
 
 function setSearchedList(mainArray){
@@ -108,4 +122,5 @@ function setSearchedList(mainArray){
 
 searchResultsTitle.add(searchResultsBack);
 searchResultsView.add(searchResultsTitle);
+searchResultsView.add(searchResultsList);
 MainWindow.add(searchResultsView);
