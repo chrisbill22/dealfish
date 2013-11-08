@@ -20,6 +20,7 @@ for(var i = 0; i != categories.length; i++){
 	searchButtonObjects.push(searchBox);
 	
 	searchButtonObjects[searchObjID].addEventListener('click', function(e){
+		searchBar.blur();
 		var categoryName = e.source.categoryName;
 		if(searchCategories.indexOf(categoryName) == -1){
 			e.source.backgroundColor = orangeColor;

@@ -8,6 +8,7 @@ var oneDollar = Titanium.UI.createButton({
 	color:orangeColor
 });
 oneDollar.addEventListener('click', function(){
+	searchBar.blur();
 	var amount = "one";
 	if(priceRanges.indexOf(amount) == -1){
 		priceRanges.push(amount);
@@ -30,6 +31,7 @@ var twoDollar = Titanium.UI.createButton({
 	color:orangeColor
 });
 twoDollar.addEventListener('click', function(){
+	searchBar.blur();
 	var amount = "two";
 	if(priceRanges.indexOf(amount) == -1){
 		priceRanges.push(amount);
@@ -52,6 +54,7 @@ var threeDollar = Titanium.UI.createButton({
 	color:orangeColor
 });
 threeDollar.addEventListener('click', function(){
+	searchBar.blur();
 	var amount = "three";
 	if(priceRanges.indexOf(amount) == -1){
 		priceRanges.push(amount);
@@ -74,6 +77,7 @@ var fourDollar = Titanium.UI.createButton({
 	color:orangeColor
 });
 fourDollar.addEventListener('click', function(){
+	searchBar.blur();
 	var amount = "four";
 	if(priceRanges.indexOf(amount) == -1){
 		priceRanges.push(amount);

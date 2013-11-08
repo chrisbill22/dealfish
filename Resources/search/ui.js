@@ -48,6 +48,12 @@ searchBar.addEventListener('focus', function(){
 		searchBar.value = "";	
 	}
 });
+searchBar.addEventListener('blur', function(){
+	if(searchBar.value == ""){
+		searchBar.value = "Enter restaurant, foods, etc.";
+		searchBar.color = '#aaa';
+	}
+});
 searchBarButton = Ti.UI.createButton({
 	width:40,
 	height:40,
