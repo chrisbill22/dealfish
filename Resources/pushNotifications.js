@@ -80,7 +80,7 @@ function favoriteUnsubscribe(companyID, switchSource, loadingSource, i, x){
 	if(companyID){
 		channel = companyID;
 	}
-	Cloud.PushNotifications.subscribe({
+	Cloud.PushNotifications.unsubscribe({
 	    channel: channel,
 	    device_token: deviceToken,
 	    type:'ios'
@@ -189,3 +189,45 @@ function notifyChannel(){
 	});
 }
 
+/*
+function unsubscribeAll(){
+	Cloud.Users.login({
+        login: 'orangedog22',
+        password: 'results'
+    }, function (e) {
+        if (e.success) {
+            Ti.API.log('Push Notifications Login Successful');
+            for(var i=0; i!=favorites.length; i++){
+	    		for(var x=1; x!=favorites[i].length; x++){
+	    			if(favorites[i][x][5] == true){
+			        	unsubscribeLoop(favorites[i][x][1]);
+			        }
+	    		}
+	    	}
+        } else {
+            alert('Login Auth Error:\n' +
+                ((e.error && e.message) || JSON.stringify(e)));
+        }
+    });
+}
+
+function unsubscribeLoop(channel){
+	Cloud.PushNotifications.unsubscribe({
+	    channel: channel,
+	    device_token: deviceToken
+	}, function (e) {
+	    if (e.success) {
+	    	for(var i=0; i!=favorites.length; i++){
+	    		for(var x=1; x!=favorites[i].length; x++){
+	    			if(favorites[i][x][5] == true){
+			        	unsubscribeLoop(favorites[i][x][1]);
+			        }
+	    		}
+	    	}
+	    } else {
+	        alert('Error:\n' +
+	            ((e.error && e.message) || JSON.stringify(e)));
+	    }
+	});
+}
+*/

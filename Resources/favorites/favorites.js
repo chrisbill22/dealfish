@@ -69,7 +69,18 @@ favorites_newListButton.addEventListener('click', function(){
 
 var favoriteObjects = [];
 
+function clearFavoriteList(){
+	for(var i=0; i!=favorites.length; i++){
+		favorites_innerView.remove(favoriteObjects[i][2]);
+		favorites_innerView.remove(favoriteObjects[i][1]);
+		favorites_innerView.remove(favoriteObjects[i][0]);
+	}
+}
+
 function populateFavoriteList(){
+	if(favoriteObjects.length > 0){
+		clearFavoriteList();
+	}
 	favoriteObjects = [];
 	var zIndexTracker = (favorites.length*2)+1;
 	//Starts at 20 down, 50 for height of add list button, 20 for padding between
