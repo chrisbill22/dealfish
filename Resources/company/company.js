@@ -1,11 +1,23 @@
 Ti.include("ui.js");
 
-function openCompany(id){
-	titleLabel.text = currentLocations[id][1];
-	distanceLabel.text = currentLocations[id][6];
-	descriptionLabel.text = currentLocations[id][0];
-	categoryLabel.text = "Category: " + currentLocations[id][9];
-	image.backgroundImage = getCategoryImage(currentLocations[id][9]);
+function openCompany(id, altArray){
+	var tempCompanyArray = [];
+	if(!altArray){
+		tempCompanyArray = currentLocations;
+	}else{
+		tempCompanyArray = altArray;
+	}
+	titleLabel.text = tempCompanyArray[id][1];
+	distanceLabel.text = tempCompanyArray[id][6];
+	descriptionLabel.text = tempCompanyArray[id][0];
+	categoryLabel.text = "Category: " + tempCompanyArray[id][9];
+	image.backgroundImage = getCategoryImage(tempCompanyArray[id][9]);
+	var priceString = "";
+	for(i=0; i!=tempCompanyArray[id][14]; i++){
+		priceString += "$";
+	}
+	priceLabel_active.text = priceString;
+	
 	companyview.animate({
 		bottom: 0
 	});

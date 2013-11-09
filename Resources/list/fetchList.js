@@ -97,9 +97,15 @@ function setList(){
 	list_tableview.data = rowArray;
 }
 
-function getFirstInstanceOfCompanyID(companyID){
-	for(var i=0; i!=currentLocations.length; i++){
-		if(currentLocations[i][2] == companyID){
+function getFirstInstanceOfCompanyID(companyID, altArray){
+	var tempCompanyArray = [];
+	if(!altArray){
+		tempCompanyArray = currentLocations;
+	}else{
+		tempCompanyArray = altArray;
+	}
+	for(var i=0; i!=tempCompanyArray.length; i++){
+		if(tempCompanyArray[i][2] == companyID){
 			return i;
 		}
 	}

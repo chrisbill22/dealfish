@@ -3,8 +3,8 @@ var companyview = Titanium.UI.createView({
 	height: '100%', 
 	width: '100%',
 	bottom:screen_height,
-	backgroundColor: '#DDD',
-	zIndex: 21, 
+	backgroundColor: '#FFF',
+	zIndex: 25, 
 });
 var companyTitle = Ti.UI.createView({
 	height:'10%',
@@ -21,11 +21,11 @@ var backButton = Titanium.UI.createButton({
 });
 //------
 var image = Ti.UI.createView({
-	width:120,
-	height:120,
+	width:80,
+	height:80,
 	backgroundColor:'#FF6600',
 	left: 10, 
-	top: 95, 
+	top: 70, 
 });
 var titleLabel = Titanium.UI.createLabel({
 	text: 'Loading...',
@@ -45,14 +45,23 @@ var distanceLabel = Titanium.UI.createLabel({
 	right: 10, 
 	font:{fontSize: 10},
 });
-var priceLabel = Titanium.UI.createLabel({
-	text: "DOLLAR SIGNS", 
+var priceLabel_active = Titanium.UI.createLabel({
+	text: "", 
 	width: '50%', 
-	height: 50, 
-	borderWidth: 0, 
+	height: 50,  
 	top: 150,
 	right: 10, 
 	font:{fontSize: 10},
+	zIndex:1
+});
+priceLabel_inactive = Ti.UI.createLabel({
+	text:"$$$$",
+	color:'#DDD',
+	width:priceLabel_active.width,
+	height:priceLabel_active.height,
+	top:priceLabel_active.top,
+	right:priceLabel_active.right,
+	font:priceLabel_active.font
 });
 var categoryLabel = Titanium.UI.createLabel({
 	text: '',
@@ -115,7 +124,8 @@ companyTitle.add(backButton);
 companyview.add(image);
 companyview.add(titleLabel);
 companyview.add(distanceLabel);
-companyview.add(priceLabel);
+companyview.add(priceLabel_active);
+companyview.add(priceLabel_inactive);
 companyview.add(descriptionLabel);
 companyview.add(categoryLabel);
 
