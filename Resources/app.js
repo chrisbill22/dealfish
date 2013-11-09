@@ -30,6 +30,7 @@ Ti.include("locations.js");
 Ti.include("loadingScreen/loadingScreen.js");
 
 //Views
+Ti.include('company/company.js');
 Ti.include("map/map.js");
 Ti.include("list/list.js");
 Ti.include("settings/settings.js");

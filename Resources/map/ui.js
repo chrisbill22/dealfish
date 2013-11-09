@@ -1,4 +1,3 @@
-Ti.include('../company/ui.js');
 var mapview = Ti.UI.createView({
 	left: screen_width,
 	height: '88%', 
@@ -58,12 +57,8 @@ var track_button = Ti.UI.createButton({
 	borderColor:orangeColor,
 	borderRadius:13,
 });
+
 // map view click event listener
-function openCompany(index){
-	companyview.animate({
-			bottom: 0, 
-		});
-}
 map.addEventListener('click', function(e){
 	if(e.clicksource == "rightButton"){
 		openCompany(e.annotation.myid);

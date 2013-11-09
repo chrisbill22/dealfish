@@ -19,17 +19,7 @@ var backButton = Titanium.UI.createButton({
 	top: 10, 
 	left: 0, 
 });
-function openCompany(id){
-	titleLabel.text = currentLocations[id][1];
-	distanceLabel.text = currentLocations[id][6];
-	descriptionLabel.text = currentLocations[id][0];
-	categoryLabel.text = "Category: " + currentLocations[id][9];
-	image.backgroundImage = getCategoryImage(currentLocations[id][9]);
-	companyview.animate({
-		bottom: 0
-	});
-	currentCompanyID = id;
-}
+//------
 var image = Ti.UI.createView({
 	width:120,
 	height:120,
@@ -38,7 +28,7 @@ var image = Ti.UI.createView({
 	top: 95, 
 });
 var titleLabel = Titanium.UI.createLabel({
-	text: '',
+	text: 'Loading...',
 	width: '50%',
 	height: 50,
 	borderWidth: 0, 
@@ -116,43 +106,26 @@ var favoritesButton = Titanium.UI.createButton({
 	color:orangeColor,
 	backgroundColor: "#555"
 });
-callButton.addEventListener('click', function(){
-	var alertDialog = Titanium.UI.createAlertDialog({
-    message: 'Are you sure you want to call?',
-    buttonNames: ['Yes!','No!']
-	});
-	alertDialog.addEventListener('click', function(e){
-		if(e.index == 0){
-			//var phoneNumber = currentLocations[currentCompanyID][10];
-			Titanium.Platform.openURL('tel:3179896648');
-		}
-	});
-	alertDialog.show();
-});
-websiteButton.addEventListener('click', function(){
-	var website = 'http://www.bbc.com';
-	Ti.Platform.openURL(website);
-});
-directionsButton.addEventListener('click', function(e){
-	Ti.Platform.openURL('http://maps.apple.com/?daddr='+currentLocations[currentCompanyID][4]+','+currentLocations[currentCompanyID][3]+'&saddr='+currentLat+','+currentLong);
-});
-favoritesButton.addEventListener('click', function(){
-	openFavoritesPopup(currentCompanyID);
-});
+
 companyview.add(companyTitle);
 companyTitle.add(backButton);
-companyview.add(image, titleLabel, distanceLabel, priceLabel, categoryLabel, descriptionLabel);
-/*
+
+//The reason we use individual adds vs the list is because android dones't support the list
+//companyview.add(image, titleLabel, distanceLabel, priceLabel, categoryLabel, descriptionLabel);
+companyview.add(image);
 companyview.add(titleLabel);
 companyview.add(distanceLabel);
 companyview.add(priceLabel);
 companyview.add(descriptionLabel);
-*/
-companyview.add(callButton, directionsButton, favoritesButton, websiteButton);
-/*
+companyview.add(categoryLabel);
+
+//companyview.add(callButton, directionsButton, favoritesButton, websiteButton);
+companyview.add(callButton);
 companyview.add(directionsButton);
 companyview.add(favoritesButton);
-companyview.add(categoryLabel);
-companyview.add(pinButton);
-*/
+companyview.add(websiteButton);
+
+/*
+companyview.add(pinButton);*/
+
 MainWindow.add(companyview);
