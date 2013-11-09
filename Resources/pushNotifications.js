@@ -89,9 +89,13 @@ function favoriteUnsubscribe(companyID, switchSource, loadingSource, i, x){
 	        favorites[i][x][5] = false;
 			Ti.App.Properties.setList("favorites", favorites);
 			Ti.API.info("disable switch");
-			switchSource.backgroundColor = "#DDD";
-			switchSource.show();
-			loadingSource.hide();
+			if(loadingSource){
+				switchSource.backgroundColor = "#DDD";
+				switchSource.show();
+				loadingSource.hide();
+			}else{
+				Ti.App.fireEvent('unsubscribed', {i:i, x:x});
+			}
 	    } else {
 	        alert('Error:\n' +
 	            ((e.error && e.message) || JSON.stringify(e)));
