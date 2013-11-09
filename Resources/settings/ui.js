@@ -1,6 +1,6 @@
-Ti.include('../terms/ui.js');
-Ti.include('../privacy/ui.js');
-Ti.include('../notifications/notifications.js');
+Ti.include('terms/ui.js');
+Ti.include('privacy/ui.js');
+Ti.include('notifications/notifications.js');
 
 var settings_view = Titanium.UI.createView({
 	height: '100%', 
