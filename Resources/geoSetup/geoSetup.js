@@ -11,6 +11,9 @@ function remove_geolocation_setup(){
 }
 
 function ask_for_zipcode(){
+	if(Ti.App.Properties.getInt('zip')){
+		enterZipcode_textbox.value = Ti.App.Properties.getInt('zip');
+	}
 	geoSetupGeoButton.animate({opacity:0});
 	geoSetupZipButton.animate({opacity:0});
 	enterZipcode_label.animate({opacity:1});
@@ -64,6 +67,7 @@ geoSetupGeoButton.addEventListener('click', function(){
 		Ti.App.Properties.setInt("zip", null);
 		remove_geolocation_setup();
 		trackCurrentLocation();
+		appStartupCheck();
 		Ti.App.Properties.setBool("zipSetup", true);
 	}else if(Ti.Geolocation.locationServicesAuthorization == Ti.Geolocation.AUTHORIZATION_UNKNOWN){
 		alert("Your iOS device version might not support geolocation");
