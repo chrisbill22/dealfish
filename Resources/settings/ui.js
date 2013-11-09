@@ -38,13 +38,13 @@ var settingsTable = Ti.UI.createTableView({
 });
 
 settingsTable.addEventListener('click', function(e){
-	if(e.index == 2){
+	if(e.index == 1){
 		show_geolocation_setup();
-	}else if(e.index == 3){
-		openTerms();
-	}
-	else if(e.index == 2){
+	}else if(e.index == 2){
 		openPrivacy();
+	}
+	else if(e.index == 3){
+		openTerms();
 	}
 });
 

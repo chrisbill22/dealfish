@@ -56,3 +56,4 @@ geoSetupView.add(enterZipcode_label);
 geoSetupView.add(enterZipcode_textbox);
 geoSetupView.add(geoSetupZipButton);
 geoSetupView.add(geoSetupGeoButton);
+MainWindow.add(geoSetupView);

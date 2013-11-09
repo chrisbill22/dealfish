@@ -43,7 +43,7 @@ function createListItem(data){
 	2 = ["]
 	] */
 	
-	Ti.API.log("Creating List Item");
+	//Ti.API.log("Creating List Item");
 	//A row view
 	
 	//We use a holder because the little flash icon needs to be outside of the existing box

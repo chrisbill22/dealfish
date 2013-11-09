@@ -45,9 +45,8 @@ function setList(){
 		for (var i = 0; i != currentLocations.length; i++){
 			var duplicateMerchant = false;
 			for(var z = 0; z != dataArray.length; z++){
-				Ti.API.log("Check");
 				if(dataArray[z][0] == currentLocations[i][2]){
-					Ti.API.log("Duplicate z="+z+" Deal Name="+currentLocations[i][0]);
+					//Ti.API.log("Duplicate z="+z+" Deal Name="+currentLocations[i][0]);
 					//If there is a duplicate merchant ID add it onto the existing one
 					dataArray[z].push(currentLocations[i]);
 					duplicateMerchant = true;
@@ -55,7 +54,7 @@ function setList(){
 			}
 			//If this is a new merchant ID add it onto the back
 			if(duplicateMerchant == false){
-				Ti.API.log("New Merchant. Z="+dataArray.length);
+				//Ti.API.log("New Merchant. Z="+dataArray.length);
 				dataArray.push([currentLocations[i][2], currentLocations[i]]);
 			}
 			//First comapany, second deal they are offering, description of deal
@@ -94,6 +93,7 @@ function setList(){
 		rowArray.push(row);
 	}
 	//set listview.data here
+	list_tableview.data = [];
 	list_tableview.data = rowArray;
 }
 

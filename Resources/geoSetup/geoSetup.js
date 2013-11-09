@@ -2,15 +2,12 @@ Ti.include("ui.js");
 
 function show_geolocation_setup(){
 	disable_background();
-	MainWindow.add(geoSetupView);
 	geoSetupView.animate({top:0, duration:500});
 }
 
 function remove_geolocation_setup(){
 	enable_backgrond();
-	geoSetupView.animate({top:screen_height, duration:500}, function(){
-		MainWindow.remove(geoSetupView);
-	});
+	geoSetupView.animate({top:screen_height, duration:500});
 }
 
 function ask_for_zipcode(){
@@ -39,6 +36,9 @@ function convertZip(zipcode){
 		loading = false;
 		var result = JSON.parse(this.responseText).results[0].geometry.location;
 		setMapRegion(result.lng, result.lat);
+		
+		fetchLocations();
+		checkLocationsFetched();
 	};
 	sendDbRequest("https://maps.googleapis.com/maps/api/geocode/json?address="+zipcode+"&sensor=true", zipRequest);
 }
@@ -77,6 +77,10 @@ geoSetupZipButton.addEventListener('click', function(){
 	//Ti.App.Properties.setBool("zipSetup", true);
 });
 
+enterZipcode_backBt.addEventListener('click', function(){
+	dontAsk_for_zipcode();	
+});
+
 enterZipcode_textbox.addEventListener('return', function(){
 	if(enterZipcode_textbox.value){
 		convertZip(enterZipcode_textbox.value);
@@ -84,7 +88,6 @@ enterZipcode_textbox.addEventListener('return', function(){
 		remove_geolocation_setup();
 		zipCodeBased = true;
 		track_button.visible = false;
-	}else{
-		dontAsk_for_zipcode();
 	}
+	dontAsk_for_zipcode();
 });

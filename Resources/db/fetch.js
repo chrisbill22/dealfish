@@ -14,11 +14,11 @@ function fetchLocations(){
 			//This little loop calculates the distance between the place and current location.
 			for(i=0; i!=requestReturn.length; i++){
 				requestReturn[i][6] = getDistanceBetween(currentLong, currentLat, requestReturn[i][3], requestReturn[i][4]);
-				Ti.API.info("DISTANCE = "+requestReturn[i][6]);
+				//Ti.API.info("DISTANCE = "+requestReturn[i][6]);
 			}
 			currentLocations = requestReturn;
 		}else{
-			//alert("No deals in your area");
+			currentLocations = [];
 		}
 		dropPins();
 		setList();
@@ -35,7 +35,6 @@ function fetchLocations(){
 		Ti.API.warn("Current Lat or Current Long have not been set yet. Cannot fetch locations without finding location first.");
 		fetchingLocations = false;
 	}else{
-		
 		var currentDate = new Date();
 		var weekday=new Array(7);
 		weekday[0]="sunday";
@@ -50,14 +49,14 @@ function fetchLocations(){
 		addPostVariable("current_lat", currentLat);
 		addPostVariable("delta_long", longitudeDelta);
 		addPostVariable("delta_lat", latitudeDelta);
-		Ti.API.log("Sending Time = "+(Math.round(new Date().getTime() / 1000))-14400);
+		//Ti.API.log("Sending Time = "+(Math.round(new Date().getTime() / 1000))-14400);
 		addPostVariable("currentTime",(Math.round(new Date().getTime() / 1000)) - 14400);
 		
 		//alert(weekday[currentDate.getDay()]);
 		addPostVariable("dayOfWeek", weekday[currentDate.getDay()]);
 		
 		sendDbRequest("http://dealfish.genyapps.com/app/getDeals.php", testRequest);
-		Ti.API.warn("Request sent");
+		//Ti.API.warn("Request sent");
 	}
 }
 
@@ -86,6 +85,7 @@ function checkLocationsNeedFetched(){
 }
 
 function checkLocationsFetched(){
+	Ti.API.info("Checking...");
 	setTimeout(function(){
 		if(fetchingLocations == true){
 			checkLocationsFetched();

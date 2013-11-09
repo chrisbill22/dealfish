@@ -42,7 +42,7 @@ function ignoreCurrentLocation(){
 
 function getDistanceBetween(fromLong, fromLat, toLong, toLat){
 	/*SOURCE OF CODE: http://www.clearlyinnovative.com/blog/post/6037568031/titanium-appcelerator-quickie-distance-between-two-points*/
-	Ti.API.log("Working on new distance...");
+	//Ti.API.log("Working on new distance...");
 	Number.prototype.toDeg = function() {
 		return this * 180 / Math.PI;
 	};
