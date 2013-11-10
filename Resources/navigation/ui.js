@@ -14,8 +14,7 @@ var nav_map = Ti.UI.createButton({
 	backgroundColor:'#DDD',
 	bottom:0,
 	left:0,
-	title:"Map",
-	color:orangeColor
+	image:'images/locationOn.png'
 });
 var nav_list = Ti.UI.createButton({ 
 	width:BOTTOM_MENU_WIDTH_PER+"%",
@@ -23,7 +22,7 @@ var nav_list = Ti.UI.createButton({
 	backgroundColor:'#333',
 	bottom:0,
 	left:BOTTOM_MENU_WIDTH_PER+"%",
-	backgroundImage: 'images/homeOff.png'
+	image: 'images/homeOn.png', 
 });
 var nav_favorites = Ti.UI.createButton({ 
 	width:BOTTOM_MENU_WIDTH_PER+"%",
@@ -31,8 +30,7 @@ var nav_favorites = Ti.UI.createButton({
 	backgroundColor:'#DDD',
 	bottom:0,
 	left:(BOTTOM_MENU_WIDTH_PER*2)+"%",
-	title:"Favorites",
-	color:orangeColor
+	image: 'images/favoritesStarOn.png'
 });
 
 
