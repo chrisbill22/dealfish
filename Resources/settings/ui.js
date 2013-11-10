@@ -1,5 +1,7 @@
-Ti.include('../terms/ui.js');
-Ti.include('../privacy/ui.js');
+Ti.include('terms/ui.js');
+Ti.include('privacy/ui.js');
+Ti.include('notifications/notifications.js');
+
 var settings_view = Titanium.UI.createView({
 	height: '100%', 
 	width: '100%',
@@ -38,11 +40,14 @@ var settingsTable = Ti.UI.createTableView({
 });
 
 settingsTable.addEventListener('click', function(e){
-	if(e.index == 3){
-		openTerms();
-	}
-	else if(e.index == 2){
+	if(e.index == 0){
+		openNavigationSettings();
+	}else if(e.index == 1){
+		show_geolocation_setup();
+	}else if(e.index == 2){
 		openPrivacy();
+	}else if(e.index == 3){
+		openTerms();
 	}
 });
 

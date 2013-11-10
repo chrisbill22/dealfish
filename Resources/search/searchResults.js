@@ -94,7 +94,7 @@ function setSearchedList(mainArray){
 			row.add(createListItem(dataArray[i]));
 			row.addEventListener('click', function(e){
 				if(longpressTracker == false){
-					//openCompany(getFirstInstanceOfCompanyID(e.rowData.companyID));
+					openCompany(getFirstInstanceOfCompanyID(e.rowData.companyID, mainArray), mainArray);
 				}else{
 					longpressTracker = false;
 				}
