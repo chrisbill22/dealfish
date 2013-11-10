@@ -13,9 +13,9 @@ var settings_view = Titanium.UI.createView({
 var settingsBack = Ti.UI.createButton({
 	backgroundImage: 'images/arrowLeftTrue.png', 
 	width: 15,
-	height: 30,
-	top: 20, 
-	left: 5,
+	height: 25,
+	bottom: 10, 
+	left: 5, 
 });
 var settingsTitle = Ti.UI.createView({
 	height:'10%',

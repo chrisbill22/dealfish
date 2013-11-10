@@ -15,8 +15,8 @@ var companyTitle = Ti.UI.createView({
 var backButton = Titanium.UI.createButton({
 	backgroundImage: 'images/arrowLeftTrue.png', 
 	width: 15,
-	height: 30,
-	top: 20, 
+	height: 25,
+	bottom: 10, 
 	left: 5, 
 });
 //------

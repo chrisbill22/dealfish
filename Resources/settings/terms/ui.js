@@ -13,11 +13,11 @@ var termsTitle = Ti.UI.createView({
 	backgroundColor:'#FF6600',
 });
 var termsbackButton = Titanium.UI.createButton({
-	title: 'Back', 
-	width: 100, 
-	height: 50, 
-	top: 10, 
-	left: 0, 
+	backgroundImage: 'images/arrowLeftTrue.png', 
+	width: 15,
+	height: 25,
+	bottom: 10, 
+	left: 5,  
 });
 var textview = Titanium.UI.createScrollView({
 	top: '15%',   

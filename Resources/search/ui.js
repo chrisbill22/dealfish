@@ -16,9 +16,9 @@ var search_view = Titanium.UI.createView({
 var searchBack = Ti.UI.createButton({
 	backgroundImage: 'images/arrowLeftTrue.png', 
 	width: 15,
-	height: 30,
-	top: 20, 
-	left: 5,
+	height: 25,
+	bottom: 10, 
+	left: 5, 
 });
 var searchTitle = Ti.UI.createView({
 	height:'10%',
