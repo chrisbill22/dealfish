@@ -23,8 +23,7 @@ var nav_list = Ti.UI.createButton({
 	backgroundColor:'#333',
 	bottom:0,
 	left:BOTTOM_MENU_WIDTH_PER+"%",
-	title:"Home",
-	color:orangeColor
+	backgroundImage: 'images/homeOff.png'
 });
 var nav_favorites = Ti.UI.createButton({ 
 	width:BOTTOM_MENU_WIDTH_PER+"%",

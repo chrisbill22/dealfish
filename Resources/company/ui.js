@@ -13,10 +13,10 @@ var companyTitle = Ti.UI.createView({
 	backgroundColor:'#FF6600',
 });
 var backButton = Titanium.UI.createButton({
-	title: 'Back', 
-	width: 100, 
-	height: 50, 
-	top: 10, 
+	backgroundImage: 'images/arrowLeftTrue.png', 
+	width: 25, 
+	height: 25, 
+	top: 20, 
 	left: 0, 
 });
 //------
