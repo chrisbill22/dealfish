@@ -79,6 +79,18 @@ var descriptionLabel = Titanium.UI.createLabel({
 	top: 235, 
 	textAlign: 'center'
 });
+var aboutLabel = Titanium.UI.createLabel({
+	text: '',
+	width: '100%', 
+	height: 80,  
+	top: 300
+});
+var specialtyLabel = Titanium.UI.createLabel({
+	text: '',
+	width: '100%', 
+	height: 80, 
+	bottom: 135
+});
 var directionsButton = Titanium.UI.createButton({
 	title: "Directions", 
 	width: '25%', 
@@ -128,7 +140,8 @@ companyview.add(priceLabel_active);
 companyview.add(priceLabel_inactive);
 companyview.add(descriptionLabel);
 companyview.add(categoryLabel);
-
+companyview.add(aboutLabel);
+companyview.add(specialtyLabel);
 //companyview.add(callButton, directionsButton, favoritesButton, websiteButton);
 companyview.add(callButton);
 companyview.add(directionsButton);

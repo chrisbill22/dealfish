@@ -12,6 +12,8 @@ function openCompany(id, altArray){
 	descriptionLabel.text = tempCompanyArray[id][0];
 	categoryLabel.text = "Category: " + tempCompanyArray[id][9];
 	image.backgroundImage = getCategoryImage(tempCompanyArray[id][9]);
+	aboutLabel.text = "About: " + tempCompanyArray[id][12];
+	specialtyLabel.text = "Specialty: " + tempCompanyArray[id][13];
 	var priceString = "";
 	for(i=0; i!=tempCompanyArray[id][14]; i++){
 		priceString += "$";
@@ -32,14 +34,14 @@ callButton.addEventListener('click', function(){
 	alertDialog.addEventListener('click', function(e){
 		if(e.index == 0){
 			//var phoneNumber = currentLocations[currentCompanyID][10];
-			Titanium.Platform.openURL('tel:3179896648');
+			Titanium.Platform.openURL('tel:' + currentLocations[currentCompanyID][10]);
 		}
 	});
 	alertDialog.show();
 });
 websiteButton.addEventListener('click', function(){
-	var website = 'http://www.bbc.com';
-	Ti.Platform.openURL(website);
+	//var website = 'http://www.bbc.com';
+	Ti.Platform.openURL(currentLocations[currentCompanyID][11]);
 });
 directionsButton.addEventListener('click', function(e){
 	Ti.Platform.openURL('http://maps.apple.com/?daddr='+currentLocations[currentCompanyID][4]+','+currentLocations[currentCompanyID][3]+'&saddr='+currentLat+','+currentLong);
