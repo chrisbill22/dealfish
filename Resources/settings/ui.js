@@ -10,7 +10,7 @@ var settings_view = Titanium.UI.createView({
 	zIndex:20
 });
 
-var settingBack = Ti.UI.createButton({
+var settingsBack = Ti.UI.createButton({
 	backgroundImage: 'images/arrowLeftTrue.png', 
 	width: 15,
 	height: 30,
@@ -54,7 +54,7 @@ settingsTable.addEventListener('click', function(e){
 });
 
 //settingsTitle.add(settingsTitle_label);
-settingsTitle.add(settingBack);
+settingsTitle.add(settingsBack);
 settings_view.add(settingsTitle);
 settings_view.add(settingsTable);
 
