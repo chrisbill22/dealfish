@@ -69,7 +69,7 @@ backButton.addEventListener('click', function(){
 	});
 });
 
-mapview.add(mapTitle);
+//mapview.add(mapTitle);
 mapview.add(map);
 mapview.add(track_button);
 

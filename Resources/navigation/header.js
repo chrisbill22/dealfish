@@ -2,8 +2,7 @@ var mainHeader = Ti.UI.createView({
 	height:'12%',
 	top:0,
 	left:0,
-	backgroundColor:'#DDD',
-	borderWidth:0,
+	backgroundImage: 'images/topBarTrue.png',
 	zIndex:10
 });
 var mainHeader_label = Ti.UI.createLabel({
