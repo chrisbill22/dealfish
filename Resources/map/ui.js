@@ -11,8 +11,7 @@ var mapTitle = Ti.UI.createView({
 	height:'12%',
 	top:0,
 	left:0,
-	backgroundColor:'#DDD',
-	borderWidth:0
+	backgroundImage: 'images/topBarTrue.png'
 });
 var mapTitle_label = Ti.UI.createLabel({
 	text:"Map",
@@ -70,7 +69,7 @@ backButton.addEventListener('click', function(){
 	});
 });
 
-//mapview.add(mapTitle);
+mapview.add(mapTitle);
 mapview.add(map);
 mapview.add(track_button);
 

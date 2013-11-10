@@ -14,15 +14,17 @@ var search_view = Titanium.UI.createView({
 	backgroundColor: '#DDD'
 });
 var searchBack = Ti.UI.createButton({
-	title:"back",
-	left:10,
-	bottom:5,
+	backgroundImage: 'images/arrowLeftTrue.png', 
+	width: 15,
+	height: 30,
+	top: 20, 
+	left: 5,
 });
 var searchTitle = Ti.UI.createView({
 	height:'10%',
 	top:0,
 	left:0,
-	backgroundColor:orangeColor,
+	backgroundImage: 'images/topBarTrue.png'
 });
 var searchButton = Ti.UI.createButton({
 	title: "Search!",

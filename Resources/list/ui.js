@@ -9,10 +9,10 @@ var listview = Ti.UI.createView({
 });
 
 var listTitle = Ti.UI.createView({
-	height:'12%',
+	height:'10%',
 	top:0,
 	left:0,
-	backgroundColor:'#DDD',
+	backgroundImage: 'images/topBarTrue.png',
 	borderWidth:0
 });
 var listTitle_label = Ti.UI.createLabel({

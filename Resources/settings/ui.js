@@ -10,22 +10,24 @@ var settings_view = Titanium.UI.createView({
 	zIndex:20
 });
 
-var settingsBack = Ti.UI.createButton({
-	title:"back",
-	left:10,
-	bottom:5
+var settingBack = Ti.UI.createButton({
+	backgroundImage: 'images/arrowLeftTrue.png', 
+	width: 15,
+	height: 30,
+	top: 20, 
+	left: 5,
 });
 var settingsTitle = Ti.UI.createView({
 	height:'10%',
 	top:0,
 	left:0,
-	backgroundColor:'#FF6600',
+	backgroundImage: 'images/topBarTrue.png'
 });
-var settingsTitle_label = Ti.UI.createLabel({
+/*var settingsTitle_label = Ti.UI.createLabel({
 	text:"Gear",
 	right: 10, 
 	bottom: 10
-});
+});*/
 var data = [
 	{title: 'Notifications'}, 
 	{title: 'Set Location'}, 
@@ -51,8 +53,8 @@ settingsTable.addEventListener('click', function(e){
 	}
 });
 
-settingsTitle.add(settingsTitle_label);
-settingsTitle.add(settingsBack);
+//settingsTitle.add(settingsTitle_label);
+settingsTitle.add(settingBack);
 settings_view.add(settingsTitle);
 settings_view.add(settingsTable);
 

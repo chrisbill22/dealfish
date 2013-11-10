@@ -1,6 +1,6 @@
 Ti.include("ui.js");
 
-settingsBack.addEventListener('click', function(){
+settingBack.addEventListener('click', function(){
 	settingsBack();
 });
 

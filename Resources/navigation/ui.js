@@ -39,13 +39,9 @@ var nav_favorites = Ti.UI.createButton({
 var nav_search = Ti.UI.createButton({ 
 	bottom:10,
 	left:15,
-	height:25,
-	width:50,
-	font:{fontSize:12},
-	title:"Search",
-	borderColor:orangeColor,
-	color:orangeColor,
-	borderRadius:13,
+	backgroundImage: 'images/searchTrue.png',
+	height: 25, 
+	width: 25
 });
 
 
@@ -54,13 +50,9 @@ var nav_search = Ti.UI.createButton({
 var nav_settings = Ti.UI.createButton({ 
 	bottom:10,
 	right:15,
-	height:25,
-	width:50,
-	font:{fontSize:12},
-	title:"Settings",
-	borderColor:orangeColor,
-	color:orangeColor,
-	borderRadius:13,
+	backgroundImage: 'images/settingsTrue.png', 
+	height: 25, 
+	width: 25
 });
 
 //LEFT TRANSITION
