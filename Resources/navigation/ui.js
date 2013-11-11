@@ -10,27 +10,27 @@ var navigation_bottom = Ti.UI.createView({
 
 var nav_map = Ti.UI.createButton({ 
 	width:BOTTOM_MENU_WIDTH_PER+"%",
-	height:screen_width*0.2,
+	height:97/2,
 	backgroundColor:'#DDD',
 	bottom:0,
 	left:0,
-	image:'images/locationOn.png'
+	image:'images/navigationOff.png'
 });
 var nav_list = Ti.UI.createButton({ 
 	width:BOTTOM_MENU_WIDTH_PER+"%",
-	height:screen_width*0.2,
+	height:97/2,
 	backgroundColor:'#333',
 	bottom:0,
 	left:BOTTOM_MENU_WIDTH_PER+"%",
-	image: 'images/homeOn.png', 
+	image: 'images/homepageOn.png', 
 });
 var nav_favorites = Ti.UI.createButton({ 
 	width:BOTTOM_MENU_WIDTH_PER+"%",
-	height:screen_width*0.2,
+	height:97/2,
 	backgroundColor:'#DDD',
 	bottom:0,
 	left:(BOTTOM_MENU_WIDTH_PER*2)+"%",
-	image: 'images/favoritesStarOn.png'
+	image: 'images/favoritesOff.png'
 });
 
 
