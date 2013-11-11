@@ -17,7 +17,7 @@ function setList(){
 	//Row array actually contains the table view rows
 	var rowArray = [];
 	//Data array will be used to find duplicate deals in the global deals array and combine them
-	var dataArray = [];
+	var dataArray = companies;
 	/* [
 	0 = merchant ID
 	1 = [
@@ -42,25 +42,6 @@ function setList(){
 	
 	if(currentLocations.length > 0){
 		//Convert from global deals array to dataArray
-		for (var i = 0; i != currentLocations.length; i++){
-			var duplicateMerchant = false;
-			for(var z = 0; z != dataArray.length; z++){
-				if(dataArray[z][0] == currentLocations[i][2]){
-					//Ti.API.log("Duplicate z="+z+" Deal Name="+currentLocations[i][0]);
-					//If there is a duplicate merchant ID add it onto the existing one
-					dataArray[z].push(currentLocations[i]);
-					duplicateMerchant = true;
-				}
-			}
-			//If this is a new merchant ID add it onto the back
-			if(duplicateMerchant == false){
-				//Ti.API.log("New Merchant. Z="+dataArray.length);
-				dataArray.push([currentLocations[i][2], currentLocations[i]]);
-			}
-			//First comapany, second deal they are offering, description of deal
-			//alert(dataArray[0][2][0]);
-		}
-		
 		
 		for (var i = 0; i != dataArray.length; i++){
 			var row = Ti.UI.createTableViewRow({

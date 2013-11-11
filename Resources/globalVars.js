@@ -29,6 +29,14 @@ var categories = ['Chinese', 'Coffee', 'Pizza', 'Bar'];
 15 = dealID
 ] */
 var currentLocations = [];
+
+/* [
+	0 = merchant ID
+	1 = [ currentLocaitons[x] ]
+	2 = [ currentLocaitons[y] ]
+] */
+var companies = [];
+
 var searchLocationResults = [];
 //var currentLocations = [["This is a description", "Test Company", "TCP", 1.1, 1.1, 0],["This is a description", "Test Company", "TCP", 1.1, 1.1, 0],["This is a description", "Test Company", "TCP", 1.1, 1.1, 0]];
 

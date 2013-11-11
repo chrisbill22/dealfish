@@ -1,5 +1,23 @@
 Ti.include("db.js");
 
+function formatCompanies(locationsArray){
+	var dataArray = [];
+	for (var i = 0; i != locationsArray.length; i++){
+		Ti.API.info("i = "+i);
+		var duplicateMerchant = false;
+		for(var z = 0; z != dataArray.length; z++){
+			Ti.API.info("z = "+z);
+			if(dataArray[z][0] == locationsArray[i][2]){
+				dataArray[z].push(locationsArray[i]);
+				duplicateMerchant = true;
+			}
+		}
+		if(duplicateMerchant == false){
+			dataArray.push([locationsArray[i][2], locationsArray[i]]);
+		}
+	}
+	return dataArray;
+}
 
 function fetchLocations(){
 	fetchingLocations = true;
@@ -17,6 +35,7 @@ function fetchLocations(){
 				//Ti.API.info("DISTANCE = "+requestReturn[i][6]);
 			}
 			currentLocations = requestReturn;
+			companies = formatCompanies(requestReturn);
 		}else{
 			currentLocations = [];
 		}
@@ -74,7 +93,7 @@ function checkLocationsNeedFetched(){
 	
 	
 	if(currentLocations.length == 0){
-		Ti.API.warn("Current Locations is empty. Waiting for data...");
+		Ti.API.warn("Current Locations is empty. Waiting for data... 2");
 		return true;
 	}else if(debug == true){
 		Ti.API.warn("DEBUG IS ON. Refresh current locations from DB. Waiting for data...");
@@ -89,7 +108,7 @@ function checkLocationsFetched(){
 	setTimeout(function(){
 		if(fetchingLocations == true){
 			checkLocationsFetched();
-			Ti.API.warn("Current Locations is empty. Waiting for data...");
+			Ti.API.warn("Current Locations is empty. Waiting for data... 1");
 		}else{
 			Ti.API.warn("...done");
 			if(currentLocations.length != 0){
