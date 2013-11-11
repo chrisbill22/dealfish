@@ -28,11 +28,11 @@ var image = Ti.UI.createView({
 	top: 70, 
 });
 var titleLabel = Titanium.UI.createLabel({
-	text: 'Loading...',
+	text: '',
 	width: '50%',
 	height: 90,
 	borderWidth: 0, 
-	top: 75, 
+	top: 65, 
 	right: 10,
 	font:{fontSize: 18},
 });
@@ -40,7 +40,7 @@ var distanceLabel = Titanium.UI.createLabel({
 	text: '',
 	width: '50%',
 	height: 50,
-	top: 125,
+	top: 110,
 	right: 10, 
 	font:{fontSize: 10},
 });
@@ -48,7 +48,7 @@ var priceLabel_active = Titanium.UI.createLabel({
 	text: "", 
 	width: '50%', 
 	height: 50,  
-	top: 150,
+	top: 130,
 	right: 10, 
 	font:{fontSize: 10},
 	zIndex:1
@@ -66,7 +66,7 @@ var categoryLabel = Titanium.UI.createLabel({
 	text: '',
 	width: '50%', 
 	height: 50, 
-	top: 175, 
+	top: 150, 
 	right: 10, 
 	font:{fontSize: 10}
 });
@@ -75,20 +75,20 @@ var descriptionLabel = Titanium.UI.createLabel({
 	width: '100%', 
 	height: 50, 
 	backgroundColor: "#FF6600", 
-	top: 235, 
+	top: '40%', 
 	textAlign: 'center'
 });
 var aboutLabel = Titanium.UI.createLabel({
 	text: '',
 	width: '100%', 
-	height: 80,  
-	top: 300
+	height: 60,  
+	top: '50%', 
 });
 var specialtyLabel = Titanium.UI.createLabel({
 	text: '',
 	width: '100%', 
-	height: 80, 
-	bottom: 115
+	height: 60, 
+	top: '65%'
 });
 var directionsButton = Titanium.UI.createButton({
 	title: "Directions", 
