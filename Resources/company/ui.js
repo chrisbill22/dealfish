@@ -21,18 +21,18 @@ var backButton = Titanium.UI.createButton({
 });
 //------
 var image = Ti.UI.createView({
-	width:80,
-	height:80,
+	width:110,
+	height:110,
 	backgroundColor:'#FF6600',
-	left: 10, 
+	left: 20, 
 	top: 70, 
 });
 var titleLabel = Titanium.UI.createLabel({
 	text: 'Loading...',
 	width: '50%',
-	height: 50,
+	height: 90,
 	borderWidth: 0, 
-	top: 90, 
+	top: 75, 
 	right: 10,
 	font:{fontSize: 18},
 });
@@ -40,7 +40,6 @@ var distanceLabel = Titanium.UI.createLabel({
 	text: '',
 	width: '50%',
 	height: 50,
-	borderWidth: 0,
 	top: 125,
 	right: 10, 
 	font:{fontSize: 10},
@@ -89,7 +88,7 @@ var specialtyLabel = Titanium.UI.createLabel({
 	text: '',
 	width: '100%', 
 	height: 80, 
-	bottom: 135
+	bottom: 115
 });
 var directionsButton = Titanium.UI.createButton({
 	title: "Directions", 
