@@ -43,7 +43,7 @@ function createPin(data){
 			color:"#FFF"
 		});
 		var annotationViewDeals = Ti.UI.createLabel({
-			text:"Loading...",
+			text:deals[0][0],
 			top:13,
 			height:25,
 			width:200,
@@ -66,7 +66,7 @@ function createPin(data){
 			myid: i, 
 			leftView: annotationView,
 			//rightButton: 'images/singleArrowRightButton.gif',
-			//rightButton: Titanium.UI.iPhone.SystemButton.INFO_DARK,
+			rightButton: Titanium.UI.iPhone.SystemButton.INFO_DARK,
 		});
 		currentDeal = 0;
 		if(deals.length > 1){
@@ -86,8 +86,6 @@ function createPin(data){
 					annotationViewDeals.animate({opacity:1, duration:500});
 				});
 			}, 5000);
-		}else{
-			annotationViewDeals.text = deals[0][0];
 		}
 		//If a flash deal change icon
 		if(data[1][5] == 1){
