@@ -9,7 +9,14 @@ function openCompany(id, altArray){
 	}
 	startCollectingStats(tempCompanyArray[id][1]);
 	titleLabel.text = tempCompanyArray[id][1];
-	distanceLabel.text = tempCompanyArray[id][6];
+	//distanceLabel.text = tempCompanyArray[id][6];
+	if(tempCompanyArray[id][6] == 0){
+		distanceLabel.text = "0.1 mi";
+	}else if(tempCompanyArray[id][6] > 100){
+		distanceLabel.text = ">100 mi";
+	}else{
+		distanceLabel.text = tempCompanyArray[id][6] +" mi";
+	}
 	descriptionLabel.text = tempCompanyArray[id][0];
 	categoryLabel.text = "Category: " + tempCompanyArray[id][9];
 	image.backgroundImage = getCategoryImage(tempCompanyArray[id][9]);
