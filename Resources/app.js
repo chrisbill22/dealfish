@@ -28,6 +28,7 @@ if(!android){
 Ti.include("db/fetch.js");
 Ti.include("locations.js");
 Ti.include("loadingScreen/loadingScreen.js");
+Ti.include("statistics/statistics.js");
 
 //Views
 Ti.include('company/company.js');
@@ -81,4 +82,8 @@ appStartupCheck();
 //Navigation button functionlity has been moved to navigation/navigation.js
 
 MainWindow.open();
+
+Ti.App.addEventListener('pause', function(){
+	sendStats();
+});
 

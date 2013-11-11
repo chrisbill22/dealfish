@@ -63,11 +63,7 @@ map.addEventListener('click', function(e){
 		openCompany(e.annotation.myid);
 	}
 });
-backButton.addEventListener('click', function(){
-	companyview.animate({
-		bottom: screen_height,
-	});
-});
+
 
 //mapview.add(mapTitle);
 mapview.add(map);

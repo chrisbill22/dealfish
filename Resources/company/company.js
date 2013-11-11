@@ -7,6 +7,7 @@ function openCompany(id, altArray){
 	}else{
 		tempCompanyArray = altArray;
 	}
+	startCollectingStats(tempCompanyArray[id][1]);
 	titleLabel.text = tempCompanyArray[id][1];
 	distanceLabel.text = tempCompanyArray[id][6];
 	descriptionLabel.text = tempCompanyArray[id][0];
@@ -48,4 +49,11 @@ directionsButton.addEventListener('click', function(e){
 });
 favoritesButton.addEventListener('click', function(){
 	openFavoritesPopup(currentCompanyID);
+});
+
+backButton.addEventListener('click', function(){
+	stopCollectingStats();
+	companyview.animate({
+		bottom: screen_height,
+	});
 });

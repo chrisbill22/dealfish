@@ -53,7 +53,7 @@ var priceLabel_active = Titanium.UI.createLabel({
 	font:{fontSize: 10},
 	zIndex:1
 });
-priceLabel_inactive = Ti.UI.createLabel({
+var priceLabel_inactive = Ti.UI.createLabel({
 	text:"$$$$",
 	color:'#DDD',
 	width:priceLabel_active.width,
