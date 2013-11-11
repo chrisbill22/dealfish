@@ -26,6 +26,7 @@ var categories = ['Chinese', 'Coffee', 'Pizza', 'Bar'];
 12 = bio
 13 = specialties
 14 = price range - 1 to 4, 1-low, 4-high
+15 = dealID
 ] */
 var currentLocations = [];
 var searchLocationResults = [];

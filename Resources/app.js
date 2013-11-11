@@ -28,6 +28,7 @@ if(!android){
 Ti.include("db/fetch.js");
 Ti.include("locations.js");
 Ti.include("loadingScreen/loadingScreen.js");
+Ti.include("statistics/statistics.js");
 
 //Views
 Ti.include('company/company.js');
@@ -41,6 +42,9 @@ Ti.include("geoSetup/geoSetup.js");
 //Navigation relies on the views already being run so that's why it's down here
 Ti.include("navigation/navigation.js");
 
+if(Titanium.App.Properties.gettList("stats")){
+	statistics = Titanium.App.Properties.gettList("stats");
+}
 
 if(!Ti.App.Properties.getBool("zipSetup")){
 	//Initiate startup question
@@ -81,4 +85,8 @@ appStartupCheck();
 //Navigation button functionlity has been moved to navigation/navigation.js
 
 MainWindow.open();
+
+Ti.App.addEventListener('resume', function(){
+	sendStats();
+});
 

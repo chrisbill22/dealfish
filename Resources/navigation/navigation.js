@@ -139,16 +139,20 @@ function slideViewOut(obj, dir){
 }
 
 function navReset(){
-	nav_favorites.backgroundColor = '#DDD';
-	nav_list.backgroundColor = '#DDD';
-	nav_map.backgroundColor = '#DDD';
-	nav_search.backgroundColor = '#DDD';
-	nav_settings.backgroundColor = '#DDD';
+	nav_favorites.backgroundImage = 'images/favoritesOff.png';
+	nav_list.backgroundImage = 'images/homepageOff.png';
+	nav_map.backgroundImage = 'images/navigationOff.png';
 }
 
-function transitionNav(obj){
+function transitionNav(obj, name){
 	navReset();
-	obj.backgroundColor = '#333';
+	if(name == "favorites"){
+		obj.backgroundImage = 'images/favoritesOn.png';
+	}else if(name == "home"){
+		obj.backgroundImage = 'images/homepageOn.png';
+	}else if(name == "map"){
+		obj.backgroundImage = 'images/navigationOn.png';
+	}
 }
 
 function searchFront(direction){	
@@ -174,7 +178,7 @@ function searchBack(direction){
 }
 
 function mapFront(direction){
-	transitionNav(nav_map);
+	transitionNav(nav_map, "map");
 	searchBack();
 	listBack();
 	favoritesBack();
@@ -190,7 +194,7 @@ function mapBack(direction){
 
 
 function listFront(direction){
-	transitionNav(nav_list);
+	transitionNav(nav_list, "home");
 	searchBack();
 	mapBack();
 	favoritesBack();
@@ -206,7 +210,7 @@ function listBack(direction){
 }
 
 function favoritesFront(direction){
-	transitionNav(nav_favorites);
+	transitionNav(nav_favorites, "favorites");
 	searchBack();
 	mapBack();
 	listBack();
