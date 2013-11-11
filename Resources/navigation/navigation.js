@@ -151,7 +151,6 @@ function transitionNav(obj, name){
 	}else if(name == "home"){
 		obj.backgroundImage = 'images/homepageOn.png';
 	}else if(name == "map"){
-		alert("hit");
 		obj.backgroundImage = 'images/navigationOn.png';
 	}
 }
