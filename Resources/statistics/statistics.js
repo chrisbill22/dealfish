@@ -17,26 +17,24 @@ function startCollectingStats(merchID){
 			aStat.push(currentLocations[i][15]);
 		}
 	}
-	alert(aStat);	
 }
 function stopCollectingStats(){
 	aStat[2] = new Date().getTime()-aStat[1];
 	statistics.push(aStat);
+	Titanium.App.Properties.setList("stats", statistics);
 	aStat = [];
-	sendStats();
 }
 
 function sendStats(){
 	if(statistics.length > 0){
 		var statRequest = createDbRequest();
-		
 		statRequest.onload = function(e){
 			var result = this.responseText;
-			alert(result);
 			if(result.indexOf("true") != -1){
 				statistics = [];
 				Ti.API.info("Stats send success.");
 			}else{
+				Titanium.App.Properties.setList("stats", statistics);
 				Ti.API.warn("Error in sending statistics.. Will try again later");
 			}
 		};

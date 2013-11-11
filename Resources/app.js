@@ -42,6 +42,9 @@ Ti.include("geoSetup/geoSetup.js");
 //Navigation relies on the views already being run so that's why it's down here
 Ti.include("navigation/navigation.js");
 
+if(Titanium.App.Properties.gettList("stats")){
+	statistics = Titanium.App.Properties.gettList("stats");
+}
 
 if(!Ti.App.Properties.getBool("zipSetup")){
 	//Initiate startup question
@@ -83,7 +86,7 @@ appStartupCheck();
 
 MainWindow.open();
 
-Ti.App.addEventListener('pause', function(){
+Ti.App.addEventListener('resume', function(){
 	sendStats();
 });
 
