@@ -15,7 +15,7 @@ var nav_map = Ti.UI.createButton({
 	backgroundColor:'#DDD',
 	bottom:0,
 	left:0,
-	image:'images/navigationOff.png'
+	backgroundImage:'images/navigationOff.png'
 });
 var nav_list = Ti.UI.createButton({
 	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN,
@@ -24,7 +24,7 @@ var nav_list = Ti.UI.createButton({
 	backgroundColor:'#333',
 	bottom:0,
 	left:BOTTOM_MENU_WIDTH_PER+"%",
-	image: 'images/homepageOn.png', 
+	backgroundImage: 'images/homepageOn.png', 
 });
 var nav_favorites = Ti.UI.createButton({ 
 	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN,
@@ -33,7 +33,7 @@ var nav_favorites = Ti.UI.createButton({
 	backgroundColor:'#DDD',
 	bottom:0,
 	left:(BOTTOM_MENU_WIDTH_PER*2)+"%",
-	image: 'images/favoritesOff.png'
+	backgroundImage: 'images/favoritesOff.png'
 });
 
 
