@@ -1,17 +1,6 @@
 Ti.include("favoritesPopupNewList.js");
 Ti.include("favoritesPopup.js");
 Ti.include("ui.js");
-/*favorites_view.addEventListener('swipe', function(e){
-	favoritesFront(getSlideDirection("favorites"));
-	
-	if(e.direction == "right"){
-		listFront(getSlideDirection("list"));
-	}
-	
-	if(e.direction == "left"){
-		settingsFront(getSlideDirection("settings"));
-	}
-});*/
 
 function createNewCompanyList(name){
 	//LOCAL ONLY
@@ -90,7 +79,6 @@ function populateFavoriteList(){
 	var paddingBetween = 10;
 	
 	favorites_newListButton.zIndex = zIndexTracker;
-	
 	for(var i=0; i!=favorites.length; i++){
 		zIndexTracker -= 1;
 		
@@ -127,41 +115,65 @@ function populateFavoriteList(){
 			rowHeight:rowHeight,
 			height:(favorites[i].length-1)*rowHeight
 		});
-		
 		var tempRestaurants_rows = [];
-		for(var x=1; x!=favorites[i].length; x++){
-			Ti.API.info("Adding Row "+favorites[i][x][0]);
-			var tempRow = Ti.UI.createTableViewRow({
-				title:favorites[i][x][0],
-				height:rowHeight,
-				companyID:favorites[i][x][1],
-				color:blackColor
-			});
-			
-			var tempLoading = Ti.UI.createActivityIndicator({
-			    style: Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
-			    color: whiteColor,
-			    right:15,
-			    height:40,
-			    width:40
-			});
-			var tempOnOff = Ti.UI.createButton({right:0, backgroundColor:'#DDD', height:'100%', width:50, compID:favorites[i][x][1], indexI:i, indexX:x, loadingObj:tempLoading});
-			if(favorites[i][x][5] == true){
-				tempOnOff.backgroundColor = '#0A0';
-			}
-			tempRow.add(tempOnOff);
-			tempRow.add(tempLoading);
-			tempOnOff.addEventListener('click', function(e){
-				e.source.hide();
-				e.source.loadingObj.show();
-				if(e.source.backgroundColor == '#DDD'){
-					enablePushCompany(e.source.compID, e.source, e.source.loadingObj, e.source.indexI, e.source.indexX);
-				}else{
-					disablePushCompany(e.source.compID, e.source, e.source.loadingObj, e.source.indexI, e.source.indexX);
+		if(favorites[i].length > 1){
+			for(var x=1; x!=favorites[i].length; x++){
+				Ti.API.info("Adding Row "+favorites[i][x][0]);
+				var tempRow = Ti.UI.createTableViewRow({
+					title:favorites[i][x][0],
+					height:rowHeight,
+					companyID:favorites[i][x][1],
+					color:blackColor
+				});
+				
+				
+				tempRow.addEventListener('touchstart', function(e){
+					longpressTracker = true;
+					setTimeout(function(){
+						if(longpressTracker == true){
+							alert("long");
+						}
+					}, 1500);
+				});
+				tempRow.addEventListener('touchend', function(e){
+					alert("end");
+					if(longpressTracker == true){
+						openCompany(getFirstInstanceOfCompanyID(e.source.companyID));
+					}
+					longpressTracker = false;
+				});
+				
+				var tempLoading = Ti.UI.createActivityIndicator({
+				    style: Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
+				    color: whiteColor,
+				    right:15,
+				    height:40,
+				    width:40
+				});
+				var tempOnOff = Ti.UI.createButton({right:0, backgroundColor:'#DDD', height:'100%', width:50, compID:favorites[i][x][1], indexI:i, indexX:x, loadingObj:tempLoading});
+				if(favorites[i][x][5] == true){
+					tempOnOff.backgroundColor = '#0A0';
 				}
-			});
-			
-			tempRestaurants_rows.push(tempRow);
+				tempRow.add(tempOnOff);
+				tempRow.add(tempLoading);
+				tempOnOff.addEventListener('click', function(e){
+					e.source.hide();
+					e.source.loadingObj.show();
+					if(e.source.backgroundColor == '#DDD'){
+						enablePushCompany(e.source.compID, e.source, e.source.loadingObj, e.source.indexI, e.source.indexX);
+					}else{
+						disablePushCompany(e.source.compID, e.source, e.source.loadingObj, e.source.indexI, e.source.indexX);
+					}
+				});
+				
+				tempRestaurants_rows.push(tempRow);
+			}
+		}else{
+			tempRestaurants_rows.push(Ti.UI.createTableViewRow({
+				height:rowHeight,
+				color:grey,
+				title:"No Items"
+			}));
 		}
 		tempRestaurants.data = tempRestaurants_rows;
 		favoriteObjects.push([tempTitleButton, tempCover, tempRestaurants, false]);
@@ -169,45 +181,51 @@ function populateFavoriteList(){
 		var id = favoriteObjects.length-1;
 		
 		favoriteObjects[id][0].addEventListener('click', function(e){
-			var id = e.source.listID;
-			var companyCount = favorites[id].length-1;
-			var moveAmount = companyCount*rowHeight;
-			//alert("List: "+favoriteObjects[id]);
-			
-			if(favoriteObjects[id][3]){
-				favoriteObjects[id][2].animate({bottom:favoriteObjects[id][2].bottom+(moveAmount)}, function(){
-					favoriteObjects[id][2].bottom = favoriteObjects[id][2].bottom+(moveAmount);
-					//We do this because the animation doesn't actually set the value.
+			if(longpressTracker == false){
+				var id = e.source.listID;
+				var companyCount = favorites[id].length-1;
+				var moveAmount = companyCount*rowHeight;
+				//alert("List: "+favoriteObjects[id]);
+				
+				if(favoriteObjects[id][3]){
+					favoriteObjects[id][2].animate({bottom:favoriteObjects[id][2].bottom+(moveAmount)}, function(){
+						favoriteObjects[id][2].bottom = favoriteObjects[id][2].bottom+(moveAmount);
+						//We do this because the animation doesn't actually set the value.
+						for(z=id+1; z!=favoriteObjects.length; z++){
+							favoriteObjects[z][0].top = favoriteObjects[z][0].top-(moveAmount);
+							favoriteObjects[z][1].top = favoriteObjects[z][1].top-(moveAmount);
+							favoriteObjects[z][2].bottom = favoriteObjects[z][2].bottom+(moveAmount);
+						}
+					});
+					favoriteObjects[id][3] = false;
 					for(z=id+1; z!=favoriteObjects.length; z++){
-						favoriteObjects[z][0].top = favoriteObjects[z][0].top-(moveAmount);
-						favoriteObjects[z][1].top = favoriteObjects[z][1].top-(moveAmount);
-						favoriteObjects[z][2].bottom = favoriteObjects[z][2].bottom+(moveAmount);
+						favoriteObjects[z][0].animate({top:favoriteObjects[z][0].top-(moveAmount)});
+						favoriteObjects[z][1].animate({top:favoriteObjects[z][1].top-(moveAmount)});
+						favoriteObjects[z][2].animate({bottom:favoriteObjects[z][2].bottom+(moveAmount)});
 					}
-				});
-				favoriteObjects[id][3] = false;
-				for(z=id+1; z!=favoriteObjects.length; z++){
-					favoriteObjects[z][0].animate({top:favoriteObjects[z][0].top-(moveAmount)});
-					favoriteObjects[z][1].animate({top:favoriteObjects[z][1].top-(moveAmount)});
-					favoriteObjects[z][2].animate({bottom:favoriteObjects[z][2].bottom+(moveAmount)});
+				}else{
+					favoriteObjects[id][2].animate({bottom:favoriteObjects[id][2].bottom-(moveAmount)}, function(){
+						favoriteObjects[id][2].bottom = favoriteObjects[id][2].bottom-(moveAmount);
+						//We do this because the animation doesn't actually set the value.
+						for(z=id+1; z!=favoriteObjects.length; z++){
+							favoriteObjects[z][0].top = favoriteObjects[z][0].top+(moveAmount);
+							favoriteObjects[z][1].top = favoriteObjects[z][1].top+(moveAmount);
+							favoriteObjects[z][2].bottom = favoriteObjects[z][2].bottom-(moveAmount);
+						}
+					});
+					favoriteObjects[id][3] = true;
+					for(z=id+1; z!=favoriteObjects.length; z++){
+						favoriteObjects[z][0].animate({top:favoriteObjects[z][0].top+(moveAmount)});
+						favoriteObjects[z][1].animate({top:favoriteObjects[z][1].top+(moveAmount)});
+						favoriteObjects[z][2].animate({bottom:favoriteObjects[z][2].bottom-(moveAmount)});
+					}
 				}
 			}else{
-				favoriteObjects[id][2].animate({bottom:favoriteObjects[id][2].bottom-(moveAmount)}, function(){
-					favoriteObjects[id][2].bottom = favoriteObjects[id][2].bottom-(moveAmount);
-					//We do this because the animation doesn't actually set the value.
-					for(z=id+1; z!=favoriteObjects.length; z++){
-						favoriteObjects[z][0].top = favoriteObjects[z][0].top+(moveAmount);
-						favoriteObjects[z][1].top = favoriteObjects[z][1].top+(moveAmount);
-						favoriteObjects[z][2].bottom = favoriteObjects[z][2].bottom-(moveAmount);
-					}
-				});
-				favoriteObjects[id][3] = true;
-				for(z=id+1; z!=favoriteObjects.length; z++){
-					favoriteObjects[z][0].animate({top:favoriteObjects[z][0].top+(moveAmount)});
-					favoriteObjects[z][1].animate({top:favoriteObjects[z][1].top+(moveAmount)});
-					favoriteObjects[z][2].animate({bottom:favoriteObjects[z][2].bottom-(moveAmount)});
-				}
+				longpressTracker = false;
 			}
 		});
+
+		
 		
 		favorites_innerView.add(favoriteObjects[id][2]);
 		favorites_innerView.add(favoriteObjects[id][1]);
