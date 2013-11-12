@@ -7,7 +7,7 @@ var companyview = Titanium.UI.createView({
         zIndex: 25, 
 });
 var companyScroll = Titanium.UI.createScrollView({
-		width: '95%', 
+		width: '100%', 
 		height: viewHeight,
 		contentWidth: 'auto',
   		contentHeight: 'auto',
@@ -87,7 +87,7 @@ var descriptionLabel = Titanium.UI.createLabel({
         width: '100%', 
         height: 50, 
         backgroundColor:orangeColor, 
-        top: 180, 
+        top: 130, 
         textAlign: 'center', 
         color: whiteColor
 });
@@ -163,7 +163,7 @@ companyScroll.add(titleLabel);
 companyScroll.add(distanceLabel);
 companyScroll.add(priceLabel_active);
 companyScroll.add(priceLabel_inactive);
-companyview.add(descriptionLabel);
+companyScroll.add(descriptionLabel);
 companyScroll.add(categoryLabel);
 companyScroll.add(aboutLabel);
 companyScroll.add(specialtyLabel);
