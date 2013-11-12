@@ -72,7 +72,7 @@ function createListItem(data){
 		right:'3%',
 		height:70,
 		top:10,
-		backgroundColor:'#fff'
+		backgroundColor:whiteColor
 	});
 	var tempItem_image = Ti.UI.createView({
 		width:60,

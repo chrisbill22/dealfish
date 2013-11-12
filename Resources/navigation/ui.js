@@ -39,7 +39,7 @@ var nav_favorites = Ti.UI.createButton({
 
 var nav_search = Ti.UI.createButton({ 
 	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN,
-	bottom:10,
+	bottom:5,
 	left:15,
 	backgroundImage: 'images/searchTrue.png',
 	height: 25, 
@@ -51,7 +51,7 @@ var nav_search = Ti.UI.createButton({
 
 var nav_settings = Ti.UI.createButton({ 
 	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN,
-	bottom:10,
+	bottom:5,
 	right:15,
 	backgroundImage: 'images/settingsTrue.png', 
 	height: 25, 
@@ -62,7 +62,7 @@ var nav_settings = Ti.UI.createButton({
 var left_slider = Ti.UI.createView({
 	width:25,
 	height:'100%',
-	//backgroundColor:'#000',
+	//backgroundColor:blackColor,
 	bottom:0,
 	left:0,
 	zIndex:5
@@ -72,7 +72,7 @@ var left_slider = Ti.UI.createView({
 var right_slider = Ti.UI.createView({
 	width:25,
 	height:'100%',
-	//backgroundColor:'#000',
+	//backgroundColor:blackColor,
 	bottom:0,
 	right:0,
 	zIndex:5
@@ -81,7 +81,7 @@ var right_slider = Ti.UI.createView({
 var settings_slider = Ti.UI.createView({
 	width:25,
 	height:'100%',
-	//backgroundColor:'#000',
+	//backgroundColor:blackColor,
 	bottom:0,
 	left:0,
 	zIndex:21,
@@ -91,7 +91,7 @@ var settings_slider = Ti.UI.createView({
 var search_slider = Ti.UI.createView({
 	width:25,
 	height:'100%',
-	//backgroundColor:'#000',
+	//backgroundColor:blackColor,
 	bottom:0,
 	right:0,
 	zIndex:21,

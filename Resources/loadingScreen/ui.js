@@ -1,14 +1,14 @@
 var background_disable = Ti.UI.createView({
 	width:'100%',
 	height:'100%',
-	backgroundColor:'#000',
+	backgroundColor:blackColor,
 	opacity:0,
 	zIndex:1000
 });
 
 var loading_text = Ti.UI.createLabel({
 	text:'Loading...',
-	color:'#fff',
+	color:whiteColor,
 	top:(screen_height*0.55),
 	visible:false,
 	font:{fontSize:20},

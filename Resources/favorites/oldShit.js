@@ -140,7 +140,7 @@ function populateFavoriteList(){
 				var tempRow = Ti.UI.createTableViewRow({
 					title:favorites[i][0],
 					backgroundColor:'#666',
-					color:'#fff'
+					color:whiteColor
 				});
 			}else{
 				var tempRow = Ti.UI.createTableViewRow({
@@ -150,7 +150,7 @@ function populateFavoriteList(){
 				});
 				var tempLoading = Ti.UI.createActivityIndicator({
 				    style: Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
-				    color: '#FFF',
+				    color: whiteColor,
 				    right:15,
 				    height:40,
 				    width:40

@@ -30,7 +30,7 @@ var enterZipcode_label = Ti.UI.createLabel({
 	font:{fontSize:12},
 	top:150,
 	left:'10%',
-	color:"#fff",
+	color:whiteColor,
 	opacity:0
 });
 

@@ -4,14 +4,14 @@ var accountSetupPopup_disable = Ti.UI.createView({
 	zIndex:20,
 	width:'100%',
 	height:'100%',
-	backgroundColor:'#000',
+	backgroundColor:blackColor,
 	opacity:0.8
 });
 var accountSetupPopup_label = Ti.UI.createLabel({
 	zIndex:21,
 	text:"Information about how you will be signing up for an account and how we will be collecting some information about you.",
 	width:'85%',
-	color:"#fff",
+	color:whiteColor,
 	top:50
 });
 var accountSetupPopup_Button = Ti.UI.createButton({
