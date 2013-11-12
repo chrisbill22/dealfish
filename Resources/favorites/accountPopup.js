@@ -5,7 +5,7 @@ var accountSetupPopup_disable = Ti.UI.createView({
 	width:'100%',
 	height:'100%',
 	backgroundColor:blackColor,
-	opacity:0.8
+	opacity:0.8,
 });
 var accountSetupPopup_label = Ti.UI.createLabel({
 	zIndex:21,
@@ -21,7 +21,8 @@ var accountSetupPopup_Button = Ti.UI.createButton({
 	width:'90%',
 	height:50,
 	backgroundColor:'#333',
-	color:'#DDD'
+	color:'#DDD',
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 var accountSetupPopup_cancel = Ti.UI.createButton({
 	zIndex:21,
@@ -30,7 +31,8 @@ var accountSetupPopup_cancel = Ti.UI.createButton({
 	width:'90%',
 	height:50,
 	backgroundColor:'#333',
-	color:'#DDD'
+	color:'#DDD',
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 accountSetupPopup_disable.add(accountSetupPopup_cancel);
 accountSetupPopup_disable.add(accountSetupPopup_Button);

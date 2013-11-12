@@ -84,6 +84,10 @@ function populateFavoriteList(){
 		
 		tempTop += headerHeight+paddingBetween;
 		
+		var tempFavListHeader = Ti.UI.createView({
+			
+		});
+		
 		var tempTitleButton = Ti.UI.createButton({
 			width:'90%',
 			height:headerHeight,
@@ -94,7 +98,28 @@ function populateFavoriteList(){
 			zIndex:zIndexTracker,
 			style:Ti.UI.iPhone.SystemButtonStyle.PLAIN,
 			color:whiteColor,
+			textAlign:'left',
+			font:{fontSize:20}
 		});
+		var tempFavCount = Ti.UI.createLabel({
+			right:0,
+			color:whiteColor,
+			height:'100%',
+			width:30,
+			text:favorites[i].length-1,
+			font:tempTitleButton.font,
+			opacity:1
+		});
+		var tempArrowUp = Ti.UI.createView({
+			width:47/2,
+			height:30/2,
+			backgroundImage:'images/arrowUpTrue.png',
+			right:13,
+			opacity:0
+		});
+		
+		tempTitleButton.add(tempArrowUp);
+		tempTitleButton.add(tempFavCount);
 		
 		zIndexTracker -= 1;
 		
@@ -123,24 +148,17 @@ function populateFavoriteList(){
 					title:favorites[i][x][0],
 					height:rowHeight,
 					companyID:favorites[i][x][1],
-					color:blackColor
+					color:blackColor,
+					backgroundSelectedColor:'#fff',
+					selectedBackgroundColor:orangeColor,
+					font:{fontSize:14, fontWeight:'normal'}
 				});
 				
 				
-				tempRow.addEventListener('touchstart', function(e){
-					longpressTracker = true;
-					setTimeout(function(){
-						if(longpressTracker == true){
-							alert("long");
-						}
-					}, 1500);
-				});
-				tempRow.addEventListener('touchend', function(e){
-					alert("end");
-					if(longpressTracker == true){
+				tempRow.addEventListener('click', function(e){
+					if(e.source == "[object TiUITableViewRow]"){
 						openCompany(getFirstInstanceOfCompanyID(e.source.companyID));
 					}
-					longpressTracker = false;
 				});
 				
 				var tempLoading = Ti.UI.createActivityIndicator({
@@ -150,9 +168,9 @@ function populateFavoriteList(){
 				    height:40,
 				    width:40
 				});
-				var tempOnOff = Ti.UI.createButton({right:0, backgroundColor:'#DDD', height:'100%', width:50, compID:favorites[i][x][1], indexI:i, indexX:x, loadingObj:tempLoading});
+				var tempOnOff = Ti.UI.createButton({right:15, backgroundImage:'images/bellInactive.png', height:49/2, width:52/2, compID:favorites[i][x][1], indexI:i, indexX:x, loadingObj:tempLoading});
 				if(favorites[i][x][5] == true){
-					tempOnOff.backgroundColor = '#0A0';
+					tempOnOff.backgroundImage = 'images/bellActive.png';
 				}
 				tempRow.add(tempOnOff);
 				tempRow.add(tempLoading);
@@ -182,12 +200,15 @@ function populateFavoriteList(){
 		
 		favoriteObjects[id][0].addEventListener('click', function(e){
 			if(longpressTracker == false){
+				
 				var id = e.source.listID;
 				var companyCount = favorites[id].length-1;
 				var moveAmount = companyCount*rowHeight;
 				//alert("List: "+favoriteObjects[id]);
 				
 				if(favoriteObjects[id][3]){
+					e.source.children[0].animate({opacity:0});
+					e.source.children[1].animate({opacity:1});
 					favoriteObjects[id][2].animate({bottom:favoriteObjects[id][2].bottom+(moveAmount)}, function(){
 						favoriteObjects[id][2].bottom = favoriteObjects[id][2].bottom+(moveAmount);
 						//We do this because the animation doesn't actually set the value.
@@ -204,6 +225,8 @@ function populateFavoriteList(){
 						favoriteObjects[z][2].animate({bottom:favoriteObjects[z][2].bottom+(moveAmount)});
 					}
 				}else{
+					e.source.children[0].animate({opacity:1});
+					e.source.children[1].animate({opacity:0});
 					favoriteObjects[id][2].animate({bottom:favoriteObjects[id][2].bottom-(moveAmount)}, function(){
 						favoriteObjects[id][2].bottom = favoriteObjects[id][2].bottom-(moveAmount);
 						//We do this because the animation doesn't actually set the value.
