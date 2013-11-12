@@ -31,8 +31,10 @@ function openCompany(id, altArray){
 	priceLabel_active.text = priceString;
 	
 	countdown = startCountDown(tempCompanyArray[id][8]);
-	countdown.left = 0;
-	countdown.right = 0;
+	countdown.width = '85%';
+	countdown.top = '50%';
+	countdown.textAlign = 'center';
+	countdown.left = 20;
 	companyview.add(countdown);
 	
 	companyview.animate({

@@ -85,17 +85,21 @@ var descriptionLabel = Titanium.UI.createLabel({
 });
 var aboutLabel = Titanium.UI.createLabel({
 	text: '',
-	width: '100%', 
-	height: 60,  
-	top: '50%', 
-	color:blackColor
+	width: '85%', 
+	height: 65,  
+	top: '55%', 
+	color:blackColor, 
+	font: {fontSize:'12'}, 
+	left: 20
 });
 var specialtyLabel = Titanium.UI.createLabel({
 	text: '',
-	width: '100%', 
-	height: 60, 
-	top: '65%',
-	color:blackColor
+	width: '85%', 
+	height: 65, 
+	top: '70%',
+	color:blackColor, 
+	font: {fontSize:'12'}, 
+	left: 20
 });
 var directionsButton = Titanium.UI.createButton({
 	title: "Directions", 
