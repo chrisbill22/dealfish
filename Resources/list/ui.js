@@ -5,7 +5,8 @@ var listview = Ti.UI.createView({
 	height: viewHeight, 
 	width: '100%',
 	top:headerHeight,
-	zIndex:0
+	zIndex:0,
+	backgroundImage:masterBackground
 });
 
 var listTitle = Ti.UI.createView({
@@ -29,47 +30,11 @@ var list_tableview = Ti.UI.createTableView({
 	rowHeight:80,
 	style: Ti.UI.iPhone.TableViewStyle.PLAIN,
 	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE,
-	separatorColor: 'transparent'
+	separatorColor: 'transparent',
+	backgroundImage:masterBackground
 });
-
-//A row view
-/*
-var listViewItem = Ti.UI.createView({
-	width:'90%',
-	height:'100%',
-	top:10,
-});
-var listViewItem_image = Ti.UI.createView({
-	width:60,
-	height:60,
-	backgroundColor:orangeColor,
-	left:0
-});
-var listViewItem_title = Ti.UI.createLabel({
-	left: 70,
-	top:10,
-	width:'70%',
-	font:{fontSize:12},
-	text:"Loading..."
-});
-var listViewItem_deal = Ti.UI.createLabel({
-	left:70,
-	bottom:10,
-	font:{fontSize:10},
-	text:"Loading..."
-});
-var listViewItem_distance = Ti.UI.createLabel({
-	right:5,
-	top:10,
-	text:"0.0 mi"
-});
-*/
-//Moved your loop over to fetchList.js
-//Need to call fetchList() sometime. Probably when the view transitions to the front
-
 
 listTitle.add(listTitle_label);
 listview.add(list_tableview);
-//listview.add(listTitle);
 MainWindow.add(listview);
 

@@ -3,7 +3,8 @@ var mapview = Ti.UI.createView({
 	height: viewHeight, 
 	width: '100%',
 	top:headerHeight,
-	zIndex:0
+	zIndex:0,
+	backgroundImage:masterBackground
 });
 
 
@@ -46,7 +47,7 @@ var map = Titanium.Map.createView({
 });
 
 var track_button = Ti.UI.createButton({
-	bottom:70,
+	bottom:25,
 	right:15,
 	height:25,
 	width:50,

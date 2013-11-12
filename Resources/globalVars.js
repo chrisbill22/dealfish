@@ -78,7 +78,7 @@ var screen_width = Ti.Platform.displayCaps.platformWidth;
 var headerHeight = 96/2;
 var footerHeight = 96/2;
 var viewHeight = screen_height-(headerHeight+footerHeight);
-
+var masterBackground = 'images/background.png';
 
 
 var os = Titanium.Platform.osname;

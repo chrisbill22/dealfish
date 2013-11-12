@@ -4,7 +4,7 @@ var favorites_view = Ti.UI.createScrollView({
 	width: '100%',
 	top:headerHeight,
 	zIndex:0,
-	backgroundColor:'#fff'
+	backgroundImage:masterBackground
 });
 var favorites_innerView = Ti.UI.createView({
 	height:1000,

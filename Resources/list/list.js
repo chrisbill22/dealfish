@@ -68,30 +68,32 @@ function createListItem(data){
 	}
 	
 	var tempItem = Ti.UI.createView({
-		width:'90%',
+		width:(screen_width*0.94)-60,
+		right:'3%',
 		height:70,
 		top:10,
-		borderColor:'#555',
-		borderWidth:1
+		backgroundColor:'#fff'
 	});
 	var tempItem_image = Ti.UI.createView({
-		width:70,
-		height:70,
+		width:60,
+		height:60,
+		top:15,
 		backgroundColor:orangeColor,
-		left:0,
-		backgroundImage:getCategoryImage(cateogry)
+		left:'3%',
+		backgroundImage:getCategoryImage(cateogry),
+		zIndex:1
 	});
 	var tempItem_title = Ti.UI.createLabel({
-		left: 80,
-		top:10,
-		width:'50%',
-		font:{fontSize:14},
+		left: 10,
+		top:3,
+		width:'70%',
+		font:{fontSize:16, fontFamily:'verdana'},
 		text:"Loading..."
 	});
 	var tempItem_deal = Ti.UI.createLabel({
-		left:80,
-		bottom:10,
-		font:{fontSize:10},
+		left:10,
+		bottom:5,
+		font:{fontSize:13},
 		text:"Loading..."
 	});
 	var tempItem_distance = Ti.UI.createLabel({
@@ -119,7 +121,7 @@ function createListItem(data){
 	tempItem.add(tempItem_title);
 	tempItem.add(tempItem_deal);
 	tempItem.add(tempItem_distance);
-	tempItem.add(tempItem_image);
+	tempItemHolder.add(tempItem_image);
 	
 	tempItemHolder.add(tempItem);
 	

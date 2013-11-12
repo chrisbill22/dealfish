@@ -46,7 +46,8 @@ function setList(){
 		for (var i = 0; i != dataArray.length; i++){
 			var row = Ti.UI.createTableViewRow({
 				height: 80,
-				companyID:dataArray[i][0]
+				companyID:dataArray[i][0],
+				backgroundColor:'transparent'
 			});
 			//alert("Start Date: "+currentLocations[i][7]+"\nEnd Date: "+currentLocations[i][8]);
 			
