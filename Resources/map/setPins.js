@@ -68,7 +68,7 @@ function createPin(data){
 			//rightButton: 'images/singleArrowRightButton.gif',
 			rightButton: Titanium.UI.iPhone.SystemButton.INFO_DARK,
 		});
-		currentDeal = 0;
+		var currentDeal = 0;
 		if(deals.length > 1){
 			setInterval(function(){
 				annotationViewDeals.animate({opacity:0, duration:500}, function(){
@@ -77,6 +77,7 @@ function createPin(data){
 					}else{
 						currentDeal++;
 					}
+					Ti.API.info(deals.length+", "+currentDeal);
 					annotationViewDeals.text = deals[currentDeal][0];
 					if(deals[currentDeal][1] == true){
 						annotationViewDeals.color = "red";
