@@ -63,7 +63,7 @@ function createPin(data){
 			pincolor: Titanium.Map.ANNOTATION_GREEN,
 			image: 'images/normal.png',
 			animate: true,
-			myid: i, 
+			myid: getFirstInstanceOfCompanyID(data[0]), 
 			leftView: annotationView,
 			//rightButton: 'images/singleArrowRightButton.gif',
 			rightButton: Titanium.UI.iPhone.SystemButton.INFO_DARK,
