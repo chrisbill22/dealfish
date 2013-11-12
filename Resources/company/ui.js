@@ -13,7 +13,8 @@ var companyScroll = Titanium.UI.createScrollView({
   		contentHeight: 'auto',
   		showVerticalScrollIndicator: true,
   		showHorizontalScrollIndicator: true, 
-  		top: headerHeight
+  		top: headerHeight, 
+  		bottom: footerHeight
 });
 var companyTitle = Ti.UI.createView({
         height:headerHeight,
@@ -26,7 +27,7 @@ var backButton = Titanium.UI.createButton({
         backgroundImage: 'images/arrowLeftTrue.png', 
         width: 15,
         height: 25,
-        bottom: 10, 
+		bottom: 10, 
         left: 5, 
 });
 //------
@@ -76,7 +77,7 @@ var priceLabel_inactive = Ti.UI.createLabel({
 var categoryLabel = Titanium.UI.createLabel({
         text: '',
         width: '50%',  
-        top: 95, 
+        top: 93, 
         left: 100, 
         font:{fontSize: 12},
         color:blackColor
@@ -93,7 +94,7 @@ var descriptionLabel = Titanium.UI.createLabel({
 var aboutLabel = Titanium.UI.createLabel({
         text: '',
         width: '90%', 
-        height: 70,  
+        height: 90,  
         top: 215, 
         color:blackColor, 
         font: {fontSize:'14'}, 
@@ -102,7 +103,7 @@ var specialtyLabel = Titanium.UI.createLabel({
         text: '',
         width: '90%', 
         height: 70, 
-        top: 310,
+        top: 320,
         color:blackColor, 
         font: {fontSize:'14'}, 
 });
@@ -146,7 +147,12 @@ var favoritesButton = Titanium.UI.createButton({
         backgroundColor: "#555",
         style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
-
+var locationImage = Titanium.UI.createImageView({
+		image:'images/location.png', 
+		width: 7, 
+		height: 10, 
+		left: 0
+});
 companyview.add(companyTitle);
 companyTitle.add(backButton);
 companyview.add(companyScroll);
@@ -166,6 +172,7 @@ companyview.add(callButton);
 companyview.add(directionsButton);
 companyview.add(favoritesButton);
 companyview.add(websiteButton);
+distanceLabel.add(locationImage);
 
 /*
 companyview.add(pinButton);*/

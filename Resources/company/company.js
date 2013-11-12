@@ -13,11 +13,11 @@ function openCompany(id, altArray){
 	titleLabel.text = tempCompanyArray[id][1];
 	//distanceLabel.text = tempCompanyArray[id][6];
 	if(tempCompanyArray[id][6] == 0){
-		distanceLabel.text = "0.1 mi";
+		distanceLabel.text = "   0.1 mi";
 	}else if(tempCompanyArray[id][6] > 100){
-		distanceLabel.text = ">100 mi";
+		distanceLabel.text = "   >100 mi";
 	}else{
-		distanceLabel.text = tempCompanyArray[id][6] +" mi";
+		distanceLabel.text = "   " + tempCompanyArray[id][6] +" mi";
 	}
 	descriptionLabel.text = tempCompanyArray[id][0];
 	categoryLabel.text = "Category: " + tempCompanyArray[id][9];
