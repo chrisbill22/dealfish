@@ -8,6 +8,26 @@ function setPins(){
 		//dropPins();
 	}
 }
+
+function getPinImage(category, flash){
+	if(category == "Pizza"){
+		return "images/pins/normal/defaultPin.png";
+	}
+	if(categories.indexOf(category) != -1){
+		if(flash){
+			return "images/pins/flash/"+category+".png";
+		}else{
+			return "images/pins/normal/"+category+".png";
+		}
+	}else{
+		if(flash){
+			return "images/pins/flash/defaultPin.png";	
+		}else{
+			return "images/pins/normal/defaultPin.png";
+		}
+	}
+}
+
 //Put the actual pins in the map
 function dropPins(customData){
 	var pinData = companies;
@@ -25,8 +45,12 @@ function dropPins(customData){
 
 function createPin(data){
 	var deals = [];
+	var flash = false;
 	for(x=1; x != data.length; x++){
 		deals.push([data[x][0], data[x][5]]);
+		if(data[x][5] == true){
+			flash = true;
+		}
 	}
 	Ti.API.info("Setting New Pin at "+data[1][4]+", "+data[1][3]);
 		var annotationView = Titanium.UI.createView({
@@ -61,7 +85,7 @@ function createPin(data){
 			title:" ",
 			subtitle:"",
 			pincolor: Titanium.Map.ANNOTATION_GREEN,
-			image: 'images/normal.png',
+			image: getPinImage(data[1][9], flash),
 			animate: true,
 			myid: getFirstInstanceOfCompanyID(data[0]), 
 			leftView: annotationView,
@@ -87,10 +111,10 @@ function createPin(data){
 				});
 			}, 5000);
 		}
-		//If a flash deal change icon
+		/*//If a flash deal change icon
 		if(data[1][5] == 1){
 			tempAnnotation.pincolor = "#f00";
 			tempAnnotation.image = 'images/flash.png';
-		}
+		}*/
 		return tempAnnotation;
 }
