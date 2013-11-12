@@ -20,12 +20,14 @@ var quickAction_call = Ti.UI.createButton({
 	title:"Call",
 	width:'26%',
 	height:90,
-	left:'5%'
+	left:'5%', 
 });
 var quickAction_favorite = Ti.UI.createButton({
-	title:"Fav",
 	width:'26%',
 	height:90,
+});
+var starIcon = Ti.UI.createImageView({
+	image: 'images/_notUsed/favoritesStarOn.png', 
 });
 var quickAction_website = Ti.UI.createButton({
 	title:"Web",
@@ -37,7 +39,7 @@ var quickAction_website = Ti.UI.createButton({
 quickActionView.add(quickAction_call);
 quickActionView.add(quickAction_favorite);
 quickActionView.add(quickAction_website);
-
+quickAction_favorite.add(starIcon);
 MainWindow.add(quickActionView_backdrop);
 MainWindow.add(quickActionView);
 
@@ -57,4 +59,14 @@ quickActionView_backdrop.addEventListener('click', function(){
 
 quickAction_favorite.addEventListener('click', function(){
 	openFavoritesPopup(currentQuickID);
+});
+
+quickAction_call.addEventListener('click', function(){
+	Titanium.Platform.openURL('tel:' + currentLocations[currentCompanyID][10]);
+});
+quickAction_favorite.addEventListener('click', function(){
+	openFavoritesPopup(currentQuickID);
+});
+quickAction_website.addEventListener('click', function(){
+	Ti.Platform.openURL(currentLocations[currentCompanyID][11]);
 });
