@@ -4,15 +4,17 @@ var searchResultsView = Ti.UI.createView({
 	zIndex:21,
 	left:screen_width*-1,
 	top:0,
-	backgroundColor:'#fff'
+	backgroundColor:whiteColor
 });
 var searchResultsBack = Ti.UI.createButton({
-	title:"back",
-	left:10,
-	bottom:5,
+	backgroundImage: 'images/arrowLeftTrue.png', 
+	width: 15,
+	height: 25,
+	bottom: 5, 
+	left: 10,
 });
 var searchResultsTitle = Ti.UI.createView({
-	height:'10%',
+	height:headerHeight,
 	top:0,
 	left:0,
 	backgroundColor:orangeColor,

@@ -3,7 +3,7 @@ var favoritesIndex = -1;
 var favoritesPopupView = Ti.UI.createView({
 	width:'100%',
 	height:'100%',
-	backgroundColor:'#fff',
+	backgroundColor:whiteColor,
 	opacity:1,
 	top:screen_height,
 	zIndex:30
@@ -28,8 +28,8 @@ var favoritesPopupList = Ti.UI.createTableView({
 });
 var favoritesPopupAddListRow = Ti.UI.createTableViewRow({
 	title:"Add New List",
-	backgroundColor:"#000",
-	color:'#fff'
+	backgroundColor:blackColor,
+	color:whiteColor
 });
 
 favoritesPopupView.add(favoritesPopupTitle);

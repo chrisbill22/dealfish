@@ -1,161 +1,170 @@
 var companyview = Titanium.UI.createView({
-	left: 0,
-	height: '100%', 
-	width: '100%',
-	bottom:screen_height,
-	backgroundColor: whiteColor,
-	zIndex: 25, 
+        left: 0,
+        height: '100%', 
+        width: '100%',
+        bottom:screen_height,
+        backgroundColor: whiteColor,
+        zIndex: 25, 
+});
+var companyScroll = Titanium.UI.createScrollView({
+		width: '90%', 
+		height: viewHeight,
+		contentWidth: 'auto',
+  		contentHeight: 'auto',
+  		showVerticalScrollIndicator: true,
+  		showHorizontalScrollIndicator: true, 
+  		top: headerHeight
 });
 var companyTitle = Ti.UI.createView({
-	height:'10%',
-	top:0,
-	left:0,
-	backgroundImage: 'images/topBarTrue.png',
-	color:blackColor
+        height:headerHeight,
+        top:0,
+        left:0,
+        backgroundImage: 'images/topBarTrue.png',
+        color:blackColor
 });
 var backButton = Titanium.UI.createButton({
-	backgroundImage: 'images/arrowLeftTrue.png', 
-	width: 15,
-	height: 25,
-	bottom: 10, 
-	left: 5, 
+        backgroundImage: 'images/arrowLeftTrue.png', 
+        width: 15,
+        height: 25,
+        bottom: 10, 
+        left: 5, 
 });
 //------
 var image = Ti.UI.createView({
-	width:110,
-	height:110,
-	backgroundColor:orangeColor,
-	left: 20, 
-	top: 70, 
+        width:110,
+        height:110,
+        backgroundColor:orangeColor,
+        left: 0, 
+        top: 30, 
 });
 var titleLabel = Titanium.UI.createLabel({
-	text: '',
-	width: '50%',
-	height: 90,
-	borderWidth: 0, 
-	top: 65, 
-	right: 10,
-	font:{fontSize: 18},
-	color:blackColor
+        text: '',
+        width: '50%',
+        height: 60,
+        borderWidth: 0, 
+        top: 30, 
+        right: 20,
+        font:{fontSize: 20},
+        color:blackColor
 });
 var distanceLabel = Titanium.UI.createLabel({
-	text: '',
-	width: '50%',
-	height: 50,
-	top: 110,
-	right: 10, 
-	font:{fontSize: 10},
-	color:blackColor
+        text: '',
+        width: '50%',
+        height: 50,
+        top: 70,
+        right: 20, 
+        font:{fontSize: 12},
+        color:blackColor
 });
 var priceLabel_active = Titanium.UI.createLabel({
-	text: "", 
-	width: '50%', 
-	height: 50,  
-	top: 130,
-	right: 10, 
-	font:{fontSize: 10},
-	zIndex:1,
-	color:blackColor
+        text: "", 
+        width: '50%', 
+        height: 50,  
+        top: 90,
+        right: 20, 
+        font:{fontSize: 12},
+        zIndex:1,
+        color:blackColor
 });
 var priceLabel_inactive = Ti.UI.createLabel({
-	text:"$$$$",
-	color:'#DDD',
-	width:priceLabel_active.width,
-	height:priceLabel_active.height,
-	top:priceLabel_active.top,
-	right:priceLabel_active.right,
-	font:priceLabel_active.font
+        text:"$$$$",
+        color:'#DDD',
+        width:priceLabel_active.width,
+        height:priceLabel_active.height,
+        top:priceLabel_active.top,
+        right:priceLabel_active.right,
+        font:priceLabel_active.font
 });
 var categoryLabel = Titanium.UI.createLabel({
-	text: '',
-	width: '50%', 
-	height: 50, 
-	top: 150, 
-	right: 10, 
-	font:{fontSize: 10},
-	color:blackColor
+        text: '',
+        width: '50%', 
+        height: 50, 
+        top: 110, 
+        right: 20, 
+        font:{fontSize: 12},
+        color:blackColor
 });
 var descriptionLabel = Titanium.UI.createLabel({
-	text: '',
-	width: '100%', 
-	height: 50, 
-	backgroundColor: orangeColor, 
-	top: '40%', 
-	textAlign: 'center'
+        text: '',
+        width: '100%', 
+        height: 50, 
+        backgroundColor: orangeColor, 
+        top: 155, 
+        textAlign: 'center'
 });
 var aboutLabel = Titanium.UI.createLabel({
-	text: '',
-	width: '85%', 
-	height: 65,  
-	top: '55%', 
-	color:blackColor, 
-	font: {fontSize:'12'}, 
-	left: 20
+        text: '',
+        width: '100%', 
+        height: 70,  
+        top: 245, 
+        color:blackColor, 
+        font: {fontSize:'14'}, 
+        left: 0
 });
 var specialtyLabel = Titanium.UI.createLabel({
-	text: '',
-	width: '85%', 
-	height: 65, 
-	top: '70%',
-	color:blackColor, 
-	font: {fontSize:'12'}, 
-	left: 20
+        text: '',
+        width: '100%', 
+        height: 70, 
+        top: 330,
+        color:blackColor, 
+        font: {fontSize:'14'}, 
+        left: 0
 });
 var directionsButton = Titanium.UI.createButton({
-	title: "Directions", 
-	width: '25%', 
-	height: '10%', 
-	bottom: 0,
-	left: 0, 
-	color:orangeColor,
-	backgroundColor: "#555",
-	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
+        title: "Directions", 
+        width: '25%', 
+        height: footerHeight, 
+        bottom: 0,
+        left: 0, 
+        color:orangeColor,
+        backgroundColor: "#555",
+        style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 var callButton = Titanium.UI.createButton({
-	title: "Call", 
-	width: '25%', 
-	height: '10%', 
-	bottom: 0,
-	left: '25%',
-	color:orangeColor,
-	backgroundColor: "#555",
-	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
+        title: "Call", 
+        width: '25%', 
+        height: footerHeight, 
+        bottom: 0,
+        left: '25%',
+        color:orangeColor,
+        backgroundColor: "#555",
+        style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 var websiteButton = Titanium.UI.createButton({
-	title: "Website", 
-	width: '25%', 
-	height: '10%', 
-	bottom: 0,
-	right: 0,
-	color:orangeColor,
-	backgroundColor: "#555",
-	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
+        title: "Website", 
+        width: '25%', 
+        height: footerHeight, 
+        bottom: 0,
+        right: 0,
+        color:orangeColor,
+        backgroundColor: "#555",
+        style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 var favoritesButton = Titanium.UI.createButton({
-	title: "Favorites", 
-	width: '25%', 
-	height: '10%', 
-	bottom: 0,
-	right: "25%",
-	color:orangeColor,
-	backgroundColor: "#555",
-	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
+        title: "Favorites", 
+        width: '25%', 
+        height: footerHeight, 
+        bottom: 0,
+        right: "25%",
+        color:orangeColor,
+        backgroundColor: "#555",
+        style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 
 companyview.add(companyTitle);
 companyTitle.add(backButton);
-
+companyview.add(companyScroll);
 //The reason we use individual adds vs the list is because android dones't support the list
 //companyview.add(image, titleLabel, distanceLabel, priceLabel, categoryLabel, descriptionLabel);
-companyview.add(image);
-companyview.add(titleLabel);
-companyview.add(distanceLabel);
-companyview.add(priceLabel_active);
-companyview.add(priceLabel_inactive);
-companyview.add(descriptionLabel);
-companyview.add(categoryLabel);
-companyview.add(aboutLabel);
-companyview.add(specialtyLabel);
+companyScroll.add(image);
+companyScroll.add(titleLabel);
+companyScroll.add(distanceLabel);
+companyScroll.add(priceLabel_active);
+companyScroll.add(priceLabel_inactive);
+companyScroll.add(descriptionLabel);
+companyScroll.add(categoryLabel);
+companyScroll.add(aboutLabel);
+companyScroll.add(specialtyLabel);
 //companyview.add(callButton, directionsButton, favoritesButton, websiteButton);
 companyview.add(callButton);
 companyview.add(directionsButton);

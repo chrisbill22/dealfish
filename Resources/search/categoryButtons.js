@@ -4,7 +4,7 @@ for(var i = 0; i != categories.length; i++){
 	var searchBox = Titanium.UI.createButton({
 		width: boxWidth,
 		height: boxHeight, 
-		backgroundColor: '#fff', 
+		backgroundColor: whiteColor, 
 		backgroundImage: 'images/categories/'+categories[i]+'.png', 
 		left: tempLeft, 
 		top: tempTop, 
@@ -26,7 +26,7 @@ for(var i = 0; i != categories.length; i++){
 			e.source.backgroundColor = orangeColor;
 			searchCategories.push(categoryName);
 		}else{
-			e.source.backgroundColor = '#fff';
+			e.source.backgroundColor = whiteColor;
 			searchCategories.splice(searchCategories.indexOf(categoryName), 1);
 		}
 	});

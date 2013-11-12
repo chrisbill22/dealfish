@@ -18,7 +18,7 @@ function populateNavigationSettigns(){
 					title:favorites[i][x][0],
 					height:rowHeight,
 					companyID:favorites[i][x][1],
-					color:'#000',
+					color:blackColor,
 					indexI:i,
 					indexX:x
 				});

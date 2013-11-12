@@ -103,7 +103,7 @@ function populateFavoriteList(){
 			listID:favoriteObjects.length,
 			backgroundColor:orangeColor,
 			top:tempTop,
-			color:'#fff',
+			color:whiteColor,
 			zIndex:zIndexTracker
 		});
 		
@@ -114,12 +114,12 @@ function populateFavoriteList(){
 			height:tempTop,
 			top:0,
 			zIndex:zIndexTracker,
-			backgroundColor:'#fff'
+			backgroundColor:whiteColor
 		});
 		
 		var tempRestaurants = Ti.UI.createTableView({
 			data:[],
-			backgroundColor:'#FFF',
+			backgroundColor:whiteColor,
 			width:'90%',
 			bottom:favorites_innerView.height-(tempTop+headerHeight),
 			zIndex:zIndexTracker,
@@ -134,12 +134,12 @@ function populateFavoriteList(){
 				title:favorites[i][x][0],
 				height:rowHeight,
 				companyID:favorites[i][x][1],
-				color:'#000'
+				color:blackColor
 			});
 			
 			var tempLoading = Ti.UI.createActivityIndicator({
 			    style: Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
-			    color: '#FFF',
+			    color: whiteColor,
 			    right:15,
 			    height:40,
 			    width:40

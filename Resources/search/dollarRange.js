@@ -4,7 +4,7 @@ var oneDollar = Titanium.UI.createButton({
 	left: 20, 
 	top: 110, 
 	title: '$', 
-	backgroundColor: "#FFF",
+	backgroundColor: whiteColor,
 	color:orangeColor
 });
 oneDollar.addEventListener('click', function(){
@@ -13,10 +13,10 @@ oneDollar.addEventListener('click', function(){
 	if(priceRanges.indexOf(amount) == -1){
 		priceRanges.push(amount);
 		oneDollar.backgroundColor = orangeColor;
-		oneDollar.color = '#fff';
+		oneDollar.color = whiteColor;
 	}else{
 		priceRanges.splice(priceRanges.indexOf(amount), 1);
-		oneDollar.backgroundColor = '#FFF';
+		oneDollar.backgroundColor = whiteColor;
 		oneDollar.color = orangeColor;
 	}
 	
@@ -27,7 +27,7 @@ var twoDollar = Titanium.UI.createButton({
 	left: 90, 
 	top: 110, 
 	title: '$$', 
-	backgroundColor: "#FFF",
+	backgroundColor: whiteColor,
 	color:orangeColor
 });
 twoDollar.addEventListener('click', function(){
@@ -36,10 +36,10 @@ twoDollar.addEventListener('click', function(){
 	if(priceRanges.indexOf(amount) == -1){
 		priceRanges.push(amount);
 		twoDollar.backgroundColor = orangeColor;
-		twoDollar.color = '#fff';
+		twoDollar.color = whiteColor;
 	}else{
 		priceRanges.splice(priceRanges.indexOf(amount), 1);
-		twoDollar.backgroundColor = '#FFF';
+		twoDollar.backgroundColor = whiteColor;
 		twoDollar.color = orangeColor;
 	}
 	
@@ -50,7 +50,7 @@ var threeDollar = Titanium.UI.createButton({
 	left: 160, 
 	top: 110, 
 	title: '$$$', 
-	backgroundColor: "#FFF",
+	backgroundColor: whiteColor,
 	color:orangeColor
 });
 threeDollar.addEventListener('click', function(){
@@ -59,10 +59,10 @@ threeDollar.addEventListener('click', function(){
 	if(priceRanges.indexOf(amount) == -1){
 		priceRanges.push(amount);
 		threeDollar.backgroundColor = orangeColor;
-		threeDollar.color = '#fff';
+		threeDollar.color = whiteColor;
 	}else{
 		priceRanges.splice(priceRanges.indexOf(amount), 1);
-		threeDollar.backgroundColor = '#FFF';
+		threeDollar.backgroundColor = whiteColor;
 		threeDollar.color = orangeColor;
 	}
 	
@@ -73,7 +73,7 @@ var fourDollar = Titanium.UI.createButton({
 	left: 230, 
 	top: 110, 
 	title: '$$$$', 
-	backgroundColor: "#FFF",
+	backgroundColor: whiteColor,
 	color:orangeColor
 });
 fourDollar.addEventListener('click', function(){
@@ -82,10 +82,10 @@ fourDollar.addEventListener('click', function(){
 	if(priceRanges.indexOf(amount) == -1){
 		priceRanges.push(amount);
 		fourDollar.backgroundColor = orangeColor;
-		fourDollar.color = '#fff';
+		fourDollar.color = whiteColor;
 	}else{
 		priceRanges.splice(priceRanges.indexOf(amount), 1);
-		fourDollar.backgroundColor = '#FFF';
+		fourDollar.backgroundColor = whiteColor;
 		fourDollar.color = orangeColor;
 	}
 	

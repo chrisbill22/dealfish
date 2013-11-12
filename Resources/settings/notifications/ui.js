@@ -2,27 +2,29 @@ var notifications_view = Titanium.UI.createView({
 	height: '100%', 
 	width: '100%',
 	left: screen_width,
-	backgroundColor:'#fff',
+	backgroundColor:whiteColor,
 	zIndex:21
 });
 
 var notifications_list = Ti.UI.createTableView({
 	height:'90%',
 	width:'100%',
-	backgroundColor:'#fff',
+	backgroundColor:whiteColor,
 	bottom:0
 });
 
 var notificationsBack = Ti.UI.createButton({
-	title:"back",
-	left:10,
-	bottom:5
+	backgroundImage: 'images/arrowLeftTrue.png', 
+	bottom: 5, 
+	left: 10, 
+	width: 20,
+	height: 25,
 });
 var notificationsTitle = Ti.UI.createView({
-	height:'10%',
+	height:headerHeight,
 	top:0,
 	left:0,
-	backgroundColor:orangeColor
+	backgroundImage: 'images/topBarTrue.png'
 });
 
 notificationsTitle.add(notificationsBack);

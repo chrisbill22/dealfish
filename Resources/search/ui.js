@@ -17,11 +17,11 @@ var searchBack = Ti.UI.createButton({
 	backgroundImage: 'images/arrowLeftTrue.png', 
 	width: 15,
 	height: 25,
-	bottom: 10, 
-	left: 5, 
+	bottom: 5, 
+	left: 10, 
 });
 var searchTitle = Ti.UI.createView({
-	height:'10%',
+	height:headerHeight,
 	top:0,
 	left:0,
 	backgroundImage: 'images/topBarTrue.png'
@@ -46,7 +46,7 @@ var searchBar = Titanium.UI.createTextArea({
 });
 searchBar.addEventListener('focus', function(){
 	if(searchBar.color == "#aaa"){
-		searchBar.color = '#000';
+		searchBar.color = blackColor;
 		searchBar.value = "";	
 	}
 });
@@ -61,7 +61,8 @@ searchBarButton = Ti.UI.createButton({
 	height:40,
 	left:padding-10,
 	top:60,
-	backgroundColor:orangeColor
+	backgroundColor:orangeColor, 
+	backgroundImage: 'images/searchTrue.png'
 });
 
 

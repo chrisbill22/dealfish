@@ -64,14 +64,14 @@ function createPin(data){
 			width:200,
 			height:12,
 			font:{fontSize:14, fontWeight:"Bold"},
-			color:"#FFF"
+			color:whiteColor
 		});
 		var annotationViewDeals = Ti.UI.createLabel({
 			text:deals[0][0],
 			top:13,
 			height:25,
 			width:200,
-			color:"#FFF",
+			color:whiteColor,
 			font:{fontSize:12}
 		});
 		annotationView.add(annotationViewTitle);

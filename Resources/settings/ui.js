@@ -6,23 +6,19 @@ var settings_view = Titanium.UI.createView({
 	height: '100%', 
 	width: '100%',
 	left: -1*screen_width,
-	backgroundColor:'#fff',
+	backgroundColor:whiteColor,
 	zIndex:20
 });
 
 var settingsBackBt = Ti.UI.createButton({
 	backgroundImage: 'images/arrowLeftTrue.png', 
-	width: 15,
-	height: 25,
-	bottom: 10, 
-	left: 5, 
-	width: 30,
-	height: 30,
-	top: 20, 
-	left: 5,
+	bottom: 5, 
+	left: 10, 
+	width: 20,
+	height: 25, 
 });
 var settingsTitle = Ti.UI.createView({
-	height:'10%',
+	height:headerHeight,
 	top:0,
 	left:0,
 	backgroundImage: 'images/topBarTrue.png'
