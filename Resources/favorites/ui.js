@@ -26,7 +26,8 @@ var favorites_newListButton = Ti.UI.createButton({
 	title:'Create New List',
 	backgroundColor:grey,
 	top:20,
-	color:orangeColor,
+	color:whiteColor,
+	textAlign:'left',
 	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 

@@ -1,4 +1,4 @@
-
+Titanium.UI.iPhone.statusBarStyle = Titanium.UI.iPhone.StatusBar.OPAQUE_BLACK; 
 //Variables
 Ti.include("globalVars.js");
 
