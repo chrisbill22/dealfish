@@ -1,5 +1,5 @@
 var mainHeader = Ti.UI.createView({
-	height:'12%',
+	height:headerHeight,
 	top:0,
 	left:0,
 	backgroundImage: 'images/topBarTrue.png',

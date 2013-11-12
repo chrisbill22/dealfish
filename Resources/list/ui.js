@@ -2,9 +2,9 @@ Ti.include("fetchList.js");
 //Main List View
 var listview = Ti.UI.createView({
 	left: 0,
-	height: '88%', 
+	height: viewHeight, 
 	width: '100%',
-	bottom:0,
+	top:headerHeight,
 	zIndex:0
 });
 

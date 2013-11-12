@@ -9,6 +9,8 @@ var currentLong = -9999;
 var currentLat = -9999;
 var zipcode = null;
 
+
+
 var categories = ['Bakery', 'Bar', 'Breakfast', 'Burgers', 'Chinese', 'Club', 'Coffee', 'Greek', 'IceCream', 'Italian', 'Japanese', 'Mexican', 'Pizza', 'Sandwiches', 'Seafood', 'Thai'];
 /* [
 0 = deal description,
@@ -72,6 +74,13 @@ var zipCodeBased = false;
 
 var screen_height = Ti.Platform.displayCaps.platformHeight;
 var screen_width = Ti.Platform.displayCaps.platformWidth;
+
+var headerHeight = 96/2;
+var footerHeight = 96/2;
+var viewHeight = screen_height-(headerHeight+footerHeight);
+
+
+
 var os = Titanium.Platform.osname;
 var android = false;
 if(os == "android"){

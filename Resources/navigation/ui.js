@@ -1,6 +1,6 @@
 var navigation_bottom = Ti.UI.createView({
 	width:'100%',
-	height:screen_width*0.2,
+	height:footerHeight,
 	bottom:0,
 	left:0,
 	zIndex:10,
@@ -11,7 +11,7 @@ var navigation_bottom = Ti.UI.createView({
 var nav_map = Ti.UI.createButton({
 	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN,
 	width:BOTTOM_MENU_WIDTH_PER+"%",
-	height:97/2,
+	height:footerHeight,
 	backgroundColor:'#DDD',
 	bottom:0,
 	left:0,
@@ -20,7 +20,7 @@ var nav_map = Ti.UI.createButton({
 var nav_list = Ti.UI.createButton({
 	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN,
 	width:BOTTOM_MENU_WIDTH_PER+"%",
-	height:97/2,
+	height:footerHeight,
 	backgroundColor:'#333',
 	bottom:0,
 	left:BOTTOM_MENU_WIDTH_PER+"%",
@@ -29,7 +29,7 @@ var nav_list = Ti.UI.createButton({
 var nav_favorites = Ti.UI.createButton({ 
 	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN,
 	width:BOTTOM_MENU_WIDTH_PER+"%",
-	height:97/2,
+	height:footerHeight,
 	backgroundColor:'#DDD',
 	bottom:0,
 	left:(BOTTOM_MENU_WIDTH_PER*2)+"%",
