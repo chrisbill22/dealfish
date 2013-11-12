@@ -3,14 +3,15 @@ var companyview = Titanium.UI.createView({
 	height: '100%', 
 	width: '100%',
 	bottom:screen_height,
-	backgroundColor: '#FFF',
+	backgroundColor: whiteColor,
 	zIndex: 25, 
 });
 var companyTitle = Ti.UI.createView({
 	height:'10%',
 	top:0,
 	left:0,
-	backgroundImage: 'images/topBarTrue.png'
+	backgroundImage: 'images/topBarTrue.png',
+	color:blackColor
 });
 var backButton = Titanium.UI.createButton({
 	backgroundImage: 'images/arrowLeftTrue.png', 
@@ -23,7 +24,7 @@ var backButton = Titanium.UI.createButton({
 var image = Ti.UI.createView({
 	width:110,
 	height:110,
-	backgroundColor:'#FF6600',
+	backgroundColor:orangeColor,
 	left: 20, 
 	top: 70, 
 });
@@ -35,6 +36,7 @@ var titleLabel = Titanium.UI.createLabel({
 	top: 65, 
 	right: 10,
 	font:{fontSize: 18},
+	color:blackColor
 });
 var distanceLabel = Titanium.UI.createLabel({
 	text: '',
@@ -43,6 +45,7 @@ var distanceLabel = Titanium.UI.createLabel({
 	top: 110,
 	right: 10, 
 	font:{fontSize: 10},
+	color:blackColor
 });
 var priceLabel_active = Titanium.UI.createLabel({
 	text: "", 
@@ -51,7 +54,8 @@ var priceLabel_active = Titanium.UI.createLabel({
 	top: 130,
 	right: 10, 
 	font:{fontSize: 10},
-	zIndex:1
+	zIndex:1,
+	color:blackColor
 });
 var priceLabel_inactive = Ti.UI.createLabel({
 	text:"$$$$",
@@ -68,13 +72,14 @@ var categoryLabel = Titanium.UI.createLabel({
 	height: 50, 
 	top: 150, 
 	right: 10, 
-	font:{fontSize: 10}
+	font:{fontSize: 10},
+	color:blackColor
 });
 var descriptionLabel = Titanium.UI.createLabel({
 	text: '',
 	width: '100%', 
 	height: 50, 
-	backgroundColor: "#FF6600", 
+	backgroundColor: orangeColor, 
 	top: '40%', 
 	textAlign: 'center'
 });
@@ -83,12 +88,14 @@ var aboutLabel = Titanium.UI.createLabel({
 	width: '100%', 
 	height: 60,  
 	top: '50%', 
+	color:blackColor
 });
 var specialtyLabel = Titanium.UI.createLabel({
 	text: '',
 	width: '100%', 
 	height: 60, 
-	top: '65%'
+	top: '65%',
+	color:blackColor
 });
 var directionsButton = Titanium.UI.createButton({
 	title: "Directions", 
@@ -97,7 +104,8 @@ var directionsButton = Titanium.UI.createButton({
 	bottom: 0,
 	left: 0, 
 	color:orangeColor,
-	backgroundColor: "#555"
+	backgroundColor: "#555",
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 var callButton = Titanium.UI.createButton({
 	title: "Call", 
@@ -106,7 +114,8 @@ var callButton = Titanium.UI.createButton({
 	bottom: 0,
 	left: '25%',
 	color:orangeColor,
-	backgroundColor: "#555"
+	backgroundColor: "#555",
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 var websiteButton = Titanium.UI.createButton({
 	title: "Website", 
@@ -115,7 +124,8 @@ var websiteButton = Titanium.UI.createButton({
 	bottom: 0,
 	right: 0,
 	color:orangeColor,
-	backgroundColor: "#555"
+	backgroundColor: "#555",
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 var favoritesButton = Titanium.UI.createButton({
 	title: "Favorites", 
@@ -124,7 +134,8 @@ var favoritesButton = Titanium.UI.createButton({
 	bottom: 0,
 	right: "25%",
 	color:orangeColor,
-	backgroundColor: "#555"
+	backgroundColor: "#555",
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 
 companyview.add(companyTitle);
