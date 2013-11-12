@@ -102,13 +102,19 @@ function createListItem(data){
 		text:"?",
 		font:{fontSize:14},
 	});
+	var tempItem_locationIcon = Ti.UI.createImageView({
+		image: 'images/location.png', 
+		length: 10, 
+		width: 7, 
+		left: 0
+	});
 	
 	if(distance == 0){
-		tempItem_distance.text = "0.1 mi";
+		tempItem_distance.text = "   0.1 mi";
 	}else if(distance > 100){
-		tempItem_distance.text = ">100 mi";
+		tempItem_distance.text = "   >100 mi";
 	}else{
-		tempItem_distance.text = distance+" mi";
+		tempItem_distance.text ="   " + distance+" mi";
 	}
 	
 	tempItem_title.text = title;
@@ -122,7 +128,7 @@ function createListItem(data){
 	tempItem.add(tempItem_deal);
 	tempItem.add(tempItem_distance);
 	tempItemHolder.add(tempItem_image);
-	
+	tempItem_distance.add(tempItem_locationIcon);
 	tempItemHolder.add(tempItem);
 	
 	var currentDeal = 0;
