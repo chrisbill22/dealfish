@@ -67,7 +67,7 @@ favoritesButton.addEventListener('click', function(){
 });
 
 backButton.addEventListener('click', function(){
-	companyview.remove(countdown);
+	companyScroll.remove(countdown);
 	stopCollectingStats();
 	companyview.animate({
 		bottom: screen_height,
