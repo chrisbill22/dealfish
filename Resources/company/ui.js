@@ -41,9 +41,10 @@ var titleLabel = Titanium.UI.createLabel({
         text: '',
         width: '50%',
         borderWidth: 0, 
-        top: 30, 
+        top: 35, 
         left: 100,
-        font:{fontSize: 14},
+        height: 30,
+        font:{fontSize: 16},
         color:blackColor
 });
 var distanceLabel = Titanium.UI.createLabel({

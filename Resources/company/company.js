@@ -31,7 +31,7 @@ function openCompany(id, altArray){
 	priceLabel_active.text = priceString;
 	
 	countdown = startCountDown(tempCompanyArray[id][8]);
-	countdown.width = '100%';
+	countdown.width = '80%';
 	countdown.top = 187;
 	countdown.textAlign = 'center';
 	companyScroll.add(countdown);
