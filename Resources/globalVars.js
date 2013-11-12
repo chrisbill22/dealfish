@@ -61,6 +61,7 @@ var favorites = [];
 var orangeColor = "#FF962D";
 var whiteColor = "#F7F7F7";
 var blackColor = "#31313F";
+var grey = "#5C5C5C";
 
 var currentView = "list";
 var currentSubView = ""; // this will store the last view open before switching to settings, search, or any other layover view

@@ -104,7 +104,8 @@ function populateFavoriteList(){
 			backgroundColor:orangeColor,
 			top:tempTop,
 			color:'#fff',
-			zIndex:zIndexTracker
+			zIndex:zIndexTracker,
+			style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 		});
 		
 		zIndexTracker -= 1;
@@ -114,7 +115,7 @@ function populateFavoriteList(){
 			height:tempTop,
 			top:0,
 			zIndex:zIndexTracker,
-			backgroundColor:'#fff'
+			backgroundColor:favoritesBGColor
 		});
 		
 		var tempRestaurants = Ti.UI.createTableView({

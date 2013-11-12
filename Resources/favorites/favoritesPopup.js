@@ -20,6 +20,7 @@ var favoritesPopupCloseBt = Ti.UI.createButton({
 	height:'10%',
 	backgroundColor:'#AAA',
 	bottom:0,
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 var favoritesPopupList = Ti.UI.createTableView({
 	width:'100%',
