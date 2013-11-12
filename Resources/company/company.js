@@ -32,7 +32,7 @@ function openCompany(id, altArray){
 	
 	countdown = startCountDown(tempCompanyArray[id][8]);
 	countdown.width = '100%';
-	countdown.top = 215;
+	countdown.top = 187;
 	countdown.textAlign = 'center';
 	companyScroll.add(countdown);
 	

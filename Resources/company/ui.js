@@ -7,7 +7,7 @@ var companyview = Titanium.UI.createView({
         zIndex: 25, 
 });
 var companyScroll = Titanium.UI.createScrollView({
-		width: '90%', 
+		width: '95%', 
 		height: viewHeight,
 		contentWidth: 'auto',
   		contentHeight: 'auto',
@@ -31,37 +31,34 @@ var backButton = Titanium.UI.createButton({
 });
 //------
 var image = Ti.UI.createView({
-        width:110,
-        height:110,
+        width:90,
+        height:90,
         backgroundColor:orangeColor,
         left: 0, 
-        top: 30, 
+        top: 20, 
 });
 var titleLabel = Titanium.UI.createLabel({
         text: '',
         width: '50%',
-        height: 60,
         borderWidth: 0, 
         top: 30, 
-        right: 20,
-        font:{fontSize: 20},
+        left: 100,
+        font:{fontSize: 14},
         color:blackColor
 });
 var distanceLabel = Titanium.UI.createLabel({
         text: '',
         width: '50%',
-        height: 50,
-        top: 70,
-        right: 20, 
+        top: 60,
+        left: 100, 
         font:{fontSize: 12},
-        color:blackColor
+		color: blackColor
 });
 var priceLabel_active = Titanium.UI.createLabel({
         text: "", 
-        width: '50%', 
-        height: 50,  
-        top: 90,
-        right: 20, 
+        width: '50%',   
+        top: 77,
+        left: 100,  
         font:{fontSize: 12},
         zIndex:1,
         color:blackColor
@@ -72,15 +69,14 @@ var priceLabel_inactive = Ti.UI.createLabel({
         width:priceLabel_active.width,
         height:priceLabel_active.height,
         top:priceLabel_active.top,
-        right:priceLabel_active.right,
+        left:priceLabel_active.left,
         font:priceLabel_active.font
 });
 var categoryLabel = Titanium.UI.createLabel({
         text: '',
-        width: '50%', 
-        height: 50, 
-        top: 110, 
-        right: 20, 
+        width: '50%',  
+        top: 95, 
+        left: 100, 
         font:{fontSize: 12},
         color:blackColor
 });
@@ -88,27 +84,26 @@ var descriptionLabel = Titanium.UI.createLabel({
         text: '',
         width: '100%', 
         height: 50, 
-        backgroundColor: orangeColor, 
-        top: 155, 
-        textAlign: 'center'
+        backgroundColor:orangeColor, 
+        top: 180, 
+        textAlign: 'center', 
+        color: whiteColor
 });
 var aboutLabel = Titanium.UI.createLabel({
         text: '',
-        width: '100%', 
+        width: '90%', 
         height: 70,  
-        top: 245, 
+        top: 215, 
         color:blackColor, 
         font: {fontSize:'14'}, 
-        left: 0
 });
 var specialtyLabel = Titanium.UI.createLabel({
         text: '',
-        width: '100%', 
+        width: '90%', 
         height: 70, 
-        top: 330,
+        top: 310,
         color:blackColor, 
         font: {fontSize:'14'}, 
-        left: 0
 });
 var directionsButton = Titanium.UI.createButton({
         title: "Directions", 
@@ -161,7 +156,7 @@ companyScroll.add(titleLabel);
 companyScroll.add(distanceLabel);
 companyScroll.add(priceLabel_active);
 companyScroll.add(priceLabel_inactive);
-companyScroll.add(descriptionLabel);
+companyview.add(descriptionLabel);
 companyScroll.add(categoryLabel);
 companyScroll.add(aboutLabel);
 companyScroll.add(specialtyLabel);
