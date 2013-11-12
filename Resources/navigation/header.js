@@ -7,8 +7,15 @@ var mainHeader = Ti.UI.createView({
 });
 var mainHeader_label = Ti.UI.createLabel({
 	text:"Home",
-	bottom:10
+	bottom:10,
+	color:whiteColor,
 });
+
+if(iOSversion < 7.0){
+	nav_search.bottom = 12;
+	nav_settings.bottom = 12;
+	mainHeader_label.font = {fontSize:23};
+}
 
 
 function setNewHeaderTitle(title){

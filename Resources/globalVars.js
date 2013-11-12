@@ -73,6 +73,8 @@ var fetchingLocations = false;
 var fetchedLocations = false;
 var zipCodeBased = false;
 
+var iOSversion = Ti.Platform.version;
+
 var screen_height = Ti.Platform.displayCaps.platformHeight;
 var screen_width = Ti.Platform.displayCaps.platformWidth;
 
