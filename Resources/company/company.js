@@ -1,5 +1,7 @@
 Ti.include("ui.js");
 
+var countdown;
+
 function openCompany(id, altArray){
 	var tempCompanyArray = [];
 	if(!altArray){
@@ -27,6 +29,11 @@ function openCompany(id, altArray){
 		priceString += "$";
 	}
 	priceLabel_active.text = priceString;
+	
+	countdown = startCountDown(tempCompanyArray[id][8]);
+	countdown.left = 0;
+	countdown.right = 0;
+	companyview.add(countdown);
 	
 	companyview.animate({
 		bottom: 0
@@ -59,6 +66,7 @@ favoritesButton.addEventListener('click', function(){
 });
 
 backButton.addEventListener('click', function(){
+	companyview.remove(countdown);
 	stopCollectingStats();
 	companyview.animate({
 		bottom: screen_height,

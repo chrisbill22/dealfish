@@ -77,7 +77,6 @@ function createPin(data){
 					}else{
 						currentDeal++;
 					}
-					Ti.API.info(deals.length+", "+currentDeal);
 					annotationViewDeals.text = deals[currentDeal][0];
 					if(deals[currentDeal][1] == true){
 						annotationViewDeals.color = "red";

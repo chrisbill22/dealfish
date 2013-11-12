@@ -29,6 +29,7 @@ Ti.include("db/fetch.js");
 Ti.include("locations.js");
 Ti.include("loadingScreen/loadingScreen.js");
 Ti.include("statistics/statistics.js");
+Ti.include("countdown.js");
 
 //Views
 Ti.include('company/company.js');
