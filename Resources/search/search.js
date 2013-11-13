@@ -7,6 +7,7 @@ Ti.include("ui.js");
 Ti.include("searchResults.js");
 
 searchBack.addEventListener('click', function(){
+	searchBar.blur();
 	searchBack();
 });
 

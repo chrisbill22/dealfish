@@ -5,7 +5,8 @@ var oneDollar = Titanium.UI.createButton({
 	top: 110, 
 	title: '$', 
 	backgroundColor: whiteColor,
-	color:orangeColor
+	color:orangeColor,
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 oneDollar.addEventListener('click', function(){
 	searchBar.blur();
@@ -28,7 +29,8 @@ var twoDollar = Titanium.UI.createButton({
 	top: 110, 
 	title: '$$', 
 	backgroundColor: whiteColor,
-	color:orangeColor
+	color:orangeColor,
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 twoDollar.addEventListener('click', function(){
 	searchBar.blur();
@@ -51,7 +53,8 @@ var threeDollar = Titanium.UI.createButton({
 	top: 110, 
 	title: '$$$', 
 	backgroundColor: whiteColor,
-	color:orangeColor
+	color:orangeColor,
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 threeDollar.addEventListener('click', function(){
 	searchBar.blur();
@@ -74,7 +77,8 @@ var fourDollar = Titanium.UI.createButton({
 	top: 110, 
 	title: '$$$$', 
 	backgroundColor: whiteColor,
-	color:orangeColor
+	color:orangeColor,
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 fourDollar.addEventListener('click', function(){
 	searchBar.blur();
@@ -91,7 +95,7 @@ fourDollar.addEventListener('click', function(){
 	
 });
 
-search_view.add(oneDollar, twoDollar, threeDollar, fourDollar);
+search_view_scroll.add(oneDollar, twoDollar, threeDollar, fourDollar);
 /*
 search_view.add(twoDollar);
 search_view.add(threeDollar);

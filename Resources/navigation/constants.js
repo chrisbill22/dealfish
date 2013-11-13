@@ -16,4 +16,3 @@ var transitionViewOutAnimation = Ti.UI.createAnimation({
 	opacity : 0,
 	duration : OUT_ANIMATION_SPEED
 });
-

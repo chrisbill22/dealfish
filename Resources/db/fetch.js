@@ -120,8 +120,8 @@ function checkLocationsFetched(){
 
 function getCategoryImage(category){
 	if(categories.indexOf(category) != -1){
-		return "images/categories/"+category+".png";
+		return "images/categories/white/"+category+".png";
 	}else{
-		return "images/categories/Bar.png";
+		return "none";
 	}
 }

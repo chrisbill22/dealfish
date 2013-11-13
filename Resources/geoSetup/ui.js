@@ -13,7 +13,8 @@ var geoSetupZipButton = Ti.UI.createButton({
 	width:'90%',
 	height:'10%',
 	backgroundColor:'#333',
-	color:'#DDD'
+	color:'#DDD',
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 
 var geoSetupGeoButton = Ti.UI.createButton({
@@ -22,7 +23,8 @@ var geoSetupGeoButton = Ti.UI.createButton({
 	width:'90%',
 	height:'10%',
 	backgroundColor:'#333',
-	color:'#DDD'
+	color:'#DDD',
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 
 var enterZipcode_label = Ti.UI.createLabel({
@@ -48,7 +50,8 @@ var enterZipcode_backBt = Ti.UI.createButton({
 	height:'10%',
 	backgroundColor:'#333',
 	color:'#DDD',
-	opacity:0
+	opacity:0, 
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 
 geoSetupView.add(enterZipcode_backBt);
