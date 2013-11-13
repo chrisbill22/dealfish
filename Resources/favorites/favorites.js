@@ -173,6 +173,7 @@ function populateFavoriteList(){
 				tempRow.add(tempOnOff);
 				tempRow.add(tempLoading);
 				tempOnOff.addEventListener('click', function(e){
+					alert(e.source.backgroundImage);
 					e.source.hide();
 					e.source.loadingObj.show();
 					if(e.source.backgroundImage == 'images/bellInactive.png'){
