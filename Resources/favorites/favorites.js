@@ -166,9 +166,11 @@ function populateFavoriteList(){
 				    height:40,
 				    width:40
 				});
-				var tempOnOff = Ti.UI.createButton({right:15, backgroundImage:'images/bellInactive.png', height:49/2, width:52/2, compID:favorites[i][x][1], indexI:i, indexX:x, loadingObj:tempLoading});
+				var tempOnOff = Ti.UI.createButton({right:15, height:49/2, width:52/2, compID:favorites[i][x][1], indexI:i, indexX:x, loadingObj:tempLoading});
 				if(favorites[i][x][5] == true){
 					tempOnOff.backgroundImage = 'images/bellActive.png';
+				}else{
+					tempOnOff.backgroundImage = 'images/bellInactive.png';
 				}
 				tempRow.add(tempOnOff);
 				tempRow.add(tempLoading);
