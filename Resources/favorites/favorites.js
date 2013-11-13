@@ -62,9 +62,10 @@ var favoriteObjects = [];
 
 function clearFavoriteList(){
 	for(var i=0; i!=favorites.length; i++){
-		favorites_innerView.remove(favoriteObjects[i][2]);
-		favorites_innerView.remove(favoriteObjects[i][1]);
-		favorites_innerView.remove(favoriteObjects[i][0]);
+		var id = i;
+		favorites_innerView.remove(favoriteObjects[id][2]);
+		favorites_innerView.remove(favoriteObjects[id][1]);
+		favorites_innerView.remove(favoriteObjects[id][0]);
 	}
 }
 

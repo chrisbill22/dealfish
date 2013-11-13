@@ -55,6 +55,7 @@ function closeFavoritesPopup(){
 		top:screen_height,
 		duration:500
 	});
+	clearFavoriteList();
 	populateFavoriteList();
 }
 
