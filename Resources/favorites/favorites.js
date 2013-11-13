@@ -176,8 +176,10 @@ function populateFavoriteList(){
 					e.source.hide();
 					e.source.loadingObj.show();
 					if(e.source.backgroundImage == 'images/bellInactive.png'){
+						alert("enable");
 						enablePushCompany(e.source.compID, e.source, e.source.loadingObj, e.source.indexI, e.source.indexX);
 					}else if(e.source.backgroundImage == 'images/bellActive.png'){
+						alert("disable");
 						disablePushCompany(e.source.compID, e.source, e.source.loadingObj, e.source.indexI, e.source.indexX);
 					}else{
 						alert("Program Error. Incorrect image key");

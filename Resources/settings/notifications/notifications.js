@@ -54,6 +54,8 @@ notifications_list.addEventListener('click', function(e){
 });
 */
 Ti.App.addEventListener('unsubscribed', function(e){
+	alert("unsubscribed!");
+	clearFavoriteList();
 	favorites[e.i][e.x][5] = false;
 	populateNavigationSettigns();
 	populateFavoriteList();
