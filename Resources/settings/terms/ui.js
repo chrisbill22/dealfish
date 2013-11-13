@@ -4,20 +4,20 @@ var termsview = Titanium.UI.createView({
 	width: '100%',
 	bottom:screen_height,
 	backgroundColor: '#DDD',
-	zIndex: 21, 
+	zIndex: 21,
 });
 var termsTitle = Ti.UI.createView({
 	height:headerHeight,
 	top:0,
 	left:0,
-	backgroundColor:orangeColor,
+	backgroundImage: 'images/topBarTrue.png'
 });
 var termsbackButton = Titanium.UI.createButton({
 	backgroundImage: 'images/arrowLeftTrue.png', 
 	bottom: 5, 
 	left: 10, 
 	width: 20,
-	height: 25,  
+	height: 25, 
 });
 var textview = Titanium.UI.createScrollView({
 	top: '15%',   
@@ -45,7 +45,6 @@ termsview.add(termsTitle);
 termsTitle.add(termsbackButton);
 termsview.add(textview);
 textview.add(text);
-
 function openTerms(){
 	termsview.animate({
 		bottom: 0
