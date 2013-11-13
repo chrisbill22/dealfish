@@ -100,13 +100,81 @@ var descriptionLabel = Titanium.UI.createLabel({
         backgroundColor:orangeColor, 
         top: image.height+image.top+comview_paddingBetweenGorupAndDeal, 
         textAlign: 'center', 
-        color: whiteColor
+        color: blackColor,
+        font:{fontSize:'auto'}
 });
+
+
+//Drop down
+var currentCompanyDeals_button = Ti.UI.createButton({
+	width:'90%',
+	height:50,
+	title:'More Deals',
+	backgroundColor:blackColor,
+	top:descriptionLabel.top+descriptionLabel.height+comview_paddingBetweenGorupAndDeal+5,
+	zIndex:3,
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN,
+	color:whiteColor,
+	textAlign:'left',
+	font:{fontSize:15}
+});
+var currentCompanyDeals_button_FavCount = Ti.UI.createLabel({
+	right:0,
+	color:whiteColor,
+	height:'100%',
+	width:30,
+	text:'2',
+	font:currentCompanyDeals_button.font,
+	opacity:1
+});
+var currentCompanyDeals_button_ArrowUp = Ti.UI.createView({
+	width:47/2,
+	height:30/2,
+	backgroundImage:'images/arrowUpTrue.png',
+	right:13,
+	opacity:0
+});
+var currentCompanyDeals_dropdown_holder = Ti.UI.createView({
+	width:'90%',
+	height:50,
+	top:currentCompanyDeals_button.top,
+	zIndex:2,
+});
+var currentCompanyDeals_dropdown = Ti.UI.createTableView({
+	width:'100%',
+	top:0,
+	height:40,
+	backgroundColor:whiteColor,
+	rowHeight:40,
+	borderColor:grey
+});
+var dealsExtended = false;
+currentCompanyDeals_button.addEventListener('click', function(){
+	if(dealsExtended == false){
+		currentCompanyDeals_dropdown_holder.height = ((otherCompanyDealsCount+1)*40)+5;
+		currentCompanyDeals_dropdown.animate({top:45});
+		currentCompanyDeals_button_ArrowUp.animate({opacity:1});
+		currentCompanyDeals_button_FavCount.animate({opacity:0});
+		dealsExtended = true;
+	}else{
+		currentCompanyDeals_button_ArrowUp.animate({opacity:0});
+		currentCompanyDeals_button_FavCount.animate({opacity:1});
+		currentCompanyDeals_dropdown.animate({top:-1*((otherCompanyDealsCount-1)*40)}, function(){
+			currentCompanyDeals_dropdown_holder.height = 40;
+		});
+		dealsExtended = false;
+	}
+});
+currentCompanyDeals_dropdown_holder.add(currentCompanyDeals_dropdown);
+currentCompanyDeals_button.add(currentCompanyDeals_button_FavCount);
+currentCompanyDeals_button.add(currentCompanyDeals_button_ArrowUp);
+companyScroll.add(currentCompanyDeals_dropdown_holder);
+
 var aboutLabel = Titanium.UI.createLabel({
         text: '',
         width: '90%', 
         height: 'auto',  
-        top: descriptionLabel.top+descriptionLabel.height+comview_paddingBetweenGorupAndDeal+5, 
+        top: currentCompanyDeals_button.top+currentCompanyDeals_button.height+20, 
         color:blackColor, 
         font: {fontSize:'14'}, 
 });
@@ -178,6 +246,9 @@ var favoritesIcon = Titanium.UI.createImageView({
 		image: 'images/actionbar/favOff.png'
 });
 
+
+
+
 companyview.add(companyTitle);
 companyTitle.add(backButton);
 companyview.add(companyScroll);
@@ -190,6 +261,9 @@ companyScroll.add(priceLabel_active);
 companyScroll.add(priceLabel_inactive);
 companyScroll.add(descriptionLabel);
 companyScroll.add(categoryLabel);
+
+companyScroll.add(currentCompanyDeals_button);
+
 companyScroll.add(aboutLabel);
 companyScroll.add(specialtyLabel);
 //companyview.add(callButton, directionsButton, favoritesButton, websiteButton);

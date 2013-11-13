@@ -1,6 +1,7 @@
 Ti.include("ui.js");
 
 var countdown;
+var otherCompanyDealsCount = 0;
 
 function openCompany(id, altArray){
 	var tempCompanyArray = [];
@@ -25,6 +26,9 @@ function openCompany(id, altArray){
 	
 	if(tempCompanyArray[id][12]){
 		aboutLabel.text = "About\n" + tempCompanyArray[id][12];
+		if(!tempCompanyArray[id][13]){
+			aboutLabel.text += "\n\n\n";
+		}
 	}
 	if(tempCompanyArray[id][13]){
 		if(tempCompanyArray[id][12]){
@@ -32,6 +36,7 @@ function openCompany(id, altArray){
 		}
 		aboutLabel.text += "Specialty\n"+ tempCompanyArray[id][13]+"\n\n\n";
 	}
+	
 	//specialtyLabel.text = "Specialty: " ;
 	var priceString = "";
 	for(i=0; i!=tempCompanyArray[id][14]; i++){
@@ -41,11 +46,45 @@ function openCompany(id, altArray){
 	
 	countdown = startCountDown(tempCompanyArray[id][8]);
 	countdown.width = '80%';
-	countdown.top = descriptionLabel.top+descriptionLabel.height+2;
+	countdown.top = descriptionLabel.top+descriptionLabel.height-20;
+	countdown.opacity = 0.7;
 	countdown.textAlign = 'center';
-	countdown.color = grey;
+	countdown.color = whiteColor;
 	countdown.font = {fontSize:13};
 	companyScroll.add(countdown);
+	
+	var otherCompanyDeals = [];
+	for(var i=0; i!=companies.length; i++){
+		if(companies[i][0] == tempCompanyArray[id][2]){
+			for(var z=1; z!=companies[i].length; z++){
+				otherCompanyDeals.push(companies[i][z][0]);
+			}
+		}
+	}
+	otherCompanyDealsCount = otherCompanyDeals.length;
+	currentCompanyDeals_button_FavCount.text = otherCompanyDealsCount;
+	if(otherCompanyDeals.length == 1){
+		aboutLabel.top = currentCompanyDeals_button.top;
+		currentCompanyDeals_dropdown_holder.visible = false;
+		currentCompanyDeals_button.visible = false;
+	}else{
+		currentCompanyDeals_dropdown.height = otherCompanyDealsCount*40;
+		currentCompanyDeals_dropdown.top = -1*((otherCompanyDealsCount-1)*40);
+		currentCompanyDeals_dropdown.data = [];
+		var tempRows = [];
+		for(var i=0; i!=otherCompanyDeals.length; i++){
+			var tempTableRow = Ti.UI.createTableViewRow({
+				title:otherCompanyDeals[i],
+				font:{fontSize:14, fontWeight:'normal'},
+				color:blackColor,
+			});
+			tempRows.push(tempTableRow);
+		}
+		currentCompanyDeals_dropdown.data = tempRows;
+		aboutLabel.top = currentCompanyDeals_button.top+currentCompanyDeals_button.height+15;
+		currentCompanyDeals_dropdown_holder.visible = true;
+		currentCompanyDeals_button.visible = true;
+	}
 	
 	companyview.animate({
 		bottom: 0
