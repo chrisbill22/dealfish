@@ -43,6 +43,7 @@ function closeFavoritesNamePopup(){
 
 favoritesPopupName_textbox.addEventListener('return', function()
 {
+	clearFavoriteList();
 	if(favoritesPopupName_textbox.value != ""){
 		createNewCompanyList(favoritesPopupName_textbox.value);
 	}
