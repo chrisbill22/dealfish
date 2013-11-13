@@ -69,11 +69,11 @@ quickAction_favorite.addEventListener('click', function(){
 });
 
 quickAction_call.addEventListener('click', function(){
-	Titanium.Platform.openURL('tel:' + currentLocations[currentCompanyID][10]);
+	Titanium.Platform.openURL('tel:' + currentLocations[currentQuickID][10]);
 });
 quickAction_favorite.addEventListener('click', function(){
 	openFavoritesPopup(currentQuickID);
 });
 quickAction_website.addEventListener('click', function(){
-	Ti.Platform.openURL(currentLocations[currentCompanyID][11]);
+	Ti.Platform.openURL(currentLocations[currentQuickID][11]);
 });

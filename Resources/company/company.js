@@ -95,7 +95,7 @@ function openCompany(id, altArray){
 callButton.addEventListener('click', function(){
 	var alertDialog = Titanium.UI.createAlertDialog({
     message: 'Are you sure you want to call?',
-    buttonNames: ['Yes!','No!']
+    buttonNames: ['Yes','No']
 	});
 	alertDialog.addEventListener('click', function(e){
 		if(e.index == 0){
