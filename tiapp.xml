@@ -7,8 +7,8 @@
     <property name="acs-oauth-key-production" type="string">mOU2Xnz3I5OrEwsvF9VDGhf89IRaochy</property>
     <property name="acs-api-key-production" type="string">mtVwIwG6NStr6KhPDgy2ljBbXQbeXKtV</property>
     <id>com.ChrisBill.genY</id>
-    <name>Deal Fish</name>
-    <version>1.0</version>
+    <name>One-Tap</name>
+    <version>0.1</version>
     <publisher>Gen Y Applications</publisher>
     <url>http://</url>
     <description>not specified</description>
@@ -49,7 +49,7 @@
     <deployment-targets>
         <target device="android">true</target>
         <target device="blackberry">false</target>
-        <target device="ipad">true</target>
+        <target device="ipad">false</target>
         <target device="iphone">true</target>
         <target device="mobileweb">true</target>
         <target device="tizen">false</target>

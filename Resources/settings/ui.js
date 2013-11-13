@@ -49,10 +49,6 @@ settingsTable.addEventListener('click', function(e){
 	}else if(e.index == 1){
 		show_geolocation_setup();
 	}else if(e.index == 2){
-		openPrivacy();
-	}else if(e.index == 3){
-		openTerms();
-	}else if(e.index == 4){
 		openBugs();
 	}
 });
