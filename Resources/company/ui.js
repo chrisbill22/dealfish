@@ -1,3 +1,8 @@
+var comview_paddingLeft = 10;
+var comview_paddingRight = 10;
+var comview_widthWithPadding = screen_width-comview_paddingLeft-comview_paddingRight;
+var comview_paddingBetweenGorupAndDeal = 21;
+
 var companyview = Titanium.UI.createView({
         left: 0,
         height: '100%', 
@@ -32,42 +37,48 @@ var backButton = Titanium.UI.createButton({
 });
 //------
 var image = Ti.UI.createView({
-        width:90,
-        height:90,
+        width:104,
+        height:104,
         backgroundColor:orangeColor,
-        left: 0, 
+        left: comview_paddingLeft, 
         top: 20, 
 });
 var titleLabel = Titanium.UI.createLabel({
         text: '',
-        width: '50%',
+        width: comview_widthWithPadding-(image.width+comview_paddingLeft),
         borderWidth: 0, 
-        top: 35, 
-        left: 100,
+        top: 30, 
+        left: image.width+(comview_paddingLeft*2),
         height: 30,
-        font:{fontSize: 16},
+        font:{fontSize: 18},
         color:blackColor
+});
+var locationImage = Titanium.UI.createImageView({
+		image:'images/location.png', 
+		width: 7, 
+		height: 10, 
+		left: 0
 });
 var distanceLabel = Titanium.UI.createLabel({
         text: '',
         width: '50%',
-        top: 60,
-        left: 100, 
+        top: 58,
+        left: image.width+(comview_paddingLeft*2), 
         font:{fontSize: 12},
 		color: blackColor
 });
 var priceLabel_active = Titanium.UI.createLabel({
-        text: "", 
+        text: '', 
         width: '50%',   
-        top: 77,
-        left: 100,  
+        top: 75,
+        left: image.width+(comview_paddingLeft*2),  
         font:{fontSize: 12},
         zIndex:1,
         color:blackColor
 });
 var priceLabel_inactive = Ti.UI.createLabel({
         text:"$$$$",
-        color:'#DDD',
+        color:'#AAA',
         width:priceLabel_active.width,
         height:priceLabel_active.height,
         top:priceLabel_active.top,
@@ -77,25 +88,25 @@ var priceLabel_inactive = Ti.UI.createLabel({
 var categoryLabel = Titanium.UI.createLabel({
         text: '',
         width: '50%',  
-        top: 93, 
-        left: 100, 
+        top: 91, 
+        left: image.width+(comview_paddingLeft*2), 
         font:{fontSize: 12},
         color:blackColor
 });
 var descriptionLabel = Titanium.UI.createLabel({
         text: '',
         width: '100%', 
-        height: 50, 
+        height: 60, 
         backgroundColor:orangeColor, 
-        top: 130, 
+        top: image.height+image.top+comview_paddingBetweenGorupAndDeal, 
         textAlign: 'center', 
         color: whiteColor
 });
 var aboutLabel = Titanium.UI.createLabel({
         text: '',
         width: '90%', 
-        height: 90,  
-        top: 215, 
+        height: 'auto',  
+        top: descriptionLabel.top+descriptionLabel.height+comview_paddingBetweenGorupAndDeal+5, 
         color:blackColor, 
         font: {fontSize:'14'}, 
 });
@@ -147,12 +158,7 @@ var favoritesButton = Titanium.UI.createButton({
         backgroundColor: "#555",
         style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
-var locationImage = Titanium.UI.createImageView({
-		image:'images/location.png', 
-		width: 7, 
-		height: 10, 
-		left: 0
-});
+
 companyview.add(companyTitle);
 companyTitle.add(backButton);
 companyview.add(companyScroll);
