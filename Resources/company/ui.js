@@ -119,7 +119,7 @@ var specialtyLabel = Titanium.UI.createLabel({
         font: {fontSize:'14'}, 
 });
 var directionsButton = Titanium.UI.createButton({
-        title: "Directions", 
+        //title: "Directions", 
         width: '25%', 
         height: footerHeight, 
         bottom: 0,
@@ -129,7 +129,7 @@ var directionsButton = Titanium.UI.createButton({
         style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 var callButton = Titanium.UI.createButton({
-        title: "Call", 
+        //title: "Call", 
         width: '25%', 
         height: footerHeight, 
         bottom: 0,
@@ -139,7 +139,7 @@ var callButton = Titanium.UI.createButton({
         style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 var websiteButton = Titanium.UI.createButton({
-        title: "Website", 
+        //title: "Website", 
         width: '25%', 
         height: footerHeight, 
         bottom: 0,
@@ -149,14 +149,33 @@ var websiteButton = Titanium.UI.createButton({
         style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 var favoritesButton = Titanium.UI.createButton({
-        title: "Favorites", 
+        //title: "Favorites", 
         width: '25%', 
         height: footerHeight, 
         bottom: 0,
         right: "25%",
         color:orangeColor,
         backgroundColor: "#555",
-        style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
+        style:Ti.UI.iPhone.SystemButtonStyle.PLAIN, 
+});
+
+var locationImage = Titanium.UI.createImageView({
+		image:'images/location.png', 
+		width: 7, 
+		height: 10, 
+		left: 0
+});
+var directionsIcon = Titanium.UI.createImageView({
+		image: 'images/actionbar/locationOff.png'
+});
+var callIcon = Titanium.UI.createImageView({
+		image: 'images/actionbar/phoneOff.png'
+});
+var websiteIcon = Titanium.UI.createImageView({
+		image: 'images/actionbar/internetOff.png'
+});
+var favoritesIcon = Titanium.UI.createImageView({
+		image: 'images/actionbar/favOff.png'
 });
 
 companyview.add(companyTitle);
@@ -179,7 +198,10 @@ companyview.add(directionsButton);
 companyview.add(favoritesButton);
 companyview.add(websiteButton);
 distanceLabel.add(locationImage);
-
+directionsButton.add(directionsIcon);
+callButton.add(callIcon);
+websiteButton.add(websiteIcon);
+favoritesButton.add(favoritesIcon);
 /*
 companyview.add(pinButton);*/
 

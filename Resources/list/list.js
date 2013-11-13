@@ -97,10 +97,10 @@ function createListItem(data){
 		text:"Loading..."
 	});
 	var tempItem_distance = Ti.UI.createLabel({
-		right:5,
-		top:10,
+		right:0,
+		top:0,
 		text:"?",
-		font:{fontSize:14},
+		font:{fontSize:12},
 	});
 	var tempItem_locationIcon = Ti.UI.createImageView({
 		image: 'images/location.png', 
