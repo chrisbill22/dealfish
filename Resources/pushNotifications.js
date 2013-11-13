@@ -63,7 +63,7 @@ function favoriteSubscribe(companyID, switchSource, loadingSource, i, x){
 			favorites[i][x][5] = true;
 			Ti.App.Properties.setList("favorites", favorites);
 			Ti.API.info("enable switch");
-			switchSource.backgroundColor = "#0A0";
+			switchSource.backgroundImage = 'images/bellActive.png';;
 			switchSource.show();
 			loadingSource.hide();
 	    } else {
@@ -90,7 +90,7 @@ function favoriteUnsubscribe(companyID, switchSource, loadingSource, i, x){
 			Ti.App.Properties.setList("favorites", favorites);
 			Ti.API.info("disable switch");
 			if(loadingSource){
-				switchSource.backgroundColor = "#DDD";
+				switchSource.backgroundImage = 'images/bellInactive.png';;
 				switchSource.show();
 				loadingSource.hide();
 			}else{
