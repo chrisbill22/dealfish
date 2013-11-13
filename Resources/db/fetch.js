@@ -69,7 +69,7 @@ function fetchLocations(){
 		addPostVariable("delta_long", longitudeDelta);
 		addPostVariable("delta_lat", latitudeDelta);
 		//Ti.API.log("Sending Time = "+(Math.round(new Date().getTime() / 1000))-14400);
-		addPostVariable("currentTime",(Math.round(new Date().getTime() / 1000)) - 14400);
+		addPostVariable("currentTime",(Math.round(new Date().getTime() / 1000)));
 		
 		//alert(weekday[currentDate.getDay()]);
 		addPostVariable("dayOfWeek", weekday[currentDate.getDay()]);
