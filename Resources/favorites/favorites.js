@@ -1,6 +1,7 @@
 Ti.include("favoritesPopupNewList.js");
 Ti.include("favoritesPopup.js");
 Ti.include("ui.js");
+Ti.include("options.js");
 
 function createNewCompanyList(name){
 	//LOCAL ONLY
@@ -16,6 +17,7 @@ function createNewCompanyList(name){
 	2 = long
 	3 = lat
 	4 = distance from current location (default -1, calculated in-app)
+	5 = Subscribed to push
 	]
 ] */
 function favoriteCompany(favoriteIndex, companyIndex){
@@ -68,7 +70,7 @@ function clearFavoriteList(){
 
 function populateFavoriteList(){
 	if(favoriteObjects.length > 0){
-		clearFavoriteList();
+		//clearFavoriteList();
 	}
 	favoriteObjects = [];
 	var zIndexTracker = (favorites.length*2)+1;
@@ -83,10 +85,6 @@ function populateFavoriteList(){
 		zIndexTracker -= 1;
 		
 		tempTop += headerHeight+paddingBetween;
-		
-		var tempFavListHeader = Ti.UI.createView({
-			
-		});
 		
 		var tempTitleButton = Ti.UI.createButton({
 			width:'90%',
@@ -248,7 +246,11 @@ function populateFavoriteList(){
 			}
 		});
 
-		
+		favoriteObjects[id][0].addEventListener('longpress', function(e){
+			var id = e.source.listID;
+			longpressTracker = true;
+			openListOptions(id);
+		});
 		
 		favorites_innerView.add(favoriteObjects[id][2]);
 		favorites_innerView.add(favoriteObjects[id][1]);

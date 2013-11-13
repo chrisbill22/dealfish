@@ -12,13 +12,6 @@ var favorites_innerView = Ti.UI.createView({
 	width:'100%',
 	top:0
 });
-/*var favorites_tableview = Ti.UI.createTableView({
-	left: 0,
-	height: '100%', 
-	width: '100%',
-	bottom:0,
-	data:[{title:"Favorite1"}, {title:"Favorite2"}, {title:"Favorite3"}]
-});*/
 
 var favorites_newListButton = Ti.UI.createButton({
 	width:'90%',
