@@ -175,10 +175,12 @@ function populateFavoriteList(){
 				tempOnOff.addEventListener('click', function(e){
 					e.source.hide();
 					e.source.loadingObj.show();
-					if(e.source.backgroundColor == '#DDD'){
+					if(e.source.backgroundImage == 'images/bellInactive.png'){
 						enablePushCompany(e.source.compID, e.source, e.source.loadingObj, e.source.indexI, e.source.indexX);
-					}else{
+					}else if(e.source.backgroundImage == 'images/bellActive.png'){
 						disablePushCompany(e.source.compID, e.source, e.source.loadingObj, e.source.indexI, e.source.indexX);
+					}else{
+						alert("Program Error. Incorrect image key");
 					}
 				});
 				
