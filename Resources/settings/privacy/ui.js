@@ -10,7 +10,7 @@ var privacyTitle = Ti.UI.createView({
 	height:headerHeight,
 	top:0,
 	left:0,
-	backgroundColor:orangeColor,
+	backgroundImage: 'images/topBarTrue.png'
 });
 var privacybackButton = Titanium.UI.createButton({
 	backgroundImage: 'images/arrowLeftTrue.png', 
