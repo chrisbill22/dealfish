@@ -1,6 +1,7 @@
 Ti.include('terms/ui.js');
 Ti.include('privacy/ui.js');
 Ti.include('notifications/notifications.js');
+Ti.include('bugs/bugs.js');
 
 var settings_view = Titanium.UI.createView({
 	height: '100%', 
@@ -32,7 +33,8 @@ var data = [
 	{title: 'Notifications'}, 
 	{title: 'Set Location'}, 
 	{title: 'Privacy Statement'}, 
-	{title: 'Terms of Use'}
+	{title: 'Terms of Use'},
+	{title: 'Submit Bugs / Feedback'}
 ];
 var settingsTable = Ti.UI.createTableView({
 	data: data, 
@@ -50,6 +52,8 @@ settingsTable.addEventListener('click', function(e){
 		openPrivacy();
 	}else if(e.index == 3){
 		openTerms();
+	}else if(e.index == 4){
+		openBugs();
 	}
 });
 
