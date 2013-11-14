@@ -17,7 +17,7 @@ var searchResultsTitle = Ti.UI.createView({
 	height:headerHeight,
 	top:0,
 	left:0,
-	backgroundColor:orangeColor,
+	backgroundImage: 'images/topBarTrue.png'
 });
 
 var searchResultsList = Ti.UI.createTableView({
