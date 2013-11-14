@@ -109,7 +109,7 @@ var descriptionLabel = Titanium.UI.createLabel({
 var currentCompanyDeals_button = Ti.UI.createButton({
 	width:'90%',
 	height:50,
-	title:'More Deals',
+	title:'Current Deals',
 	backgroundColor:blackColor,
 	top:descriptionLabel.top+descriptionLabel.height+comview_paddingBetweenGorupAndDeal+5,
 	zIndex:3,
