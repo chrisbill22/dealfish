@@ -10,22 +10,20 @@ function setPins(){
 }
 
 function getPinImage(category, flash){
-	if(category == "Pizza"){
-		return "images/pins/normal/defaultPin.png";
-	}
 	if(categories.indexOf(category) != -1){
 		if(flash){
 			return "images/pins/flash/"+category+".png";
 		}else{
 			return "images/pins/normal/"+category+".png";
 		}
-	}else{
+	}
+	/*}else{
 		if(flash){
 			return "images/pins/flash/defaultPin.png";	
 		}else{
 			return "images/pins/normal/defaultPin.png";
 		}
-	}
+	}*/
 }
 
 //Put the actual pins in the map
@@ -66,6 +64,12 @@ function createPin(data){
 			font:{fontSize:14, fontWeight:"Bold"},
 			color:whiteColor
 		});
+		if(iOSversion > 6){
+			annotationViewTitle.color = orangeColor;
+			annotationViewTitle.left = 5;
+			annotationViewTitle.top = 3;
+			annotationViewTitle.height = 15;
+		}
 		var annotationViewDeals = Ti.UI.createLabel({
 			text:deals[0][0],
 			top:13,
@@ -74,6 +78,11 @@ function createPin(data){
 			color:whiteColor,
 			font:{fontSize:12}
 		});
+		if(iOSversion > 6){
+			annotationViewDeals.color = blackColor;
+			annotationViewDeals.left = 5;
+			annotationViewDeals.top = 20;
+		}
 		annotationView.add(annotationViewTitle);
 		annotationView.add(annotationViewDeals);
 		var tempAnnotation = Titanium.Map.createAnnotation ({
@@ -105,7 +114,11 @@ function createPin(data){
 					if(deals[currentDeal][1] == true){
 						annotationViewDeals.color = "red";
 					}else{
-						annotationViewDeals.color = "white";
+						if(iOSversion > 6){
+							annotationViewDeals.color = blackColor;
+						}else{
+							annotationViewDeals.color = whiteColor;
+						}
 					}
 					annotationViewDeals.animate({opacity:1, duration:500});
 				});

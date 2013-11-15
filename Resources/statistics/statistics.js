@@ -10,7 +10,7 @@ var aStat = [];
 function startCollectingStats(merchID){
 	aStat = [];
 	aStat[0] = merchID;
-	aStat[1] = new Date().getTime();
+	aStat[1] = (new Date()).getTime();
 	aStat[2] = 0;
 	for(i=0; i!=currentLocations.length; i++){
 		if(currentLocations[i][1] == merchID){
@@ -37,6 +37,7 @@ function sendStats(){
 				Titanium.App.Properties.setList("stats", statistics);
 				Ti.API.warn("Error in sending statistics.. Will try again later");
 			}
+			Ti.API.info(this.responseText);
 		};
 		
 		addPostVariable('auth', 'd45e88w9');
