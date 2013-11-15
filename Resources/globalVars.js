@@ -11,6 +11,9 @@ var zipcode = null;
 
 
 
+var pushNotifications = [];
+
+
 var categories = ['Bakery', 'Bar', 'Breakfast', 'Burgers', 'Chinese', 'Club', 'Coffee', 'Diner', 'Greek', 'IceCream', 'Italian', 'Japanese', 'Mexican', 'Pizza', 'Sandwiches', 'Seafood', 'Thai'];
 /* [
 0 = deal description,
@@ -107,4 +110,8 @@ if(Ti.App.Properties.getString("deviceID")){
 
 if(Ti.App.Properties.getList("favorites")){
 	favorites = Ti.App.Properties.getList("favorites");
+}
+
+if(Ti.App.Properties.getList("pushNotifications")){
+	pushNotifications = Ti.App.Properties.getList("pushNotifications");
 }

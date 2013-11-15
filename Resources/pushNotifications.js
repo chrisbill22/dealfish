@@ -58,15 +58,21 @@ function favoriteSubscribe(companyID, switchSource, loadingSource, i, x){
 	    type:'ios'
 	}, function (e) {
 	    if (e.success) {
+	    	clearFavoriteList();
 			Ti.API.log("Subscribed To Channel Successfully");
+			pushNotifications.push(companyID);
 			//Set true so that we don't try and subscribe again.
 			favorites[i][x][5] = true;
 			Ti.App.Properties.setList("favorites", favorites);
 			Ti.API.info("enable switch");
-			switchSource.backgroundImage = 'images/bellActive.png';;
+			//switchSource.backgroundImage = 'images/bellActive.png';
+			//switchSource.show();
+			//loadingSource.hide();
+			populateFavoriteList();
+	    } else {
+	    	switchSource.backgroundImage = 'images/bellInactive.png';;
 			switchSource.show();
 			loadingSource.hide();
-	    } else {
 	        alert('Subscribe Error:\n' +
 	            ((e.error && e.message) || JSON.stringify(e))+
 	            "\n\n"+deviceToken
@@ -86,17 +92,24 @@ function favoriteUnsubscribe(companyID, switchSource, loadingSource, i, x){
 	    type:'ios'
 	}, function (e) {
 	    if (e.success) {
+	    	pushNotifications.splice(pushNotifications.indexOf(companyID), 1);
 	        favorites[i][x][5] = false;
+	        Ti.App.Properties.setList("pushNotifications", pushNotifications);
 			Ti.App.Properties.setList("favorites", favorites);
 			Ti.API.info("disable switch");
 			if(loadingSource){
-				switchSource.backgroundImage = 'images/bellInactive.png';;
-				switchSource.show();
-				loadingSource.hide();
+				clearFavoriteList();
+				populateFavoriteList();
+				//switchSource.backgroundImage = 'images/bellInactive.png';;
+				//switchSource.show();
+				//loadingSource.hide();
 			}else{
 				Ti.App.fireEvent('unsubscribed', {i:i, x:x});
 			}
 	    } else {
+	    	switchSource.backgroundImage = 'images/bellInactive.png';;
+			switchSource.show();
+			loadingSource.hide();
 	        alert('Error:\n' +
 	            ((e.error && e.message) || JSON.stringify(e)));
 	    }
@@ -106,8 +119,13 @@ function favoriteUnsubscribe(companyID, switchSource, loadingSource, i, x){
 function loginUser(companyID, subscribe, favorite, switchSource, loadingSource, i, x){
     // Log in to ACS
     Cloud.Users.login({
+    	/*
         login: 'orangedog22',
         password: 'results'
+        */
+       login: 'geny-beta',
+       password: 'results'
+       
     }, function (e) {
         if (e.success) {
             Ti.API.log('Push Notifications Login Successful');

@@ -168,7 +168,7 @@ function populateFavoriteList(){
 				    width:40
 				});
 				var tempOnOff = Ti.UI.createButton({right:15, height:49/2, width:52/2, compID:favorites[i][x][1], indexI:i, indexX:x, loadingObj:tempLoading});
-				if(favorites[i][x][5] == true){
+				if(favorites[i][x][5] == true || pushNotifications.indexOf(favorites[i][x][1]) != -1){
 					tempOnOff.backgroundImage = 'images/bellActive.png';
 				}else{
 					tempOnOff.backgroundImage = 'images/bellInactive.png';
@@ -176,14 +176,11 @@ function populateFavoriteList(){
 				tempRow.add(tempOnOff);
 				tempRow.add(tempLoading);
 				tempOnOff.addEventListener('click', function(e){
-					alert(e.source.backgroundImage);
 					e.source.hide();
 					e.source.loadingObj.show();
 					if(e.source.backgroundImage == 'images/bellInactive.png'){
-						alert("enable");
 						enablePushCompany(e.source.compID, e.source, e.source.loadingObj, e.source.indexI, e.source.indexX);
 					}else if(e.source.backgroundImage == 'images/bellActive.png'){
-						alert("disable");
 						disablePushCompany(e.source.compID, e.source, e.source.loadingObj, e.source.indexI, e.source.indexX);
 					}else{
 						alert("Program Error. Incorrect image key");
