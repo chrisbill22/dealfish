@@ -34,6 +34,9 @@ function fetchLocations(){
 				requestReturn[i][6] = getDistanceBetween(currentLong, currentLat, requestReturn[i][3], requestReturn[i][4]);
 				//Ti.API.info("DISTANCE = "+requestReturn[i][6]);
 			}
+			requestReturn.sort(function(a,b){
+			    return a[6] - b[6];
+			});
 			currentLocations = requestReturn;
 			companies = formatCompanies(requestReturn);
 		}else{

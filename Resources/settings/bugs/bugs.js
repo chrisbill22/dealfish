@@ -1,18 +1,21 @@
 var bugtextbox = Ti.UI.createTextArea({
 	width:'90%',
 	height:'60%',
-	top:'10%',
+	top:70,
 	zIndex:1001
 });
 var buglabel = Ti.UI.createLabel({
 	text:"Help Us Improve",
 	color:whiteColor,
-	top:10,
+	top:20,
 	width:'90%',
 	font:{fontWeight:'bold', fontSize:20},
 	zIndex:1001,
 	color:orangeColor
 });
+if(iOSversion > 6){
+	buglabel.top += 10;
+}
 var bugsubmit = Ti.UI.createButton({
 	width:'90%',
 	height:'10%',
