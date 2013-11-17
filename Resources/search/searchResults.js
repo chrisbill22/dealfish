@@ -6,13 +6,26 @@ var searchResultsView = Ti.UI.createView({
 	top:0,
 	backgroundColor:'#DDD'
 });
-var searchResultsBack = Ti.UI.createButton({
-	backgroundImage: 'images/arrowLeftTrue.png', 
-	width: 15,
-	height: 25,
-	bottom: 5, 
-	left: 10,
+
+
+
+var searchResultsBackBt = Ti.UI.createButton({
+	bottom:8,
+	left: 0, 
+	width: 46,
+	height: 66/2, 
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN,
+	backgroundColor:'transparent'
 });
+var searchResultsBackBt_img = Ti.UI.createImageView({
+	image: 'images/arrowLeftTrue.png',
+	width: 35/2,
+	height: 66/2,
+	top:0
+});
+
+
+
 var searchResultsTitle = Ti.UI.createView({
 	height:headerHeight,
 	top:0,
@@ -21,16 +34,16 @@ var searchResultsTitle = Ti.UI.createView({
 });
 
 var searchResultsList = Ti.UI.createTableView({
-	top:'10%',
+	top:headerHeight,
 	width:'100%',
-	height:'90%',
+	height:viewHeight+footerHeight,
 	rowHeight:80,
 	style: Ti.UI.iPhone.TableViewStyle.PLAIN,
 	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE,
 	separatorColor: 'transparent'
 });
 
-searchResultsBack.addEventListener('click', function(){
+searchResultsBackBt.addEventListener('click', function(){
 	searchResultsView.animate({left:(screen_width*-1)});
 });
 
@@ -121,8 +134,8 @@ function setSearchedList(mainArray){
 }
 
 
-
-searchResultsTitle.add(searchResultsBack);
+searchResultsBackBt.add(searchResultsBackBt_img);
+searchResultsTitle.add(searchResultsBackBt);
 searchResultsView.add(searchResultsTitle);
 searchResultsView.add(searchResultsList);
 MainWindow.add(searchResultsView);

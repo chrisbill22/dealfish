@@ -18,7 +18,7 @@ function stop_loading(){
 }
 
 function disable_background(){
-	background_disable.animate({opacity:0.7});
+	background_disable.animate({opacity:0.8});
 }
 
 function enable_backgrond(){

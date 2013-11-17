@@ -12,16 +12,24 @@ var settings_view = Titanium.UI.createView({
 });
 
 var settingsBackBt = Ti.UI.createButton({
-	backgroundImage: 'images/arrowLeftTrue.png', 
-	bottom: 5, 
-	left: 10, 
-	width: 20,
-	height: 25, 
+	bottom:8,
+	left: 0, 
+	width: 46,
+	height: 66/2, 
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
+var settingsBackBt_img = Ti.UI.createImageView({
+	image: 'images/arrowLeftTrue.png',
+	width: 35/2,
+	height: 66/2,
+	top:0
+});
+
 var settingsTitle = Ti.UI.createView({
 	height:headerHeight,
 	top:0,
 	left:0,
+	width:'100%',
 	backgroundImage: 'images/topBarTrue.png'
 });
 /*var settingsTitle_label = Ti.UI.createLabel({
@@ -38,9 +46,9 @@ var data = [
 ];
 var settingsTable = Ti.UI.createTableView({
 	data: data, 
-	top: '10%', 
-	footerTitle: '', 
-	font:{fontFamily: 'Helvetica'},
+	top: headerHeight, 
+	height:viewHeight+footerHeight,
+	font:{fontFamily: 'Helvetica'}
 });
 
 settingsTable.addEventListener('click', function(e){
@@ -54,6 +62,7 @@ settingsTable.addEventListener('click', function(e){
 });
 
 //settingsTitle.add(settingsTitle_label);
+settingsBackBt.add(settingsBackBt_img);
 settingsTitle.add(settingsBackBt);
 settings_view.add(settingsTitle);
 settings_view.add(settingsTable);

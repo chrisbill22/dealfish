@@ -2,7 +2,7 @@ var padding = 20;
 var boxWidth = 80;
 var boxHeight = 80;
 var tempLeft = 20;
-var tempTop = 165;
+var tempTop = 120;
 
 
 var search_view = Titanium.UI.createView({
@@ -15,22 +15,28 @@ var search_view = Titanium.UI.createView({
 });
 var search_view_scroll = Ti.UI.createScrollView({
 	width:'100%',
-	height:viewHeight+27,
+	height:viewHeight,
 	contentWidth: 'auto',
   	contentHeight: 'auto',
+	top:headerHeight
+});
+
+var searchBackBt = Ti.UI.createButton({
+	bottom:8,
+	left: 0, 
+	width: 46,
+	height: 66/2, 
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN,
+	backgroundColor:'transparent'
+});
+var searchBackBt_img = Ti.UI.createImageView({
+	image: 'images/arrowLeftTrue.png',
+	width: 35/2,
+	height: 66/2,
 	top:0
 });
-var searchBack = Ti.UI.createButton({
-	//backgroundImage: 'images/arrowLeftTrue.png', 
-	width: 15,
-	height: 25,
-	bottom: 5, 
-	left: 10, 
-	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
-});
-var backImage = Ti.UI.createImageView({
-	image: 'images/arrowLeftTrue.png'
-});
+
+
 var searchTitle = Ti.UI.createView({
 	height:headerHeight,
 	top:0,
@@ -48,7 +54,7 @@ var searchButton = Ti.UI.createButton({
 });
 
 var searchBar = Titanium.UI.createTextArea({
-    top:65,
+    top:20,
     right:padding,
     zIndex:20,
     height:30,
@@ -72,7 +78,7 @@ var searchBarButton = Ti.UI.createButton({
 	width:40,
 	height:40,
 	left:padding-10,
-	top:60,
+	top:15,
 	backgroundColor:orangeColor, 
 	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
@@ -87,12 +93,14 @@ Ti.include("dollarRange.js");
 
 Ti.include("categoryButtons.js");
 
-searchTitle.add(searchBack);
+searchTitle.add(searchBackBt);
+searchBackBt.add(searchBackBt_img);
+
 search_view_scroll.add(searchBarButton);
 search_view_scroll.add(searchBar);
 search_view.add(searchButton);
 search_view.add(search_view_scroll);
 search_view.add(searchTitle);
-searchBack.add(backImage);
+
 
 MainWindow.add(search_view);

@@ -39,20 +39,41 @@ var nav_favorites = Ti.UI.createButton({
 
 var nav_search = Ti.UI.createButton({ 
 	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN,
-	bottom:5,
-	left:15,
+	bottom:13,
+	left:0,
+	height: 25, 
+	width: 55
+});
+var nav_search_img = Ti.UI.createImageView({
 	backgroundImage: 'images/searchTrue.png',
 	height: 25, 
 	width: 25
 });
 
 
+var settingsBackBt = Ti.UI.createButton({
+	bottom:8,
+	left: 0, 
+	width: 46,
+	height: 66/2, 
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
+});
+var settingsBackBt_img = Ti.UI.createImageView({
+	image: 'images/arrowLeftTrue.png',
+	width: 35/2,
+	height: 66/2,
+	top:0
+});
 
 
 var nav_settings = Ti.UI.createButton({ 
 	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN,
-	bottom:5,
-	right:15,
+	bottom:13,
+	right:0,
+	height: 25, 
+	width: 55
+});
+var nav_settings_img = Ti.UI.createImageView({
 	backgroundImage: 'images/settingsTrue.png', 
 	height: 25, 
 	width: 25

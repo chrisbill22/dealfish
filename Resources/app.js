@@ -22,7 +22,15 @@ if(!android){
 	//registerPushNotifications();
 }
 
-
+if(iOSversion > 6){
+	var statusBarBg = Titanium.UI.createView({
+		top:0,
+		height:20,
+		backgroundColor:blackColor,
+		zIndex:1000
+	});
+	MainWindow.add(statusBarBg);
+}
 
 //Important globally used functions
 Ti.include("db/fetch.js");

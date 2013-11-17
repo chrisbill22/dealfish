@@ -7,26 +7,37 @@ var notifications_view = Titanium.UI.createView({
 });
 
 var notifications_list = Ti.UI.createTableView({
-	height:'90%',
+	height:screen_height+footerHeight,
 	width:'100%',
 	backgroundColor:whiteColor,
-	bottom:0
+	bottom:0,
+	top:headerHeight
 });
 
 var notificationsBack = Ti.UI.createButton({
-	backgroundImage: 'images/arrowLeftTrue.png', 
-	bottom: 5, 
-	left: 10, 
-	width: 20,
-	height: 25,
+	bottom: 8, 
+	left: 0, 
+	width: 46,
+	height: 33,
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
+var notificationsBack_img = Ti.UI.createImageView({
+	image: 'images/arrowLeftTrue.png',
+	width: 35/2,
+	height: 66/2,
+	top:0
+});
+
+
 var notificationsTitle = Ti.UI.createView({
 	height:headerHeight,
 	top:0,
 	left:0,
+	width:'100%',
 	backgroundImage: 'images/topBarTrue.png'
 });
 
+notificationsBack.add(notificationsBack_img);
 notificationsTitle.add(notificationsBack);
 notifications_view.add(notifications_list);
 notifications_view.add(notificationsTitle);

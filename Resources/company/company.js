@@ -10,6 +10,7 @@ function openCompany(id, altArray){
 	}else{
 		tempCompanyArray = altArray;
 	}
+
 	startCollectingStats(tempCompanyArray[id][1]);
 	titleLabel.text = tempCompanyArray[id][1];
 	//distanceLabel.text = tempCompanyArray[id][6];
@@ -54,11 +55,17 @@ function openCompany(id, altArray){
 	companyScroll.add(countdown);
 	
 	var otherCompanyDeals = [];
-	for(var i=0; i!=companies.length; i++){
-		if(companies[i][0] == tempCompanyArray[id][2]){
-			for(var z=1; z!=companies[i].length; z++){
-				otherCompanyDeals.push(companies[i][z][0]);
+	if(!altArray){
+		for(var i=0; i!=companies.length; i++){
+			if(companies[i][0] == tempCompanyArray[id][2]){
+				for(var z=1; z!=companies[i].length; z++){
+					otherCompanyDeals.push(companies[i][z][0]);
+				}
 			}
+		}
+	}else{
+		for(var i=0; i!=tempCompanyArray.length;i++){
+			otherCompanyDeals.push(tempCompanyArray[i][0]);
 		}
 	}
 	otherCompanyDealsCount = otherCompanyDeals.length;
@@ -77,6 +84,7 @@ function openCompany(id, altArray){
 				title:otherCompanyDeals[i],
 				font:{fontSize:14, fontWeight:'normal'},
 				color:blackColor,
+				selectionStyle:'none'
 			});
 			tempRows.push(tempTableRow);
 		}
@@ -116,7 +124,7 @@ favoritesButton.addEventListener('click', function(){
 	openFavoritesPopup(currentCompanyID);
 });
 
-backButton.addEventListener('click', function(){
+companyBackBt.addEventListener('click', function(){
 	companyScroll.remove(countdown);
 	stopCollectingStats();
 	companyview.animate({

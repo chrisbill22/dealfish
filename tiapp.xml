@@ -8,7 +8,7 @@
     <property name="acs-api-key-production" type="string">mtVwIwG6NStr6KhPDgy2ljBbXQbeXKtV</property>
     <id>com.ChrisBill.genY</id>
     <name>One-Tap</name>
-    <version>0.1</version>
+    <version>0.2</version>
     <publisher>Gen Y Applications</publisher>
     <url>http://</url>
     <description>not specified</description>
@@ -34,6 +34,14 @@
             <orientation>Ti.UI.LANDSCAPE_RIGHT</orientation>
         </orientations>
     </iphone>
+    <ios>
+        <plist>
+            <dict>
+                <key>UIStatusBarStyle</key>
+                <string>UIStatusBarStyleLightContent</string>
+            </dict>
+        </plist>
+    </ios>
     <android xmlns:android="http://schemas.android.com/apk/res/android"/>
     <mobileweb>
         <precache/>

@@ -3,10 +3,8 @@ Ti.include("db.js");
 function formatCompanies(locationsArray){
 	var dataArray = [];
 	for (var i = 0; i != locationsArray.length; i++){
-		Ti.API.info("i = "+i);
 		var duplicateMerchant = false;
 		for(var z = 0; z != dataArray.length; z++){
-			Ti.API.info("z = "+z);
 			if(dataArray[z][0] == locationsArray[i][2]){
 				dataArray[z].push(locationsArray[i]);
 				duplicateMerchant = true;
@@ -34,6 +32,9 @@ function fetchLocations(){
 				requestReturn[i][6] = getDistanceBetween(currentLong, currentLat, requestReturn[i][3], requestReturn[i][4]);
 				//Ti.API.info("DISTANCE = "+requestReturn[i][6]);
 			}
+			requestReturn.sort(function(a,b){
+			    return a[6] - b[6];
+			});
 			currentLocations = requestReturn;
 			companies = formatCompanies(requestReturn);
 		}else{

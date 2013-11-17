@@ -68,6 +68,6 @@ map.addEventListener('click', function(e){
 
 //mapview.add(mapTitle);
 mapview.add(map);
-mapview.add(track_button);
+//mapview.add(track_button);
 
 MainWindow.add(mapview);
