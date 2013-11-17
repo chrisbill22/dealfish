@@ -63,6 +63,7 @@ function favoriteSubscribe(companyID, switchSource, loadingSource, i, x){
 			pushNotifications.push(companyID);
 			//Set true so that we don't try and subscribe again.
 			favorites[i][x][5] = true;
+			Ti.App.Properties.setList("pushNotifications", pushNotifications);
 			Ti.App.Properties.setList("favorites", favorites);
 			Ti.API.info("enable switch");
 			//switchSource.backgroundImage = 'images/bellActive.png';
@@ -119,12 +120,12 @@ function favoriteUnsubscribe(companyID, switchSource, loadingSource, i, x){
 function loginUser(companyID, subscribe, favorite, switchSource, loadingSource, i, x){
     // Log in to ACS
     Cloud.Users.login({
-    	/*
-        login: 'orangedog22',
-        password: 'results'
-        */
-       login: 'geny-beta',
+    	
+       login: 'orangedog22',
        password: 'results'
+       
+       //login: 'geny-beta',
+       //password: 'results'
        
     }, function (e) {
         if (e.success) {

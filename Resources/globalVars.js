@@ -118,4 +118,3 @@ if(Ti.App.Properties.getList("favorites")){
 if(Ti.App.Properties.getList("pushNotifications")){
 	pushNotifications = Ti.App.Properties.getList("pushNotifications");
 }
-

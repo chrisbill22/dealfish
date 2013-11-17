@@ -2,7 +2,7 @@ var padding = 20;
 var boxWidth = 80;
 var boxHeight = 80;
 var tempLeft = 20;
-var tempTop = 165;
+var tempTop = 120;
 
 
 var search_view = Titanium.UI.createView({
@@ -15,10 +15,10 @@ var search_view = Titanium.UI.createView({
 });
 var search_view_scroll = Ti.UI.createScrollView({
 	width:'100%',
-	height:viewHeight+27,
+	height:viewHeight,
 	contentWidth: 'auto',
   	contentHeight: 'auto',
-	top:0
+	top:headerHeight
 });
 
 var searchBackBt = Ti.UI.createButton({
@@ -36,9 +36,7 @@ var searchBackBt_img = Ti.UI.createImageView({
 	top:0
 });
 
-var backImage = Ti.UI.createImageView({
-	image: 'images/arrowLeftTrue.png'
-});
+
 var searchTitle = Ti.UI.createView({
 	height:headerHeight,
 	top:0,
@@ -56,7 +54,7 @@ var searchButton = Ti.UI.createButton({
 });
 
 var searchBar = Titanium.UI.createTextArea({
-    top:65,
+    top:20,
     right:padding,
     zIndex:20,
     height:30,
@@ -80,7 +78,7 @@ var searchBarButton = Ti.UI.createButton({
 	width:40,
 	height:40,
 	left:padding-10,
-	top:60,
+	top:15,
 	backgroundColor:orangeColor, 
 	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });

@@ -28,13 +28,21 @@ var companyTitle = Ti.UI.createView({
         backgroundImage: 'images/topBarTrue.png',
         color:blackColor
 });
-var backButton = Titanium.UI.createButton({
-        backgroundImage: 'images/arrowLeftTrue.png', 
-        width: 15,
-        height: 25,
-		bottom: 10, 
-        left: 5, 
+
+var companyBackBt = Ti.UI.createButton({
+	bottom:8,
+	left: 0, 
+	width: 46,
+	height: 66/2, 
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
+var companyBackBt_img = Ti.UI.createImageView({
+	image: 'images/arrowLeftTrue.png',
+	width: 35/2,
+	height: 66/2,
+	top:0
+});
+
 //------
 var image = Ti.UI.createView({
         width:104,
@@ -250,7 +258,10 @@ var favoritesIcon = Titanium.UI.createImageView({
 
 
 companyview.add(companyTitle);
-companyTitle.add(backButton);
+
+companyBackBt.add(companyBackBt_img);
+companyTitle.add(companyBackBt);
+
 companyview.add(companyScroll);
 //The reason we use individual adds vs the list is because android dones't support the list
 //companyview.add(image, titleLabel, distanceLabel, priceLabel, categoryLabel, descriptionLabel);
