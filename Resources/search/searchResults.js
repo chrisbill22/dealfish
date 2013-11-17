@@ -4,7 +4,7 @@ var searchResultsView = Ti.UI.createView({
 	zIndex:21,
 	left:screen_width*-1,
 	top:0,
-	backgroundColor:whiteColor
+	backgroundColor:'#DDD'
 });
 var searchResultsBack = Ti.UI.createButton({
 	backgroundImage: 'images/arrowLeftTrue.png', 
