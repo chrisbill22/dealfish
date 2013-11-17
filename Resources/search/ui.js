@@ -18,8 +18,11 @@ var search_view_scroll = Ti.UI.createScrollView({
 	height:viewHeight,
 	contentWidth: 'auto',
   	contentHeight: 'auto',
-	top:headerHeight
+	top:headerHeight,
 });
+if(iOSversion < 7){
+	search_view_scroll.height -= 20;
+}
 
 var searchBackBt = Ti.UI.createButton({
 	bottom:8,

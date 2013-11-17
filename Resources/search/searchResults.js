@@ -81,9 +81,9 @@ function setSearchedList(mainArray){
 		for (var i = 0; i != mainArray.length; i++){
 			var duplicateMerchant = false;
 			for(var z = 0; z != dataArray.length; z++){
-				Ti.API.log("Check");
+				//Ti.API.log("Check");
 				if(dataArray[z][0] == mainArray[i][2]){
-					Ti.API.log("Duplicate z="+z+" Deal Name="+mainArray[i][0]);
+					//Ti.API.log("Duplicate z="+z+" Deal Name="+mainArray[i][0]);
 					//If there is a duplicate merchant ID add it onto the existing one
 					dataArray[z].push(mainArray[i]);
 					duplicateMerchant = true;
@@ -91,7 +91,7 @@ function setSearchedList(mainArray){
 			}
 			//If this is a new merchant ID add it onto the back
 			if(duplicateMerchant == false){
-				Ti.API.log("New Merchant. Z="+dataArray.length);
+				//Ti.API.log("New Merchant. Z="+dataArray.length);
 				dataArray.push([mainArray[i][2], mainArray[i]]);
 			}
 			//First comapany, second deal they are offering, description of deal
@@ -109,6 +109,7 @@ function setSearchedList(mainArray){
 			row.add(createListItem(dataArray[i]));
 			row.addEventListener('click', function(e){
 				if(longpressTracker == false){
+					Ti.API.info(mainArray);
 					openCompany(getFirstInstanceOfCompanyID(e.rowData.companyID, mainArray), mainArray);
 				}else{
 					longpressTracker = false;

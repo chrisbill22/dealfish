@@ -32,6 +32,7 @@ var categories = ['Bakery', 'Bar', 'Breakfast', 'Burgers', 'Chinese', 'Club', 'C
 13 = specialties
 14 = price range - 1 to 4, 1-low, 4-high
 15 = dealID
+16 = Days of week
 ] */
 var currentLocations = [];
 
