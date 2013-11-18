@@ -20,18 +20,30 @@ function createNewCompanyList(name){
 	5 = Subscribed to push
 	]
 ] */
-function favoriteCompany(favoriteIndex, companyIndex){
-	compName = currentLocations[companyIndex][1];
-	compID = currentLocations[companyIndex][2];
-	longitude = currentLocations[companyIndex][3];
-	latitude = currentLocations[companyIndex][4];;
-	distanceFrom = currentLocations[companyIndex][6];;
+function favoriteCompany(favoriteIndex, companyIndex, altArray){
+	var tempLocations = [];
+	if(altArray.length != 0){
+		tempLocations = altArray;
+	}else{
+		tempLocations = currentLocations;
+	}
+	compName = tempLocations[companyIndex][1];
+	compID = tempLocations[companyIndex][2];
+	longitude = tempLocations[companyIndex][3];
+	latitude = tempLocations[companyIndex][4];;
+	distanceFrom = tempLocations[companyIndex][6];
 	favorites[favoriteIndex].push([compName, compID, longitude, latitude, distanceFrom]);
 	Ti.App.Properties.setList("favorites", favorites);
 }
 
-function unfavoriteCompany(favoriteIndex, companyIndex){
-	compID = currentLocations[companyIndex][2];
+function unfavoriteCompany(favoriteIndex, companyIndex, altArray){
+	var tempLocations = [];
+	if(altArray.length != 0){
+		tempLocations = altArray;
+	}else{
+		tempLocations = currentLocations;
+	}
+	compID = tempLocations[companyIndex][2];
 	for(var i = 1; i <= favorites[favoriteIndex].length; i++){
 		if(favorites[favoriteIndex][i][1] == compID){
 			favorites[favoriteIndex].splice(i, 1);

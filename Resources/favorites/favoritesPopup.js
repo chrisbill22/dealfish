@@ -1,5 +1,6 @@
 var companyIndex = -1;
 var favoritesIndex = -1;
+var favoriteDataArray = [];
 var favoritesPopupView = Ti.UI.createView({
 	width:'100%',
 	height:'100%',
@@ -38,10 +39,16 @@ favoritesPopupView.add(favoritesPopupList);
 favoritesPopupView.add(favoritesPopupCloseBt);
 MainWindow.add(favoritesPopupView);	
 
-function openFavoritesPopup(index){
+function openFavoritesPopup(index, altArray){
+	var tempLocations = [];
+	if(altArray){
+		favoriteDataArray = altArray;
+	}else{
+		favoriteDataArray = currentLocations;
+	}
 	companyIndex = index;
-	var companyName = currentLocations[index][1];
-	var companyID = currentLocations[index][2];
+	var companyName = favoriteDataArray[index][1];
+	var companyID = favoriteDataArray[index][2];
 	favoritesPopupTitle.text = "Add "+companyName+" to a List";
 	populateFavoritePopupList(companyID);
 	favoritesPopupView.animate({
@@ -83,11 +90,11 @@ favoritesPopupList.addEventListener('click', function(e){
 		openFavoritesNamePopup();
 	}else{
 		if(e.rowData.favorited == false){
-			favoriteCompany(e.index-1, companyIndex);
+			favoriteCompany(e.index-1, companyIndex, favoriteDataArray);
 		}else{
-			unfavoriteCompany(e.index-1, companyIndex);
+			unfavoriteCompany(e.index-1, companyIndex, favoriteDataArray);
 		}
-		populateFavoritePopupList(currentLocations[companyIndex][2]);
+		populateFavoritePopupList(favoriteDataArray[companyIndex][2]);
 	}
 });
 

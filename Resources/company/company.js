@@ -2,7 +2,7 @@ Ti.include("ui.js");
 
 var countdown;
 var otherCompanyDealsCount = 0;
-
+var companyLocationsArray = [];
 function openCompany(id, altArray){
 	var tempCompanyArray = [];
 	if(!altArray){
@@ -10,6 +10,7 @@ function openCompany(id, altArray){
 		currentCompanyDeals_button.title = "Current Deals";
 	}else{
 		tempCompanyArray = altArray;
+		companyLocationsArray = altArray;
 		currentCompanyDeals_button.title = "All Deals";
 	}
 
@@ -146,7 +147,7 @@ directionsButton.addEventListener('click', function(e){
 	Ti.Platform.openURL('http://maps.apple.com/?daddr='+currentLocations[currentCompanyID][4]+','+currentLocations[currentCompanyID][3]+'&saddr='+currentLat+','+currentLong);
 });
 favoritesButton.addEventListener('click', function(){
-	openFavoritesPopup(currentCompanyID);
+	openFavoritesPopup(currentCompanyID, companyLocationsArray);
 });
 
 companyBackBt.addEventListener('click', function(){

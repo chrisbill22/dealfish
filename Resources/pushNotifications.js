@@ -124,8 +124,8 @@ function loginUser(companyID, subscribe, favorite, switchSource, loadingSource, 
        login: 'orangedog22',
        password: 'results'
        
-       //login: 'geny-beta',
-       //password: 'results'
+     //  login: 'geny-beta',
+     //  password: 'results'
        
     }, function (e) {
         if (e.success) {

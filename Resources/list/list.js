@@ -61,7 +61,7 @@ function createListItem(data){
 		backgroundColor:'red',
 		left:(screen_width*0.05)-10,
 		top:5,
-		zIndex:1
+		zIndex:2
 	});
 	if(flash){
 		tempItemHolder.add(tempItem_flash);
@@ -94,14 +94,36 @@ function createListItem(data){
 		left:10,
 		bottom:5,
 		font:{fontSize:13},
-		text:"Loading..."
+		text:"Loading...",
+		width:'85%'
 	});
 	var tempItem_distance = Ti.UI.createLabel({
-		right:0,
-		top:0,
+		right:5,
+		top:3,
 		text:"?",
 		font:{fontSize:12},
 	});
+	
+	var tempPriceLabel_active = Titanium.UI.createLabel({
+        text: '',  
+        top: 20,
+        font:{fontSize: 12},
+        zIndex:1,
+        color:blackColor,
+        right:5,
+        
+	});
+	var tempPriceLabel_inactive = Ti.UI.createLabel({
+        text:"$$$$",
+        color:'#AAA',
+        width:tempPriceLabel_active.width,
+        height:tempPriceLabel_active.height,
+        top:tempPriceLabel_active.top,
+        right:tempPriceLabel_active.right,
+        font:tempPriceLabel_active.font
+	});
+	
+	
 	var tempItem_locationIcon = Ti.UI.createImageView({
 		image: 'images/location.png', 
 		length: 10, 
@@ -117,6 +139,12 @@ function createListItem(data){
 		tempItem_distance.text ="   " + distance+" mi";
 	}
 	
+	var priceString = "";
+	for(i=0; i!=data[i][14]; i++){
+		priceString += "$";
+	}
+	tempPriceLabel_active.text = priceString;
+	
 	tempItem_title.text = title;
 	tempItem_deal.text = deals[0][0];
 	if(deals[0][1] == true){
@@ -127,6 +155,8 @@ function createListItem(data){
 	tempItem.add(tempItem_title);
 	tempItem.add(tempItem_deal);
 	tempItem.add(tempItem_distance);
+	tempItem.add(tempPriceLabel_active);
+	tempItem.add(tempPriceLabel_inactive);
 	tempItemHolder.add(tempItem_image);
 	tempItem_distance.add(tempItem_locationIcon);
 	tempItemHolder.add(tempItem);
