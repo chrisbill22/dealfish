@@ -4,7 +4,7 @@ var searchResultsView = Ti.UI.createView({
 	zIndex:21,
 	left:screen_width*-1,
 	top:0,
-	backgroundColor: grey
+	backgroundColor: '#DDD'
 });
 
 
@@ -40,7 +40,8 @@ var searchResultsList = Ti.UI.createTableView({
 	rowHeight:80,
 	style: Ti.UI.iPhone.TableViewStyle.PLAIN,
 	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE,
-	separatorColor: 'transparent'
+	separatorColor: 'transparent', 
+	backgroundColor: '#DDD'
 });
 
 searchResultsBackBt.addEventListener('click', function(){
