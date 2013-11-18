@@ -1,4 +1,4 @@
-var comview_paddingLeft = 10;
+var comview_paddingLeft = 15;
 var comview_paddingRight = 10;
 var comview_widthWithPadding = screen_width-comview_paddingLeft-comview_paddingRight;
 var comview_paddingBetweenGorupAndDeal = 21;
@@ -101,9 +101,26 @@ var categoryLabel = Titanium.UI.createLabel({
         font:{fontSize: 12},
         color:blackColor
 });
+
+var mainDealItem =Ti.UI.createView({
+	width: '100%', 
+	height: 60, 
+	backgroundColor:orangeColor, 
+	top: image.height+image.top+comview_paddingBetweenGorupAndDeal, 
+});
+mainDealItem_text = Ti.UI.createLabel({
+	test: '',
+	width: screen_width-(comview_paddingLeft*2),
+	top:10,
+	textAlign:'center',
+	color: blackColor,
+    font:{fontSize:'auto'}
+});
+mainDealItem.add(mainDealItem_text);
+/*
 var descriptionLabel = Titanium.UI.createLabel({
         text: '',
-        width: '100%', 
+        width: screen_width-(comview_paddingLeft*2), 
         height: 60, 
         backgroundColor:orangeColor, 
         top: image.height+image.top+comview_paddingBetweenGorupAndDeal, 
@@ -111,15 +128,15 @@ var descriptionLabel = Titanium.UI.createLabel({
         color: blackColor,
         font:{fontSize:'auto'}
 });
-
+*/
 
 //Drop down
 var currentCompanyDeals_button = Ti.UI.createButton({
-	width:'90%',
+	width:screen_width-(comview_paddingLeft*2),
 	height:50,
 	title:'Current Deals',
 	backgroundColor:blackColor,
-	top:descriptionLabel.top+descriptionLabel.height+comview_paddingBetweenGorupAndDeal+5,
+	top:mainDealItem.top+mainDealItem.height+comview_paddingBetweenGorupAndDeal+5,
 	zIndex:3,
 	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN,
 	color:whiteColor,
@@ -154,12 +171,13 @@ var currentCompanyDeals_dropdown = Ti.UI.createTableView({
 	height:40,
 	backgroundColor:whiteColor,
 	rowHeight:40,
-	borderColor:grey
+	borderColor:grey,
+	separatorColor:'transparent'
 });
 var dealsExtended = false;
 currentCompanyDeals_button.addEventListener('click', function(){
 	if(dealsExtended == false){
-		currentCompanyDeals_dropdown_holder.height = ((otherCompanyDealsCount+1)*40)+5;
+		currentCompanyDeals_dropdown_holder.height = ((otherCompanyDealsCount+1)*50)+5;
 		currentCompanyDeals_dropdown.animate({top:45});
 		currentCompanyDeals_button_ArrowUp.animate({opacity:1});
 		currentCompanyDeals_button_FavCount.animate({opacity:0});
@@ -180,7 +198,7 @@ companyScroll.add(currentCompanyDeals_dropdown_holder);
 
 var aboutLabel = Titanium.UI.createLabel({
         text: '',
-        width: '90%', 
+        width: screen_width-(comview_paddingLeft*2), 
         height: 'auto',  
         top: currentCompanyDeals_button.top+currentCompanyDeals_button.height+20, 
         color:blackColor, 
@@ -188,7 +206,7 @@ var aboutLabel = Titanium.UI.createLabel({
 });
 var specialtyLabel = Titanium.UI.createLabel({
         text: '',
-        width: '90%', 
+        width: screen_width-(comview_paddingLeft*2), 
         height: 70, 
         top: 320,
         color:blackColor, 
@@ -270,7 +288,7 @@ companyScroll.add(titleLabel);
 companyScroll.add(distanceLabel);
 companyScroll.add(priceLabel_active);
 companyScroll.add(priceLabel_inactive);
-companyScroll.add(descriptionLabel);
+companyScroll.add(mainDealItem);
 companyScroll.add(categoryLabel);
 
 companyScroll.add(currentCompanyDeals_button);

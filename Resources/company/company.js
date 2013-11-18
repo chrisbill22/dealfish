@@ -7,8 +7,10 @@ function openCompany(id, altArray){
 	var tempCompanyArray = [];
 	if(!altArray){
 		tempCompanyArray = currentLocations;
+		currentCompanyDeals_button.title = "Current Deals";
 	}else{
 		tempCompanyArray = altArray;
+		currentCompanyDeals_button.title = "All Deals";
 	}
 
 	startCollectingStats(tempCompanyArray[id][1]);
@@ -21,7 +23,7 @@ function openCompany(id, altArray){
 	}else{
 		distanceLabel.text = "   " + tempCompanyArray[id][6] +" mi";
 	}
-	descriptionLabel.text = tempCompanyArray[id][0];
+	mainDealItem_text.text = tempCompanyArray[id][0];
 	categoryLabel.text = "Category: " + tempCompanyArray[id][9];
 	image.backgroundImage = getCategoryImage(tempCompanyArray[id][9]);
 	
@@ -46,46 +48,69 @@ function openCompany(id, altArray){
 	priceLabel_active.text = priceString;
 	
 	countdown = startCountDown(tempCompanyArray[id][8]);
-	countdown.width = '80%';
-	countdown.top = descriptionLabel.top+descriptionLabel.height-20;
+	countdown.width = screen_width-(comview_paddingLeft*2);
+	countdown.top = mainDealItem.top+mainDealItem.height-20;
 	countdown.opacity = 0.7;
 	countdown.textAlign = 'center';
 	countdown.color = whiteColor;
-	countdown.font = {fontSize:13};
+	countdown.font = {fontSize:11};
 	companyScroll.add(countdown);
 	
 	var otherCompanyDeals = [];
+
 	if(!altArray){
 		for(var i=0; i!=companies.length; i++){
 			if(companies[i][0] == tempCompanyArray[id][2]){
 				for(var z=1; z!=companies[i].length; z++){
-					otherCompanyDeals.push(companies[i][z][0]);
+					otherCompanyDeals.push([companies[i][z][0], companies[i][z][16]]);
 				}
 			}
 		}
 	}else{
-		for(var i=0; i!=tempCompanyArray.length;i++){
-			otherCompanyDeals.push(tempCompanyArray[i][0]);
+		for(var i=0; i!=tempCompanyArray.length; i++){
+			if(tempCompanyArray[i][2] == tempCompanyArray[id][2]){
+				otherCompanyDeals.push([tempCompanyArray[i][0], tempCompanyArray[i][16]]);
+			}
 		}
 	}
 	otherCompanyDealsCount = otherCompanyDeals.length;
 	currentCompanyDeals_button_FavCount.text = otherCompanyDealsCount;
-	if(otherCompanyDeals.length == 1){
+	if(otherCompanyDealsCount == 1){
 		aboutLabel.top = currentCompanyDeals_button.top;
 		currentCompanyDeals_dropdown_holder.visible = false;
 		currentCompanyDeals_button.visible = false;
 	}else{
-		currentCompanyDeals_dropdown.height = otherCompanyDealsCount*40;
-		currentCompanyDeals_dropdown.top = -1*((otherCompanyDealsCount-1)*40);
+		currentCompanyDeals_dropdown.height = otherCompanyDealsCount*47;
+		currentCompanyDeals_dropdown.top = -1*((otherCompanyDealsCount-1)*60);
 		currentCompanyDeals_dropdown.data = [];
 		var tempRows = [];
 		for(var i=0; i!=otherCompanyDeals.length; i++){
 			var tempTableRow = Ti.UI.createTableViewRow({
-				title:otherCompanyDeals[i],
+				/*title:otherCompanyDeals[i][0] + " - "+otherCompanyDeals[i][1],
 				font:{fontSize:14, fontWeight:'normal'},
-				color:blackColor,
-				selectionStyle:'none'
+				color:blackColor,*/
+				selectionStyle:'none',
+				height:'auto'
 			});
+			var tempTableRow_title = Ti.UI.createLabel({
+				text:otherCompanyDeals[i][0],
+				font:{fontSize:13, fontWeight:'normal'},
+				color:blackColor,
+				height:'auto',
+				top:30,
+				width:'95%',
+				textAlign:'left'
+			});
+			var tempTableRow_days = Ti.UI.createLabel({
+				text:otherCompanyDeals[i][1],
+				font:{fontSize:14, fontWeight:'bold'},
+				color:orangeColor,
+				height:'auto',
+				width:'95%',
+				textAlign:'left'
+			});
+			tempTableRow.add(tempTableRow_title);
+			tempTableRow.add(tempTableRow_days);
 			tempRows.push(tempTableRow);
 		}
 		currentCompanyDeals_dropdown.data = tempRows;
