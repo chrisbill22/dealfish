@@ -7,6 +7,7 @@ function openCompany(id, altArray){
 	var tempCompanyArray = [];
 	if(!altArray){
 		tempCompanyArray = currentLocations;
+		companyLocationsArray = [];
 		currentCompanyDeals_button.title = "Current Deals";
 	}else{
 		tempCompanyArray = altArray;

@@ -41,7 +41,8 @@ MainWindow.add(favoritesPopupView);
 
 function openFavoritesPopup(index, altArray){
 	var tempLocations = [];
-	if(altArray){
+	favoriteDataArray = [];
+	if(altArray.length != 0){
 		favoriteDataArray = altArray;
 	}else{
 		favoriteDataArray = currentLocations;
@@ -55,6 +56,7 @@ function openFavoritesPopup(index, altArray){
 		top:0,
 		duration:500
 	});
+	altArray = [];
 }
 
 function closeFavoritesPopup(){

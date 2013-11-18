@@ -110,7 +110,6 @@ function setSearchedList(mainArray){
 			row.add(createListItem(dataArray[i]));
 			row.addEventListener('click', function(e){
 				if(longpressTracker == false){
-					Ti.API.info(mainArray);
 					openCompany(getFirstInstanceOfCompanyID(e.rowData.companyID, mainArray), mainArray);
 				}else{
 					longpressTracker = false;

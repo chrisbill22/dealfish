@@ -44,11 +44,12 @@ function unfavoriteCompany(favoriteIndex, companyIndex, altArray){
 		tempLocations = currentLocations;
 	}
 	compID = tempLocations[companyIndex][2];
-	for(var i = 1; i <= favorites[favoriteIndex].length; i++){
+	for(var i = 1; i <= favorites[favoriteIndex].length-1; i++){
 		if(favorites[favoriteIndex][i][1] == compID){
 			favorites[favoriteIndex].splice(i, 1);
 		}
 	}
+	Ti.App.Properties.setList("favorites", favorites);
 }
 function enablePushCompany(companyID, switchSource, loadingSource, i, x){
 	if(hasAccount(companyID, true, true, switchSource, loadingSource, i, x)){
