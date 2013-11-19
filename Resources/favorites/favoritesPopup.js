@@ -89,7 +89,7 @@ function populateFavoritePopupList(companyID){
 
 favoritesPopupList.addEventListener('click', function(e){
 	if(e.index == 0){
-		openFavoritesNamePopup();
+		openFavoritesNamePopup(favoriteDataArray[companyIndex][2]);
 	}else{
 		if(e.rowData.favorited == false){
 			favoriteCompany(e.index-1, companyIndex, favoriteDataArray);

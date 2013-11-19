@@ -6,7 +6,7 @@ var mainHeader = Ti.UI.createView({
 	zIndex:10
 });
 var mainHeader_label = Ti.UI.createLabel({
-	text:"Home",
+	text:"Current Deals",
 	bottom:15,
 	color:whiteColor,
 });
@@ -21,7 +21,7 @@ if(iOSversion < 7){
 
 function setNewHeaderTitle(title){
 	if(title == "list"){
-		title = "Home";
+		title = "Current Deals";
 	}
 	title = capitaliseFirstLetter(title);
 	mainHeader_label.animate({

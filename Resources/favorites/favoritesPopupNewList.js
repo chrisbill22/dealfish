@@ -23,7 +23,9 @@ var favoritesPopupName_label = Ti.UI.createLabel({
 favoritesPopupNameView.add(favoritesPopupName_textbox);
 favoritesPopupNameView.add(favoritesPopupName_label);
 
-function openFavoritesNamePopup(){
+var favoritesNamePopupID;
+function openFavoritesNamePopup(id){
+	favoritesNamePopupID = id;
 	MainWindow.add(favoritesPopupNameView);
 	favoritesPopupName_textbox.focus();
 	favoritesPopupNameView.animate({
@@ -48,7 +50,7 @@ favoritesPopupName_textbox.addEventListener('return', function()
 		createNewCompanyList(favoritesPopupName_textbox.value);
 	}
 	populateFavoriteList();
-	populateFavoritePopupList();
+	populateFavoritePopupList(favoritesNamePopupID);
 	closeFavoritesNamePopup();
 	favoritesPopupName_textbox.value = "";
 });
