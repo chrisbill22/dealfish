@@ -30,6 +30,14 @@ function populateNavigationSettigns(){
 			}
 		}
 	}
+	if(notificationsRows.length == 0){
+		var tempRow = Ti.UI.createTableViewRow({
+			title:"No Notifications Enabled",
+			height:rowHeight,
+			color:blackColor
+		});
+		notificationsRows.push(tempRow);
+	}
 	notifications_list.data = notificationsRows;
 }
 

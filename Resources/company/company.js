@@ -49,7 +49,12 @@ function openCompany(id, altArray){
 	}
 	priceLabel_active.text = priceString;
 	
-	countdown = startCountDown(tempCompanyArray[id][8]);
+	var endTime = new Date();
+	var endTimeExploded = tempCompanyArray[id][18].split(":");
+	endTime.setHours(endTimeExploded[0]);
+	endTime.setMinutes(endTimeExploded[1]);
+
+	countdown = startCountDown(endTime);
 	countdown.width = screen_width-(comview_paddingLeft*2);
 	countdown.top = mainDealItem.top+mainDealItem.height-20;
 	countdown.opacity = 0.7;

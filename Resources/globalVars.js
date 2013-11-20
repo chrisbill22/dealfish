@@ -14,7 +14,7 @@ var zipcode = null;
 var pushNotifications = [];
 
 
-var categories = ['Bakery', 'Bar', 'Breakfast', 'Burgers', 'Chinese', 'Club', 'Coffee', 'Diner', 'Greek', 'IceCream', 'Italian', 'Japanese', 'Mexican', 'Pizza', 'Sandwiches', 'Seafood', 'Thai'];
+var categories = ['Bakery', 'Bar', 'Bookstore', 'Breakfast', 'Burgers', 'Chinese', 'Club', 'Coffee', 'Diner', 'Greek', 'IceCream', 'Italian', 'Japanese', 'Mexican', 'Pizza', 'Sandwiches', 'Seafood', 'Thai'];
 /* [
 0 = deal description,
 1 = company name,
@@ -33,6 +33,8 @@ var categories = ['Bakery', 'Bar', 'Breakfast', 'Burgers', 'Chinese', 'Club', 'C
 14 = price range - 1 to 4, 1-low, 4-high
 15 = dealID
 16 = Days of week
+17 = Start Time
+18 = End Time
 ] */
 var currentLocations = [];
 
