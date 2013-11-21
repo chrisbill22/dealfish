@@ -14,5 +14,6 @@ var transitionViewOutAnimation = Ti.UI.createAnimation({
 	transform : Ti.UI.create2DMatrix().scale(0.5, 0.5),
 	duration : 500,
 	opacity : 0,
+	top: 0,
 	duration : OUT_ANIMATION_SPEED
 });

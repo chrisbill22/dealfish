@@ -7,7 +7,6 @@ var mapview = Ti.UI.createView({
 	backgroundImage:masterBackground
 });
 
-
 var mapTitle = Ti.UI.createView({
 	height:'12%',
 	top:0,
@@ -33,15 +32,16 @@ var testAnnotation = Titanium.Map.createAnnotation ({
 var map = Titanium.Map.createView({
     //mapType: Titanium.Map.STANDARD_TYPE,
     //region:{latitude:40.424447, longitude:-86.907896, latitudeDelta:0.5, longitudeDelta:0.5},
-    animate:true,
-    regionFit:true,
-    userLocation:true, 
-    visible: true, 
+    //animate:true,
+    //regionFit:true,
+    //userLocation:true, 
+    //visible: true, 
     width:'100%',
     height:'100%',
     bottom:0,
     left:0,
-    hideAnnotationWhenTouchMap:true
+    annotations:[]
+    //hideAnnotationWhenTouchMap:true
     //left:screen_width
     //annotations:[testAnnotation]
 });

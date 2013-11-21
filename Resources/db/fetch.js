@@ -21,6 +21,7 @@ function fetchLocations(){
 	fetchingLocations = true;
 	var testRequest = createDbRequest();
 	testRequest.onload = function(e){
+		Ti.API.info("--> Locations Loaded");
 		//alert(this.responseText);
 		var requestReturn = eval(this.responseText);
 		if(requestReturn.length > 0){
@@ -55,6 +56,7 @@ function fetchLocations(){
 		Ti.API.warn("Current Lat or Current Long have not been set yet. Cannot fetch locations without finding location first.");
 		fetchingLocations = false;
 	}else{
+		Ti.API.info("--> Sending Request");
 		var currentDate = new Date();
 		var weekday=new Array(7);
 		weekday[0]="sunday";

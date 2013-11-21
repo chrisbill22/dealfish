@@ -7,6 +7,17 @@ var navigation_bottom = Ti.UI.createView({
 	backgroundColor:"#DDD"
 });
 
+var searchSettings_blackFade = Ti.UI.createView({
+	width:'100%',
+	height:'100%',
+	zIndex:19,
+	opacity:0,
+	backgroundColor:'#000'
+});
+
+function enableSearchSettings(opacity){
+	searchSettings_blackFade.opacity = opacity;
+}
 
 var nav_map = Ti.UI.createButton({
 	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN,

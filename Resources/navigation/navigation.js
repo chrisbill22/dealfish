@@ -70,11 +70,9 @@ function setCurrentSubView(viewName){
 	Ti.API.info("Saving last sub view as = "+currentView);
 }
 
-function transitionViewIn(obj, dir){
+function slideViewIn(obj, dir){
 	Ti.API.info("Moving "+dir);
-	
 	var tempZ = obj.zIndex;
-	
 	if(dir == "right"){
 		Ti.API.log(obj.left);
 		if(obj.left > 0){
@@ -104,15 +102,34 @@ function transitionViewIn(obj, dir){
 		});
 	}
 }
+
+function transitionViewIn(obj, dir){
+	
+	var tempZ = obj.zIndex;
+	
+	//Preflight
+	obj.opacity = 0;
+	obj.top = 400;
+	obj.left = 0;
+	obj.transform = Titanium.UI.create2DMatrix().scale(2,2);
+	
+	//Go!
+	obj.animate({
+		transform : Ti.UI.create2DMatrix().scale(1, 1),
+		opacity : 1,
+		top:headerHeight,
+		duration : OUT_ANIMATION_SPEED,
+	});
+}
 function transitionViewOut(obj, dir){
 	obj.animate(transitionViewOutAnimation, function(){
-		if(dir == "left"){
+		/*if(dir == "left"){
 			obj.right = screen_width;
 		}else{
 			obj.left = screen_width;
-		}
-		obj.opacity = 1;
-		obj.transform = Titanium.UI.create2DMatrix().scale(1,1);
+		}*/
+		//obj.opacity = 1;
+		//obj.transform = Titanium.UI.create2DMatrix().scale(1,1);
 	});
 }
 function slideViewOut(obj, dir){

@@ -1,3 +1,4 @@
+var annotationIntervalTracker = [];
 //Pull database
 function setPins(){
 	if(checkLocationsNeedFetched()){
@@ -28,6 +29,13 @@ function getPinImage(category, flash){
 
 //Put the actual pins in the map
 function dropPins(customData){
+	if(map.annotations.length != 0){
+		for(var i=0; i != annotationIntervalTracker.length; i++){
+			Ti.API.info("Clearing Intervals");
+			clearInterval(annotationIntervalTracker[i]);
+		}
+	}
+	map.setMapType(Ti.Map.STANDARD_TYPE);
 	var pinData = companies;
 	if(customData){
 		pinData = customData;
@@ -103,7 +111,7 @@ function createPin(data){
 		});
 		var currentDeal = 0;
 		if(deals.length > 1){
-			setInterval(function(){
+			annotationIntervalTracker.push(setInterval(function(){
 				annotationViewDeals.animate({opacity:0, duration:500}, function(){
 					if(currentDeal == deals.length-1){
 						currentDeal = 0;
@@ -122,7 +130,7 @@ function createPin(data){
 					}
 					annotationViewDeals.animate({opacity:1, duration:500});
 				});
-			}, 5000);
+			}, 5000));
 		}
 		/*//If a flash deal change icon
 		if(data[1][5] == 1){

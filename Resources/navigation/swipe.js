@@ -1,24 +1,35 @@
+var sliding_right = false;
+var sliding_left = false;
 //Pull from side events
 //RIGHT
 //When start, get the x position
 right_slider.addEventListener('touchstart', function(e){
-	startX_right = e.x;
+	if(sliding_left == false){
+		sliding_right = true;
+		startX_right = e.x;
+	}
 });
 //Every time the finger moves, will update and subtract by start x position to get delta x position
 //if the position reaches an amount, bring in the new view
 right_slider.addEventListener('touchmove', function(e){
-	if(deltaX_right >= -1*VIEW_TRANSITION_THRESHOLD){
-		deltaX_right = (e.x-startX_right);
-		var newRight = (deltaX_right+(screen_width));
-		Ti.API.log("DeltaX = "+deltaX_right+", Right = "+newRight);
-		settings_view.left = newRight;
-		if(deltaX_right < -1*VIEW_TRANSITION_THRESHOLD){
-			openSettings();
+	if(sliding_left == false && sliding_right == true){
+		var opacity = (deltaX_left/VIEW_TRANSITION_THRESHOLD);
+		Ti.API.info(opacity);
+		enableSearchSettings(opacity);
+		if(deltaX_right >= -1*VIEW_TRANSITION_THRESHOLD){
+			deltaX_right = (e.x-startX_right);
+			var newRight = (deltaX_right+(screen_width));
+			Ti.API.log("DeltaX = "+deltaX_right+", Right = "+newRight);
+			settings_view.left = newRight;
+			if(deltaX_right < -1*VIEW_TRANSITION_THRESHOLD){
+				openSettings();
+			}
 		}
 	}
 });
 //When the finger is released, if the view has not been activated, slide it back into place
 right_slider.addEventListener('touchend', function(e){
+	sliding_right = false;
 	if(deltaX_right >= -1*VIEW_TRANSITION_THRESHOLD){
 		settings_view.animate({left:(screen_width)});
 	}
@@ -28,22 +39,28 @@ right_slider.addEventListener('touchend', function(e){
 //When start, get the x position
 left_slider.addEventListener('touchstart', function(e){
 	//getLeftViewObj().zIndex = 1;
+	sliding_left = true;
 	startX_left = e.x;
 });
 //Every time the finger moves, will update and subtract by start x position to get delta x position
 //if the position reaches an amount, bring in the new view
 left_slider.addEventListener('touchmove', function(e){
-	if(deltaX_left <= VIEW_TRANSITION_THRESHOLD){
-		deltaX_left = (e.x-startX_left);
-		var newLeft = (deltaX_left+(-1*screen_width));
-		getLeftViewObj().left = newLeft;
-		if(deltaX_left > VIEW_TRANSITION_THRESHOLD){
-			transitionLeftViewIn();
+	if(sliding_right == false && sliding_left == true){
+		var opacity = (deltaX_left/VIEW_TRANSITION_THRESHOLD);
+		enableSearchSettings(opacity);
+		if(deltaX_left <= VIEW_TRANSITION_THRESHOLD){
+			deltaX_left = (e.x-startX_left);
+			var newLeft = (deltaX_left+(-1*screen_width));
+			getLeftViewObj().left = newLeft;
+			if(deltaX_left > VIEW_TRANSITION_THRESHOLD){
+				transitionLeftViewIn();
+			}
 		}
 	}
 });
 //When the finger is released, if the view has not been activated, slide it back into place
 left_slider.addEventListener('touchend', function(e){
+	sliding_left = false;
 	if(deltaX_left <= VIEW_TRANSITION_THRESHOLD){
 		getLeftViewObj().animate({left:(-1*screen_width)}, function(){
 			//getLeftViewObj().zIndex = 0;
@@ -61,7 +78,7 @@ function transitionLeftViewIn(){
 }
 
 function openSearch(){
-	transitionViewIn(search_view, "right");
+	slideViewIn(search_view, "right");
 	setCurrentSubView(currentView);
 	setCurrentView("search");
 	left_slider.visible = false;
@@ -70,7 +87,7 @@ function openSearch(){
 }
 
 function openSettings(){
-	transitionViewIn(settings_view, "left");
+	slideViewIn(settings_view, "left");
 	setCurrentSubView(currentView);
 	setCurrentView("settings");
 	left_slider.visible = false;

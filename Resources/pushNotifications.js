@@ -121,11 +121,11 @@ function loginUser(companyID, subscribe, favorite, switchSource, loadingSource, 
     // Log in to ACS
     Cloud.Users.login({
     	
-       login: 'orangedog22',
-       password: 'results'
+      // login: 'orangedog22',
+       //password: 'results'
        
-     //  login: 'geny-beta',
-     //  password: 'results'
+       login: 'geny-beta',
+       password: 'results'
        
     }, function (e) {
         if (e.success) {

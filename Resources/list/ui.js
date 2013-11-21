@@ -22,6 +22,21 @@ var listTitle_label = Ti.UI.createLabel({
 	bottom:10
 });
 
+var list_pullRefreshView = Ti.UI.createView({
+	width:'100%',
+	height:60,
+	backgroundColor:blackColor
+});
+var list_pullRefreshView_label = Ti.UI.createLabel({
+	text:'Pull To Update',
+	color:whiteColor,
+	width:200,
+	height:'auto',
+	bottom:15,
+	textAlign:'center'
+});
+list_pullRefreshView.add(list_pullRefreshView_label);
+
 var list_tableview = Ti.UI.createTableView({
 	right: 0,
 	height: '100%', 
@@ -31,8 +46,39 @@ var list_tableview = Ti.UI.createTableView({
 	style: Ti.UI.iPhone.TableViewStyle.PLAIN,
 	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE,
 	separatorColor: 'transparent',
-	backgroundImage:masterBackground
+	backgroundImage:masterBackground,
+	headerPullView:list_pullRefreshView
 });
+
+var pulling = false;
+var reloading = false;
+list_tableview.addEventListener('scroll', function(e){
+	var offset = e.contentOffset.y;
+	if(offset <= -65.0 && !pulling){
+		pulling = true;
+		list_pullRefreshView_label.text = "Release to Update";
+	}else if(pulling && offset > -65.0 && offset < 0){
+		pulling = false;
+		list_pullRefreshView.animate({backgroundColor:blackColor});
+		list_pullRefreshView_label.text = "Pull To Update";
+	}
+});
+list_tableview.addEventListener('dragend', function(e){
+	if(pulling && !reloading){
+		reloading = true;
+		pulling = false;
+		list_pullRefreshView.animate({backgroundColor:orangeColor});
+		list_pullRefreshView_label.text = "Updating...";
+		list_tableview.setContentInsets({top:60},{animated:true});
+		fetchLocations();
+		checkLocationsFetched();
+		Ti.App.addEventListener('locationFetched', stopPullRefresh);
+	}
+});
+function stopPullRefresh(){
+	list_tableview.setContentInsets({top:0}, {animated:true});
+	list_pullRefreshView.animate({backgroundColor:blackColor});
+}
 
 listTitle.add(listTitle_label);
 listview.add(list_tableview);

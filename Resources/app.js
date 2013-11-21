@@ -77,7 +77,7 @@ function locationTester(){
 }
 
 function appStartupCheck(){
-	Ti.API.log("hi");
+	//Ti.API.log("hi");
 	//Ti.API.log("Setup Interval-- loading = "+loading+", Lat = "+currentLat+", Long = "+currentLong);
 	if(loading == false && currentLat != -9999 && currentLong != -9999){
 		if(!Ti.App.Properties.getInt("zip")){
