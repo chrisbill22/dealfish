@@ -72,6 +72,7 @@ function setCurrentSubView(viewName){
 
 function slideViewIn(obj, dir){
 	Ti.API.info("Moving "+dir);
+	searchSettings_blackFade.animate({opacity:0.8, duration:500});
 	var tempZ = obj.zIndex;
 	if(dir == "right"){
 		Ti.API.log(obj.left);
@@ -122,17 +123,10 @@ function transitionViewIn(obj, dir){
 	});
 }
 function transitionViewOut(obj, dir){
-	obj.animate(transitionViewOutAnimation, function(){
-		/*if(dir == "left"){
-			obj.right = screen_width;
-		}else{
-			obj.left = screen_width;
-		}*/
-		//obj.opacity = 1;
-		//obj.transform = Titanium.UI.create2DMatrix().scale(1,1);
-	});
+	obj.animate(transitionViewOutAnimation);
 }
 function slideViewOut(obj, dir){
+	searchSettings_blackFade.animate({opacity:0, duration:500});
 	if(dir == "left"){
 		obj.animate({
 			left:(screen_width*-1),

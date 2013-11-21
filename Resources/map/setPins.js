@@ -35,7 +35,6 @@ function dropPins(customData){
 			clearInterval(annotationIntervalTracker[i]);
 		}
 	}
-	map.setMapType(Ti.Map.STANDARD_TYPE);
 	var pinData = companies;
 	if(customData){
 		pinData = customData;
@@ -58,7 +57,7 @@ function createPin(data){
 			flash = true;
 		}
 	}
-	Ti.API.info("Setting New Pin at "+data[1][4]+", "+data[1][3]);
+	//Ti.API.info("Setting New Pin at "+data[1][4]+", "+data[1][3]);
 		var annotationView = Titanium.UI.createView({
 			width:200,
 			height:40,

@@ -155,7 +155,7 @@ function populateFavoriteList(){
 		var tempRestaurants_rows = [];
 		if(favorites[i].length > 1){
 			for(var x=1; x!=favorites[i].length; x++){
-				Ti.API.info("Adding Row "+favorites[i][x][0]);
+				//Ti.API.info("Adding Row "+favorites[i][x][0]);
 				var tempRow = Ti.UI.createTableViewRow({
 					title:favorites[i][x][0],
 					height:rowHeight,

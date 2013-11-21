@@ -55,16 +55,25 @@ function createListItem(data){
 	});
 	
 	var tempItem_flash = Ti.UI.createView({
-		width:20,
+		width:50,
 		height:20,
 		borderRadius:10,
-		backgroundColor:'red',
-		left:(screen_width*0.05)-10,
-		top:5,
+		backgroundColor:whiteColor,
+		borderColor:orangeColor,
+		left:(screen_width*0.05),
+		top:60,
 		zIndex:2
+	});
+	var tempItem_flash_label = Ti.UI.createLabel({
+		width:'auto',
+		height:17,
+		font:{fontSize:8, fontWeight:'bold'},
+		text:"1 Day Only",
+		color:orangeColor
 	});
 	if(flash){
 		tempItemHolder.add(tempItem_flash);
+		tempItem_flash.add(tempItem_flash_label);
 	}
 	
 	var tempItem = Ti.UI.createView({
@@ -148,7 +157,7 @@ function createListItem(data){
 	tempItem_title.text = title;
 	tempItem_deal.text = deals[0][0];
 	if(deals[0][1] == true){
-		tempItem_deal.color='red';
+		tempItem_deal.color=orangeColor;
 	}
 	//tempItem_distance.text = distance;
 	//tempItem_image.backgroundImage = img;
@@ -172,7 +181,7 @@ function createListItem(data){
 				}
 				tempItem_deal.text = deals[currentDeal][0];
 				if(deals[currentDeal][1] == true){
-					tempItem_deal.color = "red";
+					tempItem_deal.color = orangeColor;
 				}else{
 					tempItem_deal.color = "black";
 				}

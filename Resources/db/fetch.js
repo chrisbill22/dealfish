@@ -71,14 +71,13 @@ function fetchLocations(){
 		addPostVariable("current_lat", currentLat);
 		addPostVariable("delta_long", longitudeDelta);
 		addPostVariable("delta_lat", latitudeDelta);
-		//Ti.API.log("Sending Time = "+(Math.round(new Date().getTime() / 1000))-14400);
+
 		addPostVariable("currentTime",(Math.round(new Date().getTime() / 1000)));
 		
-		//alert(weekday[currentDate.getDay()]);
 		addPostVariable("dayOfWeek", weekday[currentDate.getDay()]);
 		
 		sendDbRequest("http://dealfish.genyapps.com/app/getDeals.php", testRequest);
-		//Ti.API.warn("Request sent");
+		Ti.API.info("--> Request sent");
 	}
 }
 
@@ -110,8 +109,8 @@ function checkLocationsFetched(){
 	Ti.API.info("Checking...");
 	setTimeout(function(){
 		if(fetchingLocations == true){
+			Ti.API.info("Current Locations is empty. Waiting for data...");
 			checkLocationsFetched();
-			Ti.API.warn("Current Locations is empty. Waiting for data... 1");
 		}else{
 			Ti.API.warn("...done");
 			if(currentLocations.length != 0){

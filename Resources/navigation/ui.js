@@ -14,9 +14,11 @@ var searchSettings_blackFade = Ti.UI.createView({
 	opacity:0,
 	backgroundColor:'#000'
 });
-
+MainWindow.add(searchSettings_blackFade);
 function enableSearchSettings(opacity){
-	searchSettings_blackFade.opacity = opacity;
+	if(opacity < 0.8){
+		searchSettings_blackFade.opacity = opacity;
+	}
 }
 
 var nav_map = Ti.UI.createButton({

@@ -78,6 +78,7 @@ list_tableview.addEventListener('dragend', function(e){
 function stopPullRefresh(){
 	list_tableview.setContentInsets({top:0}, {animated:true});
 	list_pullRefreshView.animate({backgroundColor:blackColor});
+	reloading = false;
 }
 
 listTitle.add(listTitle_label);

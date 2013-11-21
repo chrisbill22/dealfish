@@ -13,8 +13,8 @@ right_slider.addEventListener('touchstart', function(e){
 //if the position reaches an amount, bring in the new view
 right_slider.addEventListener('touchmove', function(e){
 	if(sliding_left == false && sliding_right == true){
-		var opacity = (deltaX_left/VIEW_TRANSITION_THRESHOLD);
-		Ti.API.info(opacity);
+		var opacity = (deltaX_right/VIEW_TRANSITION_THRESHOLD)*-1;
+
 		enableSearchSettings(opacity);
 		if(deltaX_right >= -1*VIEW_TRANSITION_THRESHOLD){
 			deltaX_right = (e.x-startX_right);
@@ -32,6 +32,7 @@ right_slider.addEventListener('touchend', function(e){
 	sliding_right = false;
 	if(deltaX_right >= -1*VIEW_TRANSITION_THRESHOLD){
 		settings_view.animate({left:(screen_width)});
+		searchSettings_blackFade.animate({opacity:0});
 	}
 	deltaX_right = 0;
 });
