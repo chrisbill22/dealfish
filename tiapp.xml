@@ -8,7 +8,7 @@
     <property name="acs-api-key-production" type="string">mtVwIwG6NStr6KhPDgy2ljBbXQbeXKtV</property>
     <id>com.ChrisBill.genY</id>
     <name>One-Tap</name>
-    <version>0.3.0</version>
+    <version>0.3.2</version>
     <publisher>Gen Y Applications</publisher>
     <url>http://</url>
     <description>not specified</description>

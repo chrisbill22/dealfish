@@ -11,7 +11,8 @@ var search_view = Titanium.UI.createView({
 	bottom:0,
 	zIndex:20,
 	left: screen_width,
-	backgroundColor: '#DDD'
+	backgroundColor: '#DDD',
+	backgroundImage:'images/background.png'
 });
 var search_view_scroll = Ti.UI.createScrollView({
 	width:'100%',
@@ -25,7 +26,7 @@ if(iOSversion < 7){
 }
 
 var searchBackBt = Ti.UI.createButton({
-	bottom:8,
+	bottom:13,
 	left: 0, 
 	width: 46,
 	height: 66/2, 
@@ -41,10 +42,11 @@ var searchBackBt_img = Ti.UI.createImageView({
 
 
 var searchTitle = Ti.UI.createView({
-	height:headerHeight,
-	top:0,
+	top:20,
 	left:0,
-	backgroundImage: 'images/topBarTrue.png'
+	backgroundImage: 'images/topBarTrue.png',
+	height:headerHeight-20+5,
+	zIndex:10
 });
 var searchButton = Ti.UI.createButton({
 	title: "Search!",

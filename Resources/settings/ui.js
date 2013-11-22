@@ -12,11 +12,11 @@ var settings_view = Titanium.UI.createView({
 });
 
 var settingsBackBt = Ti.UI.createButton({
-	bottom:8,
+	bottom:13,
 	left: 0, 
 	width: 46,
 	height: 66/2, 
-	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN,
 });
 var settingsBackBt_img = Ti.UI.createImageView({
 	image: 'images/arrowLeftTrue.png',
@@ -26,11 +26,11 @@ var settingsBackBt_img = Ti.UI.createImageView({
 });
 
 var settingsTitle = Ti.UI.createView({
-	height:headerHeight,
-	top:0,
+	top:20,
 	left:0,
-	width:'100%',
-	backgroundImage: 'images/topBarTrue.png'
+	backgroundImage: 'images/topBarTrue.png',
+	height:headerHeight-20+5,
+	zIndex:10
 });
 /*var settingsTitle_label = Ti.UI.createLabel({
 	text:"Gear",
@@ -49,16 +49,6 @@ var settingsTable = Ti.UI.createTableView({
 	top: headerHeight, 
 	height:viewHeight+footerHeight,
 	font:{fontFamily: 'Helvetica'}
-});
-
-settingsTable.addEventListener('click', function(e){
-	if(e.index == 0){
-		openNavigationSettings();
-	}else if(e.index == 1){
-		show_geolocation_setup();
-	}else if(e.index == 2){
-		openBugs();
-	}
 });
 
 //settingsTitle.add(settingsTitle_label);

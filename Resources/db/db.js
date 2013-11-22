@@ -13,6 +13,9 @@ function createDbRequest(){
 			alert(e.error);
 			fetchingLocations = false;
 			Ti.API.error(e.error);
+			if(reloading == true){
+				stopPullRefresh();
+			}
 		},
 		timeout:5000
 	});

@@ -84,14 +84,14 @@ var iOSversion = (Ti.Platform.version).slice(0, 1);
 var screen_height = Ti.Platform.displayCaps.platformHeight;
 var screen_width = Ti.Platform.displayCaps.platformWidth;
 
-var headerHeight = 96/2;
+var headerHeight = (104/3)+20-5;
 var footerHeight = 96/2;
 
 if(iOSversion > 6){
 	headerHeight+=20;
 }
 
-var viewHeight = screen_height-(headerHeight+footerHeight);
+var viewHeight = (screen_height-(headerHeight+footerHeight));
 var masterBackground = 'images/background.png';
 
 var os = Titanium.Platform.osname;

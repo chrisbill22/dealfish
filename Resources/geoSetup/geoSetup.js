@@ -1,6 +1,9 @@
 Ti.include("ui.js");
 
-function show_geolocation_setup(){
+function show_geolocation_setup(cancelBt){
+	if(cancelBt == true){
+		
+	}
 	disable_background();
 	geoSetupView.animate({top:0, duration:500});
 }
@@ -94,4 +97,8 @@ enterZipcode_textbox.addEventListener('return', function(){
 		track_button.visible = false;
 	}
 	dontAsk_for_zipcode();
+});
+
+geoSetupBackButton.addEventListener('click', function(){
+	remove_geolocation_setup();
 });

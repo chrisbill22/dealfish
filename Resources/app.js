@@ -9,7 +9,8 @@ Ti.Geolocation.purpose = "Get your location for deals in your area";
 var MainWindow = Ti.UI.createWindow({
 	width:'100%',
 	height:'100%',
-	backgroundColor:whiteColor
+	backgroundColor:whiteColor,
+	backgroundImage:'images/background.png'
 });
 
 function capitaliseFirstLetter(string)

@@ -78,10 +78,13 @@ function createListItem(data){
 	
 	var tempItem = Ti.UI.createView({
 		width:(screen_width*0.94)-60,
-		right:'3%',
+		left:(screen_width*0.03)+60,
 		height:70,
 		top:10,
-		backgroundColor:whiteColor
+		backgroundColor:whiteColor,
+		zIndex:1,
+		borderColor:'#B9B9C8',
+		borderWidth:1
 	});
 	var tempItem_image = Ti.UI.createView({
 		width:60,
@@ -90,7 +93,7 @@ function createListItem(data){
 		backgroundColor:orangeColor,
 		left:'3%',
 		backgroundImage:getCategoryImage(cateogry),
-		zIndex:1
+		zIndex:0
 	});
 	var tempItem_title = Ti.UI.createLabel({
 		left: 10,
