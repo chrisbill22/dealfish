@@ -15,7 +15,7 @@ var notifications_list = Ti.UI.createTableView({
 });
 
 var notificationsBack = Ti.UI.createButton({
-	bottom: 8, 
+	bottom: 13, 
 	left: 0, 
 	width: 46,
 	height: 33,
@@ -30,11 +30,11 @@ var notificationsBack_img = Ti.UI.createImageView({
 
 
 var notificationsTitle = Ti.UI.createView({
-	height:headerHeight,
-	top:0,
+	top:20,
 	left:0,
-	width:'100%',
-	backgroundImage: 'images/topBarTrue.png'
+	backgroundImage: 'images/topBarTrue.png',
+	height:headerHeight-20+5,
+	zIndex:10
 });
 
 notificationsBack.add(notificationsBack_img);

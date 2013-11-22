@@ -4,13 +4,14 @@ var searchResultsView = Ti.UI.createView({
 	zIndex:21,
 	left:screen_width*-1,
 	top:0,
-	backgroundColor: '#DDD'
+	backgroundColor: '#DDD',
+	backgroundImage:'images/background.png'
 });
 
 
 
 var searchResultsBackBt = Ti.UI.createButton({
-	bottom:8,
+	bottom:13,
 	left: 0, 
 	width: 46,
 	height: 66/2, 
@@ -27,10 +28,11 @@ var searchResultsBackBt_img = Ti.UI.createImageView({
 
 
 var searchResultsTitle = Ti.UI.createView({
-	height:headerHeight,
-	top:0,
+	top:20,
 	left:0,
-	backgroundImage: 'images/topBarTrue.png'
+	backgroundImage: 'images/topBarTrue.png',
+	height:headerHeight-20+5,
+	zIndex:10
 });
 
 var searchResultsList = Ti.UI.createTableView({
@@ -41,7 +43,7 @@ var searchResultsList = Ti.UI.createTableView({
 	style: Ti.UI.iPhone.TableViewStyle.PLAIN,
 	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE,
 	separatorColor: 'transparent', 
-	backgroundColor: '#DDD'
+	backgroundColor: 'transparent'
 });
 
 searchResultsBackBt.addEventListener('click', function(){

@@ -1,13 +1,13 @@
 var mainHeader = Ti.UI.createView({
-	height:headerHeight,
-	top:0,
+	height:headerHeight-20+5,
+	top:20,
 	left:0,
 	backgroundImage: 'images/topBarTrue.png',
 	zIndex:10
 });
 var mainHeader_label = Ti.UI.createLabel({
 	text:"Current Deals",
-	bottom:15,
+	bottom:20,
 	color:whiteColor,
 });
 
@@ -25,12 +25,12 @@ function setNewHeaderTitle(title){
 	}
 	title = capitaliseFirstLetter(title);
 	mainHeader_label.animate({
-		bottom:-50
+		bottom:60
 	}, function(){
 		mainHeader_label.text = title;
 		//mainHeader_label.bottom = 0;
 		mainHeader_label.animate({
-			bottom:10
+			bottom:20
 		});
 	});
 }

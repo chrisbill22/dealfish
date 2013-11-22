@@ -52,7 +52,7 @@ var nav_favorites = Ti.UI.createButton({
 
 var nav_search = Ti.UI.createButton({ 
 	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN,
-	bottom:13,
+	bottom:18,
 	left:0,
 	height: 25, 
 	width: 55
@@ -65,7 +65,7 @@ var nav_search_img = Ti.UI.createImageView({
 
 
 var settingsBackBt = Ti.UI.createButton({
-	bottom:8,
+	bottom:13,
 	left: 0, 
 	width: 46,
 	height: 66/2, 
@@ -81,7 +81,7 @@ var settingsBackBt_img = Ti.UI.createImageView({
 
 var nav_settings = Ti.UI.createButton({ 
 	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN,
-	bottom:13,
+	bottom:18,
 	right:0,
 	height: 25, 
 	width: 55
@@ -114,22 +114,22 @@ var right_slider = Ti.UI.createView({
 
 var settings_slider = Ti.UI.createView({
 	width:25,
-	height:'100%',
+	height:screen_height-headerHeight,
 	//backgroundColor:blackColor,
 	bottom:0,
 	left:0,
 	zIndex:21,
-	visible:false
+	visible:false,
 });
 
 var search_slider = Ti.UI.createView({
 	width:25,
-	height:'100%',
+	height:screen_height,
 	//backgroundColor:blackColor,
 	bottom:0,
 	right:0,
 	zIndex:21,
-	visible:false
+	visible:false,
 });
 
 navigation_bottom.add(nav_map);

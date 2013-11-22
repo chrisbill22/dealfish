@@ -140,7 +140,8 @@ function populateFavoriteList(){
 			height:tempTop,
 			top:0,
 			zIndex:zIndexTracker,
-			backgroundColor:favoritesBGColor
+			backgroundColor:favoritesBGColor,
+			backgroundImage:'images/background.png'
 		});
 		
 		var tempRestaurants = Ti.UI.createTableView({

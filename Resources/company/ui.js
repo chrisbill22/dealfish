@@ -10,6 +10,7 @@ var companyview = Titanium.UI.createView({
         bottom:screen_height,
         backgroundColor: whiteColor,
         zIndex: 25, 
+        backgroundImage:'images/background.png'
 });
 var companyScroll = Titanium.UI.createScrollView({
 		width: '100%', 

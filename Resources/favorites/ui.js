@@ -1,11 +1,13 @@
-var favoritesBGColor = "#d5d5d5";
+var favoritesBGColor = "#c6c6c6";
 var favorites_view = Ti.UI.createScrollView({
-	left: -1*screen_width,
+	left: 0,
 	height: viewHeight,
 	width: '100%',
 	top:headerHeight,
 	zIndex:0,
-	backgroundColor:favoritesBGColor
+	opacity:0
+	//backgroundColor:favoritesBGColor,
+	//backgroundImage:'images/background.png'
 });
 var favorites_innerView = Ti.UI.createView({
 	height:1000,

@@ -54,6 +54,17 @@ var enterZipcode_backBt = Ti.UI.createButton({
 	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 
+var geoSetupBackButton = Ti.UI.createButton({
+	bottom:0,
+	title:'Back',
+	width:'90%',
+	height:'10%',
+	backgroundColor:'#333',
+	color:'#DDD',
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
+});
+
+geoSetupView.add(geoSetupBackButton);
 geoSetupView.add(enterZipcode_backBt);
 geoSetupView.add(enterZipcode_label);
 geoSetupView.add(enterZipcode_textbox);
