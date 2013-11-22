@@ -204,6 +204,13 @@ var aboutLabel = Titanium.UI.createLabel({
         color:blackColor, 
         font: {fontSize:'14'}, 
 });
+var aboutTitle = Titanium.UI.createLabel({
+	text: 'About:', 
+	top: currentCompanyDeals_button.top+currentCompanyDeals_button.height+15,
+	left: 15,
+	color: orangeColor, 
+	font: {fontWeight: 'bold'}
+});
 var specialtyLabel = Titanium.UI.createLabel({
         text: '',
         width: screen_width-(comview_paddingLeft*2), 
@@ -211,6 +218,13 @@ var specialtyLabel = Titanium.UI.createLabel({
         top: 320,
         color:blackColor, 
         font: {fontSize:'14'}, 
+});
+var specialtyTitle = Titanium.UI.createLabel({
+	text: 'Specialty:',
+	left: 15, 
+	color: orangeColor, 
+	font: {fontWeight: 'bold'},
+	top: 315,
 });
 var directionsButton = Titanium.UI.createButton({
         //title: "Directions", 
@@ -295,6 +309,8 @@ companyScroll.add(currentCompanyDeals_button);
 
 companyScroll.add(aboutLabel);
 companyScroll.add(specialtyLabel);
+companyScroll.add(aboutTitle);
+companyScroll.add(specialtyTitle);
 //companyview.add(callButton, directionsButton, favoritesButton, websiteButton);
 companyview.add(callButton);
 companyview.add(directionsButton);
