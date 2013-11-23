@@ -19,9 +19,14 @@ var favoritesPopupName_label = Ti.UI.createLabel({
 	left:'10%',
 	color:whiteColor
 });
+var favoritesPopupName_cancel = Ti.UI.createButton({
+	title: 'Cancel', 
+	top: 200
+});
 
 favoritesPopupNameView.add(favoritesPopupName_textbox);
 favoritesPopupNameView.add(favoritesPopupName_label);
+favoritesPopupNameView.add(favoritesPopupName_cancel);
 
 var favoritesNamePopupID;
 function openFavoritesNamePopup(id){
@@ -51,6 +56,10 @@ favoritesPopupName_textbox.addEventListener('return', function()
 	}
 	populateFavoriteList();
 	populateFavoritePopupList(favoritesNamePopupID);
+	closeFavoritesNamePopup();
+	favoritesPopupName_textbox.value = "";
+});
+favoritesPopupName_cancel.addEventListener('click', function(){
 	closeFavoritesNamePopup();
 	favoritesPopupName_textbox.value = "";
 });
