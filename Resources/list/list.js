@@ -3,7 +3,7 @@ Ti.include("ui.js");
 
 
 function createListItem(data){
-	
+
 	var title, deal, distance, flash, img;
 	
 	var title = data[1][1];
@@ -152,7 +152,7 @@ function createListItem(data){
 	}
 	
 	var priceString = "";
-	for(i=0; i!=data[i][14]; i++){
+	for(i=data[1][14]; i!=0; i--){
 		priceString += "$";
 	}
 	tempPriceLabel_active.text = priceString;

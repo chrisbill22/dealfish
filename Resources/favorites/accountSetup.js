@@ -9,7 +9,9 @@ accountSetupPopup_Button.addEventListener('click', function(){
 accountSetupPopup_cancel.addEventListener('click', function(){
 	disableAccount_background();
 	tempSwitchSource.show();
-	tempLoadingSource.hide();
+	if(tempLoadingSource){
+		tempLoadingSource.hide();
+	}
 });
 
 function hasAccount(companyID, subscribe, favorite, switchSource, loadingSource, i, x){

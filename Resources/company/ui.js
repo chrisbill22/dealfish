@@ -9,8 +9,7 @@ var companyview = Titanium.UI.createView({
         width: '100%',
         bottom:screen_height,
         backgroundColor: whiteColor,
-        zIndex: 25, 
-        backgroundImage:'images/background.png'
+        zIndex: 25
 });
 var companyScroll = Titanium.UI.createScrollView({
 		width: '100%', 
@@ -23,15 +22,16 @@ var companyScroll = Titanium.UI.createScrollView({
   		bottom: footerHeight
 });
 var companyTitle = Ti.UI.createView({
-        height:headerHeight,
-        top:0,
+       	height:headerHeight-20+5,
+        top:20,
         left:0,
         backgroundImage: 'images/topBarTrue.png',
-        color:blackColor
+        color:blackColor,
+        zIndex:10
 });
 
 var companyBackBt = Ti.UI.createButton({
-	bottom:8,
+	bottom:13,
 	left: 0, 
 	width: 46,
 	height: 66/2, 

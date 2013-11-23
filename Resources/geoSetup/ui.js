@@ -64,7 +64,7 @@ var geoSetupBackButton = Ti.UI.createButton({
 	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
 });
 
-geoSetupView.add(geoSetupBackButton);
+
 geoSetupView.add(enterZipcode_backBt);
 geoSetupView.add(enterZipcode_label);
 geoSetupView.add(enterZipcode_textbox);

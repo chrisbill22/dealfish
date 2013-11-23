@@ -62,7 +62,7 @@ function enablePushCompany(companyID, switchSource, loadingSource, i, x){
 function disablePushCompany(companyID, switchSource, loadingSource, i, x){
 	if(hasAccount(companyID, false, true, switchSource, loadingSource, i, x)){
 		//disablePushCompany_db(companyID, switchSource, loadingSource, i, x);
-		loginUser(companyID, false, true, switchSource, loadingSource, i, x);
+		loginUser(companyID, false, false, switchSource, loadingSource, i, x);
 	}
 }
 
@@ -162,7 +162,7 @@ function populateFavoriteList(){
 					height:rowHeight,
 					companyID:favorites[i][x][1],
 					color:blackColor,
-					backgroundSelectedColor:'#fff',
+					backgroundSelectedColor:whiteColor,
 					selectedBackgroundColor:orangeColor,
 					font:{fontSize:14, fontWeight:'normal'}
 				});

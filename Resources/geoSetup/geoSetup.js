@@ -2,7 +2,7 @@ Ti.include("ui.js");
 
 function show_geolocation_setup(cancelBt){
 	if(cancelBt == true){
-		
+		geoSetupView.add(geoSetupBackButton);
 	}
 	disable_background();
 	geoSetupView.animate({top:0, duration:500});
@@ -11,6 +11,7 @@ function show_geolocation_setup(cancelBt){
 function remove_geolocation_setup(){
 	enable_backgrond();
 	geoSetupView.animate({top:screen_height, duration:500});
+	geoSetupView.remove(geoSetupBackButton);
 }
 
 function ask_for_zipcode(){
