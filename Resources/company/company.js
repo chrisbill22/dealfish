@@ -39,7 +39,7 @@ function openCompany(id, altArray){
 		if(tempCompanyArray[id][12]){
 			aboutLabel.text += "\n\n";
 		}
-		aboutLabel.text += "\n"+ tempCompanyArray[id][13]+"\n\n\n";
+		specialtyLabel.text += "\n"+ tempCompanyArray[id][13]+"\n\n\n";
 	}
 	
 	//specialtyLabel.text = "Specialty: " ;
