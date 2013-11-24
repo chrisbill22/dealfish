@@ -66,14 +66,20 @@ function favoriteSubscribe(companyID, switchSource, loadingSource, i, x){
 			Ti.App.Properties.setList("pushNotifications", pushNotifications);
 			Ti.App.Properties.setList("favorites", favorites);
 			Ti.API.info("enable switch");
-			//switchSource.backgroundImage = 'images/bellActive.png';
-			//switchSource.show();
-			//loadingSource.hide();
+			switchSource.backgroundImage = 'images/bellActive.png';
+			switchSource.show();
+			if(loadingSource){
+				loadingSource.hide();
+			}else{
+				Ti.App.fireEvent('subscribed', {i:i, x:x, switchSource:switchSource, companyID:companyID});
+			}
 			populateFavoriteList();
 	    } else {
-	    	switchSource.backgroundImage = 'images/bellInactive.png';;
+	    	switchSource.backgroundImage = 'images/bellInactive.png';
 			switchSource.show();
-			loadingSource.hide();
+			if(loadingSource){
+				loadingSource.hide();
+			}
 	        alert('Subscribe Error:\n' +
 	            ((e.error && e.message) || JSON.stringify(e))+
 	            "\n\n"+deviceToken
@@ -93,25 +99,28 @@ function favoriteUnsubscribe(companyID, switchSource, loadingSource, i, x){
 	    type:'ios'
 	}, function (e) {
 	    if (e.success) {
+	    	clearFavoriteList();
 	    	pushNotifications.splice(pushNotifications.indexOf(companyID), 1);
 	        favorites[i][x][5] = false;
 	        Ti.App.Properties.setList("pushNotifications", pushNotifications);
 			Ti.App.Properties.setList("favorites", favorites);
 			Ti.API.info("disable switch");
-			if(loadingSource){
-				clearFavoriteList();
-				populateFavoriteList();
-				//switchSource.backgroundImage = 'images/bellInactive.png';;
-				//switchSource.show();
-				//loadingSource.hide();
-			}else{
-				Ti.App.fireEvent('unsubscribed', {i:i, x:x});
-			}
-	    } else {
-	    	switchSource.backgroundImage = 'images/bellInactive.png';;
+			switchSource.backgroundImage = 'images/bellInactive.png';
 			switchSource.show();
-			loadingSource.hide();
-	        alert('Error:\n' +
+			if(loadingSource){
+				alert("false");
+				loadingSource.hide();
+			}else{
+				alert("true");
+				Ti.App.fireEvent('unsubscribed', {i:i, x:x, switchSource:switchSource, companyID:companyID});
+			}
+			populateFavoriteList();
+	    } else {
+			switchSource.show();
+			if(loadingSource){
+				loadingSource.hide();
+			}
+	        alert('Unsubscribe Error:\n' +
 	            ((e.error && e.message) || JSON.stringify(e)));
 	    }
 	});
@@ -121,11 +130,11 @@ function loginUser(companyID, subscribe, favorite, switchSource, loadingSource, 
     // Log in to ACS
     Cloud.Users.login({
     	
-      // login: 'orangedog22',
-       //password: 'results'
-       
-       login: 'geny-beta',
+       login: 'orangedog22',
        password: 'results'
+       
+      // login: 'geny-beta',
+      // password: 'results'
        
     }, function (e) {
         if (e.success) {
@@ -140,7 +149,7 @@ function loginUser(companyID, subscribe, favorite, switchSource, loadingSource, 
             	if(favorite){
             		favoriteUnsubscribe(companyID, switchSource, loadingSource, i, x);
             	}else{
-            		unsubscribeToChannel(companyID);
+            		unsubscribeToChannel(companyID, switchSource, loadingSource, i, x);
             	}	
             }
         } else {
@@ -174,7 +183,7 @@ function subscribeToChannel(companyID){
 	});
 }
 //NOT USED YET - This example unsubscribes from a push notification channel and checks the response.
-function unsubscribeToChannel(companyID){
+function unsubscribeToChannel(companyID, switchSource, loadingSource, i, x){
 	Ti.API.log("info", "Attempting to unsubscribe from channel");
 	var channel = "Deals";
 	if(companyID){
@@ -185,9 +194,37 @@ function unsubscribeToChannel(companyID){
 	    device_token: deviceToken
 	}, function (e) {
 	    if (e.success) {
-	        alert('Success');
+			clearFavoriteList();
+	    	pushNotifications.splice(pushNotifications.indexOf(companyID), 1);
+	        favorites[i][x][5] = false;
+	        Ti.App.Properties.setList("pushNotifications", pushNotifications);
+			Ti.App.Properties.setList("favorites", favorites);
+			Ti.API.info("disable switch");
+			switchSource.backgroundImage = 'images/bellInactive.png';
+			switchSource.show();
+			if(loadingSource){
+				loadingSource.hide();
+			}else{
+				Ti.App.fireEvent('unsubscribed', {i:i, x:x, switchSource:switchSource, companyID:companyID});
+			}
+			populateFavoriteList();
+			
 	    } else {
-	        alert('Error:\n' +
+	    	if(e.message == "Subscription not found"){
+	    		clearFavoriteList();
+				pushNotifications.splice(pushNotifications.indexOf(companyID), 1);
+	       	 	Ti.App.Properties.setList("pushNotifications", pushNotifications);
+				Ti.App.Properties.setList("favorites", favorites);
+				switchSource.show();
+				stop_loading();
+				switchSource.backgroundImage = 'images/bellInactive.png';
+				if(loadingSource){
+					loadingSource.hide();
+				}
+				populateFavoriteList();
+			}
+			//alert("Error: "+e.error+"\nMessage: "+e.message+"\nJSON: "+JSON.stringify(e));
+	        alert('Unsubscribe To Channel Error:\n' +
 	            ((e.error && e.message) || JSON.stringify(e)));
 	    }
 	});
@@ -202,7 +239,7 @@ function notifyChannel(){
 	    if (e.success) {
 	        alert('Success');
 	    } else {
-	        alert('Error:\n' +
+	        alert('Channel Error:\n' +
 	            ((e.error && e.message) || JSON.stringify(e)));
 	    }
 	});

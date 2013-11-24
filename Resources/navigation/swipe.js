@@ -63,9 +63,8 @@ left_slider.addEventListener('touchmove', function(e){
 left_slider.addEventListener('touchend', function(e){
 	sliding_left = false;
 	if(deltaX_left <= VIEW_TRANSITION_THRESHOLD){
-		getLeftViewObj().animate({left:(-1*screen_width)}, function(){
-			//getLeftViewObj().zIndex = 0;
-		});
+		getLeftViewObj().animate({left:(-1*screen_width)});
+		searchSettings_blackFade.animate({opacity:0});
 	}
 	deltaX_left = 0;
 });

@@ -65,7 +65,7 @@ quickActionView_backdrop.addEventListener('click', function(){
 });
 
 quickAction_favorite.addEventListener('click', function(){
-	openFavoritesPopup(currentQuickID);
+	openFavoritesPopup(currentQuickID, []);
 });
 
 quickAction_call.addEventListener('click', function(){

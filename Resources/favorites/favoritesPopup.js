@@ -1,6 +1,7 @@
 var companyIndex = -1;
 var favoritesIndex = -1;
 var favoriteDataArray = [];
+
 var favoritesPopupView = Ti.UI.createView({
 	width:'100%',
 	height:'100%',
@@ -9,24 +10,40 @@ var favoritesPopupView = Ti.UI.createView({
 	top:screen_height,
 	zIndex:30
 });
-var favoritesPopupTitle = Ti.UI.createLabel({
+
+
+var favoritesPopupBackBt = Ti.UI.createButton({
+	bottom:13,
+	left: 0, 
+	width: 46,
+	height: 66/2, 
+	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN,
+});
+var favoritesPopupBackBt_img = Ti.UI.createImageView({
+	image: 'images/arrowLeftTrue.png',
+	width: 35/2,
+	height: 66/2,
+	top:0
+});
+var favoritesPopupTitle = Ti.UI.createView({
+	top:20,
+	left:0,
+	backgroundImage: 'images/topBarTrue.png',
+	height:headerHeight-20+5,
+	zIndex:10
+});
+
+var favoritesPopupTitle_label = Ti.UI.createLabel({
 	text:"Loading...",
 	top:20,
 	width:'90%',
 	color:'#333'
 });
-var favoritesPopupCloseBt = Ti.UI.createButton({
-	title:"Close",
-	width:'100%',
-	height:'10%',
-	backgroundColor:'#AAA',
-	bottom:0,
-	style:Ti.UI.iPhone.SystemButtonStyle.PLAIN
-});
+
 var favoritesPopupList = Ti.UI.createTableView({
 	width:'100%',
-	top:60,
-	height:'70%'
+	top:headerHeight,
+	height:viewHeight+footerHeight
 });
 var favoritesPopupAddListRow = Ti.UI.createTableViewRow({
 	title:"Add New List",
@@ -34,9 +51,10 @@ var favoritesPopupAddListRow = Ti.UI.createTableViewRow({
 	color:whiteColor
 });
 
+favoritesPopupBackBt.add(favoritesPopupBackBt_img);
+favoritesPopupTitle.add(favoritesPopupBackBt);
 favoritesPopupView.add(favoritesPopupTitle);
 favoritesPopupView.add(favoritesPopupList);
-favoritesPopupView.add(favoritesPopupCloseBt);
 MainWindow.add(favoritesPopupView);	
 
 function openFavoritesPopup(index, altArray){
@@ -50,7 +68,7 @@ function openFavoritesPopup(index, altArray){
 	companyIndex = index;
 	var companyName = favoriteDataArray[index][1];
 	var companyID = favoriteDataArray[index][2];
-	favoritesPopupTitle.text = "Add "+companyName+" to a List";
+	favoritesPopupTitle_label.text = "Add "+companyName+" to a List";
 	populateFavoritePopupList(companyID);
 	favoritesPopupView.animate({
 		top:0,
@@ -100,7 +118,7 @@ favoritesPopupList.addEventListener('click', function(e){
 	}
 });
 
-favoritesPopupCloseBt.addEventListener('click', function(){
+favoritesPopupBackBt.addEventListener('click', function(){
 	closeFavoritesPopup();
 	closeQuickActionView();
 });
