@@ -275,13 +275,13 @@ var locationImage = Titanium.UI.createImageView({
 		left: 0
 });
 var directionsIcon = Titanium.UI.createImageView({
-		image: 'images/actionbar/locationOff.png'
+		image: 'images/actionbar/navOff.png'
 });
 var callIcon = Titanium.UI.createImageView({
 		image: 'images/actionbar/phoneOff.png'
 });
 var websiteIcon = Titanium.UI.createImageView({
-		image: 'images/actionbar/internetOff.png'
+		image: 'images/actionbar/internetOffnew.png'
 });
 var favoritesIcon = Titanium.UI.createImageView({
 		image: 'images/actionbar/favOff.png'
