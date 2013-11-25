@@ -52,18 +52,18 @@ function unfavoriteCompany(favoriteIndex, companyIndex, altArray){
 	Ti.App.Properties.setList("favorites", favorites);
 }
 function enablePushCompany(companyID, switchSource, loadingSource, i, x){
-	if(hasAccount(companyID, true, true, switchSource, loadingSource, i, x)){
+	//if(hasAccount(companyID, true, true, switchSource, loadingSource, i, x)){
 		//enablePushCompany_db(companyID, switchSource, loadingSource, i, x);
 		loginUser(companyID, true, true, switchSource, loadingSource, i, x);
-	}
+	//}
 }
 
 
 function disablePushCompany(companyID, switchSource, loadingSource, i, x){
-	if(hasAccount(companyID, false, true, switchSource, loadingSource, i, x)){
+	//if(hasAccount(companyID, false, true, switchSource, loadingSource, i, x)){
 		//disablePushCompany_db(companyID, switchSource, loadingSource, i, x);
 		loginUser(companyID, false, false, switchSource, loadingSource, i, x);
-	}
+	//}
 }
 
 
@@ -182,11 +182,15 @@ function populateFavoriteList(){
 				    width:40
 				});
 				var tempOnOff = Ti.UI.createButton({right:15, height:49/2, width:52/2, compID:favorites[i][x][1], indexI:i, indexX:x, loadingObj:tempLoading});
+				
+				
 				if(pushNotifications.indexOf(favorites[i][x][1]) != -1){
 					tempOnOff.backgroundImage = 'images/bellActive.png';
 				}else{
 					tempOnOff.backgroundImage = 'images/bellInactive.png';
 				}
+				
+				
 				tempRow.add(tempOnOff);
 				tempRow.add(tempLoading);
 				tempOnOff.addEventListener('click', function(e){

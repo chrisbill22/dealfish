@@ -208,9 +208,9 @@ var aboutLabel = Titanium.UI.createLabel({
 var aboutTitle = Titanium.UI.createLabel({
 	text: 'About:', 
 	top: currentCompanyDeals_button.top+currentCompanyDeals_button.height+15,
-	left: 15,
 	color: orangeColor, 
-	font: {fontWeight: 'bold'}
+	font: {fontWeight: 'bold'},
+	width: screen_width-(comview_paddingLeft*2)
 });
 var specialtyLabel = Titanium.UI.createLabel({
         text: '',
@@ -310,8 +310,8 @@ companyScroll.add(currentCompanyDeals_button);
 
 companyScroll.add(aboutLabel);
 companyScroll.add(specialtyLabel);
-companyScroll.add(aboutTitle);
-companyScroll.add(specialtyTitle);
+//companyScroll.add(aboutTitle);
+//companyScroll.add(specialtyTitle);
 //companyview.add(callButton, directionsButton, favoritesButton, websiteButton);
 companyview.add(callButton);
 companyview.add(directionsButton);

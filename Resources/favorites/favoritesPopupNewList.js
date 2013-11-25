@@ -21,7 +21,8 @@ var favoritesPopupName_label = Ti.UI.createLabel({
 });
 var favoritesPopupName_cancel = Ti.UI.createButton({
 	title: 'Cancel', 
-	top: 200
+	top: 200,
+	color:orangeColor
 });
 
 favoritesPopupNameView.add(favoritesPopupName_textbox);

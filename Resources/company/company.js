@@ -30,17 +30,17 @@ function openCompany(id, altArray){
 	image.backgroundImage = getCategoryImage(tempCompanyArray[id][9]);
 	
 	if(tempCompanyArray[id][12]){
-		aboutLabel.text = "\n" + tempCompanyArray[id][12];
-		if(!tempCompanyArray[id][13]){
-			aboutLabel.text += "\n\n\n";
-		}
-	}
-	if(tempCompanyArray[id][13]){
-		if(tempCompanyArray[id][12]){
-			aboutLabel.text += "\n\n";
-		}
-		aboutLabel.text += "\n"+ tempCompanyArray[id][13]+"\n\n\n";
-	}
+        aboutLabel.text = "About\n" + tempCompanyArray[id][12];
+        if(!tempCompanyArray[id][13]){
+                aboutLabel.text += "\n\n\n";
+        }
+    }
+    if(tempCompanyArray[id][13]){
+        if(tempCompanyArray[id][12]){
+                aboutLabel.text += "\n\n";
+        }
+        aboutLabel.text += "Specialty\n"+ tempCompanyArray[id][13]+"\n\n\n";
+    }
 	
 	//specialtyLabel.text = "Specialty: " ;
 	var priceString = "";
