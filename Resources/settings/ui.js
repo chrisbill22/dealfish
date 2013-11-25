@@ -40,8 +40,8 @@ var settingsTitle = Ti.UI.createView({
 var data = [
 	{title: 'Notifications'}, 
 	{title: 'Set Location'}, 
-	/*{title: 'Privacy Statement'}, 
-	{title: 'Terms of Use'},*/
+	{title: 'Privacy Statement'}, 
+	//{title: 'Terms of Use'},
 	{title: 'Submit Bugs / Feedback'}
 ];
 var settingsTable = Ti.UI.createTableView({

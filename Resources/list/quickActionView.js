@@ -39,7 +39,7 @@ var quickAction_website = Ti.UI.createButton({
 	right:'5%'
 });
 var websiteIcon = Ti.UI.createImageView({
-	image: 'images/actionbar/internetOff.png', 
+	image: 'images/actionbar/internetOffnew.png', 
 });
 quickActionView.add(quickAction_call);
 quickActionView.add(quickAction_favorite);
