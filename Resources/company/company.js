@@ -50,7 +50,15 @@ function openCompany(id, altArray){
 	priceLabel_active.text = priceString;
 	
 	var endTime = new Date();
-	var endTimeExploded = tempCompanyArray[id][18].split(":");
+	
+	var endTimeExploded = [String(tempCompanyArray[id][18])];
+	
+	if(endTimeExploded[0].indexOf(".") != -1){
+		endTimeExploded = tempCompanyArray[id][18].split(".");
+	}else{
+		endTimeExploded[1] = "00";
+	}
+	//alert(endTimeExploded);
 	endTime.setHours(endTimeExploded[0]);
 	endTime.setMinutes(endTimeExploded[1]);
 

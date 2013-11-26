@@ -14,7 +14,7 @@ var zipcode = null;
 var pushNotifications = [];
 
 
-var categories = ['Bakery', 'Bar', 'Bookstore', 'Breakfast', 'Burgers', 'Chinese', 'Club', 'Coffee', 'Diner', 'Greek', 'IceCream', 'Italian', 'Japanese', 'Mexican', 'Pizza', 'Sandwiches', 'Seafood', 'Thai'];
+var categories = ['genY', 'Bakery', 'Bar', 'Bookstore', 'Breakfast', 'Burgers', 'Chinese', 'Club', 'Coffee', 'Diner', 'Greek', 'IceCream', 'Italian', 'Japanese', 'Mexican', 'Pizza', 'Sandwiches', 'Seafood', 'Thai'];
 /* [
 0 = deal description,
 1 = company name,

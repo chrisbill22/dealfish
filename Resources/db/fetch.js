@@ -51,6 +51,9 @@ function fetchLocations(){
 		fetchingLocations = false;
 		fetchedLocations = false;
 		Ti.API.error(e.error);
+		if(reloading == true){
+			stopPullRefresh();
+		}
 	};
 	if(currentLat == -9999 || currentLong == -9999){
 		Ti.API.warn("Current Lat or Current Long have not been set yet. Cannot fetch locations without finding location first.");
@@ -71,7 +74,7 @@ function fetchLocations(){
 		addPostVariable("current_lat", currentLat);
 		addPostVariable("delta_long", longitudeDelta);
 		addPostVariable("delta_lat", latitudeDelta);
-
+		
 		addPostVariable("currentTime",(Math.round(new Date().getTime() / 1000)));
 		
 		addPostVariable("dayOfWeek", weekday[currentDate.getDay()]);
